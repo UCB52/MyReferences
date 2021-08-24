@@ -1,0 +1,18 @@
+*badge : Rozet, nişan.
+*toggle : Geçiş.
+*indicate : Belirtmek, göstermek, bildirmek.
+*split : Bölmek, ayırmak.
+*collapse : Daraltmak.
+*separate : Ayırmak.
+*brand : Marka.
+*treat : Davranmak.
+*ensure : Emin olmak.
+*wrapper : Örtü, saran şey.
+*prepend : Başa eklemek.
+*carousel : Atlı karınca, slider menü.
+*indicator : Gösterge, belirteç.
+*dismiss : Sonlandırmak, kovmak.
+*abbreviation : Kısaltma.
+*shrink : Küçültmek, sığdırmak için küçültmek.
+*gutter : Kolonların arasındaki pay veya alan.
+*neutral : Tarafsız, bağımsız.

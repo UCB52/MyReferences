@@ -1,0 +1,216 @@
+*****ALERT*****
+*alert-* : Bootstrap renkleri atanarak alert boxın rengi belirlenir.
+*alert : Bir alert mesaj boxı oluşturur.
+*alert-dismissible : Kapatılabilir bir alert boxını belirtir.
+*alert-heading : Alertlerin içerisindeki headinglere eklenir.
+*alert-link : Eşleşen renkli linkler sağlamak için alertlerin içerisindeki linklerde kullanılır.
+*btn-close : Alert box için "close" butonunun stilini uygular.
+*fade : Alert boxı kapatılırken animasyon ekler.
+*show : Alert boxı kapatılırken animasyon ekler.
+*data-bs-dismiss : "alert" valuesini alarak Javascript fonksiyonunu triggerlar.
+*alert() : "data-bs-dismiss='alert'" attributeune sahip olan child veya torun elementlerdeki click eventleri için bir alert listener yapar.
+*close : DOM'dan kaldırarak bir alerti kapatır.
+*dispose : Bir elementin alertini yok eder.
+*getInstance : Bir DOM elementiyle ilişkişi olan alert instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan alert instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+*close.bs.alert : "close" metodu çağrıldığı anda triggerlanır.
+*closed.bs.alert : Alert kapatıldıktan hemen sonra triggerlanır(mevcut CSS transitionlarının bitmesini bekler).
+***************
+*****BUTTON*****
+*btn-* : Bootstrap renkleri atanarak buttonların rengi belirlenir.
+*btn-outline-* : Bootstrap renkleri atanarak butonların solid arkaplanları kaldırılır ve ince outline ekler.
+*active : Bir butonu basılı halde simüle etmek için koyu mavi bir arkaplan rengi ekler.
+*btn : Butona temel stilleri ekler.
+*btn-check : <input type="checkbox"> veya <input type="radio"> buton gruplarındaki butonlarda kullanılır.
+*btn-group : Birden fazla butonu birbirine yapıştırır.
+*btn-group-lg : Buton grubundaki butonları lg size yapar.
+*btn-group-md : Buton grubundaki butonları md size yapar.
+*btn-group-sm : Buton grubundaki butonları sm size yapar.
+*btn-group-vertical : Bir buton grubunun dikey olarak yığılmasını sağlar.
+*btn-lg : Lg size buton oluşturur.
+*btn-link : Butonun link gibi görünmesini sağlar fakat hala buton davranışına sahip olacaktır.
+*btn-sm : Sm size buton oluşturur.
+*btn-toolbar : Birden fazla buton grubunu, daha karmaşık componentler için buton tollbarında birleştirir.
+*disabled : Buton olarak kullanılan <a> elementlerini devre dışı bırakır.
+*dropdown-toggle : Dropdown halinde içerik bulunduran butona eklenir.
+*data-bs-toggle : "dropdown" valuesi alarak dropdown halinde içerik bulunduran butona eklenir veya "button" valuesini alarak da bulunduğu butonun aktif durumunu değiştirir.
+*disabled : Butonu devre dışı bırakır.
+*tab-index : "tab" ile gezinildiği durumlarda bir elementin sekme sırasını belirtir.
+*toggle : Basılma durumunu değiştirir.
+*dispose : Bir elementin butonunu yok eder.
+*getInstance : Bir DOM elementiyle ilişkişi olan buton instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan buton instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+****************
+*****CAROUSEL*****
+*active : Mevcut carousel itemini gösterir veya gizler.
+*carousel : Bir carousel slideshowu oluşturur. 
+*carousel-caption : Carouseldeki her slide için bir header texti oluşturur.
+*carousel-control-next : Carouseldeki sonraki itemin linki için bir containerdır.
+*carousel-control-next-icon : Bir "next" ikonu oluşturmak için "carousel-control-next" boxının içerisinde, genellikle <span> ile kullanılır.
+*carousel-control-prev : Carouseldeki önceki itemin linki için bir containerdır.
+*carousel-control-prev-icon : Bir "previous" ikonu oluşturmak için "carousel-control-prev" boxının içerisinde, genellikle <span> ile kullanılır.
+*carousel-dark : Carouseldeki kontrol butonlarını, göstergeleri(indicators) ve captionları daha koyu tema haline getirir.
+*carousel-fade : Slideların geçişlerine animasyon ekler.
+*carousel-indicators : Her slideın altına küçük göstergeler ekler.
+*carousel-inner : Carousel slide itemleri için bir wrapper containerdır.
+*carousel-item : Her slideın içeriğini belirten bir wrapper containerdır.
+*slide : Bir carousel slideshowunu oluşturmak için "carousel" classıyla beraber kullanılır.
+*data-bs-interval : Her slide arasındaki gecikmeyi milisaniye cinsinden belirtir.
+*data-keyboard : Carouselin klavyedeki sağ ve sol yön tuşlarına tepki vererek sağ veya sol slidea geçip geçemeyeceğini belirtir.
+*data-bs-pause : Eğer "hover" valuesi alırsa, kullanıcının mouse pointerını carouselin üzerine getirdiği anda slide geçişlerini durduracaktır.
+*data-bs-ride : "carousel" valuesini alırsa carouseli aktifleştirir.
+*data-bs-slide : Hangi slayta gidileceğini belirtir.
+*data-bs-slide-to : Hangi slayta gidileceğini belirtir.
+*data-bs-target : Carouseldeki indicator ve kontrol butonlarının her birisine atanır ve ait oldukları carousel wrapper divini belirtir.
+*data-bs-wrap : Carouselin tüm slideları bitince bile tekrarlayacağını veya son slidea gelince duracağını belirtir.
+*data-bs-touch : Dokunmatik ekranlı cihazlarda sola-sağa kaydırma etkileşimlerini destekleyip desteklemeyeceğini belirtir.
+*cycle : Carousel itemlerini soldan sağa doğru slide eder.
+*pause : Carousel itemlerinin slideını durdurur.
+*next : Carouselin sonraki itemine geçer.
+*prev : Carouselin önceki itemine geçer.
+*nextWhenVisible : Sayfa görünür olmadığında veya carousel veya onun parentı görünür olmadığında bir sonrakine slide etmez.
+*to : Carouseli belirli bir framee sürükler[0 indexli arrayler gibi].
+*dispose : Carouseli yok eder.
+*getInstance : Bir DOM elementiyle ilişkişi olan carousel instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan carousel instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+*direction : Carouselde slide yönünü belirtir.
+*relatedTarget : Active element olarak slide edilen konumun DOM elementini döndürür.
+*from : Carouselde mevcut itemin indexini döndürür.
+*to : Carouselde sıradaki itemin indexini döndürür.
+*slide.bs.carousel : Carouselde item slideı gerçekleşmek üzereyken gerçekleşir.
+*slid.bs.carousel : Carouselde item slıdeı gerçekleştiğinde gerçekleşir.
+******************
+*****COLLAPSE*****
+*accordion : Altındaki collapsible elementlere accordion davranışı vermek için bir wrapper containerdır.
+*accordion-body : Collapsible olan içeriğin içerisine eklenir.Stil uygular.
+*accordion-collapse : Akordion içerisinde collapsible olan boxı tanımlar.
+*accordion-flush : Akordiondaki arkaplanı kaldırır ve seçili header kısımlarına stil uygular.
+*accordion-header : Akordionun itemlerindeki tıklanabilir butonlar için bir wrapper containerdır.Stil uygular.
+*accordion-item : Akordiondaki her bölüm için bir wrapper containerdır.Stil uygular.
+*collapse : "hide" durumunda içeriği gizler.
+*collapse show : Collapsible olan içerik, default olarak görünür olacaktır.
+*collapsing : Transition başladığında eklenir ve bittiğinde de kaldırılır.
+*multi-collapse : Birden fazla collapsible elementin aynı anda gösterilmesini ve gizlenmesini sağlar.
+*open : "accordion" classına sahip olan yapının açılmış halini görüntüler.
+*data-bs-toggle : "collapse" valuesi alarak her çağrılmada, collapsible olan içeriği değiştirir.
+*data-bs-target : Collapse edilecek olan target itemi belirtir.
+*data-bs-parent : Belirtilen parentın altındaki tüm collapsible elementler, bu daraltılabilir element görünür olduğunda kapanacaklardır.
+*toggle : Collapsible elementi değiştirir.
+*show : Collapsible elementi gösterir.
+*hide : Collapsible elementi gizler.
+*dispose : Collapsible elementi yok eder.
+*getInstance : Bir DOM elementiyle ilişkişi olan collapse instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan collapse instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+*show.bs.collapse : Collapsible olan element gösterilmek üzereyken gerçekleşir.
+*shown.bs.collapse : Collapsible olan element gösterildikten sonra gerçekleşir.
+*hide.bs.collapse : Collapsible olan element gizlenmek üzereyken gerçekleşir.
+*hidden.bs.collapse : Collapsible olan element gizlendikten sonra gerçekleşir.
+******************
+*****DROPDOWN*****
+*active : Dropdown menüdeki itemin aktif durumda olmasını sağlar.
+*disabled : Dropdown menüdeki herhangi bir itemi devre dışı bırakır.
+*dropdown : Aşağı doğru açılır dropdown sağlar.
+*dropdown-divider : Dropdown menudeki itemlerin arasında ayıraç olarak kullanılır.
+*dropdown-header : Dropdown menü içerisinde itemlerin yanında kullanılır.
+*dropdown-item : Dropdown menü ile açılan listedeki her elementi tanımlar.
+*dropdown-item-text : Dropdown menu itemi için tıklanabilir olmayan yani noninteraktif item tanımlar.
+*dropdown-menu : Dropdown içeriği için bir wrapper containerdır.
+*dropdown-menu-dark : Dropdown içeriği için olan wrappera dark stil uygular.
+*dropdown-menu-end : Dropdown menude açılan itemlerin sağ konumda açılmasını sağlar.
+*dropdown-toggle : Dropdownın görüntülenip gizlenmesini sağlar.
+*dropdown-toggle-split :Dropdown butonunun sadece "caret" halinde görüntülenmesini sağlar.
+*dropend : Sağa doğru açılır dropdown sağlar.
+*dropstart : Sola doğru açılır dropdown sağlar.
+*dropup : Yukarı doğru açılır dropdown sağlar.
+*show : Dropdown menüdeki itemlerin daima açılmış olmasını sağlar.
+*data-bs-auto-close : Dropdown menunun tıklanarak kapatılma davranışını değiştirir.
+*data-bs-boundary : Dropdown menünün overflow kısıtlaması sınırıdır.
+*data-bs-display : Popper sayesinde dinamik konumlandırma sağlar.
+*data-bs-offset : Açılan dropdown menüyü x-y koordinatlarında relative konumlandırır.
+*data-bs-popperConfig : Bootstrapin default olan Popper configini değiştirir.
+*data-bs-reference : "parent" valuesini alıyor FAKAT NE OLDUĞUNU ANLAMADIM!
+*data-bs-toggle : Dropdown butonuna tıklanıldığında drop içeriğinin görüntülenmesini sağlar.
+*toggle : Belirtilen navbarın veya tablı navigasyonun dropdown menüsünü değiştirir.
+*show : Belirtilen navbarın veya tablı navigasyonun dropdown menüsünü gösterir.
+*hide : Belirtilen navbarın veya tablı navigasyonun dropdown menüsünü gizler.
+*update : Bir elementin dropdownının konumunu günceller.
+*dispose : Bir elementin dropdown menüsünü yok eder.
+*getInstance : Bir DOM elementiyle ilişkişi olan dropdown instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan dropdown instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+*show.bs.dropdown : "show" instance metodu çağrıldığı an gerçekleşir.
+*shown.bs.dropdown : Dropdown menü, kullanıcıya görünür hale geldiğinde ve CSS transitionları tamamlandığında gerçekleşir.
+*hide.bs.dropdown : "hide" instance metodu çağrıldığı an gerçekleşir.
+*hidden.bs.dropdown : Dropdown menünün kullanıcıdan gizlenmesi bittiğinde ve CSS transitionları tamamlandığında gerçekleşir.
+******************
+*****MODAL*****
+*modal-fullscreen-* : Modalın responsive olarak ekran sizelarına göre fullscreen şekilde görüntülenmesini sağlar.
+*fade : Modala transition efekti verir.
+*modal : Ekranda modal oluşmasını sağlar.
+*modal-body : Modalın içerik kısmıdır.
+*modal-content : Modalın içerikleri için bir wrapper oluşturur.
+*modal-dialog : Modalın contenti için bir wrapper oluşturur.
+*modal-dialog-centered : Modalın ekranda dikey olarak ortalanarak görüntülenmesini sağlar.
+*modal-dialog-scrollable :Scrollable bir modal içeriği oluşturur.
+*modal-footer : Modalın footerın kısmını oluşturur.
+*modal-header : Modalın header kısmını oluşturur.
+*modal-lg : Modalın lg size genişlikte oluşmasını sağlar.
+*modal-sm : Modalın sm size genişlikte oluşmasını sağlar.
+*modal-title : Modala belirgin bir title ataması yapar.
+*modal-xl : Modalın xl size genişlikte oluşmasını sağlar.
+*data-bs-backdrop : Bir modal-backdrop elementi içerir.
+*data-bs-dismiss : "modal" valuesini alarak modalın kapanmasını sağlar.
+*data-bs-focus : İnitialize edilir edilmez modala focuslar.
+*data-bs-keyboard : "ESC" tuşuyla modalın kapanmasını sağlar.
+*data-bs-target : Hedefi belirterek modalın ekranda görüntülenmesini sağlar.
+*data-bs-toggle : "modal" valuesini alarak modalın ekranda görüntülenmesini sağlar.
+*toggle : Modal geçişlerini sağlar.
+*show : Bir modalı açar.
+*hide : Bir modalı gizler.
+*handleUpdate : Eğer bir modalın açık olduğu esnada yüksekliği değişirse; modalın konumunu manuel olarak ayarlar.
+*dispose : Bir elementin modalını yok eder.
+*getInstance : Bir DOM elementiyle ilişkişi olan modal instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan modal instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+*show.bs.modal : "show" instance metodu çağrıldığı anda triggerlanır.
+*shown.bs.modal : Kullanıcıya görünür hale getirildiğinde triggerlanır.
+*hide.bs.modal : "hide" instance metodu çağrıldığı anda triggerlanır.
+*hidden.bs.modal : Modal, kullanıcıdan gizlenmeyi bitirdiğinde triggerlanır.
+*hidePrevented.bs.modal : Modal durumu "shown" iken; backdrop valuesi "static" iken modalın dışarısına tıklandığında ve data-bs-keyboard valuesi "false" iken "ESC" tuşuna basıldığında triggerlanır. 
+*relatedTarget : Modalın statei değişirken triggerlayan DOM elementini döndürür.
+***************
+*****POPOVERS*****
+*data-bs-allowList : İzin verilen attributeleri ve tagları içeren bir objecttir.
+*data-bs-animation : Popovera bir CSS transition fadei uygular.
+*data-bs-boundary : Popoverın overflow kısıtlaması sınırıdır.
+*data-bs-container : 
+*data-bs-content :
+*data-bs-customClass :
+*data-bs-delay
+*data-bs-fallbackPlacements
+*data-bs-html
+*data-bs-offset
+*data-bs-placement
+*data-bs-popperConfig
+*data-bs-sanitize
+*data-bs-sanitizeFn
+*data-bs-selector
+*data-bs-template
+*data-bs-title
+*data-bs-toggle
+*data-bs-trigger
+*title
+*show
+*hide
+*toggle
+*dispose
+*enable
+*disable
+*toggleEnabled
+*update
+*getInstance : Bir DOM elementiyle ilişkişi olan popover instanceına erişmemizi sağlar.
+*getOrCreateInstance : Bir DOM elementiyle ilişkisi olan popover instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.
+*shows.bs.popover
+*shown.bs.popover
+*hide.bs.popover
+*hidden.bs.popover
+*inserted.bs.popover
+******************
