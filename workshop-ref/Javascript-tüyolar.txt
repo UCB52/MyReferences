@@ -13,7 +13,7 @@
 *includes() : Eğer array, belirtilen elementi içeriyorsa "true" döndürür; aksi takdirse "false" döndürür.
 *indexOf() : Array içerisinde belirtilen itemi arar ve indexini döndürür.Bulamazsa "-1" döndürür.
 *isArray() : Eğer belirtilen object, bir array ise "true"; değilse "false" döndürür.
-*join() : Arrayi bir string olarak döndürür.Elementler belirlenen ayraçlarla ayrılır.
+*join() : Arrayi bir string olarak döndürür.Elementler, belirlenen ayraçlarla ayrılır.
 *keys() : Bir arrayin keyleriyle birlikte yeni bir Array Iterator objecti döndürür.
 *length() : Bir arraydeki elementlerin sayısını belirler ve döndürür.
 *map() : Her array elementi için çağrılan fonksiyonun sonuçlarıyla yeni bir array oluşturur ve döndürür.
@@ -232,7 +232,7 @@
 * typeof : Değişkenin,objectin,fonksiyonun veya expressionun türüdür.
 * delete : Objectin propertisini siler.
 * in : Object içerisindeki propertiyi belirtir.Arraylerdeki itemlerin de indexini belirtir.
-* instanceof : Bir constructorın prototip propertisinin, bir objectin prototip zincirinin herhangi bir yerinde olup olmadığını test eder.Booleandır.Syntaxı: object instanceof constructor.
+* instanceof : Bir constructorın prototip propertisinin, bir objectin prototip zincirinin herhangi bir yerinde olup olmadığını test eder.Yani bir objectin içerisindeki yapının, o objecte ait olup olmadığını belirtir.Booleandır.Syntaxı: object instanceof constructor.
 * void : Verilen expressionu değerlendirir ve "undefined" döndürür.Genelde ifade, javascript:void(0) kullanılarak geçersiz bırakılır.
 *******************
 *****RegExp*****

@@ -745,3 +745,7 @@ var request1 = new XMLHttpRequest();
 ***XML çekileceği durumlarda, "this.responseText" yerine "this.responseXML" kullanılmalıdır.Ve tabiki parse metodu da kaldırılmalıdır.
 ***HTMLde inline elementlerde Javascript fonksiyonu belirtmek:
 <a href="javascript:example1(param1,param2);"></a>
+***Javsacriptte bir değişkeni farklı syntaxta ifade etmek:
+var isim = "ali";
+var soyisim = "kopan";
+var fullName = `Adınız: ${isim} Soyadınız: ${soyisim}`;

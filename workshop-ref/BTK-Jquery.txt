@@ -1,0 +1,35 @@
+***Tekli event listener syntaxı:
+$(document).ready(function(){
+    $("p").on("click", function(){
+      $(this).hide();
+    });
+  });
+***Multiply event listener syntaxı:
+$(document).ready(function(){
+    $("p").on({
+        mouseenter: function(){
+            $(this).hide();
+        },
+        mouseleave: function(){
+            $(this).hide();
+        },
+        mouseover: function(){
+            $(this).hide();
+        }
+    });
+});
+***"trigger" metoduyla data gönderme:
+$(document).ready(function(){
+    $("input").select(function(event,{a,b,c}){
+      $("input").after("Just testing:" + a + b + c);  //Output: Just testing:value1value2value3
+    });
+    $("button").click(function(){
+      $("input").triggerHandler("select", {a : "value1", b: "value2", c: "value3"});
+    });
+  });
+*Element yerleştirme sırası:
+1-before
+2-prepend
+3-append
+4-after
+***CamelCase, yazım formatıdır.Mesela: "backgroundColor", "fontSize".

@@ -31,11 +31,9 @@ Class	        Extra small    Small    Medium    Large    Extra large
 *-light = Açık gridir.
 *-black-50 = Siyah fakat 50% opacity.
 *-white-50 = Beyaz fakat 50% opacity.
-***Text rengini belirlemek için renk classlarını "text-muted","text-danger" şeklinde kullanırız.
-***Arkaplan rengini belirlemek için renk classlarını "text-muted","text-danger" şeklinde kullanırız.
 ***Progress barlar, default olarak "height:16px" şeklindedir.
-***"disabled" classını linkler içerisinde kullandığımızda linklerin hover efektlerini de kaldırır ve renklerini soldurur.
-***Butonları oluştururken <label class="btn"> içerisine <input type="radio"> tagları ekleyerek tanımlayabiliriz. 
+***Sadece block düzeyindeki elementler "margin:auto" veya "mx-auto" şeklinde ortalanabilir.
+*ÖNEMLİ SİMGELER: &times, &laquo, &raquo, &copy
 ------------------------------------------------------------------------------------------------------------------------------------------------
 ***Sayfadaki tüm popoverları aktif etmek için:
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
@@ -47,3 +45,34 @@ var popover = new bootstrap.Popover(document.querySelector('.example-popover'), 
 	container: 'body'
   })
 ------------------------------------------------------------------------------------------------------------------------------------------------
+***Sayfadaki formlara validation denetimi yapmak için:
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Sayfadaki tooltipleri initialize etmek için:
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Safyadaki spesifik bir toastı aktif etmek için:
+d=document.getElementById('liveToastBtn'),
+f=document.getElementById('liveToast'),
+d&&d.addEventListener('click',function(){var a=new bootstrap.Toast(f);a.show()})

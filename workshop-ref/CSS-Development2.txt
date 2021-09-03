@@ -7,18 +7,21 @@
 **** * = Bu selector, tüm elementleri seçer.
 ****element = Bu selector, geçerli olan tüm elementleri seçer.Mesela "p", tüm "p" elementlerini seçer.
 ****element.class = Bu selector, belirtilen classa sahip belirli elementleri seçer.Mesela "p.intro", ".intro" classına sahip tüm "p" elementleridir.
-****element,element = Bu selector, birden fazla elementi seçebilmek için kullanılır.Mesela "p,h1", hem "p" hem de "h1" elementlerini seçer.
-****element element = Bu selector, elementlerin içerisindeki elementleri seçer.Mesela "div p", "div" elementi içerisindeki tüm "p" elementleridir.
-****element>element = Bu selector, belirli bir parenta sahip elementleri seçer.Mesela "div>p", "div" parentına sahip tüm "p" elementleridir.
-****element+element = Bu selector, belirli elementten hemen sonra gelen belirli bir elementin sadece ilkini seçer.Mesela "div+p", "div" elementinin hemen ardından gelen ilk "p" elementidir. 
+****element1,element2 = Bu selector, birden fazla elementi seçebilmek için kullanılır.Mesela "p,h1", hem "p" hem de "h1" elementlerini seçer.
+****element1 element2 = Bu selector, elementlerin içerisindeki elementleri seçer.Mesela "div p", "div" elementi içerisindeki tüm "p" elementleridir.
+****element1>element2 = Bu selector, belirli bir parenta sahip elementleri seçer.Mesela "div>p", "div" parentına sahip tüm "p" elementleridir.
+****element1+element2 = Bu selector, belirli elementten sadece hemen sonra gelen(sibling) ilk elementi seçer.Mesela "div+p", "div" elementinin hemen ardından gelen ilk "p" elementidir. 
 ****element1~element2 = Bu selector, belirli bir elementten sonra gelen belirli elementlerin hepsini seçer.Mesela "p~ul", "p" elementinden sonra gelen tüm "ul" elementleridir.
 ****[attribute] = Bu selector, belirtilen attributee sahip elementleri seçmek içindir.
 ****[attribute=value] = Bu selector, belirtilen attribute valuesine sahip olan elementleri seçer.
-****[attribute~=value] = Bu selector, belirtilen attribute valuesinin içerisinde belirtilen valueyi kapsayan elementleri seçer.
-****[attribute|=value] = Bu selector, belirtilen valueden başlayarak belirtilen valueye sahip tüm elementleri seçer.Mesela [lang|=en], "en" valuesiyle başlayan tüm "lang" attributeleridir.
-****[attribute^=value] = Bu selector, içerisinde bu valueyle başlayan tüm attributeleri seçer.
-****[attribute$=value] = Bu selector, içerisinde bu valueyle biten tüm attributeleri seçer.
-****[attribute*=value] = Bu selector, içerisinde bu value bulunan tüm attributeleri seçer.
+****[attribute!=value] = Bu selector, belirtilen attribute valuesine sahip olmayan tüm elementleri seçer.
+****[attribute~=value] = Bu selector, belirtilen attribute valuesinin içerisinde, sadece belirtilen valueyi bulunduran elementleri seçer.
+****[attribute|=value] = Bu selector, içerisinde belirtilen valueyle başlayan veya sadece bu valueye sahip olan tüm attributeleri bulunduran elementleri seçer.
+Mesela [lang|=en], "en" valuesiyle başlayan veya içerisinde "en" valuesi bulunan tüm "lang" attributeleridir.
+****[attribute^=value] = Bu selector, içerisinde belirtilen valueyle başlayan tüm attributeleri bulunduran elementleri seçer.
+****[attribute$=value] = Bu selector, içerisinde belirtilen valueyle biten tüm attributeleri bulunduran elementleri seçer.
+****[attribute*=value] = Bu selector, içerisinde belirtilen value bulunan tüm attributeleri seçer.
+****:type = Bu selector, belirtilen typea sahip tüm elementleri seçer.Mesela ":input" tüm "type='input'"; ":button" tüm "type='button'"; ":radio" tüm "type='radio'" elementlerini seçer.
 ****active = Bu selector, aktif linki seçmek ve CSS uygulamak içindir.Üzerine tıklanılan bir link "active" hale gelir.Tüm elementler üzerinde kullanılabilir."hover" selectoründen sonra kullanıldığında daha doğru olur.
 ****after = Bu selector, seçilen her elementin içeriğinden sonra birşey ekler.Eklenecek olan içeriği belirtmek için içerisinde "content" propertisini kullanın.
 ****before = Bu selector, seçilen her elementin içeriğinden önce birşey ekler.Eklenecek olan içeriği belirtmek için içerisinde "content" propertisini kullanın.
