@@ -1,0 +1,139 @@
+***MAİN SCHEMA: Modules-Components-Services>>>Guards-Directives-Pipes
+*New angular application: ng new applicationName
+*Bootstrap: ng add @ng-bootstrap/ng-bootstrap
+*Material UI: ng add @angular/material (yes-yes)
+*Live compile: ng serve -o
+*New child component: ng g components/componentName
+*New services: ng g services/serviceName
+*New material: ng add @angular/material
+*New routing module: ng g m routingName --flat --module=app
+*Generate custom pipes: ng g p pipes/pipeName
+*New directives: ng g directive directiveName
+*Template URL: template:`<h1>head</h1>`, templateUrl:'./app1.component.html'
+*Style URL: styles:[h1{color:'red'}], styleUrls:'./app1.component.css'
+*if-else: *ngIf="color2=='orange'; then template5 else template6"
+*else-if: [ngIf]="color3=='purple'"
+*switch: [ngSwitch]="color1"
+*case: *ngSwitchCase="'red'"
+*array loop: *ngFor="let y of x.array"
+*Conditional class add: [class.some-css-class]="some-condition"
+*@Input
+*@Output
+*EventEmitter
+*new EventEmitter<type>()
+*emit
+*function($event)
+*Binding [(ngModel)]="data"
+*Variable type: HTMLInputElement,HTMLMediaElement,HTMLMenuElement,HTMLLinkElementany,[],number[],string[],
+[string,string,number],{},{name:string,age:number},Date
+*Pipes: |uppercase|lowecase|date|date:'fullDate'|slice:x[include]:y[exclude]|json
+|number:'3.3-5'|currency:'GBP'|currency:'TRY':'TL':'4[min].2[min]-2[max]'
+*For custom pipes: {{value|pipe1:'args'}}
+*For form modules: import { FormsModule } from '@angular/forms';
+imports[FormsModule]
+*Form stuff: (ngsubmit), #loginForm1="ngForm", ngModel
+*For Reactative Forms: import {ReactiveFormsModule} from '@angular/forms';
+imports[ReactiveFormsModule]
+import {FormGroup,FormControl} from '@angular/forms';
+-----------------------------------------------------------------------------------------------------------------
+***Router için: 
+1-"Router modül"e girip, öncelikle pathi belirteceğin componentleri import et.
+2-"RouterModule" ve "Routes" modüllerini eğer mevcut değilse, import et.
+3-"Routes" objecti içerisine, import ettiğimiz componentleri ve pathlarını belirtiriz.Eğer PageNotFound componenti belirteceksek, pathını "'**'" seçeriz.Eğer child routlerı da bulunacaksa, objectin içerisine "children:[{path:'child-a',component:'childAComponent'}]" şeklinde birden fazla child route ekleyebiliriz.
+4-"@NgModule" içerisine "RouterModule.forRoot(routes)" import ederiz.Eğer childlar içinse, 
+"RouterModule.forChild(routes)" kullanırız.
+5-"@NgModule" içeriisne "RouterModule" export ederiz.
+6-Ardından router ile işilkili componentlere geçip, componentlerin içerisine "Router" modülünü import ederiz.
+7-Componentlerin constructoruna "private router: Router" argümanını atarız.
+7-Routera yönlendirecek olan istediğimiz html elementlerine "routerLink" ekleriz.
+8-Routerın yönlendirdiği viewi görüntülemek için, istediğimiz componentte "<router-outlet>" kullanırız.
+-----------------------------------------------------------------------------------------------------------------
+***FORM Submit için:
+1-İlgili component önce "FormsModule" modulünü ekleriz.Veya istediğimiz form elementine "#myForm='ngForm'" şeklinde atama yaparsak, ilk seçeneğe gerek kalmaz.
+2-Formun child elementlerini kontrol edebilmek için her child inputa "NgModel" ekleyerek "name" attributelerini gireriz.Ardından formun child inputlarına da "#myInput='ngModel'" ekleriz.
+3-Form, submit edildiğinde dinleyebilmek içinse form elementine "(ngSubmit)" eventini atarız.Eventi class içerisinde çağırırken, aldığı argümanın türü "onsubmit(arg:NgForm)" şeklindedir.
+4-Eğer formdaki inputun valuesini almak istersek, inputa "[(ngModel)]='name1'" ekleyerek sonrasında "{{name1}}" şeklinde çağırırız."name1" değişkenini class içerisinde deklare etmeyi unutma.
+6-Formdaki input valuelerini "{'name':'value'}" objecti halinde alırız.
+-----------------------------------------------------------------------------------------------------------------
+***RestAPI için:
+1-Component module girip "import { HttpClientModule } from '@angular/common/http'" import ederiz.
+2-Component modulün imports arrayine de "HttpClientModule" ekleriz.
+3-İlgili componente gir ve "import { HttpClient } from '@angular/common/http'" import ederiz.
+4-Constructora parametre olarak "private http: HttpClient" ver.
+5-Class içerisine dataları yüklemek için fonksiyon oluştur ve bu fonksiyonu da constructor içerisinde "this" ile çağırarak initialize et.
+6-
+7-
+8-
+9-
+10-
+-----------------------------------------------------------------------------------------------------------------
+***Observable object kullanmak için:
+1-"OnInit" ve "Observable" modüllerini componente ekleriz.Eğer birden fazla "observer" kullanacaksak, "Subject" modulünü de ekleriz.Subjecte birden fazla "observer" tarafından "subscribe" olunabilir.Sıradan bir "subject" kullanırken "observer"ı, tüm iletilen datalardan önce kullanırsak; tüm dataları alır.Fakat belirli datalardan sonra "observer" kullanırsak, öncesinde kalan dataları "subscribe" edemeyecektir.Üç farklı "subject" vardır:
+1-A = BehaviorSubject : Akışa "subscribe" olan "observer"ın, akıştaki bir önceki datadan başlayarak dataları çekmesini sağlar.İnitial valuesi olmak zorundadır."BehaviorSubject" modülü eklenmelidir.
+1-B = ReplaySubject : Akışa "subscribe" olan "observer"ın, akıştaki "n" kadar önceki datadan başlayarak dataları çekmesini sağlar."ReplaySubject" Modülü eklenmelidir.
+2-C = AsyncSubject : Akışa "subscribe" olan "observer"ın, akıştaki sadece son datayı çekmesini sağlar.Sonuncu veriyi anlayabilmesi için, "complete()" metodu zorunludur."AsyncSubject" modülü eklenmelidir.
+2-Burada objecti atayacağımız "obversable1" değişkenini oluşturduk.
+3-"Obversable" nesnesine işlenecek verilerin türünü "<number>","<string|number>",vs.. şeklinde belirleriz.
+4-İlk callback fonksiyonundaki "data" parametresi, "Obversable" objectinin datalarını temsil eder.
+5-"next()" metodunu "Obversable" objectine data iletmek için, her evrede sınırsız şekilde kullanabiliriz.Ayrıca "observer"a, iletilen verileri sunar.
+6-Veri akışının sonlandığını belirtmek için "complete()" metodunu kullanırız.Ayrıca "observer"a, bu fonksiyondan sonra iletilen herhangi datayı kabul etmemesi gerektiğini bildirir.
+7-Atanan değişkeni çağırıp subscribe[akışı izlememizi sağlar] ediyoruz.Akıştan veri elde eden, subscribe ederek veriyi izleyen ve isteyen; tüketici olan yapıya "observer" diyoruz.
+8-Atanan ikinci callback fonksiyonunun "data" parametresi, "Obversable" objectine sonradan işlediğimiz dataları temsil eder.
+9-Scheduler : Bu object, "subscribe"ın ne zaman başlayacağını ve datanın ne zaman "observer"lara iletileceğini kontrol eder.Kısacası zamanlayıcıdır.Üç bileşenden oluşur:
+9-A = Executeion Context : Taskın nerede ve ne zaman çalıştırılacağını gösterir.
+9-B = Execution Policy : Belirli politikala göre taskların nasıl saklanacağı ve hangi sırayla alınacağı belirtir.
+9-C = Clock : "now()" metodu sayesinde sanal olarak, mevcut zamanın bilgisinin alınmasını sağlar."Observer"lar, bu zamansal bilgiye uyarak çalışırlar.
+10-4 adet Scheduler türü vardır:
+10-A-queueScheduler : Yapılacak işi kuyruğa[queue] alır.Belli bir sıra ile arka arkaya çalıştırılacak işler için kullanılır."QueueScheduler" modülünü ekleriz.
+10-B-asapScheduler : Micro tasklar için kullanılır.Mevcut işten sonra ve bir sonraki işten önce çalışır.Asenkron dönüşümler için kullanılır."AsapScheduler" modülünü ekleriz.
+10-C-asyncScheduler : Zaman tabanlı işlemlerde kullanılır."setTimeOut()" metodu ile çalışır ve bu yüzden de datalar, "observer"a asenkron halde iletilir.Kısaca zamanlayıcıdır."AsyncScheduler" modülünü ekleriz.
+10-D-animationFrameScheduler : Browserın, bir sonraki içeriği yeniden boyamadan önce triggerlanan bir türdür."AnimationFrameScheduler" modülünü ekleriz.
+11-RxJS kütüphanesindeki "creation" operatörler:[observation objecti oluşturur ve döndürür]
+11-A-ajax() = Herhangi bir endpointe[JSONUrl,vs..] yapılan bir request sonucunda gelen sonuçları "Observable" olarak döndürür."ajax" modülünü çağırırız.Fakat bunun yerine data leech için "HttpClient" librarysini kullanın.
+11-B-bindCallback = Özünde operatör değildir.Yapılan işlemlerin ardından callback fonksiyonları sağlar ve bu callback fonksiyonunu, "Observation" objecti olarak döndürür."bindCallback" modülünü çağırırız.
+11-C-defer = Kısaca "Observable" objectini, bir "observer" tarafından subscribe olunana kadar oluşturmaz, başlatmaz; bekletir.Bunu her "subscribe" için yapar."defer" modülü ekleriz.
+11-D-empty = Boş bir "Observable" objecti döndürür."empty" modülünü ekleriz.
+11-E-from = Herhangi bir arrayi veya mesela "[{},{},{}]" veya "[[],[],[]]" gibi koleksiyonel objectleri alır ve her bir itemını "Observable" objecti olarak döndürür."from" modülü ekleriz.
+11-F-fromEvent = Herhangi bir HTML objectinin belirtilen eventine bağlanarak, bu eventi "Observable" objecti olarak sunar."fromEvent" modülü ekleriz.
+11-G-generate = Verilen koşula göre loop oluşturarak "Observable" objecti olarak döndürür.Syntaxı, "for" loopuna çok benzer.Output için "repeat()" metodu sayesinde string de kullanılabilir."generate" modülü ekleriz.
+11-H-interval = Belirtilen number valuesine[millisecond] karşılık gelen zaman aralığında periodlar oluşturur."interval" modülünü ekleriz."subscribe" kullanılan metodun "data" parametresi, bize her periodun indexini döndürecektir.
+11-I-of = Verilen herhangi tür valueleri birer "Observable" objectine dönüştürür."of" modülünü ekleriz.
+11-J-range = Belirtilen bir aralıkta, arraysel value halinde yayılan bir "Observable" objecti döndürür."range" modülü ekleriz.
+11-K-throwError = Üzerinde hiçbir item barındırmayan ve bir "error" throw eden bir "Observable" objecti döndürür."throwError" modülünü ekleriz.
+11-L-timer = Belirtilen süre kadar[millisecond] bekledikten sonra mevcut "stream"i yayacak olan bir "Observable" objecti döndürür.Kısaca delay işlevi görür."timer" modülünü ekleriz.İkinci parametresi bir "scheduler"dir.Yani zamanlayıcıdır ayni "interval" operatörü işlevi görür.
+11-M-iif = İki "Observable" objecti arasında belirtilen şarta bağlı olarak seçim yapar.Yani "if" koşulu gibidir.İlk parametresi koşulu belirtir.İkinci parametresi koşulun "true" olması; üçüncü parametresi de "false" olması durumunda çalışacak bloklardır."iif" modülünü ekleriz.
+12-RxJS kütüphanesindeki "join creation" operatörleri:[birden fazla observable objectleri içindir]
+12-A-combineLatest = Belirtilen tüm "Observation" objectlerinin streamlerindeki en sonuncu valueleri yakalar ve bu valuelerle bir "Kombinasyon" yaratır.Kombinlenecek olan "Obversable" objectlerin, operatörün içerisindeki dizilişlerine dikkat et!"combineLatest" modülü ekleriz.
+12-B-concat = Belirtilen tüm "Observable" objectlerini sıralı bir şekilde yayar ve bunları tek bir "Observable" objecti olarak döndürür."concat" modülünü ekleriz.
+***"concat" ile "merge" operatörü arasındaki fark şudur: "concat", aldığı objectlerin valuelerini birleştirerek, sıralı bir şekilde teker teker görüntüler."merge" ise, bunların zamansal farklılıklarını da baz alarak işlem yapar.
+12-C-forkJoin = Kendisine verilen birden fazla "Observable" objectinin tamamlanmalarını bekler ve ardından da her bir objectin yayınlanan en sonuncu değerleri çekerek, tek bir sonuç olarak döndürür."forkJoin" modülü ekleriz.
+12-D-merge = Belirtilen tüm "Observable" objectlerini birleştirerek, tek bir "Observable" objecti haline getirir ve döndürür.İşlem yaptığı "Observable" objectleri arasında zamansal farklılıklar olmalıdır."merge" modülü ekleriz.
+12-E-partition = Seçilen "Observable" objectini belirtilen koşula göre, bu koşula uyanlar ve uymayanlar olmak 
+üzere objectin itemlerini ikiye bölerek ayırır.Sonuçlanan bu iki ayrı grubu, array içerisinde[obs1,obs2] 2 adet item halinde döndürür. "partition" modülünü ekleriz.
+12-F-race = Birden fazla "Observable" objectinin bulunduğunu varysayarsak; bunların arasında ilk streame başlayacak olan objecte "subscribe" olur."race" modülü ekleriz.
+12-G-zip = Birden fazla "Observable" objectlerinden, streamdeki aynı perioddaki dataları toplar ve arrayler olarak döndürür."zip" modülü ekleriz.
+12-H-pipe = Kod içerisinde yaygın olarak kullanılan birden fazla operatör dizisi varsa eğer, bu fonksiyon kullanılabilir.Kısaca "Observable" objectine birden fazla operatörle müdahale edeceksek, hepsini ayrı ayrı yazmaktansa; "pipe" metoduyla tekte müdahale edebiliriz."pipe" modülü ekleriz.
+13-RxJS kütüphanesindeki "filtering" operatörleri:
+13-A-audit = Bir süre için "Observable" streamindeki valueler üzerinde işlem yapmamıza izin verir ve ardından da en sonuncu değerleri yayınlar.Yani streamde gelen dataların arasına "audit" ile gireriz ve zamansal olarak durdururuz.İşte bu duran zamandaki akan değerlerin en sonuncusunu seçer ve döndürür.İçerisinde genellikle "interval" ile kullanılır."audit" modülü ekleriz.
+13-B-auditTime = "audit" operatörünün parametreli[millisecond] halidir."auditTime" modülü ekleriz.
+13-C-debounce = Streamdeki valuelerin zaman aşımı sürelerini belirleyebilmek için kullanılır.Kısaca streamin zamanını kontrol ederek; belirtilen zamanın altındaki valueleri görmezden gelir.Böylece mesela bir tıklama eventine 1 saniye kısıtlaması getirerek, 1 saniyede sadece bir kez gerçekleşmesini sağlayarak; bu koşulu karşılayan valueleri, zaman aşımı bittikten sonra döndürürüz."debounce" modülü ekleriz.
+13-D-debounceTime = "debounce" operatörünün parametreli[millisecond] halidir."debounceTime" modülü ekleriz.
+13-E-distinct = Streamdeki veriler içerisindeki tekrar eden verileri, tekil olarak döndürür."distinct" modülü ekleriz.
+13-F-distinctUntilChanged = Streamdeki verileri değişiklik olana kadar tekilleştirir.Yani "distinct" gibi genel bazlı gözlem yapmaz.İndex olarak 0dan başlar ve sıralı halde valueleri gözler.Genellikle istatistiksel çalışmalarda kullanılır."distinctUntilChanged" modülü ekleriz.
+13-G-distincUntilKeyChanged = "distinctUntilChanged" operatöründen tek farkı, parametre olarak "key" kullanmasıdır.Yani objectler üzerinde çalışır."distinctUntilChanged" modülü ekleriz.
+13-H-elementAt = Streamdeki itemler içerisinden index numarası verileni döndüren operatördür."elementAt" modülü ekleriz.
+13-I-filter = Belirtilen "Observable" objectindeki dataları, belirli bir şarta göre yayınlar.Kısaca filtreleme yapar."filter" modülü ekleriz.
+13-J-first = Streamdeki ilk valueyi döndürür."first" modülü ekleriz.
+13-K-ignoreElements = Belirtilen "Observable" objecti tarafından yayınlanan tüm itemleri yok sayarak görmezden gelir.Yalnızca "complete" ve "error" outputlarını yakalar."ignoreElements" modülü ekleriz.
+13-L-last = Streamdeki son valueyi döndürür."last" modülü ekleriz.
+13-M-sample = Periyodik zaman aralıkları içerisinde, bir "Observable" tarafından yayınlanan en son itemi yayınlar."sample" modülü ekleriz.
+13-N-sampleTime = "sample" operatörünün parametreli[millisecond] halidir."sampleTime" modülü ekleriz.
+13-O-single = Belirtilen koşulu "Observable" objectlerine uygular.Eğer birden fazla value döndüdürse "error"; herhangi bir value döndürmezse de "undefined" döndürür.Yani kısaca, verilen koşula uygun olarak sadece bir adet value döndürülmelidir."single" modülü ekleriz.
+-----------------------------------------------------------------------------------------------------------------
+*OnInıt : Bir component başlatılmak üzereyken, başlatılmadan önce triggerlanan bir yapıdır.İnitialize görevi görür.
+*AfterViewInıt : Component başlatıldıktan sonra triggerlanacak olan yapıdır.
+-----------------------------------------------------------------------------------------------------------------
+*Jquery:
+1-"npm install jquery --save" kodunu cmdden yaz.
+2-"angular.json" dosyasındaki "scripts" arrayinin içerisine jquerynin pathını yaz.
+3-Component içerisinde "declare var $ : any;" deklerasyonunu yapmamız gerekir. 

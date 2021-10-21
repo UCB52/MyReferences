@@ -424,7 +424,7 @@
 *order-* : Mevcut itemlerin diziliş sırasını numaralandırarak belirtir.
 *order-first : Mevcut itemin diziliş sırasını en başa atar.
 *order-last : Mevcut itemin diziliş sırasını en sona atar.
-*offset-* : Mevcut itemi, aldığı value kadar rowun sağ tarafına doğru yeterli alan kalıncaya kadar iteler.
+*offset-* : Mevcut itemi, aldığı value kadar[column bazlı hesaplar] rowun sağ tarafına doğru yeterli alan kalıncaya kadar iteler.
 *mt : Mevcut elementin üst marginini ayarlar.
 *mb : Mevcut elementin alt marginini ayarlar.
 *mx : Mevcut elementin hem sol hem sağ marginini ayarlar.
