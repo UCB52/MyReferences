@@ -1,0 +1,235 @@
+*****AJAX*****
+*ajaxComplete : Bir Ajax requesti tamamlandığında çağrılacak olan bir handlerı belirtir.
+*ajaxError : Ajax requestleri bir errorla tamamlandığında çağrılacak olan bir handlerı belirtir.
+*ajaxSend : Bir Ajax requesti gönderilmeden önce execute edilecek bir fonksiyon belirtir.
+*ajaxStart : İlk Ajax requesti başladığında execute edilecek bir fonksiyon belirtir.
+*ajaxStop : Tüm Ajax requestleri tamamlandığında execute edilecek bir fonksiyon belirtir.
+*ajaxSuccess : Bir Ajax requesti başarıyla tamamlandığında execute edilecek bir fonksiyon belirtir.
+*$.ajax : Asenkron bir HTTP [Ajax] requesti gerçekleştirir.
+*$.ajaxPrefilter : Her request gönderilmeden ve "ajax" metodu tarafından işlenmeden önce Ajax optionslarını kullanır veya mevcut optionsları ayarlar.
+*$.ajaxSetup : Gelecekteki Ajax requestleri için default valueleri ayarlar.
+*$.ajaxTransport : Ajax verilerinin gerçek iletişimini[aktarımını] işleyen bir object oluşturur.
+*$.get : Bir HTTP GET requesti kullanılarak serverdan dataları yüklemeyi sağlar.
+*$.getJSON : Bir GET HTTP requesti kullanarak serverdan JSON formatında encode edilmiş olan verileri yükler.
+*$.getScript : Bir GET HTTP isteği kullanarak serverdan bir Javascript dosyası yükler ve ardından çalıştırır.
+*$.param : Bir URL query stringinde veya Ajax requestinde kullanıma uygun bir arrayin, bir plain objectin veya jQuery objectinin serileştirilmiş bir temsilini oluşturur.
+*$.post : Bir HTTP POST requesti kullanarak dataları servera gönderir.
+*load : Serverdan data yükler ve döndürülen HTMLyi, eşleşen elementlere yerleştirir.
+*serialize : Form elementlerini submit etmek için string olarak encode eder.
+*serializeArray : Form elementlerini bir name/value arrayi olarak encode eder.
+**************
+*****ATTRIBUTES*****
+*addClass : Eşleşen tüm elementlere belirtilen classları ekler.
+*attr : Eşleşen elementin attributelerinin valuesini döndürür veya ayarlar.
+*hasClass : Eşleşen elementlerden herhangi birisinin belirtilen classa sahip olup olmadığını belirten bir booleandır.
+*html : Eşleşen elementin HTML içeriğini döndürür veya ayarlar.
+*prop : Seçilen elementlerin propertilerini ve valuelerini ayarlar veya döndürür.
+*removeAttr : Seçilen elementlerden bir veya daha fazla attribute kaldırır.
+*removeClass : Seçilen elementlerden bir veya daha fazla classı kaldırır.
+*removeProp : "prop" metodu tarafından ayarlanan bir propertiyi kaldırır.
+*toggleClass : Seçilen elementlerden bir veya daha fazla class adı ekleme ve çıkarma arasında geçiş yapar.
+*val : Seçilen elementlerin mevcut valuesini döndürür veya ayarlar.
+********************
+*****CORE*****
+*jQuery : Kullanım farklılıklarına göre sağlanan ham HTML stringinden anında DOM elementleri oluşturabilir; DOM, yüklemeyi bitirdiğinde execute edilecek bir fonksiyon bağlar veya elementleri eşleştirmek için kullanılan bir CSS selectoru içeren bir stringi kabul eder.
+*$.noConflict : jQuery'nin "$" değişkeni üzerindeki denetiminden vazgeçer.
+*$.ready : Document hazır olduğunda çözülen promise benzeri ve thenable bir objecttir.
+*$.readyException : "jQuery()" metodu veya "jQuery(document).ready()" metodu veya eşdeğerlerinin içerisine wrapped olan fonksiyonlarda senkronizasyonlu olarak oluşan errorlar oluştuğunda triggerlanır ve işler.
+*$.when : Genellikle asenkron eventleri temsil eden "Deferred" objectler olmak üzere sıfır veya daha fazla thenable objectine dayalı callback fonksiyonlarını execute etmeyi sağlar.
+**************
+*****CSS*****
+*css : Eşleşen elementlerin işlenen tüm stylelarını döndürür veya CSS propertilerini ayarlar.
+*height : Geçerli elementlerin mevcut işlenen yüksekliğini ayarlar veya döndürür.
+*innerHeight : Geçerli elementlerin mevcut işlenen yüksekliğini ayarlar veya döndürür.
+*innerWidth : Geçerli elementlerin mevcut işlenen genişliğini ayarlar veya döndürür.
+*$.cssHooks : Belirtilen CSS propertilerinin nasıl alındığını veya ayarlandığını belirtmek, CSS properti adını standartlaştırmak veya custom propertileri oluşturmak için fonksiyon tanımlayan bir object döndürür.
+*$.cssNumber : Bir unite[birime] ihtiyaç olmadan kullanılabilecek tüm CSS propertilerini içeren bir objecttir.
+*$.escapeSelector : Özel anlamlı karakter veya stringe sahip olan CSS selectorlerinden kaçmak için kullanılır.
+*offset : Belirtilen elementin documente relative olan offset koordinatlarını ayarlar veya döndürür.
+*outerHeight : Geçerli elementlerin mevcut işlenen yüksekliğini ayarlar veya döndürür.
+*outerWidth : Geçerli elementlerin mevcut işlenen genişliğini ayarlar veya döndürür.
+*position : Eşleşen ilk elementin, offset parentına relative olan konumunun koordinatlarını döndürür.
+*scrollLeft : Seçilen elementlerin yatay scrollbar konumunu ayarlar veya döndürür.
+*scrollTop : Seçilen elementlerin dikey scrollbar konumunu ayarlar veya döndürür.
+*toggleClass : Seçilen elementlere bir veya daha fazla class ekleme ve çıkarma geçişleri yapar.
+*width : Geçerli elementlerin mevcut işlenen genişliğini ayarlar veya döndürür.
+*************
+*****EFFECTS*****
+*animate : CSS propertilerini kullanarak özel animasyonlar sağlar.
+*clearQueue : Kuyrukta bulunan ve henüz çalıştırılmamış olan tüm itemleri kaldırır.
+*delay : Kuyruktaki bir sonraki itemin execute edilmesi için bir delay miktarı ayarlar.
+*dequeue : Sıradaki fonksiyonu kuyruktan kaldırır ve ardından da mevcut fonksiyonu execute eder.
+*fadeIn : Seçilen elementlerin opaklığını kademeli olarak artırır ve görünür yapar.
+*fadeOut : Seçilen elementlerin opaklığını kademeli olarak azaltır ve transparent yapar.
+*fadeTo : Seçilen elementlerin opaklığını kademeli olarak belirtilen opaklık düzeyine getirir.
+*fadeToggle : Seçili element için "fadeIn" ve "fadeOut" metodları arasında geçiş uygular.
+*finish : O esnada çalışan animasyonları durdurur, kuyruktaki tüm animasyonları kaldırır ve seçili elementler için tüm animasyonları tamamlayıp son görüntüye ulaştırır.
+*hide : Seçilen elementleri gizler.
+*$.fx.off : Tüm animasyonları global olarak devre dışı bırakmak veya etkinleştirmek için kullanılır.
+*$.speed : Custom animasyonların tanımında kullanılmaya hazır propertileri içeren bir object oluşturur.
+*queue : Seçilen elementler üzerinde execute edilecek olan fonksiyonların sırasını belirtir veya sıralarını değiştirir.
+*show : Seçilmiş "hidden" elementleri gösterir.
+*slideDown : Seçilmiş "hidden" elementleri aşağı slide ederek görünür hale getirir.
+*slideToggle : Seçilen elementleri "slideDown" ile "slideUp" metodları arasında geçiş yaptırır.
+*slideUp : Seçilmiş "hidden" elementleri aşağı slide ederek görünür hale getirir.
+*stop : Seçili elementlerin sadece o esnada çalışan animasyonunu durdurur.
+*toggle : Seçili elementlerde "hide" ve "show" metodları arasında toggle sağlar.
+*****************
+*****EVENTS*****
+*blur
+*change
+*click
+*contextmenu
+*dblick
+*event.currentTarget
+*event.data : Mevcut event handler bağlandığında, bir event metoduna isteğe bağlı olarak aktarılan dataları içerir.
+*event.delegateTarget : O esnada çağrılan jQuery event handlerının eklendiği elementi döndürür.
+*event.isDefaultPrevented : Belirtilen elementte "immediatePropagationStop" metodunun çağrılıp çağrılmadığını belirten bir boolean döndürür.
+*event.isImmediatePropagationStopped : Belirtilen elementte "propagationStop" metodunun çağrılıp çağrılmadığını belirten bir boolean döndürür.
+*event.isPropagationStopped : Belirtilen elementte "propagationStop" metodunun çağrılıp çağrılmadığını belirten bir boolean döndürür.
+*event.metaKey 
+*event.namespace : Event triggerlandığı anda custom namespacei döndürür.
+*event.pageX
+*event.pageY
+*event.preventDefault
+*event.relatedTarget
+*event.result : Belirtilen event tarafından triggerlanan ve bir event handlerı tarafından döndürülen son valueyi içerir.
+*event.stopImmediatePropagation : Aynı elemente atanmış aynı türdeki eventlerin geri kalanını disabled eder ve sadece mevcut eventin çalışmasını sağlar.
+*event.stopPropagation : Bir eventin parent elementlere bubblingini durdurarak; herhangi bir parent event handlerının execute edilmesini engeller.
+*event.target
+*event.timeStamp
+*event.type
+*event.which : Event için hangi klavye keyine veya mouse butonuna basıldığını döndürür.
+*focus
+*focusin
+*focusout
+*hover
+*$.ready : Document hazır olduğunda çözülen promise benzeri ve sonra thenable bir objecttir.
+*keydown
+*keypress
+*keyup
+*mousedown
+*mouseenter
+*mouseleave
+*mousemove
+*mouseout
+*mouseover
+*mouseup
+*off : Genellikle "on" metoduna bağlı olan event handlerları kaldırmak için kullanılır.
+*on : Seçilen elementler ve child elementleri için bir veya daha fazla event handler eklenmesini sağlar.
+*one : Seçilen elementler için bir veya daha fazla event handler ekler ve event triggerlandığında gerçekleştirilecek bir fonksiyon da belirtebilir.
+*ready : DOM tamamen yüklendiği anda triggerlanır.
+*resize
+*scroll
+*select
+*submit
+*trigger : Seçilen elementler için belirtilen eventi ve bir eventin[mesela form submit gibi] default davranışını triggerlar.
+*triggerHandler : Seçilen elementler için sadece belirtilen eventi triggerlar.
+****************
+*****MANIPULATION*****
+*addClass :
+*after : Belirtilen elementleri veya içerikleri, seçilen elementlerden hemen sonrasına ekler.
+*append : Belirtilen elementleri veya içerikleri, seçilen elementlerin sonuna[end] ekler.
+*appendTo :
+*attr :
+*before : Belirtilen elementleri veya içerikleri, seçilen elementlerden hemen öncesine ekler.
+*clone :
+*css :
+*detach : Tüm textler ve child nodelar da dahil olmak üzere seçili elementi kaldırır.
+*empty :
+*hasClass :
+*height :
+*html :
+*innerHeight :
+*innerWidth :
+*insertAfter :
+*insertBefore :
+$.cssNumber :
+$.htmlPrefilter : jQuery manipülasyon metodlarından geçirilen HTML stringlerini modifiye etme ve değiştirmeyi sağlar.
+*offset :
+*outerHeight :
+*outerWidth :
+*position :
+*prepend : Belirtilen elementleri veya içerikleri, seçilen elementlerin başlangıcına[beginning] ekler.
+*prependTo : Belirtilen elementleri veya içerikleri, seçilen elementlerin başlangıcına[beginning] ekler.
+*prop :
+*remove :
+*removeAttr :
+*removeClass :
+*removeProp :
+*replaceAll : Seçilen elementleri yeni içeriklerle veya HTML elementleriyle değiştirir.
+*replaceWith : Seçilen elementleri yeni içeriklerle veya HTML elementleriyle değiştirir ve kaldırılan elementleri object olarak döndürür.
+*scrollLeft :
+*scrollTop :
+*text :
+*toggleClass :
+*unwrap :
+*val :
+*width :
+*wrap : Belirtilen HTML elementlerini, seçilen her elementin etrafına wrap eder.
+*wrapAll : Belirtilen HTML elementlerini, seçilen tüm elementlerin etrafına wrap eder.
+*wrapInner : Belirtilen HTML elementlerini, seçilen her elementin içeriğine yani innerHTML'sine wrap eder.
+**********************
+*****MISCELLANEOUS*****
+*data : Seçilen elementlere datalar ekler veya çeker.
+*each : Eşleştiği her element için execute edilecek bir fonksiyonu belirtir.
+*get : JQuery objectiyle eşleşen elementlerin indexini döndürür.
+*index : Belirtilen elementlerin mevcut indexlerini döndürür.
+*removeData : Öncesinde bir elemente "data" metodu ile ayarlanmış olan dataları kaldırır.
+*toArray : jQuery selectoru tarafından seçilen elementleri bir array olarak döndürür.
+***********************
+*****Offset*****
+*offsetParent
+****************
+*****PROPERTIES*****
+*length : jQuery objectinde kaç adet item olduğunu döndürür.
+********************
+*****TRAVERSING*****
+*add : Mevcut bir element grubuna yeni elementler ekleyerek yeni bir jQuery objecti oluşturur.
+*addBack : Oorjinal seçimdeki elementle, sonra seçtiği elementleri birleştirir ve object yapar.
+*children : Seçilen elementin tüm child elementlerini döndürür.
+*closest : Seçilen elementin, belirtilen selectoruyle eşleşen ilk parentını döndürür.
+*contents : Seçilen elementin textNodeları veya commentNodeları da dahil olmak üzere tüm childlarını döndürür.
+*end : Sonradan eklenen selectorleri resetleyerek kaldırır; sadece main selectoru korur.
+*eq : Seçilen elementlerin belirtilen index numarasına sahip olan elementini döndürür.
+*even : Seçilen elementlerin sadece çift tamsayı[0-2-4...] index numarasına sahip olan elementlerini döndürür.
+*filter : Seçilen elementleri filtreleyip; belirtilen selectorlerle eşleşen veya belirtilen fonksiyonla eşleşen elementlerini döndürür.
+*find : Seçilen elementin tüm child elementleri içerisinde[descendantlar dahil] belirtilen elementleri arar ve eşleşenleri döndürür.
+*first : Seçilen elementlerin ilk elementini döndürür.
+*has : İçerisinde bir veya daha fazla element bulunan ve belirtilen selectorlerle eşleşen tüm elementleri döndürür.
+*is : Seçilen elementlerden herhangi birisinin belirtilen selectorle eşleşip eşleşmediğini kontrol eder ve boolean döndürür.
+*last : Seçilen elementlerin son elementini döndürür.
+*map : Seçilen her elemente fonksiyon uygular ve dönüş değerleriyle de yeni bir jQuery objecti oluşturur. 
+*next : Seçilen her elementin bir sonraki sibling elementini döndürür.
+*nextAll : Seçilen her elementin, sonraki bütün sibling elementlerini döndürür.
+*nextUntil : Verilen 2 adet selector arasındaki tüm sibling elementleri döndürür.
+*not : Belirtilen kriterle eşleşmeyen elementleri döndürür.
+*odd : Seçilen elementlerin sadece tek tamsayı[1-3-5...] index numarasına sahip olan elementlerini döndürür.
+*offsetParent : Belirtilen elemente en yakın olan konumlandırılmış[fixed,absolute,..] parentını döndürür.
+*parent : Seçilen elementlerin direkt olarak parentını döndürür.
+*parents : Seçilen elementlerin tüm parentlarını[htmle kadar] döndürür.
+*parentsUntil : Seçilen elementlerin, belirtilen selectorlere kadar olan aralıktaki parentlarını döndürür.
+*prev : Seçilen her elementin bir önceki sibling elementini döndürür.
+*prevAll : Seçilen her elementin, önceki bütün sibling elementlerini döndürür.
+*prevUntil : Verilen 2 adet selector arasındaki tüm sibling elementleri döndürür.
+*siblings : Seçilen elementlerin tüm siblinglerini[sağ-sol] döndürür.
+*slice : Seçilen elementlerin, belirtilen index aralıklarındaki elementlerini seçerek döndürür.
+********************
+*****UTILITIES*****
+*$.contains : Belirtilen elementin, belirtilen diğer elementin descendantı olup olmadığını belirten bir boolean döndürür.
+*$.each : Hem arrayler hem de objectler üzerinde iterationlar yapılmasını sağlar.
+*$.extend : İki veya daha fazla objectin içeriğini ilk objectte birleştirir.
+*$.fn.extend : Bir objectin içeriğini jQuery prototipiyle birleştirir.
+*$.globalEval : Global olarak bazı JS kodlarını execute eder.
+*$.grep : Bir filtre fonksiyonunu karşılayan bir arrayin elementlerini bulur.
+*$.inArray : Bir array içerisinde belirtilen valueyi arar ve indexini döndürür.
+*$.isEmptyObj : Bir objectin boş olup olmadığını kontrol ederek boolean döndürür.
+*$.isPlainObj : Bir objectin bir plain object olup olmadığını kontrol ederek boolean döndürür.
+*$.isXMLDoc : Belirtilen DOM nodeunun bir XML documenti içerisinde olup olmadığını veya XML documenti olup olmadığını kontrol ederek boolean döndürür.
+*$.makeArray : Bir array-like objectini gerçek bir Javascript arrayine dönüştürür.
+*$.map : Bir arraydeki veya objecteki tüm itemleri yeni bir arrayın itemleri haline getirir.
+*$.merge : İki arrayin içeriğini ilk arrayde birleştirir.
+*$.noop : Boş bir fonksiyondur.
+*$.parseHTML : Bir stringi, DOM nodelarından oluşan bir arraye ayrıştırır.
+*$.parseXML : Bir stringi, bir XML documentine ayrıştırır.
+*******************

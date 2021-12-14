@@ -1,0 +1,68 @@
+Altyapısı HTML olan temel teknolojiler:
+-Web programlama alanında:
+1-ASP
+2-PHP
+3-Javascript
+4-Node.js
+-Mobil programlama alanında:
+1-İOS
+2-Android
+3-Windows
+***HTML: Hyper Text Markup Language demektir.HTML komutları, metin, resim, ses, video gibi içeriklerin sayfadaki yerleşimi ve kullanıcıya sunumunu sağlar.
+*Tarayıcılar: Sayfa içeriğini HTML kodlarına göre işleyip düzenleyerek(render) kullanıcıya sunan yazılımlardır.
+*Herhangi iki veya daha fazla birbirine bağlı bilgisayar varsa buna "ağ" denir.2 tip vardır: Yerel Ağ(LAN) veya World Wide Web(www).
+*Web Sunucu: HTML sayfalarını başkaları ziyaret etsin diye sunuculara koyarız.7/24 çalışırlar.
+*Hosting: Sitenizi internette yayınlamak için kiralanan sunucu disk alanlarıdır.
+*Alan Adı: Sitenizin ismini, türünü(net, com, org, vs gibi) ve ülke kodunu belirtir.Şirketlerden satın alabiliriz."tr" kodunu almak içinse bir firma tabelamız olması lazım.
+*Temel HTML sayfa yapısı:
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<title>ilkProjem
+</title>
+<meta charset="utf-8">
+</head>
+<body>
+<h1>H.G.</h1>
+</body>
+</html>
+*SEO: Search Engine Optimization'dur.Web sitesinin arama performansını artıran herşey SEO'dur.
+-title:En önemli kısım olarak "title"a bakmamız lazım.Çünkü eğer "title" içerisinde yazan bir kelime arama motorlarında arandığı takdirde sizin siteniz listede çıkacaktır."title" genelde 60 karakterden fazlasını arama motorları dikkate almaz.
+-<meta>: İkinci en önemli olaraksa meta tag'ına bakmamız lazım.Meta'nın içerisine "title" etiketiyle ilişkili şeyler yazmak sayfamızı daha üstte görünür kılar.Genelde en fazla 150 karakter civarı kullanılır.Örneğin:
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<title>parfüm oriflame natural
+</title>
+<meta charset="utf-8">
+<meta name="description" content="Türkiye çapında tüm illere satış yapan Oriflame, parfümeride 1 numara olmakla beraber natural kokunun zirvesi durumundadır.">
+</head>
+<body>
+<h1>H.G.</h1>
+</body>
+</html>
+-Keywords: Üçüncü en önemli olarak dikkat edilmesi gerekendir.<meta name="keywords"> olarak meta kısmına yazılır.Örnek:
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<title>parfüm oriflame natural
+</title>
+<meta charset="utf-8">
+<meta name="description" content="Türkiye çapında tüm illere satış yapan Oriflame, parfümeride 1 numara olmakla beraber natural kokunun zirvesi durumundadır.">
+<meta name="keywords" content="parfüm, oriflame, naturel, doğal, koku, kadın">
+</head>
+<body>
+<h1>H.G.</h1>
+</body>
+</html>
+-Başlık tag'leri: <h1>, <h2>, <h3>, vs gibi başlıkları tarayıcılar gazete manşetleriymiş gibi okur o yüzden önemlidir.Hem ziyaretçilerin hem arama motorlarının dikkatini çeker.
+*Spider: Arama motorlarının dünya üzerindeki web sunucu bilgilerini kendi veri tabanlarına kaydeden yazılımlara denir. 
+*Semantik Web: SEO için önemlidir.Kelimelerin anlamlarını inceleyen bilim dalıdır.Çoğu arama motorları bu mantığa göre arama sonuçları verir.Mesela <form>, <table>, <head>, <section>, <nav>, <aside> ve <footer> gibi HTML komutları semantiktir.
+<span> veya <div> gibi tag'ler ise semantik değildir tercih edilmez.
+*Genel sayfa düzeni şudur:
+-----HEADER-------
+-------NAV--------
+--MAİN-----ASİDE--
+--SECTİON--ASİDE--
+--ARTİCLE--ASİDE--
+------FOOTER------

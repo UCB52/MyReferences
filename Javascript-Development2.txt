@@ -1,0 +1,1568 @@
+*****ARRAYS:
+*****concat() = Bu metod, iki veya daha fazla arrayi birleştirir.Mevcut arrayleri değiştirmez ancak birleştirilmiş arraylarin değerlerini içeren yeni bir array döndürür.Herzaman bir ana array bulundurur ve sonrasında diğer arrayleri ekler.Syntaxı:
+-array1.concat(array2, array3, ..., arrayX)
+*****constructor = Array prototipini oluşturan fonksiyonu döndürür.Nesneler, şu constructor valuelerini döndürür:
+-Arraylar için dönen constructor valuesi: function Array() { [native code] }
+-Objectler için dönen constructor valuesi: function Object() { [native code] }.
+->Suyntaxı:
+-array.constructor
+*****copyWithin() = Bu metod, mevcut valuelerin üzerine yazarak array elementlerini, bir arraydeki başka bir konuma kopyalar.Arraya asla element eklemez ve lengthini değiştirmez; sadece elementin yerini değiştirir.Orjinal arrayin üzerine yazar, değiştirir ve valueyi döndürür.Syntaxı:
+-array.copyWithin(target, start, end)
+*****entries() = Bu metod, key/value çiftleriyle yeni bir Array Iterator objecti döndürür.Orjinal arraydeki her item için yeni yineleme objecti, "key" olarak indexi ve "value" olarak item valuesini içeren bir array içerecektir.Arrayde bulunan her element için fonksiyonu birer kez execute eder.Orjinal arrayi değiştirmez.
+Mesela [0, "Banana"][1, "Orange"][2, "Apple"][3, "Grapes"] şeklinde arraylar döndürür.Syntaxı:
+-array.entries()
+*****every() = Bu metod, bir arraydeki tüm elementler, fonksiyon olarak sağlanan bu testi geçerse, "true" valuesini döndürür.Fakat bu teste uymayan bir array elementine denk gelirse geri kalan elementleri kontrol etmez ve "false" döndüdür.Arrayde bulunan her element için fonksiyonu birer kez execute eder.Booleandır.Boş arrayler için execute edilmez.Orjinal arrayi değiştirmez.Syntaxı:
+-array.every(function(currentValue, index, arr), thisValue)
+*****fill() = Bu metod, bir arraydeki belirtilen elementleri static bir valueyle doldurur.Doldurmanın nerede başlayıp nerede biteceğini belirleyebiliriz; eğer belirtilmezse de tüm array elementleri doldurulur.Orjinal arrayi değiştirir, üzerine yazar ve döndürür.Syntaxı:
+-array.fill(value, start, end)
+*****filter() = Bu metod, fonksiyon olarak sağlanan bir testi geçen tüm array elementleriyle dolu yeni bir array oluşturur.Arrayde bulunan her element için fonksiyonu birer kez execute eder.Boş arrayler için execute edilmez.Orjinal arrayi değiştirmez.Syntaxı:
+-array.filter(function(currentValue, index, arr), thisValue)
+*****find() = Bu metod, fonksiyon olarak sağlanan bir testi geçen ilk array elementinin valuesini döndürür.Arrayde bulunan her element için fonksiyonu birer kez execute eder.Eğer fonksiyonun "true" valuesi döndürdüğü bir array elementi bulursa, o array elementinin valuesini döndürür ve geriye kalan valueleri kontrol etmez.Eğer hiç bulamazsa da "undefined" döndürür.Boş arrayleri execute etmez.Orjinal arrayi değiştirmez.Syntaxı:
+-array.find(function(currentValue, index, arr),thisValue)
+*****findIndex() = Bu metod, fonksiyon olarak sağlanan bir testi geçen ilk array elementinin indexini döndürür.Arrayde bulunan her element için fonksiyonu birer kez execute eder.Eğer fonksiyonun "true" valuesi döndürdüğü bir array elementi bulursa, o array elementinin indexini döndürür ve geriye kalan valueleri kontrol etmez.Eğer hiç bulamazsa da "-1" döndürür.Boş arrayleri execute etmez.Orjinal arrayi değiştirmez.Syntaxı:
+-array.find(function(currentValue, index, arr),thisValue)
+*****forEach() = Bu metod, bir arraydeki her element için sırayla birer kez fonksiyon çağırır ve uygular.Boş arrayler için execute edilemez.Syntaxı:
+-array.forEach(function(currentValue, index, arr), thisValue)
+*****from() = Bu metod, "length" propertisine sahip herhangi bir objecti veya iterable herhangi bir objecti kopyalayarak, yeni bir Array objecti döndürür.Syntaxı:
+-Array.from(object, mapFunction, thisValue)
+*****includes() = Bu metod, eğer array, belirtilen elementi içeriyorsa "true" döndürür; aksi takdirse "false" döndürür.Case sensitivedir.Syntaxı:
+-array.includes(element, start)
+*****indexOf() = Bu metod, array içerisinde belirtilen itemi arar ve indexini döndürür.Aramaya başlanılan konum belirlenebilir fakat belirtilmezse, en baştan aramaya başlar ve arrayin sonuna kadar devam eder.Eğer item bulunamazsa "-1" döndürür.Eğer item birden fazla kere mevcutsa, ilk bulduğunun indexini döndürür.Syntaxı:
+-array.indexOf(item, start)
+*****isArray() = Bu metod, eğer belirtilen object bir array ise "true"; değilse "false" döndürür.Syntax:
+-Array.isArray(obj)
+*****join() = Bu metod, arrayi bir string olarak döndürür.Elementler belirlenen ayraçlarla ayrılır.Default ayraç 
+virgüldür(,).Orjinal arrayi değiştirmez.Syntax:
+-array.join(separator)
+*****keys() = Bu metod, bir arrayin keyleriyle birlikte yeni bir Array Iterator objecti döndürür.Orjinal arrayi değiştirmez.Mesela array objectinin keyleri indexleridir; object objectlerinin keyleri ise propertyleridir.Syntaxı:
+-array.keys()
+*****length() = Bu metod, bir arraydeki elementlerin sayısını belirler ve döndürür.Syntaxı:
+-array.length()
+*****lastIndexOf() = Bu metod, array içerisinde belirtilen itemi arar ve indexini döndürür.Aramaya başlanılan konum belirlenebilir fakat belirtilmezse, en sonundan aramaya başlayarak arrayin başına kadar devam eder fakat indexi başlangıç konumuna göre döndürür.Eğer item bulunamazsa "-1" döndürür.Eğer item birden fazla kere mevcutsa, son bulduğunun indexini döndürür.Syntaxı: 
+-array.lastIndexOf(item, start)
+*****map() = Bu metod, her array elementi için çağrılan fonksiyonun sonuçlarıyla yeni bir array oluşturur ve döndürür.Sağlanan bu fonksiyon, arrayin her elementi için birer kez çağrılır.Boş arrayler için execute edilmez.Orjinal arrayi değiştirmez.Syntax:
+-array.map(function(currentValue, index, arr), thisValue)
+*****pop() = Bu metod, arrayin son elementini çıkartır ve çıkartılan elementi döndürür.Arrayin lengthini değiştirir.Arrayin içerisinde element kalmayana kadar art arda kullanılabilir.Syntaxı:
+-array.pop()
+*****prototype = Tüm javascript objectleri için kullanılabilen genel bir constructordur.Global olan Array() objectine başvurur.Arraylere yeni propertiler ve metodlar eklememizi sağlar.Yeni bir properti oluştururken, "TÜM" arrayler bu propertiyi ve valuesini alır.Yeni bir metod oluştururken, "TÜM" arrayler bu metodu alır.Syntaxı:
+-Array.prototype.name = value
+*****push() = Bu metod, arrayin sonuna yeni elementler ekler.Arrayin lengthini değiştirir ve son halindeki lengthi döndürür.Syntaxı:
+-array.push(item1, item2, ..., itemX)
+*****reduce() = Bu metod, arrayin her değeri için soldan sağa doğru bir reducer[azaltıcı] fonksiyonu execute edilir.Fonksiyonun dönüş değerleri string veya number olarak bir hesaplayıcıda saklanır[result/total].Sonucunda ise fonksiyonun hesaplanan sonucu olan tek bir value döndürür.Boş arrayler için execute edilmez.Orjinal arrayi değiştirmez.Syntaxı:
+-array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+*****reduceRight() = Bu metod, arrayin her değeri için sağdan sola doğru bir reducer[azaltıcı] fonksiyonu execute edilir.Fonksiyonun dönüş değerleri string veya number olarak bir hesaplayıcıda saklanır[result/total].Sonucunda ise fonksiyonun hesaplanan sonucu olan tek bir value döndürür.Boş arrayler için execute edilmez.Orjinal arrayi değiştirmez.Syntaxı:
+-array.reduceRight(function(total, currentValue, currentIndex, arr), initialValue)
+*****reverse() = Bu metod, arraydeki elementlerin index sıralarını tersine çevirir.Orjinal arrayin üzerine yazar.Syntaxı:
+-array.reverse()
+*****shift() = Bu metod, arrayin ilk elementini kaldırır ve kaldırılan elementi döndürür.Orjinal arrayi değiştirir.İçerisinde element kalmayana kadar art arda kullanılabilir.Syntaxı:
+-array.shift()
+*****slice() = Bu metod, arrayin içerisindeki belirlenmiş elementleri yeni bir array olarak döndürür.İndex olarak belirlenen başlangıç konumu includeddır fakat bitiş konumu değildir.Orjinal arrayi değiştirmez.Syntaxı:
+-array.slice(star,end)
+***Slice ile substring arasındaki en büyük fark şudur: substringin ilk parametresi ikincisinden daha büyük olabilir; js bunu yine başlangıç-bitiş olarak hesaplar fakat slice metodunun ilk parametresi ikincisinden büyük olamaz!
+*****some() = Bu metod, arraydeki elementlerden herhangi birisinin fonksiyon olarak sağlanan bu testi geçip geçmediğini kontrol eder.Bu fonksiyon, arraydeki her element için birer kez execute edilir.Eğer fonksiyonun "true" valuesi döndürdüğü bir array elementi bulunursa, kalan değerler kontrol edilmez ve "true" sonucunu alırız.Eğer bulamazsa "false" döndürür.Boş arrayler için execute edilmez.Orjinal arrayi değiştirmez.
+*****sort() = Bu metod, arrayin elementlerini UNICODE olarak sıralar.Bu sıralamalar alfabetik veya sayısal olarak artan veya azalan şeklinde olabilir.Fakat default olarak elementleri alfabetik ve artan düzende sıralayacaktır.Fakat stringleri sıralarken dikkatli olun.Mesela "20" stringi, "150" string değerinden büyüktür.Mesela Türkçe karakterleri sıralarken hatalar yapacaktır.Compare fonksiyonları sayesinde bu yanlışlıklar önlenebilir.Orjinal arrayin üzerine yazar.Syntax:
+-array.sort(compareFunction)
+*****splice() = Bu metod, array elementlerini ekler veya kaldırır ve kaldırılan elementleri döndürür.Orjinal arrayin üzerine yazar ve lengthini değiştirir.Syntaxı:
+-array.splice(index, howmany, item1, ....., itemX)
+*****toString() = Bu metod, tüm array valuelerini virgülle ayrılmış olarak ve arrayi da bir string olarak döndürür.Orjinal arrayi değiştirmez.Syntaxı:
+-array.toString()
+*****unshift() = Bu metod, arrayin başına yeni elementler ekler ve yeni lengthini döndürür.Orjinal arrayin üzerine yazar.Syntaxı:
+-array.unshift(item1, item2, ..., itemX)
+*****valueOf() = Bu metod, arrayin kendisini döndürür.Zaten array nesnesinin default olan bir metodudur.Orjinal arrayi değiştirmez.Syntaxı:
+-array.valueOf()
+--------------------------------------------------------------------------------------------------------------------------
+*****BOOLEAN:
+*****constructor = Boolean prototipini oluşturan fonksiyonu döndürür.Javascript booleanları için constructor metod şudur:
+function Boolean() { [native code] }.Syntaxı:
+-boolean.constructor
+*****prototype = Tüm javascript objectleri için kullanılabilen genel bir constructordur.Global olan Boolean() objectine başvurur.Booleanlara yeni propertiler ve metodlar eklememizi sağlar.Yeni bir properti oluştururken, "TÜM" booleanlar bu propertiyi ve valuesini alır.Yeni bir metod oluştururken, "TÜM" booleanlar bu metodu alır.Syntaxı:
+-Boolean.prototype.name = value
+*****toString() = Bu metod, boolean valuesini bir string olarak döndürür.Zaten Javascriptte booleanlar, bir string işleminde kullanıldıklarında bu metod, default olarak çağrılmaktadır.Syntaxı:
+-boolean.toString()
+*****valueOf() = Bu metod, bir booleanın primitive valuesini döndürür.Zaten genellikle kod satırında bulunmasa bile sahne arkasında bu metod, genellikle default olarak çağrılır.Syntaxı:
+-boolean.valueOf()
+--------------------------------------------------------------------------------------------------------------------------
+*****CLASSES:
+*****constructor() = Bu metod, bir "class" içerisinde oluşturulan objectleri oluşturmak ve initialize etmek için özel bir metoddur.Bir class initialize edildiğinde otomatik olarak çağrılır ve tam ismi "constructor" olmalıdır.Aslında bir constructor metodunuz yoksa Javascript, görünmez ve boş bir constructor metodu ekler.Bir classın birden fazla constructor metodu olamaz.Syntaxı:
+-constructor(parameters)
+*****extends = Bu keyword, bir parent classın altında bir child classı oluşturur.Bu child metod, tüm propertileri, valueleri ve metodları başka bir parent sınıftan kalıtımla(inherit) devralır.Ve ardından parent classtan devraldığı tüm properti ve metodlara erişebilmek için de "super" metodunu kullanırız ve parenta başvururuz.Bu metod, mevcut classın metod ve propertilerini, yeni oluşturulan classlarda kullanabilmek için oldukça faydalıdır.Syntaxı:
+-class childClass extends parentClass
+*****static = Bu keyword, classlar için static metodları tanımlar.Static metodlar, classın bir nesnesini oluşturmaya gerek duymadan, doğrudan class içerisinden çağrılır.Syntaxı:
+-static methodName()
+*****super = Bu keyword, parent classa başvurur.Parent classının constructor metodunu çağırmak, propertilerine ve metodlarına erişmek için kullanılır.Syntaxı:
+-super(arguments);  //calls the parent constructor(only inside the constructor)
+-super.parentMethod(arguments);  //calls a parent method
+--------------------------------------------------------------------------------------------------------------------------
+*****DATE
+*****constructor = Date prototipini oluşturan fonksiyonu döndürür.Javascript dateleri için döndürülen constructor fonksiyonu: function Date() { [native code] }.Javascript objectleri için döndürülen constructor fonksiyonu: 
+function Object() { [native code] }.Syntaxı:
+-Date.constructor
+*****getDate() = Bu metod, belirtilen date için ayın gününü 1-31 arasında döndürür.Syntaxı:
+-Date.getDate()
+*****getDay() = Bu metod, belirtilen date için haftanın gününü 0-6 arasında döndürür.Başlangıç indexi yani "0", pazar gününden başlar.Syntaxı:
+-Date.getDay()
+*****getFullYear() = Bu metod, belirtilen date için yılı döndürür.1000 ile 9999 yılları arasındaki dateler için 4 basamak döndürür.Syntaxı:
+-Date.getFullYear() 
+*****getHours() = Bu metod, belirtilen date ve time için saati 0-23 arasında döndürür.Syntaxı:
+-Date.getHours()
+*****getMilliseconds() = Bu metod, belirtilen date ve time için milisaniyeyi 0-999 arasında döndürür.Syntaxı:
+-Date.getMilliseconds()
+*****getMinutes() = Bu metod, belirtilen date ve time için dakikayı 0-59 arasında döndürür.Syntaxı:
+-Date.getMinutes()
+*****getMonth() = Bu metod, local zamana göre belirtilen date için ayı 0-11 arasında döndürür.Syntaxı:
+-Date.getMonth()
+*****getSeconds() = Bu metod, belirtlen date ve time için saniyeyi 0-59 arasında döndürür.Syntaxı:
+-Date.getSeconds()
+*****getTime() = Bu metod, 1 Ocak 1970 geceyarısı ile belirtilen date arasındaki milisaniye sayısını döndürür.Syntaxı:
+-Date.getTime()
+*****getTimezoneOffset() = Bu metod, UTC saati ile local saat arasındaki saat farkını dakika cinsinden döndürür.Mesela "GMT+3" ise, 3 saati dakika cinsinden "180" olarak döndürecektir.Ülkeler tarafından uygulanan Yaz Saati Uygulaması sebebiyle döndürülen değerler herzaman sabit olmaz.Syntaxı:
+-Date.getTimezoneOffset()
+*****getUTCDate() = Bu metod, evrensel saate göre belirtilen date için ayın gününü 1-31 arasında döndürür.Date objectinin local date ve timea ait olduğunu varsayarak hesaplar.Syntaxı:
+-Date.getUTCDate() 
+*****getUTCDay() = Bu metod, evrensel saate göre belirtilen date için haftanın gününü 0-6 arasında döndürür.Başlangıç indexi yani "0", pazar gününden başlar.Date objectinin local date ve timea ait olduğunu varsayarak hesaplar.Syntaxı:
+-Date.getUTCDay()
+*****getUTCFullYear() = Bu metod, evrensel saate göre belirtilen date için yılı döndürür.1000 ile 9999 yılları arasındaki dateler için 4 basamak döndürür.Date objectinin local date ve timea ait olduğunu varsayarak hesaplar.Syntaxı:
+-Date.getUTCFullYear()  
+*****getUTCHours() = Bu metod, evrensel saate göre belirtilen date ve time için saati 0-23 arasında döndürür.Date objectinin local date ve timea ait olduğunu varsayarak hesaplar.Syntaxı:
+-Date.getHours()
+*****getUTCMilliseconds() = Bu metod, evrensel saate göre belirtilen date ve time için milisaniyeyi 0-999 arasında döndürür.Date objectinin local date ve timea ait olduğunu varsayarak hesaplar.Syntaxı:
+-Date.getMilliseconds()
+*****getUTCMinutes() = Bu metod, evrensel saate göre belirtilen date ve time için dakikayı 0-59 arasında döndürür.Syntaxı:
+-Date.getMinutes() 
+*****getUTCMonth() = Bu metod, evrensel saate göre belirtilen date için ayı 0-11 arasında döndürür.Syntaxı:
+-Date.getMonth()
+*****getUTCSeconds() = Bu metod, evrensel saate göre belirtlen date ve time için saniyeyi 0-59 arasında döndürür.Syntaxı:
+-Date.getSeconds()
+*****now() = Bu metod, 1 Ocak 1970 00:00:00 UTC'den güncel zamana kadar geçen milisaniye sayısını döndürür.Syntaxı:
+-Date.now()
+*****parse() = Bu metod, date stringini parçalar ve date stringi ile 1 Ocak 1970 gece yarısı arasındaki milisaniye sayısını döndürür.Syntaxı:
+-Date.parse(dateString)
+*****prototype = Date() objectine yeni propertiler ve metodlar eklememizi sağlayan constructordır.
+Global olan Date() objectine başvurur.Datelere yeni propertiler ve metodlar eklememizi sağlar.Yeni bir properti oluştururken, "TÜM" dateler bu propertiyi ve valuesini alır.Yeni bir metod oluştururken, "TÜM" dateler bu metodu alır.Syntaxı:
+-Date.prototype.name = value
+*****setDate() = Bu metod, date objectinin ayın gününü ayarlar.Syntaxı:
+-Date.setDate(day)
+*****setFullYear() = Bu metod, date objectinin yılını ayarlar.1000 ile 9999 yılları arasındaki tarihler için 4 basamaklı değerler ayarlar.Aynı zamanda ayı ve ayın gününü de ayarlayabilir.Syntaxı:
+-Date.setFullYear(year,month,day)
+*****setHours() = Bu metod, date objectinin saatini ayarlar.Aynı zamanda dakika, saniye ve milisaniyeyi de ayarlayabilir.Syntaxı:
+-Date.setHours(hour,minute,second,millisecond)
+*****setMilliseconds() = Bu metod, date objectinin milisaniyesini ayarlar.Syntaxı:
+-Date.setMilliseconds(millisecond)
+*****setMinutes() = Bu metod, date objectinin dakikasını ayarlar.Aynı zamanda saniye ve milisaniyeyi de ayarlayabilir.Syntaxı:
+-Date.setMinutes(minute,second,millisecond)
+*****setMonth() = Bu metod, date objectinin ayını ayarlar.Aynı zamanda ayın gününü de ayarlayabilir.Syntaxı:
+-Date.setMonth(month,day)
+*****setSeconds() = Bu metod, date objectinin saniyesini ayarlar.Aynı zamanda milisaniyeyi de ayarlayabilir.Syntaxı:
+-Date.setSeconds()
+*****setTime() = Bu metod, 1 Ocak 1970 gece yarısına belirli miktar milisaniye ekleyerek veya çıkararak bir date ve time ayarlar.Syntaxı:
+-Date.setTime(millisecond)
+*****setUTCDate() = Bu metod, evrensel saate göre ayın gününü ayarlar.Syntaxı:
+-Date.setUTCDate(day)
+*****setUTCFullYear() = Bu metod, evrensel saate göre date objectinin yılını ayarlar.1000 ile 9999 yılları arasındaki tarihler için 4 basamaklı değerler ayarlar.Aynı zamanda ayı ve ayın gününü de ayarlayabilir.Syntaxı:
+-Date.setUTCFullYear(year,month,day) 
+*****setUTCHours() = Bu metod, evrensel saate göre date objectinin saatini ayarlar.Aynı zamanda dakika, saniye ve milisaniyeyi de ayarlayabilir.Syntaxı:
+-Date.setUTCHours(hour,minute,second,millisecond)
+*****setUTCMilliseconds() = Bu metod, date objectinin milisaniyesini ayarlar.Syntaxı:
+-Date.setUTCMilliseconds(millisecond)
+*****setUTCMinutes() = Bu metod, evrensel saate göre date objectinin dakikasını ayarlar.Aynı zamanda saniye ve milisaniyeyi de ayarlayabilir.Syntaxı:
+-Date.setUTCMinutes(minute,second,millisecond)
+*****setUTCMonth() = Bu metod, evrensel saate göre date objectinin ayını ayarlar.Aynı zamanda ayın gününü de ayarlayabilir.Syntaxı:
+-Date.setUTCMonth(month,day)
+*****setUTCSeconds() = Bu metod, evrensel saate göre date objectinin saniyesini ayarlar.Aynı zamanda milisaniyeyi de ayarlayabilir.Syntaxı:
+-Date.setUTCSeconds()
+*****toDateString() = Bu metod, bir Date objectinin sadece date kısmını okunabilir bir stringe dönüştürür.Time kısmını dönüştürmez.Syntaxı:
+-Date.toDateString()
+*****toISOString() = Bu metod, ISO standartını kullanarak bir Date objectini bir stringe dönüştürür.Standartın adı: ISO-8601.Formatı: YYYY-MM-DDTHH:mm:ss.sssZ.Syntaxı:
+-Date.toISOString()
+*****toJSON() = Bu metod, bir Date objectini JSON datei olarak formatlanmış bir stringe dönüştürür.JSON dateleri, ISO-8601 standartıyla aynı formata sahiptir: YYYY-MM-DDTHH:mm:ss.sssZ.Syntaxı:
+-Date.toJSON() 
+*****toLocaleDateString() = Bu metod, local ayar kurallarını kullanarak bir Date nesnesinin sadece date kısmını okunabilir bir stringe dönüştürür.Syntaxı:
+-Date.toLocaleDateString() 
+*****toLocaleTimeString() = Bu metod, local ayar kurallarını kullanarak bir Date nesnesinin sadece time kısmını okunabilir bir stringe dönüştürür.Syntaxı:
+-Date.toLocaleTimeString() 
+*****toLocaleString() = Bu metod, local ayar kurallarını kullanarak bir Date nesnesini bir stringe dönüştürür.Default olan dil, bilgisayarlarımızdaki local ayarlara bağlıdır.Syntaxı:
+-Date.toLocaleString(Locales,options)
+*****toString() = Bu metod, bir Date objectini bir stringe dönüştürür.Zaten normalde Date objectlerinin string olarak görüntülendiği zamanlarda default olarak bu metod çağrılır.Syntaxı:
+-Date.toString()
+*****toTimeString() = Bu metod, bir Date objectinin time kısmını okunabilir bir stringe dönüştürür.Syntaxı:
+-Date.toTimeString()
+*****toUTCString() = Bu metod, bir Date objectini evrensel saate göre bir stringe dönüştürür.Syntaxı:
+-Date.toUTCString()
+*****UTC() = Bu metod, evrensel saate göre 1 Ocak 1970 geceyarısı ile belirlenen date arasındaki milisaniye sayısını döndürür.Syntaxı:
+-Date.UTC(year, month, day, hours, minutes, seconds, millisec)
+*****valueOf() = Bu metod, bir date objectinin primitive valuesini döndürür.Primitive value, 1 Ocak 1970 UTC geceyarısından bu yana geçen milisaniye olarak döndürülür.
+--------------------------------------------------------------------------------------------------------------------------
+*****ERROR:
+*****name = Bu property, bir errorun adını ayarlar veya döndürür."error.name" propertisi tarafından 6 farklı value döndürülebilir:
+*EvalError, eval() fonksiyonunda oluşan errordur.Fakat Javascript'in yeni sürümlerinde bunun yerine SyntaxError kullanılır.
+*RangeError, bir "out of range" sayı oluştuğundaki errordur.
+*ReferenceError, deklare edilmemiş veya illegal bir başvurunun errorudur.
+*SyntaxError, bir syntax errorudur.
+*TypeError, bir tür errorudur.
+*URIError, encodeURI() veya decodeURI() fonksiyonlarında oluşan errordur.
+->Syntaxı:
+-errorObj.name
+*****message = Bu property, bir error mesajı ayarlar veya döndürür.Syntaxı:
+-errorObj.message
+--------------------------------------------------------------------------------------------------------------------------
+*****GLOBAL:
+*****decodeURI() = Bu metod, bir URI'yı decode etmek yani çözmek için kullanılır.UTF-8 kodlamasına dönüştürülmüş URIları çözer ve valueyi döndürür.Syntax:
+-decodeURI(uri)
+*****decodeURIComponent() = Bu metod, bir URI componentini decode etmek yani çözmek için kullanılır.UTF-8 kodlamasına dönüştürülmüş URIları çözer ve valueyi döndürür.Syntaxı:
+-decodeURIComponent(uri)
+*****encodeURI() = Bu metod, bir URI'yı kodlamak yani şifrelemek için kullanılır.Textin içerisindeki özel karakterleri UTF-8 kodlamasına dönüştürerek yeni değer oluşturup döndürür.Syntaxı:
+-encodeURI(uri)
+*****encodeURIComponent() = Bu metod, bir URI componentini kodlamak yani şifrelemek için kullanılır.Textin içerisindeki özel karakterleri UTF-8 kodlamasına dönüştürerek yeni değer oluşturup döndürür.Syntaxı:
+-encodeURIComponent(uri)
+***decodeURIComponent metodu, decodeURI metodundan daha gelişmiştir ve daha fazla karakteri kapsayıp çözebilir.encodeURIComponent metodu, encodeURI metodundan daha gelişmiştir ve daha fazla karakteri kapsayıp çözebilir.
+*****eval() = Bu metod, bir argumenti hesaplar veya execute eder.Eğer argumenti bir expression ise bu metod, bu ifadeyi hesaplar.Eğer argumenti bir veya daha fazla statement ise bu metod, bu statementları execute eder.Güvenlik zaafiyeti yaratmaktadır ve kullanılması tavsiye edilmez!Syntaxı:
+-eval(string)
+*****Infinity = Pozitif sonsuzluğu temsil eden sayısal bir valuedir."-Infinity" ise negatif sonsuzluğu temsil eder.
+1.797693134862315E+308 sayınının fazlası "Infinity", -1.797693134862316E+308 sayısının azı ise "-Infinity" kabul edilir.
+*****isFinite() = Bu metod, bir valuenin sonlu yani legal bir sayı olup olmadığını belirtir.Sayı valuesi
+sadece +ınfinity, -ınfinity veya NaN ise "false" döndürülür.Aksi takdirde "true" döndürür.Syntaxı:
+-isFinite(value)
+***Global isFinite metodu, Number.isFinite metoduna kıyasla daha gevşektir.Global isFinite, test edilen değeri önce bir numbera dönüştürür ve ardından test eder; bu yüzden Number.isFinite fonksiyonundan farklıdır.Number.isFinite fonksiyonu değerleri numbera dönüştürmez ve number türünden olmayan herhangi bir değer için "true" dönmez.
+*****isNaN() = Bu metod, bir valuenin illegal bir sayı yani NaN olup olmadığını belirtir.Sayı değeri eğer NaN'a eşitse, "true" döndürülür.Aksi takdirde "false" döndürülür.Syntaxı:
+-isNan(value)
+***Global isNaN metodu, Number.isNaN metoduna kıyasla daha gevşektir.Global isNaN, test edilen değeri önce bir numbera dönüştürür ve ardından test eder; bu yüzden Number.isNaN fonksiyonundan farklıdır.Number.isNaN fonksiyonu değerleri numbera dönüştürmez ve number türünden olmayan herhangi bir değer için "true" dönmez.
+*****NaN = Bu property, "NaN" valuesini temsil eder.Bir sayının sayı olup olmadığını belirtir.Number.NaN propertisi ile birebir aynıdır.Syntax:
+-Number.NaN
+*****Number() = Bu metod, objectin argumentini objectin valuesini temsil eden bir sayıya dönüştürür.Eğer value, legal bir sayıya dönüştürülemezse de "NaN" döndürülür.Mesela Date objectlerinde, 1 Ocak 1970 ile belirlenen date arasındaki milisaniye miktarını döndürür.Syntaxı:
+-Number(object)
+*****parseFloat() = Bu metod, bir stringi ayrıştırır ve ondalıklı sayı halinde döndürür.Stringi parçalar ve decimal tabanda yeni bir ondalıklı sayı halinde döndürür.Belirtilen stringdeki ilk karakterin bir sayı olup olmadığını belirler.Eğer ilk karakter sayıysa, sayının sonuna gelene kadar stringi parçalar ve sayıyı number olarak döndürür.Sadece stringdeki ilk karakter döndürülür.Baştaki ve sondaki boşluklara izin verilir.İlk karakter bir sayıya dönüştürülemiyorsa "NaN" değerini döndürür.Syntaxı:
+-parseFloat(string)
+*****parseInt() = Bu metod, bir stringi ayrıştırır ve tamsayı halinde döndürür.Aldığı değer bir numbersa, herhangi parçalama yapmadan ondalık kısmını atarak sadece tamsayı haline getirir.Belirtilen stringdeki ilk karakterin bir sayı olup olmadığını belirler.Eğer ilk karakter sayıysa, sayının sonuna gelene kadar stringi parçalar ve sayıyı number olarak döndürür.Stringdeki yalnızca ilk sayıyı döndürür.Baştaki ve sondaki spacelere izin verilir.Eğer ilk karakter sayıya dönüştürülemiyorsa, "NaN" değeri döndürülür.Eğer aldığı sayı tabanı yani radix parametresi atlanılırsa Javascript, aşağıdakileri default olarak işler:
+*Eğer string, "Ox" ile başlıyorsa sayı tabanı 16dır(hexadecimal).
+*Eğer string, başka bir değerle başlıyorsa sayı tabanı 10dur(decimal).
+->Syntaxı:
+-parseInt(string,radix)
+*****String() = Bu metod, bir objectin valuesini bir stringe dönüştürür.Tekli objectlerde toString metodu ile aynı işleve sahiptir.Syntaxı:
+-String(object)
+*****undefined = Bir değişkenin bildirilmediğini veya bu değişkene herhangi bir değere atanmadığını belirtir. 
+--------------------------------------------------------------------------------------------------------------------------
+*****JSON:
+*****parse() = Bu metod, bir stringi ayrıştırır ve bir Javascript objecti döndürür.String, Javascript formatında yazılmalıdır.İsteğe bağlı olarak da oluşan sonucu, bir fonksiyonla dönüştürebilir.Bu fonksiyon, her item için birer kez çağrılacaktır.Syntaxı:
+-JSON.parse(string, function)
+*****stringify() = Bu metod, Javascript objectlerini stringe dönüştürür.Bir web serverına veri gönderirken verinin mutlaka string türünde olması gerekir.Syntaxı:
+-JSON.stringify(obj, replacer, space)
+--------------------------------------------------------------------------------------------------------------------------
+*****MATH:
+*****abs() = Bu metod, sayının mutlak değerini döndürür.Syntaxı:
+-Math.abs(x)
+*****acos() = Bu metod, bir sayının arccosinüsünü, 0 ile PI radyan arasında bir değeri olarak döndürür.Eğer kullanılan sayı, -1 ile 1 aralığının dışındaysa "NaN" değerini döndürür.Syntaxı:
+-Math.acos(x)
+***Math.acos(-1) değeri sonuç olarak "-1" döndürecektir.
+*****acosh() = Bu metod, sayının hiperbolik arccosinüsünü döndürür.Eğer sayı 1den küçükse "NaN" değeri döndürecektir.Syntaxı:
+-Math.acosh(x)
+*****asin() = Bu metod, sayının arcsinüsünü, -PI/2 ile PI/2 radyan arasında bir değer olarak döndürür.Eğer kullanılan sayı, -1 ile 1 aralığının dışındaysa "NaN" değerini döndürür.Mesela 1 sayısı, PI/2 değerini; -1 sayısı ise -PI/2 değerini döndürür.Syntaxı:
+-Math.asin(x)
+*****asinh() = Bu metod, sayının hiperbolik arcsinüsünü döndürür.Syntaxı:
+-Math.asinh(x)
+*****atan() = Bu metod, bir sayının arctanjantını -PI/2 ile PI/2 radyan bir değer olarak döndürür.Syntaxı:
+-Math.atan(x)
+*****atan2() = Bu metod, argumentlerinin bölümünün arctanjantını, PI ve -PI arasında sayısal bir değer olarak döndürür.Döndürülen sayı, pozitif X ekseni ile [x,y] noktası arasındaki radyan cinsinden[yani derece olarak değil] saat yönünün tersine açıyı temsil eder.İlk argument olarak "y" koordinatı, ikinci argument olaraksa "x" koordinatı iletilir.Syntaxı:
+-Math.atan2(y,x)
+*****atanh() = Bu metod, bir sayının hiperbolik arctanjantını döndürür.Eğer kullanılan sayı, 1den büyük veya -1den küçükse "NaN" değeri döndürecektir.Mesela sayı 1 ise "Infinity" döndürür; -1 ise "-Infinity" döndürür.Syntaxı:
+-Math.atanh(x)
+*****cbrt() = Bu metod, sayının küpkökünü döndürür.Syntaxı:
+-Math.cbrt(x)
+*****ceil() = Bu metod, sayıyı en yakın üst tam sayıya yuvarlar ve döndürür.Eğer sayı zaten tamsayı ise işlem yapılmaz.Syntaxı:
+-Math.ceil(x)
+*****clz32() = Bu metod, Count Leading Zeroes 32'nin kısaltmasıdır.Sayının 32 bitlik binary gösteriminde baştaki sıfırların sayısını döndürür.Syntaxı:
+-Math.clz32(x)
+*****cos() = Bu metod, sayının cosinüsünü döndürür.Açının cosinüsünü temsil eden -1 ile 1 arasında sayısal bir değer döndürür.Syntaxı:
+-Math.cos(x)
+*****cosh() = Bu metod, sayının hiperbolik cosinüsünü döndürür.Syntaxı:
+-Math.cosh(x)
+*****E = Bu property, Euler sayısını döndürür.Bu sayı aynı zamanda doğal logaritma tabanı olan yaklaşık 2.178 değeridir.Syntaxı:
+-Math.E
+*****exp() = Bu metod, E'nin Euler sayısını[yakşalık 2.718] ve aldığı x parametresinin kendisine Eˣ olarak iletildikten sonraki değerini döndürür.Syntaxı:
+-Math.exp(x)
+*****expm1() = Bu metod, Eˣ-1 değerini döndürür.Syntaxı:
+-Math.expm1(x)
+*****floor() = Bu metod, sayıyı altındaki en yakın tamsayıya yuvarlar ve sonucu döndürür.Syntaxı:
+-Math.floor(x)
+*****fround() = Bu metod, bir sayının en yakın[32 bitlik tek precisionlu] ondalıklı gösterimini döndürür.Syntaxı:
+-Math.fround(x)
+*****LN2 = Bu property, 2nin doğal logaritmasını yani yaklaşık 0.693'yi döndürür.Kısaca E tabanında log2dir.Syntaxı:
+-Math.LN2
+*****LN10 = Bu property, 10un doğal logaritmasını yani yaklaşık 2.302'yi döndürür.Kısaca E tabanında log10dur.Syntaxı:
+-Math.LN10
+*****log() = Bu metod, sayının E tabanındaki doğal logaritmasını döndürür.Syntaxı:
+-Math.log(x)
+*****log10() = Bu metod, sayının 10 tabanlı logaritmasını döndürür.Syntaxı:
+-Math.log10(x)
+*****log1p() = Bu metod, sayıyı +1 ile toplayıp doğal logaritmasını E tabanında döndürür.Syntaxı:
+-Math.log1p(x)
+*****log2() = Bu metod, sayının 2 tabanlı logaritmasını döndürür.Syntaxı:
+-Math.log2(x)
+*****LOG2E = Bu property, E sayısının 2 tabanlı logaritmasını döndürür(yaklaşık 1.442).Syntaxı:
+-Math.LOG2E
+*****LOG10E = Bu property, E sayısının 10 tabanlı logaritmasını döndürür(yaklaşık 0.434).Syntaxı:
+-Math.LOG10E
+*****max() = Bu metod, en yüksek değere sahip olan sayıyı döndürür.Syntaxı:
+-Math.max(n1, n2, n3, ..., nX)
+*****min() = Bu metod, en düşük değere sahip olan sayıyı döndürür.Syntaxı:
+-Math.min(n1, n2, n3, ..., nX)
+*****PI = Bu property, Dairenin çevresinin, dairenin çağına bölümüdür(yaklaşık 3.14).Syntaxı:
+-Math.PI
+*****pow() = Bu metod, 2 sayıyı parametre olarak alır.Aldığı y parametresini, xʸ olacak şekilde döndürür.Syntaxı:
+-Math.pow(x, y)
+*****random() = Bu metod, 0(inclusive) ile 1(exclusive) arasında rastgele sayı döndürür.Syntaxı:
+-Math.Random()
+*****round() = Bu metod, sayıyı en yakın tamsayıya yuvarlar.Mesela eğer elimizde 2.5 gibi sayılar varsa, üst tamsayıyı tercih eder ve 3 yapar.Syntaxı:
+-Math.round(x)
+*****sign() = Bu metod, sayının negatif veya pozitif olduğunu belirler ve ona göre sonuçlar döndürür.Sayı eğer pozitifse "1", eğer negatifse "-1", eğer 0 ise "0", eğer -0 ise "-0" ve eğer number türünde değilse "NaN" valuelerini döndürür.Syntaxı:
+-Math.sign(x)
+*****sin() = Bu metod, sayının sinüsünü -1 ile 1 arasında bir değer olarak döndürür.Syntaxı:
+-Math.sin(x)
+*****sqrt() = Bu metod, sayının kare kökünü alır.Syntaxı:
+-Math.sqrt(x)
+*****SQRT1_2 = Bu property, 1/2'nin karekökünü döndürür(yaklaşık 0.707).Syntaxı:
+-Math.SQRT1_2
+*****SQRT2 = Bu property, 2'nin karekökünü döndürür(yaklaşık 1.414).Syntaxı:
+-Math.SQRT2
+*****tan() = Bu metod, sayının tanjantını döndürür.Syntaxı:
+-Math.tan(x)
+*****tanh() = Bu metod, sayının hiperbolik tanjantını döndürür.Syntaxı:
+-Math.tanh(x)
+*****trunc() = Bu metod, bir sayının yalnızca tamsayı kısmını döndürür.Bu metod sayıyı aşağı veya yukarı asla yuvarlamaz!Sadece decimal kısımları kaldırır.Syntaxı:
+-Math.trunc(x)
+--------------------------------------------------------------------------------------------------------------------------
+*****NUMBER:
+*****constructor = Bu property, Number prototipini oluşturan fonksiyonu döndürür.Javascript numberları için constructor propertisi şu fonksiyonu döndürür: function Number() { [native code] }.Syntaxı:
+-Number.constructor
+*****isFinite() = Bu metod, bir valuenin sonlu bir sayı olup olmadığını belirtir.Eğer value, number türündeyse ve sonlu bir sayıysa "true"; aksi takdirde "false" döndürür.Global isNaN metoduna kıyasla daha katıdır.Syntaxı:
+-Number.isFinite(value)
+*****isInteger() = Bu metod, bir valuenin tamsayı olup olmadığını belirtir.Eğer value, number türündeyse ve bir tamsayı yani ondalıksız sayı ise "true"; aksi takdirde "false" döndüdür.Syntaxı:
+-Number.isInteger(value)
+*****isNaN() = Bu metod, bir valuenin NaN olup olmadığını belirtir.Eğer value, number türündeyse ve NaN ise "true"; aksi takdirde "false" döndürür.Global isNaN metoduna kıyasla daha katıdır.Syntaxı:
+-Number.isNaN(value)
+*****isSafeInteger() = Bu metod, bir valuenin güvenli tamsayı olup olmadığını belirtir.Eğer value, number türündeyse ve güvenli tamsayı ise "true"; aksi takdirde "false" döndürür.Bir güvenli tamsayı, tam olarak bir IEEE-754 çift precisionlu sayı olarak temsil edilebilen [2⁵³-1] ile -[2⁵³-1] arasında tüm sayılardır.Syntaxı:
+-Number.isSafeInteger(value)
+*****MAX_VALUE = Bu property, Javascriptte mümkün olan en büyük sayıyı döndürür.Bu static özelliğin değeri: 
+1.7976931348623157e+308.MAX_VALUE sayısından büyük sayılar "Infinity" olarak tanımlanır.Syntaxı:
+-Number.MAX_VALUE
+*****MIN_VALUE = Bu property, Javascriptte mümkün olan en büyük sayıyı döndürür.Bu static özelliğin değeri: 5e-324.MIN_VALUE sayısından küçük sayılar "0" olarak tanımlanır çünkü 0'a en yakın olan pozitif sayı olarak kabul edilir.Syntaxı:
+-Number.MIN_VALUE
+*****NEGATIVE_INFINITY = Bu property, negatif sonsuzluğu temsil eder.Tüm sayılardan daha küçük olarak kabul edilir.Syntaxı:
+-Number.NEGATIVE_INFINITY;
+*****NaN = Bu property,  "NaN" valuesini temsil eder.Bir sayının sayı olup olmadığını belirtir.Math.NaN propertisi ile birebir aynıdır.Syntaxı:
+-Number.NaN
+*****POSITIVE_INFINITY = Bu property, pozitif sonsuzluğu temsil eder.Tüm sayılardan daha büyük olarak kabul edilir.Syntaxı:
+-Number.POSITIVE_INFINITY;
+*****prototype = Tüm javascript numberları için kullanılabilen genel bir constructordur.Global olan Number() objectine başvurur.Numberlara yeni propertiler ve metodlar eklememizi sağlar.Yeni bir properti oluştururken, "TÜM" numberlar bu propertiyi ve valuesini alır.Yeni bir metod oluştururken, "TÜM" numberlar bu metodu alır.Syntaxı:
+-Number.prototype.name = value
+*****toExponential() = Bu metod, bir sayıyı önce yuvarlayarak üstel gösterim kullanılarak yazar ve string olarak döndürür.Syntaxı:
+-number.toExponential(x)
+*****toFixed() = Bu metod, bir sayıyı önce yuvarlayarak belirli miktarda ondalık kısım ile yazılmış bir string olarak döndürür.Syntaxı:
+-number.toFixed(x)
+*****toLocaleString() = Bu metod, local dil formatını kullanarak sayıyı bir stringe dönüştürür.Default dil ayarı, bilgisayarlardaki local ayarlara bağlıdır.Syntaxı:
+-number.toLocaleString(locales, options)
+*****toPrecision() = Bu metod, bir sayıyı belirli uzunlukta yazılmış bir string olarak döndürür.Syntaxı:
+-number.toPrecision(x)
+*****toString() = Bu metod, bir sayıyı stringe dönüştürür.Syntaxı:
+-number.toString(radix)
+*****valueOf() = Bu metod, bir sayının primitive değerini döndürür.Syntaxı:
+-number.valueOf()
+--------------------------------------------------------------------------------------------------------------------------
+*****RegExp:
+*****constructor = Bir object için constructor fonksiyonunu döndürür.Dönüş valuesi, fonksiyonun adına bir başvuru değil de fonksiyonun kendisine başvurudur.Javascript RegExpleri için constructor propertisinin döndürdüğü değer: 
+function RegExp() { [native code] }.Syntaxı:
+-RegExpObject.constructor
+*****exec() = Bu metod, bir stringdeki eşleşmeyi test eder.Eğer eşleşirse, eşleştiği valueyi array halinde döndürür; aksi takdirde "null" döndürür.Syntaxı:
+-RegExpObject.exec(string)
+*****g = Bu modifier, global eşleşmeler için kullanılır.İlk eşleşmeden sonra durmak yerine tüm eşleşmeleri sağlayana kadar devam eder.Syntaxı:
+-/regexp/g
+*****global = Bu property, "g" modifierinin bulunup bulunmadığını test eder.Booleandır.Syntaxı:
+-RegExpObject.global
+*****i = Bu modifier, büyük-küçük harfe duyarsız eşleşmeler yapmak için kullanılır.Syntaxı:
+-/regexp/i
+*****ignoreCase = Bu property, "i" modifierinin bulunup bulunmadığını test eder.Booleandır.Syntaxı:
+-RegExpObject.ignoreCase
+*****lastIndex = Bu property, eşleşme sağlanmasının ardından sonraki eşleşmenin başlatılacağı indexi[index+1] belirtir.Yalnızca "g" modifieri mevcutsa çalışır.Ayrıca exec() ve test() metodları tarafından bulunan son eşleşmeden hemen sonra karakterin indexini belirten bir tamsayı döndürür.Eğer bu metodları, eşleşme olmadığı durumlarda lastIndex'i 0a resetler.Syntaxı:
+-RegExpObject.lastIndex
+*****m = Bu property, çok satırlı eşleşmeler yapmak için kullanılır.Syntaxı:
+-/regexp/m
+*****multiline = Bu property, "m" modifierinin bulunup bulunmadığını test eder.Booleandır.Syntaxı:
+-RegExpObject.multiline
+*****n+  = Aradığı değerin "+" işaretinden bir önceki karakteri, aradığı string içerisinde; bir veya daha fazla kere tekrar etmiş olmalıdır.Mesela "/js+/g": "js","jss","jsss","jssss"...Syntaxı:
+-/n+/
+*****n* = Aradığı değerin "*" işaretinden bir önceki karakteri, aradığı string içerisinde; sıfır veya daha fazla kere tekrar etmiş olmalıdır.Mesela "/js*": "j","js","jss","jsss"...Syntaxı:
+-/n*/
+*****n? = Aradığı değerin "?" işaretinden bir önceki karakteri, aradığı string içerisinde; sıfır veya bir kere tekrar etmiş olmalıdır.Mesela "/js?/g": "j","js","js","js"...Syntaxı:
+-/n?/
+*****n{X} = Aradığı değer, arama yaptığı stringin içerisinde; parantez içerisinde belirtilen miktar kadar tekrar edebiliyo olmalıdır.
+Mesela "/ja{1}/g": "ja","jaja","jajaja","jajajaja".Mesela "/ja{2}/g": "jaja","jajaja","jajajaja","jajajajaja".Syntaxı:
+-/n{X}/ 
+*****n{X,Y} = Aradığı değer, arama yaptığı stringin içerisinde; parantez içerisinde belirtilen miktarlar arasındaki kadar tekrar edebiliyo olmalıdır.En yüksek tekrara sahip değeri tercih eder.
+Mesela "ja{1,3}": "ja","jaja","jajaja","jajajava".Mesela "/ja{2,4}/g": "jaja","jajaja","jajajaja","jajajajava".Syntaxı:
+-/n{X,Y}/
+*****n{X,} = Aradığı değer, arama yaptığı stringin içerisinde; parantez içerisinde belirtilen miktar veya daha fazlası kadar tekrar edebiliyo olmalıdır.En yüksek tekrara sahip değeri tercih eder.
+Mesela "ja{1,}": "ja","jaja","jajaja","jajajaja".Mesela "/ja{2}/g": "jaja","jajaja","jajajaja","jajajajaja".Syntaxı:
+-/n{X,}/
+*****n$ = Aradığı değer, arama yaptığı stringin içerisindeki eşleşmesinin(stringde eşleşen kelimenin) bitiş değeri olmalıdır.Mesela "/script/g": "script","ascript","vascript","avascript"...Syntaxı:
+-/n$/
+*****^n = Aradığı değer, arama yaptığı stringin(tüm stringin) başlangıç değeri olmalıdır.
+Mesela "/java/g": "java script","javas cript","javasc ript","javascr ipt"...Syntaxı:
+-/^n/
+*****?=n = Aradığı değer, arama yaptığı stringin içerisindeki belirlenen referans valuesinin hemen öncesinde bulunmak zorundadır.Mesela "/java(?=sc)/": "javasc","javascr","javascri","javascrip"...Syntaxı:
+-/regexp(?=n)/
+*****?!n = Aradığı değer, arama yaptığı stringin içerisindeki belirlenen referans valuesinin hemen öncesinde bulunmamak zorundadır.Mesela "/java(?=sc)": "java sc","java scr","javacr" "javacri"...Syntaxı:
+-/regexp(?!=n)/
+*****source = Bu property, RegExp patterninin textini string olarak döndürür.Syntaxı:
+-RegExpObject.source
+*****test() = Bu metod, bir stringdeki eşleşmeyi test eder.Eğer eşleşmeyi bulursa "true"; aksi takdirde "false" döner.Syntaxı:
+-RegExpObject.test(string)
+*****toString() = Bu metod, regular expressionun string valuesini döndürür.Syntaxı:
+-RegExpObject.toString()
+*****[abcç...xyz] = Aradığı değer, parantez içerisinde belirtilen karakter kümesinden herhangi birisi veya birkaçıdır.
+Mesela "/jav/g": "j","a","v","ja","av","jav"...Syntaxı:
+-/[abcç...xyz]/
+*****[a-z] = Aradığı değer, küçük a harfinden küçük z harfine kadar olan karakter kümesinden herhangi birisi veya birkaçıdır.Syntaxı:
+-/[a-z]/
+*****[0-9] = Aradığı değer, 0dan 9a kadar olan sayı kümesinden herhangi birisi veya birkaçıdır.Syntaxı:
+-/[0-9]/
+*****[^abcç...xyz] = Aradığı değer, parantez içerisinde belirtilen karakter kümesinden hiçbiri olmamalıdır.Syntaxı:
+-/[^abcç...xyz]/
+*****[^a-z] = Aradığı değer, küçük a harfinden küçük z harfine kadar olan harfler kümesinden hiçbiri olmamalıdır.Syntaxı:
+-/[^a-z]/
+*****[^0-9] = Aradığı değer, 0dan 9a kadar olan sayı kümesinden hiçbiri olmamalıdır.Syntaxı:
+-/[^0-9]/
+*****(x|y) = Grup tanımlamak için kullanılır.Grup içerisinde belirtilen alternatiflerden herhangi birisini bulma imkanı sağlar.Alternatif ifadeler herhangi bir karakter olabilir.
+Mesela "/(j)(a)(v)(a)/g": "j","a","v","a"...Mesela "/(j)(a)(v)(a)/": "java","j","a","v","a"...Ayrıca "g" modifieri, bu propertinin kullanımını farklılaştırır.Syntaxı:
+-/(x|y)/
+*****. = Aradığı değer, yeni satır karakteri(\n) veya diğer satır sonlandırıcılar haricinde kalan tüm karakterlerdir.
+Mesela "/j.v./": "juve","javascript","jsvascript","javdscript"...Syntaxı:
+-/regexp./
+*****\w = Aradığı değer: harf, rakam veya alt çizgi(_) değerlerinden birisi olmalıdır.Syntaxı:
+-/\w/
+*****\W = Aradığı değer: harf, rakam veya alt çizgi(_) haricinde kalanlar olmalıdır.Syntaxı:
+-/\W/
+*****\d = Aradığı değer, sadece rakamlar olmalıdır.Syntaxı:
+-/\d/
+*****\D = Aradığı değer, rakamlar haricinde kalanlar olmalıdır.Syntaxı:
+-/\D/
+*****\s = Aradığı değer, boşluk karakteri(whitespace) olmalıdır.Syntaxı:
+/\s/
+*****\S = Aradığı değer, boşluk karakteri hariç, kalanlar olmalıdır.Syntaxı:
+-/\S/
+*****\b = Aradığı değer, aradığı string içerisindeki eşleşen kelimenin ya başında ya da sonunda olmalıdır.
+Mesela "/va/g": "ava","java","vas","vascript"...Syntaxı:
+-/\b/
+*****\B = Aradığı değer, aradığı string içerisindeki eşleşen kelimenin ne başında ne sonunda; sadece ortasında olmalıdır.Mesela "/va/g": "avas","javas","avasc","javasc"...Syntaxı:
+-/\B/
+*****\0 = Aradığı değer, sadece null karakteri(\0) olmalıdır.Syntaxı:
+-/\0/
+*****\n = Aradığı değer, sadece yeni satır karakteri(\n) olmalıdır.Syntaxı:
+-/\n/
+*****\f = Aradığı değer, sadece form besleme karakteri(\f) olmalıdır.Syntaxı:
+-/\f/
+*****\r = Aradığı değer, sadece paragraf sonu karakteri olmalıdır.Syntaxı:
+-/\r/
+*****\t = Aradığı değer, sadece yatay sekme(tab) karakteri(\t) olmalıdır.Syntaxı:
+-/\t/
+*****\v = Aradığı değer, sadece dikey sekme(tab) karakteri(\v) olmalıdır.Syntaxı:
+-/\v/
+*****\xxx = Aradığı değer, sadece octal sayı tabanında ASCII karşılığı olan karakter olmalıdır.Yazılan (xxx) değerleri, karakterlerin sekizlik tabandaki karşılığıdır.Değer aralığı : \000 - \377.Syntaxı:
+-/\xxx/ 
+*****\xdd = Aradığı değer, sadece hexadecimal sayı tabanında ASCII karşılığı olan karakter olmalıdır.Yazılan (xXX) değerleri, karakterlerin onaltılık tabandaki karşılığıdır.Değer aralığı : \x00 - \xFF.
+*****\uxxxx = Aradığı değer, sadece 16 bitlik UNICODE formatındaki karşılığına gelen karakterler olmalıdır.Yazılan (XXXX) değerleri, karakterlerin UNICODE formatındaki karşılığıdır.Değer aralığı: \u0000 - \uFFFF.
+--------------------------------------------------------------------------------------------------------------------------
+*****STATEMENTS: 
+*****break = Bu statement, bir switch statementından veya bir loopdan çıkar.Switch ile kullanılırsa, sadece bulunduğu switch bloğundan çıkar.Böylece mevcut blok çalışmaya devam etmez.Bir loop ile kullanılırsa, loopu keser ve çıkar; loopdan sonraki kodlar varsa da onları okumaya devam eder.Bir "label" referansı olmadan "break", sadece switch veya loop içerisinde kullanılabilir.Syntaxı:
+-break;
+-break labelName;
+*****class = Bu statement, bir fonksiyon türüdür ancak classı başlatmak için "function" keywordu kullanmak yerine "class" keywordunu kullanırız ve içerisinde propertileri için de "constructor" metodunu çağırırız.İçerisinde bulunan constructor metodu, class objecti her initialize edildiğinde çağrılır.Fonksiyonlardan ve diğer Javascript deklarelerinden farklı olarak "class" deklerasyonları, hoisting edilmez.O yüzden classları kullanmadan önce deklare edilmeleri gerekir.Syntaxı:
+-class className {
+    // class body
+ }
+*****continue = Bu statement, belirtilen koşul oluştuğu zaman tek bir iterationı(lopp içerisindeki) keser ve devamında loopdaki bir sonraki iterationı okumaya devam eder.Sadece loopların içerisinde kullanılabilir.Labellarla kullanılabilir.Farklı looplar için farklı davranışları olabilir:
+*Bir "while" loopunda önce koşul test edilir.Eğer sonuç "true" ise loop, tekrar execute edilir.
+*Bir "for" loopunda önce increment statement(mesela i++,++i,..) hesaplanır.Ardından başka iterationların yapılıp yapılmayacağını belirlemek için koşul test edilir.
+->Syntaxı:
+-continue;
+-continue labelName;
+***"continue" ile "break" arasındaki fark şudur: "break", tüm loopdan çıkar; "continue" ise sadece loopun tek bir iterationından çıkar ve eğer loopun devamı varsa çalıştırmaya devam eder.
+*****debugger = Bu statement, Javascriptin execute edilmesini durdurur ve eğer mevcutsa, debugging fonksiyonunu çağırır.Kod blokları içerisine bir nevi breakpointler atayabiliriz.Normalde debuggingi browserdan F12 ile konsolu seçerek aktif edebiliriz.Zaten eğer tarayıcıda debugging mevcut değilse, "debugger" statementı bir işe yaramaz.Syntaxı:
+-debugger;
+*****do...while = Bu statement, koşulun doğru olup olmadığını kontrol etmeden önce kod bloğunu bir kez execute eden bir loop oluşturur.Ardından da koşul doğru olduğu sürece loop, execute etmeye devam eder.Eğer koşul daima yanlışsa bile baştaki kod bloğu, en az bir kez execute edilecektir.Syntaxı:
+do {
+    code block to be executed
+  }
+  while (condition);
+*****for = Bu statement, bir koşul doğru olduğu sürece execute edilen bir loop oluşturur.Koşul doğru olduğu sürece de çalışmaya devam eder; ta ki yanlış olana dek.Syntaxı:
+for (statement 1; statement 2; statement 3) {
+    code block to be executed
+  }
+*****for...in = Bu statement, bir objectin propertileri arasında dolaşır.Loopun içerisindeki ko bloğu, her property için birer kez yürütülür.Bu loopu, index sırası önemli olan arrayler için kullanmayın; bunun yerine "for" kullanın.Syntaxı:
+-for (var in object) {
+  code block to be executed
+}
+*****for...of = Bu statement, iterable bir objectin valueleri arasında dolaşır.Syntaxı:
+-for (variable of iterable) {
+  code block to be executed
+}
+*****function = Bu statement, bir fonksiyonu deklare eder.Deklare edilen fonksiyonlar, daha sonra kullanılmak üzere kaydedilir ve daha sonra çağrıldıklarında da execute edilir.Javascriptte fonksiyonlar, objecttirler ve hem propertilere hem de methodlara sahiptirler.Fonksiyonlarda value döndürebilmek için "return" kullanmalıyız.Syntaxı:
+-function functionName(parameters) {
+  code to be executed
+}
+*****if...else = Bu statement, belirtilen koşul doğru olduğu takdirde bir kod bloğunu execute eder.Koşul yanlışsa bile başka bir kod bloğunu execute edebilir.Farklı koşullara dayalı olarak farklı eylemler gerçekleştirebilen bir koşullu ifadedir.Syntaxı:
+-if (condition1) {
+  // block of code to be executed if condition1 is true
+} else if (condition2) {
+  // block of code to be executed if the condition1 is false and condition2 is true
+} else {
+  // block of code to be executed if the condition1 is false and condition2 is false
+}
+*****return = Bu statement, bir fonksiyonun execute edilmesini durdurur ve bu fonksiyondan bir value döndürebilir.Syntaxı:
+-return value;
+*****switch = Bu statement, farklı koşullara bağlı olarak farklı kod blokları execute eder.Birçok kod bloğundan birisini seçmek için kullanılır.Öncelikle bir statementı hesaplar.Bu statementın valuesi, daha sonra yapıdaki her bir "case"in valueleriyle karşılaştırılır.Eğer eşleşme varsa, ilgili "case"deki kod bloğunu execute eder.Genellikle "break" ve "default" keyworleriyle kullanılır:
+*break, bulunduğu "switch" bloğunu execute etmeyi durdurur ve kod bloğundan çıkar.Eğer "break" eklenmezse, "switch" içerisindeki bir sonraki kod bloğu execute edilecektir.
+*default, eğer herhangi bir "case" eşleşmesi olmazsa, çalıştırılacak bazı kodları belirtir."switch" içerisinde yalnızca bir adet "default" bulunabilir.
+->Syntaxı:
+switch(expression) {
+  case n:
+    code block
+    break;
+  case n:
+    code block
+    break;
+  default:
+    default code block
+}
+*****throw = Bu statement, bir error oluşturur.Bir error oluştuğunda, normalde javascript durur ve bir error mesajı oluşturur.Yani teknik olarak "Javascript, "throws" an error".Kısaca "throw" statementı, özel bir error oluşturmamıza imkan sağlar.İstisnai(özel) errorlar bir string, bir number, bir boolean veya bir object olabilir."catch" statementı ile beraber kullanılması daha doğrudur.Syntaxı:
+-throw expression;
+*****try...catch = Bu statement, kod bloğu çalışırken oluşabilecek errorların bir kısmını veya tamamını işler.Errorlar mesela programcı tarafından yapılan yazım hataları, yanlış kullanıcı inputu, vs olabilir."try" statementı, kodlar execute edilirken errorlara karşı test edilecek bir kod bloğu tanımlamamıza imkan sağlar."catch" statementı, "try" bloğu içerisinde bir error oluştuğunda execute edilecek bir kod bloğu oluşturmamıza imkan sağlar."finally" statementı, sonuçlardan bağımsız olarak işlemlerin en sonunda mutlak olarak execute edilecek bir kod bloğudur.Syntaxı:
+-try {
+  tryCode - Block of code to try
+}
+catch(error) {
+  catchCode - Block of code to handle errors
+}
+finally {
+  finallyCode - Block of code to be executed regardless of the try / catch result
+}
+*****var = Bu statement, bir değişken deklare eder.Değişkenler, bilgi depolamak için kullanılan containerlardır.Bir değişkeni oluşturduktan sonra aslında o değişken boştur yani bir valuesi yoktur.Ardından bir value ataması yaparız.Syntaxı:
+-var varname = value;
+*****while = Bu statement, belirtilen bir koşul doğruyken execute edilen bir loop oluşturur.Koşul doğru olduğu sürece loop, çalışmaya devam edecektir.Yalnızca koşul yanlış olduğunda duracaktır."break" veya "continue" statementlarıyla beraber kullanılabilir.Syntaxı:
+-while (condition) {
+  code block to be executed
+}
+--------------------------------------------------------------------------------------------------------------------------
+*****STRİNG:
+*****charAt() = Bu metod, bir stringde belirtilen indexteki karakteri döndürür.Stringin son karakterini 
+"string.length -1" şeklinde kısaca görüntüleyebiliriz.Syntaxı:
+-string.charAt(index)
+*****charCodeAt() = Bu metod, bir stringde belirtilen indexteki karakterin UNICODE değerini döndürür.Syntaxı:
+-string.charCodeAt(index)
+*****concat() = Bu metod, iki veya daha fazla stringi birleştirir.Mevcut stringleri değiştirmez; yeni bir string olarak döndürür.Syntaxı:
+-string.concat(string1, string2, ..., stringX)
+*****constructor = Bu property, String prototipini oluşturan fonksiyonu döndürür.Javascript stringleri için constructor, şunu döndürür: function String() { [native code] }.Syntaxı:
+-string.constructor 
+*****endsWith() = Bu metod eğer bir string, belirtilen stringle bitmekteyse "true"; aksi takdirde "false" döndürecektir.Case-sensitive bir metoddur.Syntaxı:
+-string.endsWith(searchvalue, length)
+*****fromCharCode() = Bu metod, UNICODE değerlerini karakterlere dönüştürür.
+String objectinin bir static metodudur ve syntaxı herzaman String.fromCharCode() şeklindedir.Syntaxı:
+-String.fromCharCode(n1, n2, ..., nX)
+*****includes() = Bu metod eğer bir string içerisinde, belirtilen string mevcutsa "true"; aksi takdirde "false" döndürecektir.Case-sensitive bir metoddur.Syntaxı:
+-string.includes(searchvalue, start)
+*****indexOf() = Bu metod bir string içerisinde, belirtilen valuenin ilk oluşumunun indexini döndürür.Eğer bulamazsa da "-1" değerini döndürür.Case-sensitive bir metoddur.Syntaxı:
+-string.indexOf(searchvalue, start)
+*****lastIndexOf() = Bu metod bir string içerisinde, belirtilen bir valuenin son oluşumunun indexini döndürür.Stringi sondan başa doğru arar fakat indexi başlangıç konumuna göre döndürür.Eğer item birden fazla kere mevcutsa, son bulduğunun indexini döndürür.Syntaxı:
+-array.lastIndexOf(item, start)
+*****length = Bu property, bir stringin lengthini belirtir.Boş bir stringin lengthi 0dır.Syntaxı:
+-string.length
+*****localeCompare() = Bu metod, mevcut local ayardaki iki stringi karşılaştırır.Local ayarlar, tarayıcının dil ayarlarına bağlıdır.3 farklı durumda farklı valueler alır:
+*Ana string, diğerinden önce alfabetik sıraya sahipse "-1" değeri,
+*İki string de eşit sıradaysa "0" değeri,
+*Ana string, diğerinden sonra alfabetik sıraya sahipse de "1" değeri döndürülür.
+->Syntaxı:
+-string.localeCompare(compareString)
+*****match() = Bu metod, bir regular expressionla beraber eşleşme sağlamak için bir string arar ve eşleşmeleri array halinde döndürür.Eğer "g" modifieri kullanılmazsa, sadece ilk eşleşmeyi döndürür.Eğer eşleşme bulamazsa "null" döndürür.Syntaxı:
+-string.match(regexp)
+*****prototype = Bu property, tüm javascript objectleri için kullanılabilen genel bir constructordur.Mevcut objectlere yeni propertiler ve metodlar eklememizi sağlar.Syntaxı:
+-object.prototype.name = value
+*****repeat() = Bu metod, çağrıldığı stringin belirtilen sayıda kopyasıyla yeni bir string döndürür.Syntaxı:
+-string.repeat(count)
+*****replace() = Bu metod, belirtilen bir value veya regular expression için bir string arar ve belirtilen valuelerin yerlerinin değiştirildiği yeni bir string döndürür.Eğer tüm eşleşmelere uygulamak istersek "g" modifieri kullanırız.Orjinal stringi değiştirmez.Syntaxı:
+-string.replace(searchvalue, newvalue)
+*****search() = Bu metod, belirtilen bir value veya regular expression için bir string arar ve eşleşmenin indexini döndürür.Eğer eşleşme olmazsa "-1" döndürür.Syntaxı:
+-string.search(searchvalue)
+*****slice() = Bu metod, bir stringin parçalarını çıkartır ve çıkartılan parçaları da yeni bir string olarak döndürür.Başlangıç ve bitiş valueleri sayesinde çıkarılacak kısmı belirtiriz.Negatif valueler kullanılarak da sondan başa doğru seçim yapılabilir.Syntaxı:
+-string.slice(start,end)
+*****split() = Bu metod, bir stringi arraylar halinde substringlere böler ve yeni arrayler olarak da döndürür.Eğer seperator olarak boş bir string yani "" kullanılırsa, her bir karakteri böler.Eğer hiçbir parametresi kullanılmazsa, stringi olduğu gibi çeker ve array olarak döndürür.Orjinal stringi değiştirmez.Syntaxı:
+-string.split(separator, limit)
+*****startsWith() = Bu metod eğer bir string, belirtilen stringle başlıyorsa "true"; aksi takdirde "false" döndürür.Case-sensitive metoddur.Syntaxı:
+-string.startsWith(searchvalue, start)
+*****substr() = Bu metod, bir stringin belirli bir indexindeki karakterden başlayarak bölümlerini çıkartır ve belirtilen miktarda karakterini döndürür.Negatif value kullanılırsa, çıkartmaya stringin sonundan başlayacaktır.Orjinal arrayi değiştirmez.Syntaxı:
+-string.substr(start, length)
+*****substring() = Bu metod, bir stringdeki belirlenen indexler arasındaki karakterleri çıkartır ve substring olarak döndürür.Başlangıç valuesi included, bitiş valuesi değildir.Başlangıç valuesi, bitiş valuesinden küçük olabilir; yer değiştirerek hesaplar.Orjinal stringi değiştirmez.Syntaxı:
+-string.substring(start, end)
+*****toLocaleLowerCase() = Bu metod, hostun geçerli local ayarına göre bir stringi küçük harflere dönüştürür.Local ayarlar, browserın dil ayarlarına bağlıdır.Türkçe gibi transformlarda problem yaratabilecek dillerde bu metod tercih edilmelidir.Orjinal stringi değiştirmez.Syntaxı:
+-string.toLocaleLowerCase()
+*****toLocaleUpperCase() = Bu metod, hostun geçerli local ayarına göre bir stringi büyük harflere dönüştürür.Local ayarlar, browserın dil ayarlarına bağlıdır.Türkçe gibi transformlarda problem yaratabilecek dillerde bu metod tercih edilmelidir.Orjinal stringi değiştirmez.Syntaxı:
+-string.toLocaleUpperCase()
+*****toLowerCase() = Bu metod, bir stringi küçük harflere dönüştürür.Orjinal stringi değiştirmez.Syntaxı:
+-string.toLowerCase()
+*****toString() = Bu metod, bir stringin valuesini döndürür.Syntaxı:
+-string.toString()
+*****toUpperCase() = Bu metod, bir stringi büyük harflere dönüştürür.Orjinal stringi değiştirmez.Syntaxı:
+-string.toUpperCase()
+*****trim() = Bu metod, bir stringin hem sağındaki hem de solundaki white spaceleri kaldırır.Orjinal stringi değiştirmez.Syntaxı:
+-string.trim()
+*****valueOf() = Bu metod, bir stringin valuesini döndürür.Syntaxı:
+-string.valueOf()
+--------------------------------------------------------------------------------------------------------------------------
+*****DOM ATTRIBUTES:
+*****getNamedItem() = Bu metod, bir NamedNodeMap objectinden belirtilen name'e sahip attribute nodeunu döndürür.Syntaxı:
+-namednodemap.getNamedItem(nodename)
+*****item() = Bu metod, bir NamedNodeMap içerisindeki belirtilen indexteki nodeu, bir Node objecti olarak döndürür.Nodelar, source kodda göründükleri gibi sıralanır.Syntaxı:
+-namednodemap.item(index)
+-namednodemap[index]
+*****length = Bu property, NamedNodeMap objectindeki node sayısını döndürür.Bir Node objectinin attributeleri, NamedNodeMap objectinin bir örneğidir.Read-only bir propertidir.Syntaxı:
+-namednodemap.length
+*****name = Bu property, attributeun ismini döndüdür.Read-only bir propertidir.Syntaxı:
+-attribute.name
+*****removeNamedItem() = Bu metod, NamedNodeMap objectinde belirtilen name'e sahip nodeu kaldırır.Syntaxı:
+-namednodemap.removeNamedItem(nodename)
+*****setNamedItem() = Bu metod, belirtilen nodeu, NamedNodeMap'e ekleyecektir.Eğer belirtilen node zaten mevcutsa değiştirilir ve değiştirilen yeni node, döndürülen value olacaktır.Aksi takdirde döndürülen value "null" olur.Syntaxı:
+-namednodemap.setNamedItem(node) 
+*****specified = Bu property, eğer attribute belirtilirse "true" döndürür.Eğer attribute oluşturulmuş fakat henüz elemente eklenmemişse de yine "true" döndürür.Aksi takdirde "error" döndürür.Syntaxı:
+-attribute.specified
+*****value = Bu property, attributeun valuesini döndürür veya ayarlar.Syntaxı:
+-attribute.value
+--------------------------------------------------------------------------------------------------------------------------
+*****DOM DOCUMENT:
+*****activeElement = Bu property, documentteki o esnada focuslanan elementi döndürür.Read-only bir propertydir.Syntaxı:
+-document.activeElement
+*****addEventListener() = Bu metod, documente bir event handler ekler.Syntaxı:
+-document.addEventListener(event, function, useCapture)
+*****adoptNode() = Bu metod, başka bir documentten bir nodeu evlat[child] edinir.Her türden node evlat edinilebilir.Ayrıyetten evlat edilen nodeun tüm childları da evlat edinilir.Orjinal node ve eğer varsa childları, diğer documentten kaldırılır.Syntaxı:
+-document.adoptNode(node)
+***"adoptNode" ile "importNode" arasındaki fark şudur: "importNode" ile parametreyi ayarlayarak nodeun childlarını da kapsayıp kapsamayacağını ayarlayabiliriz fakat "adoptNode" ile tüm childları evlat edinmek zorundayız.
+*****body = Bu property, documentin bodysini ayarlar veya döndürür."return" için, mevcut belgenin <body> elementini döndürür.
+"set" içinse, mevcut <body> elementinin içerisindeki tüm childların üzerine yazar ve onu, belirtilen yeni içerikle değiştirir.Syntaxı:
+-document.body
+-document.body = newContent
+*****close() = Bu metod, daha öncesinde 'document.open()' metoduyla açılan stream outputunu kapatır ve bu süreçte toplanan verileri görüntüler.Syntaxı:
+-document.close()
+*****cookie = Bu property, mevcut belgedeki cookielerin tüm name/value çiftlerini ayarlar ve döndürür.Syntaxı:
+-document.cookie
+-document.cookie = newCookie
+*****characterSet = Bu property, document için karakter encodingi(kodlaması) döndürür.Documenti oluşturmak için kullanılan ve sayfada belirtilen kodlamadan farklı olabilen karakter setidir.Sayfanın parsingi esnasında karakter kodlamasını döndürür ve eğer document, bellekte oluşturulmuşsa "null" valuesini döndürür.Syntaxı:
+-document.characterSet
+*****createAttribute() = Bu metod, belirtilen "name"e sahip bir attribute oluşturur ve oluşturduğu attributeu, bir Arr objecti olarak döndürür.Syntaxı:
+-document.createAttribute(attributename)
+*****createComment() = Bu metod, belirtilen textle bir Comment Nodeu oluşturur.Syntaxı:
+-document.createComment(text)
+*****createDocumentFragment() = Bu metod, Node objectinin tüm properti ve metodlarıyla beraber hayali bir Node objecti oluşturur.Documentin bölümlerini çıkartmak, içeriğin bir kısmını değiştirmek, eklemek, silmek veya belgeye geri eklemek gibi işlemlerde kullanışlıdır.Bu değişiklikleri gerçekleştirmek için documentin Document objectini de kullanabiliriz ancak documentin yapısının bozulmasını önlemek için, documentin yalnızca bölümlerini çıkartmak, değişiklikleri yapmak veya belgeye geri eklemek çok daha güvenli olabilir.Documentin içerisinden documentin parçasına eklenen nodelar, documentten kaldırılacaktır.Syntaxı:
+-document.createDocumentFragment()
+*****createElement() = Bu metod, belirtilen "name"e sahip bir Element Nodeu oluşturur.Syntaxı:
+-document.createElement(nodename)
+*****createEvent() = Bu metod, bir event objecti oluşturur.Event, herhangi bir legal event türünde olabilir ve kullanmadan önce initialize edilmelidir.Syntaxı:
+-document.createEvent(type)
+*****createTextNode() = Bu metod, belirtilen textle bir Text Nodeu oluşturur.Syntaxı:
+-document.createTextNode(text)
+*****defaultView = Bu property, documentin Window objectini döndürür.Syntaxı:
+-document.defaultView
+*****designMode = Bu property, documentin editable olup olmadığını döndürür veya ayarlar.Syntaxı:
+-document.designMode
+-document.designMode = "on|off"
+*****doctype = Bu property, HTML documentinin doctypeını DocumentType objecti olarak döndürür.DocumentType objecti, doctypeın "name"ini döndüren bir "name" propertisine sahiptir.Eğer documentte doctype belirtilmemişse "null" döndürür.Syntaxı:
+-document.doctype
+*****documentElement = Bu property, bir Element objecti olarak documentin "documentElement"ini döndürür.HTML documentleri için döndürülen object <html> elementidir.Read-only bir propertidir.Syntaxı:
+-document.documentElement
+*****domain = Bu property, mevcut documenti yükleyen serverın domain nameini döndürür.Syntaxı:
+-document.domain
+*****execCommand() = HENÜZ YAPIM AŞAMASINDADIR.
+*****forms = Bu property, documentteki tüm <form> elementlerinin bir koleksiyonunu döndürür.Koleysiyondaki elementler, source kodda göründükleri gibi sıralanır.Syntaxı:
+-document.forms
+*****fullscreenElement = Bu property, fullscreen modunda görüntülenen mevcut elementi döndürür.Eğer fullscreen değilse de "null" döndürür.Syntaxı:
+-document.fullscreenElement
+*****fullscreenEnabled() = Bu metod, documentin fullscreen modunda görüntülenip görüntülenmeyeceğini belirten bir boolean döndürür.Eğer fullscreen varsa "true"; aksi takdirde "false" döndürür.Syntaxı:
+-document.fullscreenEnabled()
+*****getElementById() = Bu metod, ID attributeu için belirtilen valueye sahip olan elementi döndürür.Eğer ID mevcut değilse de "null" döndürür.Syntaxı:
+-document.getElementById(elementID)
+*****getElementsByClassName() = Bu metod, bir HTMLCollection objecti olarak "class" attributeu için belirtilen "className" valuesine sahip documentteki tüm elementlerin koleksiyonunu döndürür.HTMLCollection objecti, bir node koleksiyonunu temsil eder.Nodelara index numaralarıyla erişilebilir.Syntaxı:
+-document.getElementsByClassName(classname)
+*****getElementsByName() = Bu metod, bir HTMLCollection objecti olarak "name" attributeu için belirtilen "name" valuesine sahip documentteki tüm elementlerin koleksiyonunu döndürür.HTMLCollection objecti, bir node koleksiyonunu temsil eder.Nodelara index numaralarıyla erişilebilir.Syntaxı:
+-document.getElementsByName(name)
+*****getElementsByTagName() = Bu metod, bir HTMLCollection objecti olarak tagler için belirtilen valueye sahip documentteki tüm elementlerin koleksiyonunu döndürür.HTMLCollection objecti, bir node koleksiyonunu temsil eder.Nodelara index numaralarıyla erişilebilir.Parametre olarak "*" kullanılırsa, documentteki tüm elementleri döndürür.Syntaxı:
+*document.getElementsByTagName(tagname)
+*****hasFocus() = Bu metod, documentin veya documentin içerisindeki herhangi bir elementin focusa sahip olup olmadığını belirten Boolean döndürür.Syntaxı:
+-document.hasFocus()
+*****head = Bu property, mevcut documentin <head> elementini döndürür.Syntaxı:
+-document.head
+*****images = Bu property, documentteki tüm <img> elementlerinin koleksiyonunu döndürür.Koleksiyondaki elementler, source koddaki gibi sıralanır.Syntaxı:
+-document.images
+***"document.images", <input type="image"> elementlerini döndürmez!
+*****implementation = Bu property, bu documentteki handler olan DOMİmplementation objectini bir Documentİmplementation objecti olarak döndürür.Kısaca HTML, JSON, XML, PHP, vs gibi uygulama arayüzü objectleridir.Syntaxı:
+-document.implementation
+*****importNode() = Bu metod, başka bir documentten bir nodeu mevcut documente import eder.Herhangi türden nodeu import edebilir.Eğer ikinci parametre "true" ayarlanırsa, import edilen nodeların chidları ve torunları da import edilir.İmport edilen nodeların orjinalleri, diğer documentten kaldırılmaz.İmport ederken adeta kopyalar.Syntaxı:
+-document.importNode(node, deep)
+*****inputEncoding = Bu property, document için karakter encodingi döndürür.Parsing esnasında karakter encodingi döndürür ve eğer document, bellekte oluşturulursa "null" değerini döndürür.Karakter kodlaması, belgeyi oluşturmak için kullanılan ve sayfada belirtilen kodlamadan farklı olabilen karakter setidir.Syntaxı:
+-document.inputEncoding
+***"inputEconding" ile "characterSet" propertileri birbirinin aynısıdır.
+*****lastModified = Bu property, mevcut documentin en son değiştirildiği tarih ve saati döndürür.Read-only bir propertidir.Syntaxı:
+-document.lastModified
+*****links = Bu property, documentteki tüm linklerin bir koleksiyonunu döndürür.Koleksiyondaki linkler, <a> elementlerini veya "href" attributeune sahip olan <area> elementlerini temsil eder.Eğer "href" bulamazsa, hiçbirşey döndürmez.Koleksiyondaki elementler, source koddaki gibi sıralanır.Syntaxı:
+-document.links
+*****location = Bu property, documentin URLsi hakkında bilgi içeren ve başka bir URL yüklemek için metodlar sağlayabilen bir Location objecti döndürür.Read-only bir propertidir.Syntaxı:
+-document.location
+*****normalize() = Bu metod, boş text Nodelarını kaldırır ve birleşik Text nodelarını ekler.Mesela bir "div" elementinin altında 3 adet TextNode child varsa; bunları birleştirerek tek child haline getirir.Syntaxı:
+-document.normalize()
+*****open() = Bu metod, herhangi bir "document.write" veya "document.writeln" metodundan outputu toplamak için bir stream outputu sağlar.Tüm yazma işlemlerinin gerçekleşmesinin ardından "document.close" metoduyla da stream outputa yazılan tüm outputların görüntülenmesini sağlarız.Eğer zaten targetta bir document mevcutsa, silinecektir.Syntaxı:
+-document.open(MIMEtype, replace)
+*****querySelector() = Bu metod, documentte belirtilen CSS selectoru veya selectorleriyle eşleşen ilk elementi döndürür.Belirtilen selectorlerle eşleşen sadece ilk elementi döndürür.Eğer birden fazla seçici kullanırak seçersek, document içerisinde hangisi daha önce mevcutsa onu işleme alır.Syntaxı:
+-document.querySelector(CSS selectors)
+*****querySelectorAll() = Bu metod, documentte belirtilen CSS selectoru veya selectorleriyle eşleşen tüm elementleri static bir NodeList objecti olarak döndürür.Böylece looplar kullanarak tüm listeye işlem yapabiliriz.NodeList objecti, bir node koleksiyonunu temsil eder.Nodelara index numaralarıyle erişebiliriz.Syntaxı:
+-document.querySelectorAll(CSS selectors)
+*****readyState = Bu property, mevcut belgenin loading durumunu döndürür.Read-only bir propertidir.Syntaxı:
+-document.readyState
+*****referrer = Bu property, mevcut documenti yükleyen documentin URLsini döndürür.Syntaxı:
+-document.referrer
+*****removeEventListener() = Bu metod, document.addEventListener() metoduyla eklenmiş olan bir event handlerı kaldırır.Event handlerları kaldırmak için, eventi eklerken fonksiyon adı belirtilmiş olması gerekir.
+Mesela "document.removeEventListener("event", function(){ myScript });" şeklinde fonksiyon yazılmış handlerları kaldıramazsınız.Syntaxı:
+-document.removeEventListener(event, function, useCapture)
+*****scripts = Bu property, documentteki tüm <script> elementlerinin bir koleksiyonunu döndürür.Koleksiyondaki elementler, source kodda göründükleri gibi sıralanır.Syntaxı:
+-document.scripts
+*****title = Bu property, mevcut documentin <title> elementindeki içeriğini ayarlar veya döndürür.Syntaxı:
+-document.title
+*****URL = Bu property, mevcut HTML documentinin tam URLsini döndürür."location.href" propertisiyle aynıdır.Syntaxı:
+-document.URL
+*****write() = Bu metod, bir documente HTML expressionları veya Javascript kodu yazar.Genellikle test için kullanılır çünkü HTML documenti yüklendikten sonra kullanıldığında tüm dökümanı silerek yeni içeriği yazmaktadır.Test için kullanılmadığı zamanlarda ise genellikle "document.open" metoduyla açılam bir stream outputuna içerik eklemek için kullanılır.Syntaxı:
+-document.write(exp1, exp2, exp3, ...)
+*****writeln() = Bu metod, "document.write" metoduyla aynıdır fakat tek farkları "document.writeln", her ifadeden sonra bir satır sonu ekler.Syntaxı:
+-document.writeln()
+--------------------------------------------------------------------------------------------------------------------------
+*****DOM ELEMENT:
+*****accessKey = Bu property, bir elementin accesskey attributeunu ayarlar veya döndürür.Bir elementi 
+etkinleştirmek/focuslamak için bir kısayol tuşu belirtir.Browserlara göre farklılık gösterir.Syntaxı:
+-HTMLElementObject.accessKey
+-HTMLElementObject.accessKey = character
+*****addEventListener() = Bu metod, belirtilen elemente bir event handler ekler.Syntaxı:
+-element.addEventListener(event, function, useCapture)
+*****appendChild() = Bu metod, bir nodeun last childı olarak bir node ekler.Text içeren yeni bir paragraf oluşturmak istiyorsak texti, paragrafa ekleyebilecek bir TextNode olarak oluşturur ve ardından paragrafı documente ekleriz.Bir elementi diğer elemente taşımak istediğimizde de bu metodu kullanabiliriz.Syntaxı:
+-node.appendChild(node)
+*****attributes = Bu property, bir NamedNodeMap objecti olarak belirtilen nodeun attributelerinin bir koleksiyonunu döndürür.Nodelara index numaraları ile erişilebilir.HTML attributeleri, Attribute objecti için kullanılabilen tüm property ve metodları içeren attribute nodelarıdır.Syntaxı:
+-node.attributes
+*****blur() = Bu metod, bir elementten focusu kaldırmak için kullanılır.Syntaxı:
+-HTMLElementObject.blur()
+*****childElementCount = Bu property, bir elementin sahip olduğu childların sayısını döndürür.Döndürülen değer, tüm child nodeların(textNode veya commentNode gibi) sayısını değil; child element nodelarının sayısını içerir.Read-only bir propertydir.Syntaxı:
+-node.childElementCount
+*****childNodes = Bu property, bir nodeun child nodelarının bir koleksiyonunu bir NodeList objecti olarak döndürür.Koleksiyondaki nodelar, source kodda göründükleri gibi sıralanır ve index numaralarıyla erişilebilir.Elementin içerisindeki whitespace, text olarak kabul edilir ve text nodelar olarak kabul edilir.Commentler de node olarak kabul edilir.Read-only bir propertydir.Syntaxı:
+-element.childNodes
+*****children = Bu property, HTMLCollection objecti olarak bir elementin alt elementlerinin bir koleksiyonunu döndürür.Koleksiyondaki elementler, source kodda göründükleri gibi sıralanır ve index numaralarıyla erişilebilir.Syntaxı:
+-element.children
+***"childNodes" ve "children" arasındaki fark şudur: "childNodes", textNode veya commentNode gibi tüm nodeları child olarak kabul eder; "children" ise sadece element nodelarını child olarak kabul eder.
+*****classList = Bu property, bir elementin class namelerini bir DOMTokenList objecti olarak döndürür.Bir elemente CSS classları eklemek, kaldırmak veya değiştirmek için kullanılabilir.Birden fazla class seçimi virgüllerle yapılabilir.Read-only bir propertidir ancak bunu add(), remove(), contains(), item() veya toggle() metodlarını kullanarak değiştirebiliriz.Syntaxı:
+-element.classList
+*****className = Bu property, bir elementin classnameini(bir elementin class attributeunun valuesi) ayarlar veya döndürür.Birden fazla class uygulayabilmek için classların arasına bir adet boşluk bırakın.Syntaxı:
+-HTMLElementObject.className
+-HTMLElementObject.className = class
+*****click() = Bu metod, bir elemente mouse tıklamasını simüle eder.Kullanıcı, mouse ile üzerine geldiğinde manuel olarak tıklamış gibi bir elemente tıklama yapmak için kullanılabilir.Syntaxı:
+-HTMLElementObject.click()
+*****clientHeight = Bu property, border, scrollbar veya margin değil de, sadece padding içeren pixel cinsinden bir elementin görüntülenebilir yüksekliğini döndürür.Genellikle clientWidth propertisiyle beraber kullanılır.Read-only bir propertidir.Syntaxı:
+-element.clientHeight
+***"clientHeight", "clientWidth" ile "offsetHeight", "offsetWidth" arasındaki farklar şudur: "clientHeight", "clientWidht" propertileri hesaplama yaparken eğer elementte mevcut border, scrollbar varsa bunları dahil etmeden sadece paddingi ekleyerek hesaplar; "offsetHeight","offsetWidth" propertileri ise hesaplama yaparken hepsini dahil eder ve toplam ölçümleri ele alır(Mesela CSS'teki "box-sizing:border-box" mantığı gibi).
+*****clientLeft = Bu property, bir elementin sol borderının genişliğini pixel cinsinden döndürür.Elementin sol paddingini ve sol marginini içermez.Fakat eğer elementin overflow ile scrollbarları varsa ve içerdiği textin yönü sağdan sola ise, dikey scrollbarın genişliği ile sol borderın genişliğini toplayarak hesaplar.Fakat IE'de "0" döndürür.Read-only bir propertidir.Syntaxı:
+-element.clientLeft
+*****clientTop = Bu property, bir elementin üst borderının genişliğini pixel cinsinden döndürür.Elementin üst paddingini veya üst marginini içermez.Read-only bir propertidir.Syntaxı:
+-element.clientTop
+*****clientWidth = Bu property, border, scrollbar veya margin değil de, padding dahil(içeren) pixel cinsinden bir elementin görüntülenebilir genişliğini döndürür.Genellikle clientHeight propertisiyle beraber kullanılır.Read-only bir propertidir.Syntaxı:
+-element.clientWidth
+*****cloneNode() = Bu metod, bir nodeun kopyasını oluşturur ve klonu döndürür.Tüm attributeleri ve bunların valuelerini de beraberinde kopyalar.Eğer nodeun childlarını ve torunlarını da kopyalamak istiyorsak parametre valuesini "true" olarak ayarlayın.Syntaxı:
+-element.cloneNode(deep)
+*****closest() = Bu metod, belirtilen bir CSS selectoruyle eşleşen en yakın element için DOM ağacını tarar.Elementin kendisinde başlar; ardından bir eşleşme bulunana kadar parentı, büyük parentı,...vs test eder.Eğer eşleşme bulamazsa, "null" valuesini döndürür.Syntaxı:
+-element.closest(selectors)
+*****compareDocumentPosition() = Bu metod, iki nodeu karşılaştırır ve bunların documentte nerede konumlandıklarını açıklayan bir tamsayı döndürür.Alabileceği valueler:
+*1, herhangi ilişki yoktur.İki node da farklı documentlere aittir.
+*2, ilk node olan p1, ikinci node olan p2den sonra konumlanmıştır.
+*4, ilk node olan p1, ikinci node olan p2den önce konumlanmıştır.
+*8, ilk node olan p1, ikinci node olan p2nin içerisinde konumlanmıştır.
+*16, ikinci node olan p2, ilk node olan p1in içerisinde konumlanmıştır.
+*32, herhangi ilişki yoktur veya iki node da aynı element üzerindeki 2 adet attributetur.
+*Dönüş valueleri kombinli de olabilir.Mesela 20 return valuesi, p2nin p1in içerisinde olduğunu ve p1in p2den önce konumlandığı anlamına gelir.
+->Syntaxı:
+-element.compareDocumentPosition
+*****contains() = Bu metod bir nodeun, belirtilen bir nodeun childı veya torunu olup olmadığını belirten bir Boolean valuesi döndürür.Bir torun, bir child, bir grand-child, bir great-grandchild,..vs olabilir.Syntaxı:
+-node.contains(node)
+*****contentEditable = Bu property, bir elementin içeriğinin editable olup olmadığını ayarlar veya döndürür.Syntaxı:
+-HTMLElementObject.contentEditable
+-HTMLElementObject.contentEditable = true|false
+*****dir = Bu property, bir elementin dir attributeunun valuesini ayarlar veya döndürür.Elementin içeriğinin text yönünü yani okuma sırasını belirtir.Syntaxı:
+-HTMLElementObject.dir
+-HTMLElementObject.dir = "ltr|rtl|auto"
+*****elements = Bu property, bir formdaki tüm elementlerin koleksiyonunu döndürür.Koleksiyondaki elementler, source kodda göründükleri gibi sıralanır.Kısaca belirtilen <form> elementinin içerisindeki tüm elementleri döndürür.Syntaxı:
+-formObject.elements
+*****exitFullscreen() = Bu metod, fullscreen modundan bir elementi iptal eder.Syntaxı:
+-HTMLElementObject.exitFullscreen()
+*****firstChild = Bu property, belirtilen nodeun ilk child nodeunu bir Node objecti olarak döndürür.Elementlerin source kodu içerisindeki whitespaceler text olarak kabul edilir ve TextNode olarak kabul edilir(nodeName olarak #text döndürür).Read-only bir propertidir.Syntaxı:
+-node.firstChild
+***"firstChild" ile "firstElementChild" arasındaki fark şudur: "firstChild", child node olarak bir elementNode veya TextNode veya bir CommentNode alabilir.Fakat "firstElementNode" ise child olarak sadece elementNode kabul eder.
+*****firstElementChild = Bu property, belirtilen elementin ilk child elementini döndürür.Read-only bir propertidir.Syntaxı:
+-element.firstElementChild
+*****focus() = Bu metod, focuslanabilir bir elemente focus vermek için kullanılır.Syntaxı:
+-HTMLElementObject.focus()
+*****getAttribute() = Bu metod, bir elementin belirtilen "name"e sahip attributeunun valuesini döndürür.Syntaxı:
+-element.getAttribute(attributename)
+*****getAttributeNode() = Bu metod, bir elementin belirtilen "name"i ile attribute nodeunu bir Atr objecti olarak döndürür veya ayarlar.Syntaxı:
+-element.getAttributeNode(attributename)
+*****getBoundingClientRect() = Bu metod, bir elementin sizeını viewportuna göre relative ilişkili pozisyonunu döndürür.8 propertiye sahip bir DOMRect objecti döndürür: left, top, right, bottom, x, y, width, height.Bounding dikdörtgen hesaplanırken viewport alanında yapılan scrolling miktarı dikkate alınır.Yani dikdörtgenin kenarlarının[üst,sağ,alt,sol] scrolling konumu her değiştiğinde valuelerini değiştireceği anlamına gelir.Syntaxı:
+-element.getBoundingClientRect()
+*****getElementsByClassName() = Bu metod, belirtilen class "name"ine sahip bir elementin child elementlerinin bir koleksiyonunu bir NodeList objecti olarak döndürür.NodeList objecti, bir node koleksiyonunu temsil eder.Nodelara index numaralarıyla erişilebilir.Birden fazla class seçmek için aralarına boşluk bırakarak ayırın.Syntaxı:
+-element.getElementsByClassName(classname)
+*****getElementsByTagName() = Bu metod, belirtilen tag "name"ine sahip bir elementin child elementlerinin bir koleksiyonunu bir NodeList objecti olarak döndürür.NodeList objecti, bir node koleksiyonunu temsil eder.Nodelara index numaralarıyla erişilebilir."*" parametresi kullanılırsa, elementin tüm child elementlerini döndürür.Syntaxı:
+-element.getElementsByTagName(tagname)
+*****hasAttribute() = Bu metod, eğer belirtilen attribute mevcutsa "true"; aksi takdirde "false" döndürür.Syntaxı:
+-element.hasAttribute(attributename)
+*****hasAttributes() = Bu metod eğer element, herhangi bir attributea sahipse "true"; aksi takdirde "false" döndürür.Syntaxı:
+-element.hasAttributes()
+*****hasChildNodes() = Bu metod, belirtilen nodeun herhangi bir child nodeu varsa "true"; aksi takdirde "false" döndürür.Elementin içerisindeki herhangi bir whitespace veya line feed de textNode olarak kabul edilirler.Syntaxı:
+-node.hasChildNodes()
+*****id = Bu property, bir elementin idsinin valuesini ayarlar veya döndürür.Syntaxı:
+-HTMLElementObject.id
+-HTMLElementObject.id = id
+*****innerHTML = Bu property, bir elementin HTML içeriğini(inner HTML) ayarlar veya döndürür.İçerisindeki elementleri gösterirken aradaki space ve whitespaceleri de döndürür.Syntaxı:
+-HTMLElementObject.innerHTML
+-HTMLElementObject.innerHTML = text
+*****innerText = Bu property, belirtilen nodeun ve tüm child ve torun elementlerinin text içeriğini ayarlar veya döndürür.Eğer içeriği ayarlayıp değiştirirsek, tüm child ve torun nodelar kaldırılır ve belirtilen stringi içeren tek bir Text nodeu ile değiştirilir.İçerisindeki elementleri veya whitespaceleri görüntülemez ve döndürmez.Syntaxı:
+-node.innerText
+-node.innerText = text
+***"innerText" ile "textContent" arasındaki farklar: "textContent", tüm elementlerin text içeriğini döndürür; "innerText" ise <script> ve <style> elementlerinin haricinde tüm elementlerin içeriğini döndürür.Ayrıca "innerText", CSS ile "display:none" olarak ayarlanmış elementlerin textini döndürmez.
+*****insertAdjacentElement() = Bu metod, belirtilen elementi belirtilen bir konuma taşır.Kullanılabilecek pozisyonları "afterbegin", "afterend", "beforebegin" ve "beforeend" şeklindedir.Syntaxı:
+-node.insertAdjacentElement(position, element)
+*****insertAdjacentHTML() = Bu metod, HTML olarak belirtilen texti, belirtilen bir konuma ekler.İkinci parametresine, HTML kodlarını taglarıyla beraber kullanabiliriz.Kullanılabilecek pozisyonları "afterbegin", "afterend", "beforebegin" ve "beforeend" şeklindedir.Syntaxı:
+-node.insertAdjacentHTML(position, text)
+*****insertAdjacentText() = Bu metod, belirtilen textNodeunu belirtilen konuma ekler.Kullanılabilecek pozisyonları "afterbegin", "afterend", "beforebegin" ve "beforeend" şeklindedir.Syntaxı:
+-node.insertAdjacentText(position, text)
+*****insertBefore() = Bu metod, belirtilen mevcut bir child elementten hemen önce bir child element olarak bir node ekler.Syntaxı:
+-node.insertBefore(newnode, existingnode)
+*****isContentEditable = Bu property, bir elementin içeriğinin editable olup olmadığını döndürür.Read-only bir propertidir.Syntaxı:
+-HTMLElementObject.isContentEditable
+*****isDefaultNamespace() = Bu metod, belirtilen isim alanı[namespace] default ise "true"; aksi takdirde "false" döndürür.Syntaxı:
+-node.isDefaultNamespace(namespaceURI)
+*****isEqualNode() = Bu metod, iki nodeun da eşit olup olmadığını test eder.2 nodeun eşit olmasının koşulları:
+*Node Typeları eşit olmalıdır.
+*Aynı nodeName, nodeValue, localName, nameSpaceURI ve prefixlerine sahiptirler.
+*Tüm torunları ile aynı childNodelara sahiptirler.
+*Aynı attribute ve attribute valuelerine sahiptirler fakat attributelerin aynı sırada bulunması zorunlu değildir.
+->Syntaxı:
+-node.isEqualNode(node)
+*****lang = Bu property, bir elementin lang attributeunun valuesini ayarlar veya döndürür.Elementin içeriğinin dil kodunu belirtir.Syntaxı:
+-HTMLElementObject.lang
+-HTMLElementObject.lang = language_code
+*****lastChild = Bu property, belirtilen nodeun son child nodeunu bir Node objecti olarak döndürür.Elementlerin source kodu içerisindeki whitespaceler text olarak kabul edilir ve TextNode olarak kabul edilir(nodeName olarak #text döndürür).Read-only bir propertidir.Syntaxı:
+-node.lastChild
+*****lastElementChild = Bu property, belirtilen elementin son child elementini döndürür.Read-only bir propertidir.Syntaxı:
+-element.lastElementChild
+*****matches() = Bu metod, bir elementin belirli bir CSS selectoru tarafından eşlenip eşleşmediğini belirten bir Boolean döndürür.Birden fazla selector kullanmak için aralarına vigrül koyarak ayırın.Syntaxı:
+-element.matches(selectors)
+*****namespaceURI = Bu property, belirtilen nodeun namespaceinin URI'sını döndürür.Bir element nodeu, parent nodeunun namespaceini inherit eder ve bu nedenle bir XHTML belgesindeki tüm elementler, <html xmlns=""> içerisinde belirtilebilen 
+"http://www.w3.org/1999/xhtml" namespaceURI sahiptir.Read-only bir propertidir.Syntaxı:
+-node.namespaceURI
+*****nextSibling = Bu property, aynı ağaç seviyesinde bulunan belirtilen nodedan hemen sonraki nodeu döndürür.Döndürülen node, bir Node objecti olarak döndürülür.Read-only bir propertidir.Syntaxı:
+-node.nextSibling
+***"nextSibling" ile "nextElementSibling" arasındaki fark şudur: "nextSibling", sibling node olarak bir elementNode veya TextNode veya bir CommentNode alabilir.Fakat "nextElementSibling" ise sibling olarak sadece elementNode kabul eder.
+*****nextElementSibling = Bu property, aynı ağaç seciyesinde bulunan belirtilen elementten hemen sonra gelen elementi döndürür.Read-only bir propertidir.Syntaxı:
+-node.nextElementSibling 
+*****nodeName = Bu property, belirtilen nodeun "name"ini döndürür.Eğer node, bir element nodeuysa; tag "name"ini 
+döndürür(tagName propertisi gibi).Eğer node, bir attribute nodeu ise; attributeun "name"ini döndürür.Read-only bir propertidir.Syntaxı:
+-node.nodeName
+***"nodeName" ile "tagName" arasındaki fark şudur: "tagName", sadece tag adlarını döndürür."nodeName" ise tüm 
+nodeların(taglar,attributeler,textler,commentler) adlarını döndürür.
+*****nodeType = Bu property, belirtilen nodeun türünü bir tamsayı olarak döndürür.Read-only bir propertidir.Türlere göre döndürülen valueler:
+*Eğer bir element nodeuysa 1.
+*Eğer bir attribute nodeuysa 2.
+*Eğer bir text nodeuysa 3.
+*Eğer bir comment nodeuysa 8.
+->Syntaxı:
+node.nodeType
+*****nodeValue = Bu property, belirtilen nodeun nodeValuesini ayarlar veya döndürür.Eğer node, bir element nodeuysa "null" döndürür.Eğer bir elementin textini döndürmek istiyorsak, textin herzaman bir textNode içerisinde olduğunu unutmayalım ve (element.childNodes[0].nodeValue) şeklinde önce textNodea girerek ardından value ile texti görüntüleyebiliriz.Syntaxı:
+-node.nodeValue
+-node.nodeValue = value
+*****normalize() = Bu metod, boş textNodelarını kaldırır ve bitişik olan textNodeları birleştirir.Syntaxı:
+-node.normalize()
+*****offsetHeight = Bu property, margin hariç padding, border ve scrollbar dahil ederek bir elementin görüntülenebilir yüksekliğini pixel cinsinden döndürür.Genellikle "offsetWidth" propertisiyle beraber kullanılır.Read-only bir propertidir.Syntaxı:
+-element.offsetHeight
+*****offsetWidth = Bu property, margin hariç padding, border ve scrollbar dahil ederek bir elementin görüntülenebilir genişliğini pixel cinsinden döndürür.Genellikle "offsetHeight" propertisiyle beraber kullanılır.Read-only bir propertidir.Syntaxı:
+-element.offsetWidth
+*****offsetLeft = Bu property, offsetParent elementinin sol tarafına göre relative ilişkili sol konumunu pixel olarak döndürür.Parent elementine göre value alır.Syntaxı:
+-object.offsetLeft
+*****offsetParent = Bu property, "position:static" dışında bir konuma sahip en yakın parent elementi döndürür."offsetLeft" ve "offsetTop" propertileriyle beraber kullanın.Eğer element, "display:none" şeklindeyse; "null" valuesi döndürülür.Syntaxı:
+-object.offsetParent
+*****offsetTop = Bu property, offsetParent elementinin üst tarafına göre relative ilişkili üst konumunu pixel olarak döndürür.Parent elementine göre value alır.Syntaxı:
+-object.offsetTop
+*****outerHTML = Bu property, HTML elementini ve elementin "start" tagını, attributelerini ve "end" tagı dahil tüm içeriğini ayarlar veya döndürür.İçerisine stiller de eklenebilir.Syntaxı:
+-Element.outerHTML
+-Element.outerHTML = text
+***"innerHTML" ile "outerHTML" arasındaki fark şudur: "innerHTML", başka bir yere içerik yazdırırken veya değiştirirken içeriğin stillerini, taglarını kopyalamaz; tek bir tipte içeriği görüntüler."outerHTML" ise stilleri ve tagları korur hatta bunları değiştirme imkanı tanır.
+*****ownerDocument = Bu property, bir nodeun owner documentini Document objecti olarak döndürür.HTMLde, HTML documentinin kendisi herzaman bir elementin OwnerDocumentidir.Syntaxı:
+-node.ownerDocument
+*****parentNode = Bu property, belirtilen nodeun parent nodeunu bir Node objecti olarak döndürür.HTMLde, documentin kendisi zaten HTML elementinin parent nodeudur.Mesela <head>,<body>,<style> gibi taglar, <html> elementinin child nodelarıdır.Read-only bir propertidir.Syntaxı:
+-node.parentNode
+***"parentNode" ile "parentElement" arasındaki fark şudur: "parentElement", eğer parent nodeu bir element node değilse "null" döndürür çünkü sadece element node odaklıdır.Fakat "parentNode" tüm node türlerini kapsar.
+*****parentElement = Bu property, belirtilen elementin parent elementini döndürür.Read-only bir propertidir.Syntaxı:
+-node.parentElement
+*****previousSibling = Bu property, aynı ağaç seviyesinde belirtilen nodedan bir önceki nodeu döndürür.Döndürülen node, bir Node objecti olarak döndürülür.Read-only bir propertidir.Syntaxı:
+-node.previousSibling
+******"previousSibling" ile "previousElementSibling" arasındaki fark şudur: "previousSibling", sibling node olarak bir elementNode veya TextNode veya bir CommentNode alabilir.Fakat "previousElementSibling" ise sibling olarak sadece elementNode kabul eder.
+*****previousElementSibling = Bu property, belirtilen elementin önceki elementini aynı ağaç seviyesinde döndürür.Read-only bir propertidir.Syntaxı:
+-node.previousElementSibling
+*****querySelector() = Bu metod, bir elementin belirtilen CSS selectorleriyle eşleşen ilk childını döndürür.Belirtilen selectorlerle eşleşen sadece ilk elementi döndürür.Syntaxı:
+-element.querySelector(CSS selectors)
+*****querySelectorAll() = Bu metod, belirtilen CSS selectorleriyle eşleşen bir elementin child elementlerinin bir koleksiyonunu static bir NodeList objecti olarak döndürür.NodeList objecti, bir node koleksiyonunu temsil eder.İndexlerle erişilebilir.Syntaxı:
+-element.querySelectorAll(CSS selectors)
+*****remove() = Bu metod, belirtilen elementi DOM'dan kaldırır.Syntaxı:
+-node.remove()
+*****removeAttribute() = Bu metod, bir elementten belirtilen bir attributeu kaldırır.Syntaxı:
+-element.removeAttribute(attributename)
+***"romoveAttribute" ile "removeAttributeNode" arasındaki fark şudur: "removeAttributeNode", belirtilen "Attr" objectini kaldırır."removeAttribute" ise belirtilen attribute "name"i kaldırır.Sonuçlar yine de aynı olacaktır."removeAttribute" propertisinin bir dönüş valuesi yoktur; "removeAttributeNode" propertisi ise kaldırılan attributeu bir "Attr" objecti olarak döndürür.
+*****removeAttributeNode() = Bu metod, belirtilen attributeu bir elementten kaldırır ve kaldırılan attributeu bir Attr Node objecti olarak döndürür.Syntaxı:
+-element.removeAttributeNode(attributenode)
+*****removeChild() = Bu metod, belirtilen elementin belirtilen bir childını kaldırır.Kaldırılan nodeu bir Node objecti olarak döndürür; eğer node yoksa "null" döndürür.Kaldırılan node, artık DOM'un bir parçası değildir.Ancak bu metodun döndürdüğü referans sayesinde kaldırılan childı daha sonra bir elemente eklemek mümkündür.Syntaxı:
+-node.removeChild(node)
+*****removeEventListener() = Bu metod, "addEventListener" metoduyla eklenmiş olan bir event handlerını kaldırır.Event handlerları kaldırmak için, eventi eklerken fonksiyon adı belirtilmiş olması gerekir.
+Mesela "document.removeEventListener("event", function(){ myScript });" şeklinde fonksiyon yazılmış handlerları kaldıramazsınız.Syntaxı:
+-element.removeEventListener(event, function, useCapture)
+*****replaceChild() = Bu metod bir child nodeu, yeni bir nodela yer değiştirir.Yerleştirilecek olan node, documentteki mevcut olan bir node olabilir veya yeni bir node oluşturabiliriz.Syntaxı:
+-node.replaceChild(newnode, oldnode)
+*****requestFullscreen() = Bu metod, bir elementi fullscreen modda açar.Syntaxı:
+-HTMLElementObject.requestFullscreen()
+*****scrollHeight = Bu property, sadece paddingi dahil ederek bir elementin tüm yüksekliğini pixel cinsinden döndürür(border,scroll bar ve margini hesaba katmaz).Overflow nedeniyle görüntülenemeyen yükseklik dahil olmak üzere bir elementin tüm yükskeliğini döndürür.Read-only bir propertidir.Syntaxı:
+-element.scrollHeight
+*****scrollIntoView() = Bu metod belirtilen elementi, browser windowunun görünür alanına kaydırır.Aynı "href='#elementId'" ile sayfa içi teleportlar gibi fakat bu metodun farkı, parametreleri sayesinde hedef element eğer fazla büyükse, üst kısmına mı yoksa alt kısmına mı odaklanacağını belirtebiliriz.Syntaxı:
+-element.scrollIntoView(alignTo)
+*****scrollLeft = Bu property, bir elementin içeriğinin horizontal olarak scroll edildiği pixel sayısını ayarlar veya döndürür.Eğer tüm sayfanın sola scrollunu hesaplayacaksak object olarak "document.documentElement" kullanırız.Syntaxı:
+-element.scrollLeft
+-element.scrollLeft = pixels
+*****scrollTop = Bu property, bir elementin içeriğinin vertical olarak scroll edildiği pixel sayısını ayarlar veya döndürür.Eğer tüm sayfanın üste scrollunu hesaplayacaksak object olarak "document.documentElement" kullanırız.Syntaxı:
+-element.scrollTop
+-element.scrollTop = pixels
+*****scrollWidth = Bu property, sadece paddingi dahil ederek bir elementin tüm genişliğini pixel cinsinden döndürür(border,scroll bar ve margini hesaba katmaz).Overflow nedeniyle görüntülenemeyen yükseklik dahil olmak üzere bir elementin tüm yükskeliğini döndürür.Read-only bir propertidir.Syntaxı:
+*****setAttribute() = Bu metod, belirtilen attributeu bir elemente ekler ve ona belirtilen valueyi verir.Eğer belirtilen attribute zaten elementte mevcutsa, yalnızca valuesi ayarlanır ve değiştirilir.CSS style değişiklikleri için önerilmez!Syntaxı:
+-element.setAttribute(attributename, attributevalue)
+*****setAttributeNode() = Bu metod, belirtilen attribute nodeunu bir elemente ekler.Eğer belirtilen attribute zaten elementte mevcutsa; bu metod, onun yerini alır.Dönüş valuesi olarak bir Attr objecti döndürür.Syntaxı:
+-element.setAttributeNode(attributenode)
+*****style = Bu property, bir elementin style attributeunu temsil eden bir CSSStyleDeclaration objecti ödndürür.Farklı CSS propertilerini kullanarak bir elementin belirli bir styleını almak veya ayarlamak için kullanılır.Syntaxı:
+-element.style.property
+-element.style.property = value
+*****tabIndex = Bu property, bir elementin tabindex attributeunun valuesini ayarlar veya döndürür.Bir elementin tab sırasını belirtir.Syntaxı:
+-HTMLElementObject.tabIndex
+-HTMLElementObject.tabIndex = number
+*****tagName = Bu property, elementin tag "name"ini döndürür.Döndürülen valueler herzaman büyük harflidir.Read-only bir propertidir.Syntaxı:
+-element.tagName
+*****textContent = Bu property, belirtilen nodeun ve tüm childlarının text içeriğini ayarlar veya döndürür.Eğer "set" edersek, tüm child nodelar kaldırılır ve belirten stringi içeren tek bir Text node ile yer değiştirilir.Syntaxı:
+-node.textContent
+-node.textContent = text
+İçerisindeki elementleri göstermez fakat space ve whitespaceleri görüntüler ve döndürür.
+*****title = Bu property, bir elementin title attributeunun valuesini ayarlar veya döndürür.Bir elemente hakkında ekstra bilgiler içerir.Syntaxı:
+-HTMLElementObject.title
+-HTMLElementObject.title = text
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****DOM EVENTS:
+*****abort = Bu event, bir audio veya videonun yüklenmesi durdurulduğunda meydana gelir.Bir error nedeniyle değil de medya verilerinin indirilmesi durdurulduğunda meydana gelir.Syntaxı:
+-<element onabort="myScript">
+-object.onabort = function(){myScript};
+-object.addEventListener("abort", myScript);
+*****animationend = Bu event, bir CSS animasyonu tamamlandığında gerçekleşir.3 animasyon eventinin gerçekleşme sırası şu şekildedir:
+-animationstart, CSS animasyonu başladığında gerçekleşir
+-animationiteration, CSS animasyonu tekrarlarken gerçekleşir
+-animationend, CSS animasyonu bittiğinde gerçekleşir
+->Syntaxı:
+-object.addEventListener("animationend", myScript);    
+*****animationiteration = Bu event, bir CSS animasyonu tekrarlandığında meydana gelir.Eğer animasyonda "animation-iteration-count=1" ayarlanmışsa, bu event gerçekleşmez.Birden fazla kere tekrar etmesi gerekir.Syntaxı:
+-object.addEventListener("animationiteration", myScript);
+*****animationstart = Bu event, bir CSS animasyonu oynatılmaya başlandığında meydana gelir.Syntaxı:
+-object.addEventListener("animationstart", myScript);    
+*****beforeunload = Bu event, documentten çıkılmak üzereyken gerçekleşir.Kullanıcıyı mevcut sayfadan ayrılmak mı yoksa kalmak mı istediğini bildirmek için bir confirm dialog boxında bir mesaj görüntülememizi sağlar.Confirm boxlarda default mesajlar, browserlara göre değişiklik gösterir.Ancak standart mesaj "Bu sayfadan ayrılmak istediğinize emin misiniz?" gibi bişeydir.Bu mesaj kaldırılamaz fakat custom mesajlar yazılabilir.Eğer bu eventi <body> için kullanmıyorsak, eventi "window" objectine atamamız ve custom mesaj oluşturmak için 
+"event.returnValue" propertisini kullanmamız gerekir.Syntaxı:
+-<element onbeforeunload="myScript">
+-object.onbeforeunload = function(){myScript};
+-object.addEventListener("beforeunload", myScript);
+*****blur = Bu event bir object, focus kaybettiğinde gerçekleşir.Çoğunlukla form validation koduyla beraber kullanılır(Mesela kullanıcı, bir form fielddan ayrıldığında).Syntaxı:
+-<element onblur="myScript">
+-object.onblur = function(){myScript};
+-object.addEventListener("blur", myScript);
+***"blur" ile "focusout" eventleri arasındaki fark şudur: "onblur" eventinin bubble özelliği yoktur.Bu nedenle bir elementin veya childının veya iç içe yapıların focus kaybettiği durumlarda "focusout" kullanabiliriz.Fakat "onblur" için "useCapture" kullanarak da bunu sağlayabiliriz.
+*****canplay = Bu event browser, belirtilen ses veya videoyu oynatmaya başlayabildiğinde(başlamak için yeterince buffera yani arabelleğe alındığı zaman) gerçekleşir.Bir audio veya video yükleme sırasında gerçekleşen eventlerin sırası şöyledir:
+*onloadstart
+*ondurationchange
+*onloadedmetadata
+*onloadeddata
+*onprogress
+*oncanplay
+*oncanplaythrough
+->Syntaxı:
+-<element oncanplay="myScript">
+-object.oncanplay = function(){myScript};
+-object.addEventListener("canplay", myScript);
+*****canplaythrough = Bu event browser, arabelleğe almayı durdurmak zorunda kalmadan belirtilen medya üzerinden oynatılabileceğini tahmin ettiğinde gerçekleşir.Syntaxı:
+-<element oncanplaythrough="myScript">
+-object.oncanplaythrough = function(){myScript};
+-object.addEventListener("canplaythrough", myScript);
+*****change = Bu event, bir elementin valuesi değiştiğinde meydana gelir.Radiobuttonları ve checkboxlar için "checked" durumları değiştiğinde, "onchange" eventi meydana gelir.Syntaxı:
+-<element onchange="myScript">
+-object.onchange = function(){myScript};
+-object.addEventListener("change", myScript);
+***"change" ve "input" eventleri arasındaki fark şudur: "oninput", elementin valuesi değişir değişmez hemen meydana gelir."change" ise elementin valuesi değiştikten anca focusunu kaybettikten sonra meydana gelir.Ve "change" eventi <select> elementleri üzerinde de çalışabilir.
+*****click = Bu event kullanıcı, bir elemente tıkladığında gerçekleşir.Syntaxı:
+-<element onclick="myScript">
+-object.onclick = function(){myScript};
+-object.addEventListener("click", myScript);
+*****contextmenu = Bu event kullanıcı, context menusunu açmak için bir elemente sağ tıkladığında gerçekleşir.Tüm browserlarda desteklenir fakat "contextmenu" attributeu, yalnızca Firefox'ta çalışır.Syntaxı:
+-<element oncontextmenu="myScript">
+-object.oncontextmenu = function(){myScript};
+-object.addEventListener("contextmenu", myScript);
+*****copy = Bu event kullanıcı, bir elementin içeriğini kopyaladığında meydana gelir.Genellikle <input type="text"> elementlerinde kullanılır.Syntaxı:
+-<element oncopy="myScript">
+-object.oncopy = function(){myScript};
+-object.addEventListener("copy", myScript);
+*****cut = Bu event kullanıcı, bir elementin içeriğini kestiğinde meydana gelir.Genellikle <input type="text"> elementlerinde kullanılır.Syntaxı:
+-<element oncut="myScript">
+-object.oncut = function(){myScript};
+-object.addEventListener("cut", myScript);
+*****dblclick = Bu event kullanıcı, bir elemente çift tıkladığında gerçekleşir.Syntaxı:
+-<element ondblclick="myScript">
+-object.ondblclick = function(){myScript};
+-object.addEventListener("dblclick", myScript);
+*****drag = Bu event, bir element veya text seçimi drag edilirken gerçekleşir.Linkler ve görseller default olarak draggabledır.Bir element sürüklenirken bu event, her 350 milisaniyede bir yenilenir.Syntaxı:
+-<element ondrag="myScript">
+-object.ondrag = function(){myScript};
+-object.addEventListener("drag", myScript);
+*****dragend = Bu event kullanıcı, bir elementi veya texti sürüklemeyi bıraktığında gerçekleşir.Syntaxı:
+-<element ondragend="myScript">
+-object.ondragend = function(){myScript};
+-object.addEventListener("dragend", myScript);
+*****dragenter = Bu event kullanıcı, sürüklediği elementi veya texti geçerli bir drop alanına girdiğinde gerçekleşir.Syntaxı:
+-<element ondragenter="myScript">
+-object.ondragenter = function(){myScript};
+-object.addEventListener("dragenter", myScript); 
+*****dragleave = Bu event kullanıcı, sürüklediği elementi veya texti geçerli bir drop alanından dışarıya çıkardığında gerçekleşir.Syntaxı:
+-<element ondragleave="myScript">
+-object.ondragleave = function(){myScript};
+-object.addEventListener("dragleave", myScript);
+*****dragover = Bu event kullanıcı, bir elementi veya texti geçerli bir drop alanı üzerinde sürüklerken gerçekleşir.Syntaxı:
+-<element ondragover="myScript">
+-object.ondragover = function(){myScript};
+-object.addEventListener("dragover", myScript);
+*****dragstart = Bu event kullanıcı, bir elementi veya texti sürüklemeye başladığında gerçekleşir.Syntaxı:
+-<element ondragstart="myScript">
+-object.ondragstart = function(){myScript};
+-object.addEventListener("dragstart", myScript);
+*****drop = Bu event kullanıcı, bir elementi veya texti geçerli bir drop alanına bıraktığında gerçekleşir.Syntaxı:
+-<element ondrop="myScript">
+-object.ondrop = function(){myScript};
+-object.addEventListener("drop", myScript);
+*****durationchange = Bu event, ses veya videonun süresi değiştirildiğinde gerçekleşir.Ses veya videolar yüklendikleri zaman süre, "NaN" değerinden sesin veya videonun mevcut süresinin değerine dönüşecektir.Syntaxı:
+-<element ondurationchange="myScript">
+-object.ondurationchange = function(){myScript};
+-object.addEventListener("durationchange", myScript);
+*****ended = Bu event, ses veya video artık sona ulaştığında gerçekleşir.Genelde "dinlediğiniz için teşekkürler" gibi mesajlar için kullanılır.Syntaxı:
+-<element onended="myScript">
+-object.onended = function(){myScript};
+-object.addEventListener("ended", myScript);
+*****error = Bu event, bir external dosya(mesela bir document veya image gibi) yüklenirken bir error oluşursa gerçekleşir.Syntaxı:
+-<element onerror="myScript">
+-object.onerror = function(){myScript};
+-object.addEventListener("error", myScript);
+*****focus = Bu event, bir elemente focuslanıldığında gerçekleşir.Genellikle <input>, <select> ve <a> taglarında kullanılır.Syntaxı:
+-<element onfocus="myScript">
+-object.onfocus = function(){myScript};
+-object.addEventListener("focus", myScript);
+***"focus" ile "focusin" eventleri arasındaki farklar şudur: "onfocus", eventinin bubble özelliği yoktur.Bu nedenle bir elementin veya childının veya iç içe yapıların focuslandığı durumlarda "focusin" kullanabiliriz.Fakat "focus" için "useCapture" kullanarak da bunu sağlayabiliriz.
+*****focusin = Bu event, bir elemente focuslanmak üzereyken gerçekleşir.Syntaxı:
+-<element onfocusin="myScript">
+-object.onfocusin = function(){myScript};
+-object.addEventListener("focusin", myScript);
+*****focusout = Bu event bir element, focusunu kaybetmek üzereyken gerçekleşir.Syntaxı:
+-<element onfocusout="myScript">
+-object.onfocusout = function(){myScript};
+-object.addEventListener("focusout", myScript);
+*****fullscreenchange = Bu event bir element, fullscreen modunda görüntülendiğinde gerçekleşir.Prefixlerle kullanılmalıdır.Syntaxı:
+-<element onfullscreenchange="myScript">
+-object.onfullscreenchange = function(){myScript};
+-object.addEventListener("fullscreenchange", myScript);
+*****fullscreenerror = Bu event bir element, request edilmesine rağmen fullscreen modda görüntülenemiyorsa gerçekleşir.Prefixlerle kullanılmalıdır.Syntaxı:
+-<element onfullscreenerror="myScript">
+-object.onfullscreenerror = function(){myScript};
+-object.addEventListener("fullscreenerror", myScript);
+*****hashchange = Bu event, mevcut URLnin link kısmında(# ile başlayan) değişiklikler olduğunda gerçekleşir.Mesela elimizdeki URL 
+"http://www.example.com/test.htm#part2" ise bu URLnin anchor kısmı şudur: "#part2".Syntaxı:
+-<element onhashchange="myScript">
+-object.onhashchange = function(){myScript};
+-object.addEventListener("hashchange", myScript);
+*****input = Bu event bir element, kullanıcı inputu aldığında gerçekleşir.Genellikle <input> veya <textarea> taglarında kullanılır.Syntaxı:
+-<element oninput="myScript">
+-object.oninput = function(){myScript};
+-object.addEventListener("input", myScript);
+*****invalid = Bu event, submit edilebilir bir <input> elementi, "invalid" olduğunda gerçekleşir.Syntaxı:
+-<element oninvalid="myScript">
+-object.oninvalid = function(){myScript};
+-object.addEventListener("invalid", myScript);
+*****keydown = Bu event kullanıcı, klavyedeki bir tuşa bastığında meydana gelir.Tuşlara basma eventlerinin sırası:
+*keydown
+*keypress
+*keyup
+->Syntaxı:
+-<element onkeydown="myScript">
+-object.onkeydown = function(){myScript};
+-object.addEventListener("keydown", myScript);
+*****keypress = Bu event kullanıcı, klavyedeki bir tuşa basıyorken meydana gelir.ALT,SHIFT,CTRL,ESC gibi tuşları kapsamaz.Syntaxı:
+-<element onkeypress="myScript">
+-object.onkeypress = function(){myScript};
+-object.addEventListener("keypress", myScript);
+*****keyup = Bu event kullanıcı, klavyedeki bir tuşa basmayı bıraktığında gerçekleşir.Syntaxı:
+-<element onkeyup="myScript">
+-object.onkeyup = function(){myScript};
+-object.addEventListener("keyup", myScript);
+*****load = Bu event, bir object yüklendiğinde gerçekleşir.Bir web sayfasının tüm içeriği(imageler,scriptler,CSS dosyaları,vs... dahil) tamamen yüklendikten sonra bir scripti execute etmek için genellikle <body> elementinin içerisinde kullanılır.Ziyaretçinin browser türünü ve browser versiyonunu kontrol etmek ve bilgilere göre web sayfasının en uygun versiyonunu yüklemek için kullanılabilir.Ayrıca cookielerle başa çıkmak için de kullanılabilir.Syntaxı:
+-<element onload="myScript">
+-object.onload = function(){myScript};
+-object.addEventListener("load", myScript); 
+*****loadeddata = Bu event, mevcut frameler için datalar yüklendiği zaman fakat aynı zamanda belirtilen ses veya videonun sonraki frameini oynatmak için yeterli data olmadığında gerçekleşir.Syntaxı:
+-<element onloadeddata="myScript">
+-object.onloadeddata = function(){myScript};
+-object.addEventListener("loadeddata", myScript);
+*****loadedmetadata = Bu event, belirtilen ses veya video için meta datalar yüklendiğinde gerçekleşir.Ses veya video için meta datalar şunlardır: duration, dimensions(videolar için boyutlar) ve text trackleri.Syntaxı:
+-<element onloadedmetadata="myScript">
+-object.onloadedmetadata = function(){myScript};
+-object.addEventListener("loadedmetadata", myScript);
+*****loadstart = Bu event browser, belirtilen ses veya videoyu aramaya başladığında gerçekleşir.Aynı zamanda yükleme işleminin başladığı ilk andır.Syntaxı:
+-<element onloadstart="myScript">
+-object.onloadstart = function(){myScript};
+-object.addEventListener("loadstart", myScript);
+*****mousedown = Bu event bir kullanıcı, bir elementin üzerinde mouse buttonuna bastığında gerçekleşir.Mouse eventlerinin sırası şu şekildedir:
+*mousedown
+*mouseup
+*click
+*contextmenu
+->Syntaxı:
+-<element onmousedown="myScript">
+-object.onmousedown = function(){myScript};
+-object.addEventListener("mousedown", myScript);
+*****mouseenter = Bu event mouse pointerı, bir elementin üzerine geldiğinde gerçekleşir.Syntaxı:
+-<element onmouseenter="myScript">
+-object.onmouseenter = function(){myScript};
+-object.addEventListener("mouseenter", myScript);
+***"mouseenter" ile "mouseover" eventleri arasındaki fark şudur: "mouseenter" eventinin bubble özelliği yoktur ve böylece documentin hiyerarşisine yayılmayacaktır.Bu nedenle bir elementin veya childının veya iç içe yapıların focuslandığı durumlarda "mouseover" kullanabiliriz.
+*****mouseleave = Bu event mouse pointerı, bir elementin dışına çıktığında gerçekleşir.Syntaxı:
+-<element onmouseleave="myScript">
+-object.onmouseleave = function(){myScript};
+-object.addEventListener("mouseleave", myScript);
+***"mouseleave" ile "mouseout" eventleri arasındaki fark şudur: "mouseleave" eventinin bubble özelliği yoktur ve böylece documentin hiyerarşisine yayılmayacaktır.Bu nedenle bir elementin veya childının veya iç içe yapıların focuslandığı durumlarda "mouseout" kullanabiliriz.
+*****mousemove = Bu event mouse pointerı, bir elementin üzerindeyken hareket ettiğinde gerçekleşir.Syntaxı:
+-<element onmousemove="myScript">
+-object.onmousemove = function(){myScript};
+-object.addEventListener("mousemove", myScript);
+*****mouseover = Bu event mouse pointerı, bir elementin veya onun childlarından birinin üzerine taşındığında gerçekleşir.Syntaxı:
+-<element onmouseover="myScript">
+-object.onmouseover = function(){myScript};
+-object.addEventListener("mouseover", myScript);
+*****mouseout = Bu event mouse pointerı, bir elementten veya onun childlarından birinin dışına taşındığında gerçekleşir.Syntaxı:
+-<element onmouseout="myScript">
+-object.onmouseout = function(){myScript};
+-object.addEventListener("mouseout", myScript);
+*****mouseup = Bu event bir kullanıcı, bir elementin üzerine mouse butonuna basmayı bıraktığında gerçekleşir.Syntaxı:
+-<element onmouseup="myScript">
+-object.onmouseup = function(){myScript};
+-object.addEventListener("mouseup", myScript);
+*****pagehide = Bu event kullanıcı, bir web sayfasından uzaklaşırken gerçekleşir.Bir sayfadan uzaklaşmanın birkaç yolu vardır: Linke tıklayarak, sayfayı refreshleyerek, form submit ederek, browser windowunu kapatarak, vs...Syntaxı:
+-<element onpagehide="myScript">
+-object.onpagehide = function(){myScript};
+-object.addEventListener("pagehide", myScript);
+***"pagehide" ile "unload" eventleri arasındaki fark şudur: İkisi de aynı işlevi görür fakat "unload" eventi, sayfanın önbelleğe alınmamasına sebep olur.
+*****pageshow = Bu event kullanıcı, bir web sayfasını ziyaret ettiğinde gerçekleşir.Syntaxı:
+-<element onpageshow="myScript">
+-object.onpageshow = function(){myScript};
+-object.addEventListener("pageshow", myScript);
+***"pageshow" ile "load" eventi arasındaki fark şudur: Sayfa ilk yüklendiğinde önce "load" ve ardından "pageshow" eventi çalışır.Ayrıca sayfa her refreshlendiğinde "pageshow" eventi tekrar tekrar çalışır oysa ki sayfalar, önbellekten yüklendiği zaman "load" eventi gerçekleşmez.
+*****paste = Bu event kullanıcı, bir elemente bir içeriği yapıştırdığı zaman gerçekleşir.Genellike <input type="text"> elementinde kullanılır.Syntaxı:
+-<element onpaste="myScript">
+-object.onpaste = function(){myScript};
+-object.addEventListener("paste", myScript);
+*****pause = Bu event, ses veya videonun kullanıcı tarafından veya program aracılığıyla duraklatıldığında gerçekleşir.Video skiplerinde de aktifleşecektir.Syntaxı:
+-<element onpause="myScript">
+-object.onpause = function(){myScript};
+-object.addEventListener("pause", myScript);
+*****play = Bu event, ses veya video başlatıldığında veya artık duraklatılmadığında gerçekleşir.Video skiplerinde de aktifleşecektir.Syntaxı:
+-<element onplay="myScript">
+-object.onplay = function(){myScript};
+-object.addEventListener("play", myScript);
+*****playing = Bu event, ses veya videonun ara belleğe almak için duraklatıldıktan veya durdurulduktan sonra başlatıldığında(oynatıldığında) gerçekleşir.Syntaxı:
+-<element onplaying="myScript">
+-object.onplaying = function(){myScript};
+-object.addEventListener("playing", myScript);
+*****progress = Bu event browser, belirtilen ses veya videoyu indirirken gerçekleşir.Syntaxı:
+-<element onprogress="myScript">
+-object.onprogress = function(){myScript};
+-object.addEventListener("progress", myScript);
+*****ratechange = Bu event, ses veya videonun oynatma hızı değiştirildiğinde gerçekleşir.Mesela slow motion veya fast forward modlarındaki gibi.Ayrıca bu event, oynatma hızını ayarlayan veya döndüren Audio/Video Objectinin "playbackRate" propertisi tarafından çağrılabilir.Syntaxı:
+-<element onratechange="myScript">
+-object.onratechange = function(){myScript};
+-object.addEventListener("ratechange", myScript);
+*****resize = Bu event, browserın windowu küçültülüp veya büyültüldüğü zamanlarda gerçekleşir.Syntaxı:
+-<element onresize="myScript">
+-object.onresize = function(){myScript};
+-object.addEventListener("resize", myScript);
+*****reset = Bu event, bir form resetlendiğinde gerçekleşir.Syntaxı:
+-<element onreset="myScript">
+-object.onreset = function(){myScript};
+-object.addEventListener("reset", myScript);
+*****scroll = Bu event, elementin sctrollbarı kaydırıldığı zaman gerçekleşir.Syntaxı:
+-<element onscroll="myScript">
+-object.onscroll = function(){myScript};
+-object.addEventListener("scroll", myScript);
+*****seeked = Bu event kullanıcı, ses veya videoda yeni bir konuma hareket etmeyi veya atlamayı(skip) bitirdiğinde gerçekleşir.Syntaxı:
+-<element onseeked="myScript">
+-object.onseeked = function(){myScript};
+-object.addEventListener("seeked", myScript);
+***"seeked" ile "seeking" eventi arasındaki fark şudur: "seeking" eventi, kullanıcının her ilerletme, geriletme veya atlama hareketini başlattığı an gerçekleşir; "seeked" ise kullanıcının her ilerletme, geriletme veya atlama hareketini bitirdiği an gerçekleşir.
+*****seeking = Bu event kullanıcı, ses veya videoda yeni bir konuma hareket etmeyi veya atlamayı(skip) başlattığında gerçekleşir.Syntaxı:
+-<element onseeking="myScript">
+-object.onseeking = function(){myScript};
+-object.addEventListener("seeking", myScript);
+*****select = Bu event, bir element üzerinde textler seçildiğinde gerçekleşir.Genellikle <input type="text"> ve <textarea> elementlerinde kullanılır.Metod olarak uygulandığında da elementin textini seçer.Mesela "document.getElementById('myText').select();".Syntaxı:
+-<element onselect="myScript">
+-object.onselect = function(){myScript};
+-object.addEventListener("select", myScript);
+*****stalled = Bu event browser, medya datalarını almaya çalışırken ancak datalar mevcut olmadığında gerçekleşir.Syntaxı:
+-<element onstalled="myScript">
+-object.onstalled = function(){myScript};
+-object.addEventListener("stalled", myScript);
+*****submit = Bu event, bir form submit edildiğinde gerçekleşir.Syntaxı:
+-<element onsubmit="myScript">
+-object.onsubmit = function(){myScript};
+-object.addEventListener("submit", myScript);
+*****suspend = Bu event browser, kasıtlı olarak medya verilerini almadığında gerçekleşir.Medyanın yüklenmesi askıya alındığında(devam etmesi engellendiğinde) gerçekleşir.İndirme tamamlandığında veya herhangi bir nedenle duraklatıldığında da gerçekleşebilir.Syntaxı:
+-<element onsuspend="myScript">
+-object.onsuspend = function(){myScript};
+-object.addEventListener("suspend", myScript);
+*****timeupdate = Bu event, bir ses veya videonun oynatma konumu değiştirildiğinde gerçekleşir.Bu event birkaç şekilde çağrılabilir: Ses veya videonun normal bir şekilde oynatılması, playback konumunun manuel olarak taşınması(kullanıcının, ses veya videoda farklı bir noktaya fast forward yapması gibi), vs...Syntaxı:
+-<element ontimeupdate="myScript">
+-object.ontimeupdate = function(){myScript};
+-object.addEventListener("timeupdate", myScript);
+*****toggle = Bu event kullanıcı, <details> elementini açtığında veya kapattığında gerçekleşir.Syntaxı:
+-<element ontoggle="myScript">
+-object.ontoggle = function(){myScript};
+-object.addEventListener("toggle", myScript);
+*****transitionend = Bu event, bir CSS transitionu tamamlandığında gerçekleşir.Eğer transition, henüz tamamlanmadan kaldırılırsa(mesela "transition-property" propertisi kaldırılırsa); bu event gerçekleşmeyecektir.Prefixlerle kullanılmalıdır.Syntaxı:
+-object.addEventListener("transitionend", myScript);
+*****unload = Bu event, bir sayfadan çıkıldığında veya browser windowu kapatıldığında gerçekleşir.Aynı zamanda sayfa refreshlendiğinde de gerçekleşir.Syntaxı:
+-<element onunload="myScript">
+-object.onunload = function(){myScript};
+-object.addEventListener("unload", myScript);
+*****volumechange = Bu event, bir videonun veya sesin ses seviyesi her değiştirildiğinde gerçekleşir."Muted" edilen medyalarda da geçerlidir.Syntaxı:
+-<element onvolumechange="myScript">
+-object.onvolumechange = function(){myScript};
+-object.addEventListener("volumechange", myScript);
+*****waiting = Bu event, sonraki framei ara belleğe alması gerektiğinden dolayı video duraklatıldığında gerçekleşir.<audio> elementlerinde de kullanılabilir fakat genellikle videolar içindir.Syntaxı:
+-<element onwaiting="myScript">
+-object.onwaiting = function(){myScript};
+-object.addEventListener("waiting", myScript);
+*****altKey = Bu property, bir mouse eventi gerçekleştiği esnada "ALT" tuşuna basılıp basılmadığını belirten bir Boolean döndürür.Read-only bir propertidir.Syntaxı:
+-event.altKey 
+*****animationName = Bu property, bir animation eventi gerçekleştiğinde animasyonun "name"ini döndürür.Yani CSSteki "animation-name" valuesidir.Read-only bir propertidir.Syntaxı:
+-event.animationName
+*****bubbles = Bu property, bir eventin "bubling" özelliğine sahip olup olmadığını belirten bir Boolean döndürür.Bubling, eventlerin iç elementten dışa doğru yayılmasını sağlar.Böylece event, işlenene kadar ve document objectine ulaşana kadar parenttan parenta bubling olacaktır.Syntaxı:
+-event.bubbles
+*****button = Bu property, bir mouse eventi gerçekleştiğinde hangi mouse butonunun basıldığını gösteren bir tamsayı döndürür.Genellikle "onmousedown" eventiyle beraber kullanılır.Read-only bir propertidir.Syntaxı:
+-event.button
+*****cancelable = Bu property, bir eventin "cancelable" özelliğine sahip olup olmadığını belirten bir Boolean döndürür.Eventlerin default aksiyonlarını önlemek mümkünse event, cancelabledır.Syntaxı:
+-event.cancelable
+*****charCode = Bu property, "onkeypress" eventini triggerlayan keyin UNICODE karakter kodunu döndürür.UNICODE karakter kodu, bir karakterin numarasıdır(mesela 97 sayısı, "a" harfini temsil eder).Eğer bu properti, "onkeydown" veya "onkeyup" eventlerinde kullanılırsa, döndürülen değer herzaman "0" olur.Browser uyumluluğu için "keyCode" propertisiyle beraber kullanılmalıdır.Read-only bir propertidir.Syntaxı:
+-event.charCode
+*****clientX = Bu property, bir mouse eventi gerçekleştiğinde mouse pointerının, client areaya bağlı olarak yatay koordinatını döndürür.Client area, mevcut windowdur.Read-only bir propertidir.Syntaxı:
+-event.clientX
+*****clientY = Bu property, bir mouse eventi gerçekleştiğinde mouse pointerının, client areaya bağlı olarak dikey koordinatını döndürür.Client area, mevcut windowdur.Read-only bir propertidir.Syntaxı:
+-event.clientY
+*****createEvent() = Bu metod, bir event objecti oluşturur.Event, herhangi bir legal event türünde olabilir ve kullanılmadan önce initialize edilmelidir.Syntaxı:
+-document.createEvent(type)
+*****ctrlKey = Bu property, bir mouse eventi trigglerlandığında "CTRL" butonuna basılıp basılmadığını gösteren bir Boolean döndürür.Read-only bir propertidir.Syntaxı:
+-event.ctrlKey
+*****currentTarget = Bu property, event listenerlarının eventi triggerladığı elementi döndürür.Özellikle "capturing" ve "bubling" esnasında kullanışlıdır.Syntaxı:
+-event.currentTarget
+***"currentTarget" ile "target" propertileri arasındaki fark şudur: "currentTarget", event listenerının eventi triggerladığı elemente başvurur."target" ise eventi triggerlayan elementi döndürür.
+*****defaultPrevented = Bu property, event için preventDefault() metodunun çağrılıp çağrılmadığını kontrol eder.Syntaxı:
+-event.defaultPrevented
+*****detail = Bu property, eventle ilgili detayları içeren bir tamsayı döndürür.Mesela "onclick" veya "ondbclick" ile kullanılırsa, mevcut tıklanma sayısını gösterir."onmousedown" veya "onmouseup" ile kullanılırsa, mevcut tıklanma sayısı +1 gösterir.Read-only bir propertidir.Syntaxı:
+-event.detail
+*****elapsedTime = Bu property, bir animasyon eventi gerçekleştiğinde, bir animasyonun çalıştığı süreyi saniye türünden döndürür.Eğer animasyon duraklatılırsa veya CSS ile "animation-delay" gibi valueler mevcutsa bile bu propertyin dönüş valuesi etkilenmez."animationstart" propertisi için herzaman "0" valuesini döndürür.Read-only bir propertidir.Syntaxı:
+-event.elapsedTime
+*****elapsedTime = Bu property, bir transition eventi gerçekleştiğinde, bir transitionun çalıştığı süreyi saniye türünden döndürür.Eğer animasyon duraklatılırsa veya CSS ile "animation-delay" gibi valueler mevcutsa bile bu propertyin dönüş valuesi etkilenmez.Read-only bir propertidir.Syntaxı:
+-event.elapsedTime
+*****eventPhase = Bu property, event akışının o esnada hangi aşamasının hesaplanmakta olduğunu belirtir.Read-only bir propertidir.Dönüş değeri 4 sabitle(constant) temsil edilir:
+*0, NONE
+*1, CAPTURİNG PHASE-Eventin akışı, capturing aşamasındadır.
+*2, AT_TARGET-Eventin akışı, target aşamasındadır.Yani event, targettayken hesaplanmaktadır.
+*3, BUBLING PHASE-Eventin akışı, bubling aşamasındadır.
+->Syntaxı:
+-event.eventPhase
+*****getModifierState() = Bu metod, belirtilen modifier tuşa basıldığında veya etkinleştirildiğinde "true" döndürür.Birden fazla tuş seçmek için aralarına logic operatörler kullanılabilir.Sadece basıldığında etkinleştirilen tuşlar şunlardır:
+*Alt
+*AltGraph
+*Control
+*Meta
+*Shift
+->Syntaxı:
+-event.getModifierState(modifierKey)
+***Tıklanıldığında aktif olan ve tekrar tıklamayla da deaktif olan tuşlar: CapsLock, NumLock ve ScrollLocak tuşlarıdır.
+*****key = Bu property, bir key eventi gerçekleştiğinde basılan keyin idsini döndürür.Key idleri, klavye butonlarını tanımlayan stringlerdir.Read-only bir propertidir.Dönüş değerleri şöyle stringler olabilir:
+*Tek karakter ("a", "W", "%", "4", "+", vs...)
+*Multi karakter ("F1", "HOME", "ENTER", "CAPS LOCK", vs...)
+->Syntaxı:
+-event.key
+*****keyCode = Bu property, "onkeypress" eventini triggerlayaran keyin UNICODE karakter kodunu; "onkeydown" veya "onkeyup" eventlerini triggerlayan keyin UNICODE key kodunu dönrürür.Browser uyumluluğu için "charCode" propertisiyle beraber kullanılmalıdır.Read-only bir propertidir.Syntaxı:
+-event.keyCode
+***UNICODE karakter kodu ile UNICODE key kodu arasındaki fark şudur: karakter kodları, ASCII karakterini temsil eden sayılardır; key kodları ise klavyedeki gerçek bir tuşu temsil eden sayılardır.Bu ikisi herzaman aynı değeri döndürmez.Mesela klavyedeki "w" ile "W" keyleri aynıdır fakat karakter kodlamasında bunlar 119 ve 087 valuelerini döndürür.
+*****metaKey = Bu property, bir mouse eventi triggerlandığında "META" keye(mevcut klavyemde windows butonuyla eşleşmiştir) basılıp basılmadığını gösteren bir Boolean döndürür.Çoğu klavyede meta key artık yoktur fakat bazı tuşlarla eşleşmişlerdir.Maclerde genellikle "Command/Cmd" tuşlarıyla eşleşir.Read-only bir propertidir.Syntaxı:
+-event.metaKey
+*****metaKey = Bu property, bir key eventi triggerlandığında "META" keye(mevcut klavyemde windows butonuyla eşleşmiştir) basılıp basılmadığını gösteren bir Boolean döndürür.Read-only bir propertidir.Syntaxı:
+-event.metaKey
+*****pageX = Bu property, bir mouse eventi trigglerlandığında mouse pointerının documente göre olan yatay koordinatını döndürür.Document, web sayfasının tamamıdır.Read-only bir propertidir."clientX" propertisiyle aynı sonuçları verir.Syntaxı:
+-event.pageX
+*****pageY = Bu property, bir mouse eventi trigglerlandığında mouse pointerının documente göre olan dikey koordinatını döndürür.Document, web sayfasının tamamıdır.Read-only bir propertidir."clientY" propertisiyle aynı sonuçları verir.Syntaxı:
+-event.pageY
+*****persisted = Bu property, bir "onpageshow" veya "onpagehide" eventi gerçekleştiğinde web sayfasının direct olarak serverdan yüklenip yüklenmediğini veya sayfanın önbelleğe alınıp alınmadığını belirten bir Boolean döndürür.Read-only bir propertidir.Syntaxı:
+-event.persisted
+*****preventDefault() = Bu metod eğer event, "cancelable" bir eventse; eventi iptal eder.Yani evente ait olan default action gerçekleşmeyecektir.Mesela "submit" butonuna tıkladığımızda formun submit edilmesini önlemek veya bir linke tıkladığımızda linkin takip edilmesini önlemek gibi durumlarda kullanılabilir.Fakat bir eventin, DOM aracılığıyla daha fazla yayılmasını engellemez.Syntaxı:
+-event.preventDefault()
+*****propertyName = Bu property, bir transition eventi gerçekleştiğinde, transitionla relative ilişkili CSS propertisinin "name"ini döndürür.Read-only bir propertidir.Syntaxı:
+-event.propertyName
+*****relatedTarget = Bu property, mouse eventini triggerlayan elementle ilgili olan elementi döndürür.Mouse pointerının az önce çıktığı elementi belirtmek için "onmouseover" eventiyle veya mouse pointerının az önce girdiği elementi belirtmek içinse "mouseout" eventiyle beraber kullanılabilir.Read-only bir propertidir.Syntaxı:
+-event.relatedTarget
+*****relatedTarget = Bu property, focus ve blur eventlerini triggerlayan elementle ilgili elementi döndürür.Read-only bir propertidir.Syntaxı:
+-event.relatedTarget
+*****screenX = Bu property, bir event triggerlandığında mouse pointerının kullanıcının total bilgisayar ekranına göre(computer screen) yatay koordinatını döndürür.Read-only bir propertidir.Syntaxı:
+-event.screenX
+*****screenY = Bu property, bir event triggerlandığında mouse pointerının kullanıcının total bilgisayar ekranına göre(computer screen) dikey koordinatını döndürür.Read-only bir propertidir.Syntaxı:
+-event.screenY
+*****shiftKey = Bu property, bir mouse eventi tetiklendiğinde "SHIFT" tuşuna basılıp basılmadığını belirten bir Boolean döndürür.Read-only bir propertidir.Syntaxı:
+-event.shiftKey
+*****shiftKey = Bu property, bir key eventi tetiklendiğinde "SHIFT" tuşuna basılıp basılmadığını belirten bir Boolean döndürür.Read-only bir propertidir.Syntaxı:
+-event.shiftKey 
+*****stopImmediatePropagation() = Bu metod, aynı eventin diğer listenerlarının çağrılmasını engeller.Böylece aynı event türünden birden fazla kez bulunuyorsa, sadece mevcut event çalışacaktır.Syntaxı:
+-event.stopImmediatePropagation()
+*****stopPropagation() = Bu metod, çağrılan aynı eventlerin yayılmasını[propagation] engeller.Böylece iç içe yapılarda elementler, tekere teker eventi işleyecektir.Propagation, parent elementlere kadar bubling veya child elementlere kadar capturing anlamına gelir.Syntaxı:
+-event.stopPropagation()
+*****target = Bu property, eventi triggerlayan elementi döndürür.Element odaklıdır.Syntaxı:
+-event.target
+*****timeStamp = Bu property, belirli bir event oluşturulana kadar documentin yüklenmesinini tamamlandığı süreyi milisaniye cinsinden döndürür.Yani documentin yüklenmesinden başlayıp eventin gerçekleştirilmesine kadar geçen süredir.Tüm sistemler bu bilgiyi sağlayamaz.Bu nedenle tüm sistemler/eventler için mevcut olmayabilir.Syntaxı:
+-event.timeStamp
+*****type = Bu property, triggerlanan eventin türünü döndürür.Syntaxı:
+-event.type
+*****view = Bu property, eventin gerçekleştiği windows objectine bir başvuru döndürür.Syntaxı:
+-event.view
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****DOM HTML COLLECTION:
+*****item() = Bu metod, bir HTMLCollection içerisindeki belirtilen indexteki elementi döndürür.Elementler, source kodda göründükleri gibi sıralanır.
+İki farklı şekilde gösterilebilir: "HTMLCollection.item(n)" veya "HTMLCollection[n]".Syntaxı:
+-HTMLCollection.item(index)
+*****length = Bu property, bir HTMLColelction içerisindeki elementlerin sayısını döndürür.Loop üretmek için kullanışlıdır.Read-only bir propertidir.Syntaxı:
+-HTMLCollection.length
+*****namedItem() = Bu metod, bir HTMLCollection içerisindeki belirtilen IDye veya "name"e sahip olan elementi döndürür.
+İki farklı şekilde gösterilebilir: "HTMLCollection.namedItem('name')" veya "HTMLCollection.['name']".Syntaxı:
+-HTMLCollection.namedItem(name)
+-HTMLCollection[name]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****DOM LOCATİON:
+*****hash = Bu property, hash işareti(#) de dahil olmak üzere bir URLnin anchor kısmını ayarlar veya döndürür.Bu arada anchor kısmını düzenlemek istediğimizde "#" işaretini dahil etmemeliyiz.Mesela "location.hash = 'part5'" gibi.Syntaxı:
+-location.hash
+-location.hash = anchorname
+*****host = Bu property, bir URLnın portunu ve URLsini ayarlar veya döndürür.Eğer port numarası URLde belirtilmemişse(veya şemanın default portuysa - Mesela 80 veya 443 gibi) bazı browserlar, port numaralarını görüntüleyemez.Syntaxı:
+-location.host
+-location.host = hostname:port
+*****hostname = Bu property, bir URLnin hostnameini ayarlar veye döndürür.Syntaxı:
+-location.hostname
+-location.hostname = hostname
+*****href = Bu property, mevcut sayfanın tam URLsini ayarlar veya döndürür.Eğer valueyi başka sayfaya ayarlarsak, bizi o URlye yönlendirecektir.Şu şekilde sayfa içi sıçramalar da yapabiliriz: "location.href="#topElement".Syntaxı:
+-location.href
+-location.href = URL
+*****origin = Bu property, bir URLnin protokolünü, hostnameini ve port numarasını döndürür.Eğer port numarası URLde belirtilmemişse(veya şemanın default portuysa - Mesela 80 veya 443 gibi) bazı browserlar, port numaralarını görüntüleyemez.Read-only bir propertidir.Syntaxı:
+-location.origin
+*****pathname = Bu property, bir URLnin "pathname"ini ayarlar veya döndürür.Syntaxı:
+-location.pathname
+-location.pathname = path
+*****port = Bu property serverın, bir URL için kullandığı port numarasını ayarlar veya döndürür.Eğer port numarası URLde belirtilmemişse(veya şemanın default portuysa - Mesela 80 veya 443 gibi) bazı browserlar, port numaralarını görüntüleyemez.Syntaxı:
+-location.port
+-location.port = port
+*****protocol = Bu property, iki nokta üst üste ":" dahil olmak üzere mevcut URLnin protokolünü ayarlar veye döndürür.Protokol, dataların bilgisayarlar arasında nasıl iletildiğini belirten bir standarttır.Syntaxı:
+-location.protocol
+-location.protocol = protocol
+*****search = Bu property, soru işareti "?" dahil olmak üzere bir URLnin sorgu stringi(querystring) bölümünü ayarlar veya döndürür.Querystring kısım, URLnin soru işaretinden "?" sonra gelen kısmıdır.Bu, genellikle parametre geçişleri için kullanılır.Syntaxı:
+-location.search
+-location.search = querystring
+*****assign() = Bu metod, yeni bir document yükler.Syntaxı:
+-location.assign(URL)
+***"assign" ile "replace" metodları arasındaki fark şudur: "replace", mevcut documentin URLsini document geçmişinden kaldırır.Yani orjinal documente geri dönebilmek için "geri" butonunun kullanılmasını imkansız kılar.
+*****reload() = Bu metod, mevcut documenti yeniden yüklemek için kullanılır.Browserlardaki refresh butonuyla aynı işleve sahiptir.Syntaxı:
+-location.reload()
+*****replace() = Bu metod, mevcut belgeyi yenisiyle değiştirir.Eskü document, browser historysinden silinecektir.Syntaxı:
+-location.replace(newURL)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****DOM NAVIGATOR:
+*****appCodeName = Bu property, browserın kod adını döndürür.Read-only bir propertidir.Tüm modern borwserlar, uyumluluk sebebiyle "Mozilla" döndürür.Syntaxı:
+-navigator.appCodeName
+*****appName = Bu property, browserın adını döndürür.Read-only bir propertidir.Syntaxı:
+-navigator.appName
+*****appVersion = Bu property, browserın versiyon bilgilerini döndürür.Read-only bir propertidir.Syntaxı:
+-navigator.appVersion
+*****cookieEnabled = Bu property, browserda çerezlerin etkinleştirilip etkinleştirilmediğini belirten bir Boolean döndürür.Syntaxı:
+-navigator.cookieEnabled
+*****geolocation = Bu property, kullanıcının konumunu bulmak için kullanılabilecek bir Geolocation objecti döndürür.Bu, kullanıcının gizliliğini tehlikeye atabileceğinden dolayı kullanıcı onayı olmadan poziyon kullanılamaz.Read-only bir propertidir.Syntaxı:
+-navigator.geolocation
+*****language = Bu property, browserın dil versiyonunu döndürür.Read-only bir propertidir.Syntaxı:
+-navigator.language
+*****onLine = Bu property, browserın çevrimiçi mi yoksa çevrimdışı modda mı olduğunu belirten bir Boolean dönrürür.Read-only bir propertidir.Syntaxı:
+-navigator.onLine
+*****platform = Bu property, browserın hangi platform için compile edildiğini döndürür.Syntaxı:
+-navigator.platform
+*****product = Bu property, browserın engine(product) adını döndürür.Tüm browserlar "Gecko" döndürür.Read-only bir propertidir.Syntaxı:
+-navigator.product
+*****userAgent = Bu property, browser tarafından servera gönderilen user-agent başlığının valuesini döndürür.Döndürülen değerde browserın adı, versiyonu ve platformu hakkında bilgiler mevcuttur.Read-only bir propertidir.Syntaxı:
+-navigator.userAgent
+*****javaEnabled() = Bu metod, Javanın etkin olup olmadığını belirten bir Boolean döndürür.Syntaxı:
+-navigator.javaEnabled()
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****DOM SCREEN:
+*****availHeight = Bu property, kullanıcının ekranının yüksekliğini pixel cinsinden döndürür(Eğer ekranda Windows Görev Çubuğu gibi arayüz özellikleri görünürde mevcutsa, bunların yüksekliğini çıkartarak döndürür).Syntaxı:
+-screen.availHeight
+*****availWidth = Bu property, kullanıcının ekranının genişliğini pixel cinsinden döndürür(Eğer ekranda Windows Görev Çubuğu gibi arayüz özellikleri görünürde mevcutsa, bunların genişliğini çıkartarak döndürür).Syntaxı:
+-screen.availWidth
+*****colorDepth = Bu property, görsellerin görüntülenmesi için color paletinin bit derinliğini(pixel başına bit olarak) dönrürür.Syntxı:
+-screen.colorDepth
+*****height = Bu property, kullanıcının ekranının toplam yüksekliğini pixel cinsinden döndürür.Syntaxı:
+-screen.height
+*****pixelDepth = Bu property, kullanıcı ekranının renk çözünürlüğünü(pixel başına bit olarak) döndürür.Syntaxı:
+-screen.pixelDepth
+*****width = Bu property, kullanıcının ekranının toplam genişliğini pixel cinsinden döndürür.Syntaxı:
+-screen.width
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****DOM WİNDOW:
+*****closed = Bu property, bir windowun kapatılıp kapatılmadığını gösteren bir Boolean döndürür.Syntaxı:
+-window.closed
+*****contentDocument = Bu property, bir <iframe> elementi tarafından oluşturulan Document objectini döndürür.Genellikle bir frame elementine ait Document objectine erişmek için host windowunda kullanılır.Ancak güvenlik nedeniyle, bir documentin içeriğine başka bir documentten ancak iki document de aynı domain içerisinde bulunuyorsa erişime izin verilir.Syntaxı:
+-iframeObject.contentDocument
+*****contentWindow = Bu property, bir <iframe> elementi tarafından oluşturulan Window objectini döndürür.Window objecti aracılığıyla document objectine ve ardından da documentin elementlerinden herhangi birisine erişebiliriz.Syntaxı:
+-iframeObject.contentWindow
+*****frameElement = Bu property, mevcut windowun eklendiği <iframe> elementini döndürür.Eğer document windowu, bir frame içerisine yerleştirilmezse; bu propertinin dönüş valuesi "null" olur.Read-only bir propertidir.Syntaxı:
+-window.frameElement
+*****frames = Bu property, mevcut windowdaki tüm <iframe> elementlerini temsil eden array benzeri bir object döndürür.Bu objectin elementlerine indexlerle erişilebilir.Read-only bir propertidir.Syntaxı:
+-window.frames
+*****history = Bu property, kullanıcı tarafından geçmişte ziyaret edilen sitelerin URLlerini içerir(bir browser windowun içerisinde).History objecti, window objectinin bir parçasıdır ve buna da "window.history" aracılığıyla erişilir.
+*****innerHeight = Bu property, bir windowun içerik alanının yüksekliğini belirtir.Read-only bir propertidir.Syntaxı:
+-window.innerHeight
+*****innerWidth = Bu property, bir windowun içerik alanının genişliğini belirtir.Read-only bir propertidir.Syntaxı:
+-window.innerWidth
+*****length = Bu property, mevcut windowdaki <iframe> elementlerinin sayısını döndürür.Genellikle "window.frames" propertisindeki elemanları hesaplamak için kullanılır.Read-only bir propertidir.Syntaxı:
+-window.length
+*****localStorage = Bu property, bir web browserında key/value çiftlerinin kaydedilmesine izin verir.localStorage objecti, son kullanma tarihi olmayan dataları depolar.Browser kapatıldığında veriler silinmez ve ertesi gün, ertesi hafta veya ertesi yıl bile kullanılabilir.Read-only bir propertidir.Syntaxı:
+-window.localStorage
+-localStorage.setItem("key", "value");
+-var lastname = localStorage.getItem("key");
+-localStorage.removeItem("key");
+-localStorage.clear()
+*****location = Bu property, <iframe> elementlerindeki mevcut URLleri ayarlar.Mesela "window.frames[1].location='https://www.google.com'".
+*****name = Bu property, windowun adını ayarlar veya döndürür.Genellikle window oluşturulduktan sonra windowun adını değiştirmek için kullanılır.Windowun adı genellikle linkler ve formlar için targetları belirlemek için kullanılır.Ancak windowların adı olmak zorunda değildir.Syntaxı:
+-window.name
+-window.name = windowName
+*****opener = Bu property, windowu oluşturmuş olan parent windowa bir başvuru döndürür.Mesela "window.open()" metoduyla bir window açarken, parent windowun ayrıntılarını döndürmek için hedefteki windowdan bu propertiyi kullanabiliriz.Bu arada "window.opener.close()" şeklinde belirtirsek, parent window kapanacaktır.Syntaxı:
+-window.opener
+*****outerHeight = Bu property, tüm interface ögeleri(toolbarlar,scrollbarlar,vs) dahil olmak üzere browser windowunun dış yüksekliğini döndürür.Read-only bir propertidir.Syntaxı:
+-window.outerHeight
+*****outerWidth = Bu property, tüm interface ögeleri(toolbarlar,scrollbarlar,vs) dahil olmak üzere browser windowunun dış genişliğini döndürür.Read-only bir propertidir.Syntaxı:
+-window.outerWidth
+*****pageXOffset = Bu property mevcut documentin, windowun sol kenarından yatay olarak kaydırıldığı pixel sayısını döndürür."scrollX" propertisiyle aynı işleve sahiptir.Read-only bir propertidir.Syntaxı:
+-window.pageXOffset
+*****pageYOffset = Bu property, mevcut documentin, windowun üst kenarından yatay olarak kaydırıldığı pixel sayısını döndürür."scrollY" propertisiyle aynı işleve sahiptir.Read-only bir propertidir.Syntaxı:
+-window.pageYOffset
+*****parent = Bu property, mevcut windowun parent windowunu döndürür.Read-only bir propertidir.Syntaxı:
+-window.parent
+*****screenLeft = Bu property, ekrana relative ilişkili olan windowun yatay koordinatını döndürür.Syntaxı:
+-window.screenLeft
+*****screenTop = Bu property, ekrana relative ilişkili olan windowun dikey koordinatını döndürür.Syntaxı:
+-window.screenTop
+*****screenX = Bu property, kullanıcının total bilgisayar ekranına göre(computer screen) relative ilişkili olan windowun yatay koordinatını döndürür.Syntaxı:
+-window.screenX
+*****screenY = Bu property, ekrana relative ilişkili olan windowun dikey koordinatını döndürür.Syntaxı:
+-window.screenY
+*****scrollX = Bu property mevcut documentin, windowun sol kenarından yatay olarak kaydırıldığı pixel sayısını döndürür."pageXOffset" propertisiyle aynı işleve sahiptir.Read-only bir propertidir.Syntaxı:
+-window.scrollX
+*****scrollY = Bu property, mevcut documentin, windowun üst kenarından yatay olarak kaydırıldığı pixel sayısını döndürür."pageYOffset" propertisiyle aynı işleve sahiptir.Read-only bir propertidir.Syntaxı:
+-window.scrollY
+*****sessionStorage = Bu property, bir web browserında key/value çiftlerinin kaydedilmesine izin verir.sessionStorage objecti, sadece bir oturum için dataları depolar yani browser sekmesi kapatıldığı zaman tüm veriler silinecektir.Syntaxı:
+-window.sessionStorage
+-sessionStorage.setItem("key", "value");
+-var lastname = sessionStorage.getItem("key");
+-sessionStorage.removeItem("key");
+-sessionStorage.clear();
+*****self = Bu property, mevcut windowu döndürür.Genellikle karşılaştırma yapılırken kullanılır.Read-only bir propertidir.Syntaxı:
+-window.self
+*****top = Bu property, mevcut windowun en üstteki browser windowunu döndürür.Read-only bir propertidir.Syntaxı:
+-window.top
+*****alert() = Bu metod, belirtilen bir mesaj ve bir "OK" butonu içeren bir alert boxı görüntüler.Genellikle bilginin kullanıcıya ulaştığından emin olmak için kullanırık çünkü alert boxı geçmek için kullanıcının müdahale etmesi şarttır.Mevcut windowdan focusu alır ve browserı, mesajı okumaya zorlar.Box kapanana kadar kullanıcının sayfanın diğer bölümlerine erişmesini engeller.Syntaxı:
+-alert(message)
+*****atob() = Bu metod, base-64 ile kodlanmış bir stringin kodunu decode eder yani çözer.Kısaca "btoa" metoduyla kodlanmış string bir datanın kodunu decode eder.
+Özel karakterleri(mesela türkçe harfler gibi) çözemeyeceğinden dolayı, "decodeURIComponent" ile şu şekilde kullanılması daha doğru olur: 
+"decodeURIComponent(window.atob(string))".Syntaxı:
+-window.atob(encodedStr)
+*****blur() = Bu metod, focusu mevcut windowdan kaldırır.Mevcut windowu arkaplana getirmek için bir requestte bulunur.Farklı kullanıcı ayarları nedeniyle tüm browserlarda çalışmayabilir.Syntaxı:
+-window.blur()
+*****btoa() = Bu metod, stringi base-64 şeklinde kodlar.Stringleri kodlamak için "A-Z","a-z","0-9","+","/" ve "=" karakterlerini kullanır.Özel 
+karakterleri(mesela türkçe harfler gibi) kodlayamayacağından dolayı, "encodeURIComponent" ile şu şekilde kullanılması daha doğru olur: 
+"window.btoa(encodeURIComponent(string))".Syntaxı:
+-window.btoa(str)
+*****clearInterval() = Bu metod, "setInterval" metoduyla oluşturulmuş olan timer kümesini temizler.Döndürülen ID, "clearInterval" metodunun parametresi olarak kullanılır.Fakat bu metodu kullanabilmek için öncesinde interval metodu oluştururken bir değişken ile tanımlamamız gerekir.
+Mesela: myVar = setInterval('javascript function', milliseconds).Syntaxı:
+-clearInterval(var)
+*****clearTimeout() = Bu metod, "setTimeout" metoduyla oluşturulmuş olan timer kümesini temizler.Döndürülen ID, "clearTimeout" metodunun parametresi olarak kullanılır.
+Mesela: myVar = setTimeout("javascript function", milliseconds).Eğer fonksiyon henüz execute edilmemişse bile bu metodu çağırarak executeu durdurabiliriz.Syntaxı:
+-clearTimeout(id_of_settimeout)
+*****close() = Bu metod, mevcut windowu kapatır.Syntaxı:
+-window.close()
+*****confirm() = Bu metod, bir "OK" ve "CANCEL" butonuyla beraber belirli bir mesaj içeren bir dialog boxı görüntüler.Kullanıcının bir şeyi doğrulamasını veya kabul etmesini istediğimiz durumlarda kullanırız.Mevcut windowdan focusu alır ve browserı, mesajı okumaya zorlar.Box kapanana kadar kullanıcının sayfanın diğer bölümlerine erişmesini engeller.Eğer kullanıcı, "OK" butonuna tıklarsa "true"; aksi takdirde "false" döndürür.Syntaxı:
+-confirm(message)
+*****focus() = Bu metod, focusu mevcut windowa ayarlar.Mevcut windowu önplana getirmek için bir requestte bulunur.Farklı kullanıcı ayarları nedeniyle tüm browserlarda çalışmayabilir.Syntaxı:
+-window.focus()
+*****getComputedStyle() = Bu metod, belirtilen elementin tüm gerçek işlenen CSS properti ve valuelerini alır.İşlenen stil, birden çok sourcetan gelen "stiller" uygulandıktan sonra, elementin görüntülenmesinde gerçekte kullanılan stildir.Stil sourceları şunları içerebilir: external stil sayfaları, internal stil sayfaları, inherit edilen stiller ve browserın default stilleri.İkinci parametresinde selector kullanarak spesifik elementler seçebiliriz.Syntaxı:
+-window.getComputedStyle(element, pseudoElement)
+*****matchMedia() = Bu metod, belirtilen media query stringinin sonuçlarını temsil eden bir MediaQueryList objecti döndürür.Valuesi, min-height veya min-width veya orientation gibi CSS @media rule'unun media özelliklerinden herhangi birisi olabilir.MediaListObject objectinin 2 propertisi ve responsive durumlar için de 2 metodu vardır:
+*macthes, bir querynin sonuçlarını kontrol eder.Sonuç eşleşmelerine göre Boolean döndürür.
+*media, media query listesini temsil eden bir string döndürür.
+*addListener(functionref), media querynin hesaplanan sonuçları değiştiğinde execute edilen bir listener fonksiyonu ekler.
+*removeListener(functionref), media query listesine önceden eklenmiş olan listener fonksiyonunu kaldırır.
+->Syntaxı:
+-window.matchMedia(mediaQueryString)
+*****moveBy() = Bu metod, bir windowu mevcut koordinatlara göre belirli sayıda pixel taşır.Syntaxı:
+-window.moveBy(x, y)
+*****moveTo() = Bu metod, bir windowun sol ve üst kenarını belirtilen koordinatlara taşır.Syntaxı:
+-window.moveTo(x, y)
+*****open() = Bu metod, browser ayarlarına ve parametre valuelerine bağlı olarak yeni bir browser windowu veya yeni bir sekme açar.Syntaxı:
+-window.open(URL, name, specs, replace)
+*****print() = Bu metod, mevcut windowun içeriğini yazdırır.Kullanıcının tercih edilen print seçeneklerini seçmesine izin veren Print Dialog Boxı açar.Syntaxı:
+-window.print()
+*****prompt() = Bu metod, kullanıcıdan input isteyen bir dialog boxı görüntüler.Eğer kullanıcının, bir sayfaya giriş yapmadan önce bir input girmesini istiyorsak, bu metod çok kullanışlıdır.Mevcut windowdan focusu alır ve browserı, mesajı okumaya zorlar.Box kapanana kadar kullanıcının sayfanın diğer bölümlerine erişmesini engeller.Kullanıcı eğer, "OK" butonuna tıklarsa girdiği input valuesi döndürülür; "CANCEL" butonuna tıklarsa da "null" döndürülür.Syntaxı:
+-prompt(text, defaultText)
+*****resizeBy() = Bu metod, bir windowu mevcut boyutuna göre belirtilen miktarda yeniden boyutlandırır.Windowun sağ alt köşesini, belirtilen pixel kadar hareket ettirir.Sol üst köşe ise taşınmaz yani orjinal koordinatlarında sabit kalır.Syntaxı:
+-window.resizeBy(width, height)
+*****resizeTo() = Bu metod, bir windowu belirtilen height ve widthe göre yeniden boyutlandırır.Syntaxı:
+-window.resizeTo(width, height)
+*****scrollBy() = Bu metod documenti, belirtilen pixel sayısı kadar kaydırır.Fakat çalışması için windowun scrollbarının "visible=true" olarak ayarlanmış olması gerekir.Syntaxı:
+-window.scrollBy(xnum, ynum)
+*****scrollTo() = Bu metod documenti, belirtilen koordinatlara kaydırır.Syntaxı:
+-window.scrollTo(xpos, ypos)
+*****setInterval() = Bu metod, bir fonksiyonu çağırır veya belirtilen aralıklarla[milisaniye cinsinden] bir expressionu hesaplar."clearInterval" çağrılıncaya veya mevcut window kapatılıncaya kadar bulundurduğu fonksiyonu çağırmaya devam edecektir.Döndürdüğü ID, "clearInterval" metodunda parametre olarak kullanılır.Syntaxı:
+-setInterval(function, milliseconds, param1, param2, ...)
+*****setTimeout() = Bu metod, belirli bir milisaniye zamandan sonra bir fonksiyonu çağırır veya bir expressionu hesaplar.Sadece bir kez execute edilir.Repeat gereken fonksiyonlar için "setInterval" kullanın.Syntaxı:
+-setTimeout(function, milliseconds, param1, param2, ...)
+*****stop() = Bu metod, windowun yüklenmesini durdurur.Bir görselin veya framein yüklenmesinin çok uzun sürdüğü durumlarda kullanışlıdır.Syntaxı:
+-window.stop()
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*****hasOwnProperty() = Bu metod, nesnenin, belirtilen özelliğe kendi propertisi olarak sahip olup olmadığını belirten bir boolean döndürür.Yani belirtilen propertinin, bulunduğu nesnenin doğrudan propertisi olup olmadığını belirtir.Belirtilen bir propertinin, bir nesnede mevcut olup olmadığını belirlemek için de kullanılabilir.Eğer arraylerde kullanılırsa, property yerine belirtilen indexlerin üzerinde aynı işlemleri yapar.Syntaxı:
+-Object.hasOwnProperty(property)
+*****propertyIsEnumerable() = Bu metod, belirtilen propertinin numaralandırılabilir olup olmadığını ve nesnenin kendi propertisi olup olmadığını belirten bir boolean döndürür.Eğer arraylerde kullanılırsa, property yerine belirtilen indexlerin üzerinde aynı işlemleri yapar.Syntaxı:
+-Object.propertyIsEnumerable(property)
+*****isPrototypeOf() = Bu metod, bir nesnenin başka bir nesnenin prototip zincirinde bulunup bulunmadığını kontrol eder.Syntaxı:
+-Object.prototype.isPrototypeOf(object)

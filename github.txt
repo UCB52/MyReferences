@@ -1,0 +1,7 @@
+1-git init
+2-git add .
+3-git commit -m "first commit"
+4-git remote add origin https://github.com/UCB52/project1.git
+5-git push origin master
+6-Eğer 5. adım olmazsa, "git push -f origin master".
+7-

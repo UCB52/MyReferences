@@ -1,0 +1,78 @@
+*Containerlar, default olarak "padding-left:15px" ve "padding-right:15px" şeklindedir.
+***Container viewports:
+Class	        Extra small    Small    Medium    Large    Extra large
+                   <576px	   ≥576px   ≥768px    ≥992px     ≥1200px
+.container-sm	    100%	    540px	 720px	   960px	  1140px
+.container-md	    100%	    100%	 720px	   960px	  1140px
+.container-lg	    100%	    100%	 100%	   960px	  1140px
+.container-xl	    100%	    100%	 100%	   100%	      1140px
+*Column classes:
+.col-       [extra small devices - screen width less than 576px[
+.col-sm-    [small devices - screen width equal to or greater than 576px[
+.col-md-    [medium devices - screen width equal to or greater than 768px[
+.col-lg-    [large devices - screen width equal to or greater than 992px[
+.col-xl-    [xlarge devices - screen width equal to or greater than 1200px[
+***Default "font-size:16px", "line-height:1.5", "font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif" şeklindedir.<p> tagları da default olarak "margin-top:1rem" ve "margin-bottom:1rem" şeklindedir(1rem=16px).
+*Display headings: Normal başlık taglarından(h1,..h6) farklı olarak daha fazla ön plana çıkartılan başlıklardır.Daha yüksek font büyüklüğüne ve daha az font-weightine sahiptirler.Classları: .display-1, .display-2, .display-3, .display-4 şeklindedir.
+*<small> = Bu tag, mevcut içeriğini daha parlak ve secondary text haline getirir.
+*<blockquoute> tagının içerisine "blockquoute" classını eklemeliyiz.
+*<code> ve <kbd> taglarının yeni stylingleri dolayısıyla sık kullanılabilir.
+***Renkler ve Anlamları:
+*-muted = Siliktir.
+*-primary = Önemlidir.
+*-success = Başarılıdır.
+*-info = Bilgidir.
+*-warning = Uyarıdır.
+*-danger = Tehlikelidir.
+*-secondary = İkincildir.
+*-white = Beyazdır.
+*-dark = Koyu gridir.
+*-body = Bodynin default rengidir(genellikle siyah).
+*-light = Açık gridir.
+*-black-50 = Siyah fakat 50% opacity.
+*-white-50 = Beyaz fakat 50% opacity.
+***Progress barlar, default olarak "height:16px" şeklindedir.
+***Sadece block düzeyindeki elementler "margin:auto" veya "mx-auto" şeklinde ortalanabilir.
+*ÖNEMLİ SİMGELER: &times, &laquo, &raquo, &copy
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Sayfadaki tüm popoverları aktif etmek için:
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+***Sayfadaki spesifik bir popoverı aktif etmek için:
+var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+	container: 'body'
+  })
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Sayfadaki formlara validation denetimi yapmak için:
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Sayfadaki tooltipleri initialize etmek için:
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Safyadaki spesifik bir toastı aktif etmek için:
+d=document.getElementById('liveToastBtn'),
+f=document.getElementById('liveToast'),
+d&&d.addEventListener('click',function(){var a=new bootstrap.Toast(f);a.show()})

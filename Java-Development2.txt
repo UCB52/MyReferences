@@ -1,0 +1,281 @@
+***Gite yüklemek için: 
+-or create a new repository on the command line
+1-echo "# testt" >> README.md
+2-git init
+3-git add README.md
+4-git commit -m "first commit"
+5-git branch -M main
+6-git remote add origin https://github.com/UCB52/testt.git
+7-git push -u origin main
+-or push an existing repository from the command line
+1-git remote add origin https://github.com/UCB52/testt.git
+2-git branch -M main
+3-git push -u origin main
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Dosya Okumak ve Yazmak için:
+public class class1{
+	File newFile1 = new File("test.txt");  //Dosya, mevcut proje ile aynı dizinde olmalıdır[yani src içerisinde değil].
+	try{
+	FileReader fileReader1 = new FileReader(newFile1);
+	int c = fileReader1.read();
+	while(c!=-1){
+		char k = (char)c;
+		System.out.print(k + " ");
+		c=fileReader1.read();
+	}
+	fileReader1.close();
+	newFile1 = new File("test.txt");
+	BufferedReader bufferedReader1 = new BufferedReader(new FileReader(newFile1));
+	System.out.println(bufferedReader1.readLine());
+	bufferedReader1.close();
+	File newFile2 = new File("test2.txt");
+	FileWriter fileWriter1 = new FileWriter(newFile2);
+	fileWriter1.write("Deneme mesajı");
+	fileWriter1.close();
+	}
+	catch(Exception e){
+	e.printStackTrace();
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Generic Types: İsimlendirme standartı şu şekildedir:
+ HARF:	ANLAM:
+- E     Element	(Java Collection Frameworkde kullanılır)
+- K	Key
+- N     Number
+- T	Type
+- V	Value
+- ?	Unknown (Bilinmeyen tiptir)
+*Generic ifadeyi sınırlandırarak, belirli bir classtan türemesini[number,string,vs..] sağlayabiliriz.Multiple sınırlandırma da yapabiliriz.Mesela:
+public class Kare<T extends Number & String> {    
+    public double alanHesapla(T uzunluk) {
+        return uzunluk.doubleValue() * uzunluk.doubleValue();
+}}
+*Tipini bilmediğimiz ifadelerde okuma yapmak için sınırlandırma yapmak zorunda değiliz.Mesela:
+public void printList(List<?> list) {
+    for (Object object : list) {
+        System.out.println(object);
+    }
+}
+*Wildcard ile "extends" keywordu ekleyerek, "List"ten okumalar yapabiliriz.Mesela:
+public void read(List<? extends Number> list){
+    for (int i = 0; i < list.size(); i++){
+        System.out.println(i);
+    }
+}
+*Wildcard ile "super" keywordu ekleyerek, "List"e eklemeler yapabiliriz.Mesela:
+public void addNumbers(List<? super Number> list) {
+    for (int i = 1; i <= 10; i++) {
+        list.add(i);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***"Array" objectinden "newInstance"lar oluşturularak, yeni arrayler türetebiliriz ve "get" ve "set" metodlarıyla ayarlamalar yapabiliriz:
+String[] array1 = (String[]) Array.newInstance(String.class, 2);
+    Array.set(array1, 0, "Mahesh");
+    Array.set(array1, 1, "Ramesh");
+	Arrays.sort(array1);  //Array sort
+        System.out.println("stringArray[0] = " + Array.get(array1, 0));
+        System.out.println("stringArray[1] = " + Array.get(array1, 1));
+	for(int i : array1){System.out.println(i);}
+	System.out.println(Arrays.toString((String[]) array1));  //Array to String
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***"ArrayList" kullanımı:
+*Oluşturmak için: "ArrayList<Integer> al1 = new ArrayList<Integer>()".
+*Kısayoldan item eklemek için: "ArrayList<Integer> al1 = new ArrayList<Integer>(Arrays.asList(1,3,5,7,9))".
+***"ArrayList" ile "List" arasındaki fark şudur: "ArrayList", bir "List"in implementation classıdır; "List" ise, bir interfacedir.
+*"add" metoduyla eklemeler yaparız.
+*"get" medotuyla, belirtilen indexteki itemi çekeriz.
+*"set" metoduyla, belirtilen indexteki itemı değiştiririz.
+*"indexOf" metoduyla, belirtilen itemin indexini döndürürüz.
+*"clear" metoduyla arrayListi temizleriz.
+*"remove" metoduyla, "itemName" veya "index" belirterek silme yaparız.
+*removeAll" metoduyla, belirtilen arrayListin itemleriyle uyuşan mevcut arrayListin itemlerini kaldırarak filtreleme yapar.Mesela: "arrayList1.removeAll(arrayList2);".
+*"contains" metoduyla arrayList içerisinde item arayarak boolean döndürürüz.
+*"size" metoduyla lengthini döndürür.
+*ArrayListi sort etmek için "Collections.sort(arrayListName)" kullanırız.
+*ArrayListi reverse sort etmek için "Collections.sort(arrayListName, Collections.reverseOrder())" kullanırız.
+*İtemleri arasında iteration için:
+for(String i: arrayList) {
+  System.out.println(i);  
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***"List" kullanımı:
+*List = Oluşturmak için: "List<Interface1> credits = new ArrayList<Interface1>();".
+*"add" metoduyla eklemeler yaparız.
+*"get" medotuyla, belirtilen indexteki itemi çekeriz.
+*"set" metoduyla, belirtilen indexteki itemı değiştiririz.
+*"indexOf" metoduyla, belirtilen itemin indexini döndürürüz.
+*"clear" metoduyla arrayListi temizleriz.
+*"remove" metoduyla, "itemName" veya "index" belirterek silme yaparız.
+*removeAll" metoduyla, belirtilen Listin itemleriyle uyuşan mevcut Listin itemlerini kaldırır ve filtreleme yapar.Mesela: "list1.removeAll(list2);".
+*"contains" metoduyla List içerisinde item arayarak boolean döndürürüz.
+*"size" metoduyla lengthini döndürür.
+*Listi sort etmek için "Collections.sort(listName)" kullanırız.
+*Listi reverse sort etmek için "Collections.sort(listName, Collections.reverseOrder())" kullanırız.
+*İtemleri arasında iteration için:
+for(String i:list) {
+  System.out.println(i);  
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Hastable kullanımı için: 
+*Ekleme sırası LIFO(Last in first out) şeklindedir.
+*Oluşturmak için "Hastable<K,V> ht1 = new Hastable<K,V>();" yazarız.
+*"put" metoduyla eklemeler veya updateler yaparız.Birden fazla aynı iteme izin verilmez.
+*"remove" metoduyla çıkarmalar yaparız.
+*"get" metoduyla spesifik keyleri çekerek, valuelerini görüntüleriz.
+*"clear" metoduyla hashtableı komple temizleriz.
+*"size" metoduyla hashtablein lengthini buluruz.
+*"containsKey" metodu, hashtablein keylerinin içerisinde arama yaparak boolean döndürür.Mesela: "ht1.containsKey("cities")".
+*"containsValue" metodu, hashtablein keylerinin içerisinde arama yaparak boolean döndürür.Mesela: "ht1.containsValue("Istanbul")".
+*"entrySet" metodu, hastablein itemlerini key-value halinde map ederek view döndürür.
+*"keySet" metodu, hashtablein itemlerinin sadece keylerini map ederek view döndürür.
+*İnitialize valuesi ekleyerek, stackteki dizilen başlangıç itemini belirtebiliriz.Mesela: "Hastable<K,V> ht1 = new Hastable<K,V>(2);" ifadesi, 2. eklenen itemi başa koyacaktır.
+*Başka bir hash tablosunu, initialize itemi olarak kullanabiliriz : "Hastable<K,V> ht2 = new Hastable<K,V>(ht1);".
+*İtemleri arasında iteration için:
+for(Map.Entry<String, String> i : ht2.entrySet()) {
+    System.out.println(i.getKey() + " " + i.getValue());
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***SortedSet kullanımı için:
+*İtem ekleme yapıldığı anda sorting yapılır.
+*Birden fazla aynı item barındırmaz.Aynı item tekrar eklenirse error vermez; override edilir.
+*Oluşturmak için "SortedSet<String> ss1 = new TreeSet<String>()" yazarız.
+*"add" metoduyla itemler ekleriz.Birden fazla aynı iteme izin verilmez.
+*"remove" metoduyla item sileriz.
+*"clear" metoduyla tamamen temizleriz.
+*"size" metoduyla lengthini buluruz.
+*"contains" metoduyla, setin içerisinde arama yaparak boolean döndürürüz.
+*"first" metodu, setin ilk itemini döndürür.
+*"last" metodu, setin son itemini döndürür.
+*İtemleri arasında iteration için:
+for (String value : ss1) {
+    System.out.print(value + " ");
+}
+*headSet(x) = Bir sortedSetin, spesifik olarak belirtilen değerden küçük olan itemleriyle yeni bir set oluşturur.Mesela: "SortedSet<Integer> ss11 = ss1.headSet(10);".
+*tailSet(x) = Bir sortedSetin, spesifik olarak belirtilen değerden büyük veya eşit olan itemleriyle yeni bir set oluşturur.Mesela: 
+"SortedSet<Integer> ss2 = ss1.tailSet(10);".
+*subset(item1, item2) = SortedSetin, belirtilen itemleri arasındaki itemleriyle yeni bir set oluşturur[belirtilen itemler dahil].Mesela: 
+"SortedSet<Integer> ss2 = ss1.subSet(6, 33);".
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Stack kullanımı için:
+*Ekleme sırası LIFO şeklindedir.
+*Oluşturmak için "Stack<String> stk1 = new Stack<String>()" yazarız.
+*"push" metoduyla itemler ekleriz.
+*"pop" metoduyla son eklenen yani stackin en üstündeki itemi kaldırır veya döndürür.
+*"remove(x)" metoduyla, stackin belirtilen indexindeki itemi kaldırırız.
+*"clear" metoduyla stacki komple temizleriz.
+*"contains" metoduyla, belirtilen itemin stack içerisinde bulunup bulunmadığını boolean döndürürüz.
+*"peek" metoduyla son eklenen yani stackin en üstündeki itemi döndürürüz.
+*"search" metodu, stack içerisinde bir item arar ve onun konumunu döndürür.Konumun değeri 1den başlar ve stackin en üstünden aramaya başlar.
+*"size" metoduyla lengthini döndürürüz.
+*İtemleri arasında iteration için:
+for(String i : stk1) {
+    System.out.println(i);
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Queue kullanımı için:
+*Ekleme sırası FIFO şeklindedir.
+*Sortingli oluşturmak için "Queue<String> q1 = new PriorityQueue<String>()" yazarız.
+*Sortingli oluşturmak için "Queue<String> q1 = new PriorityBlockingQueue<String>()" yazarız.
+*Sortingsiz oluşturmak için "Queue<String> q1 = new LinkedList<String>()" yazarız.
+*"add" metoduyla itemler ekleriz.
+*"remove" metoduyla çıkarma yaparız.
+*"peek" metoduyla ilk itemini döndürürüz.
+*"size" metoduyla lengthini döndürürüz.
+*"clear" metoduyla tüm queueyi temizleriz.
+*"contains" metoduyla, belirtilen itemi içerip içermediğini boolean döndürürüz.
+*"poll" metoduyla ilk itemini kaldırır veya döndürür['remove' metoduna benzer].
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***LinkedList kullanımı için:
+*Ekleme sırası FIFO şeklindedir.
+*Oluşturmak için "LinkedList<String> l1 = new LinkedList<String>()" yazarız.
+*"add" metoduyla itemler ekleriz.
+*"get" metoduyla belirtilen indexteki itemi çekeriz.
+*"set" metoduyla, belirtilen indexteki itemi değiştiririz.
+*"clear" metoduyla listeyi temizleriz.
+*"remove" metoduyla çıkarma yaparız.
+*"removeFirst" metoduyla ilk itemi kaldırırız.
+*"removeLast" metoduyla son itemi kaldırırız.
+*"addFirst" metoduyla listenin başına item ekleriz.
+*"addLast" metoduyla listenin sonuna item ekleriz.
+*"size" metoduyla lengthini döndürürüz.
+*"peek" metoduyla ilk itemini döndürürüz.
+*"indexOf" metoduyla, belirtilen itemin indexini döndürürüz; eğer bulamazsa "-1" döndürür.
+*"sublist(x,y)" metoduyla, belirtilen indexler arasındaki itemlerin bir viewini döndürürüz.
+*"removeFirstOccurrence" metoduyla, belirtilen itemin listedeki ilk oluşumunu kaldırır.
+*"removeLastOccurrence" metoduyla, belirtilen itemin listedeki son oluşumunu kaldırır.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Hashmap kullanımı için:
+*key-value şeklinde dataları tutar ve keyleri "unique" olmalıdır.
+*Oluşturmak için "HashMap<Integer, String> hm1 = new HashMap<Integer, String>()" yazarız.
+*Oluşturmak için "LinkedHashMap<Integer, String> lhm1 = new LinkedHashMap<Integer, String>()" yazarız.
+*"put" metoduyla belirtilen indexlere itemler ekleriz.
+*"putIfAbsent" metoduyla belirttiğimiz item, ancak mevcut key boş ise eklenecektir.
+*"putAll" metoduyla başka hashmapleri ekleriz.
+*"remove" metoduyla itemleri kaldırırız.
+*"replace" metoduyla, belirtilen indexteki itemleri değiştiririz.
+*"clear" ile tüm hashmapi temizleriz.
+*"size" metoduyla lengthini döndürürüz.
+*"get" metoduyla, belirtilen keyin valuesini döndürürüz.
+*"containsKey" metoduyla, belirtilen keyin mevcut olup olmadığını boolean döndürürüz.
+*"containsValue" metoduyla, belirtilen valuenin mevcut olup olmadığını boolean döndürürüz.
+*"keySet" metoduyla, hashmapin keylerinin bir viewini döndürür.
+*"entrySet" metoduyla, hashmapin itemlerini key-value halinde mapleyerek döndürür.
+*"values" metoduyla, hashmapin valuelerini mapleyerek döndürür.
+*İtemleri arasında iteration için:
+for(Map.Entry<int,String> i : hm1.entrySet()){
+    System.out.println(i.getKey() + " " + i.getValue());
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***TreeMap kullanımı için:
+*Sorted şekilde key-valueleri tutar.
+*Oluşturmak için "TreeMap<Integer, String> lhm1 = new TreeMap<Integer, String>()" yazarız.
+*"put" metoduyla belirtilen indexlere itemler ekleriz.
+*"putIfAbsent" metoduyla belirttiğimiz item, ancak mevcut key boş ise eklenecektir.
+*"putAll" metoduyla başka hashmapleri ekleriz.
+*"remove" metoduyla itemleri kaldırırız.
+*"pollFirstEntry" metoduyla ilk "key-value" itemini kaldırır veya döndürürüz.
+*"pollLastEntry" metoduyla son "key-value" itemini kaldırır veya döndürürüz.
+*"replace" metoduyla, belirtilen indexteki itemleri değiştiririz.
+*"clear" ile tüm hashmapi temizleriz.
+*"size" metoduyla lengthini döndürürüz.
+*"get" metoduyla, belirtilen keyin valuesini döndürürüz.
+*"headMap" metoduyla, belirtilen keye eşit veya daha küçük olan itemleri mapleyerek döndürür.
+*"tailMap" metoduyla, belirtilen keye eşit veya daha büçük olan itemleri mapleyerek döndürür.
+*"higherEntry" metoduyla, belirtilen keyden daha büyük olan[en yakın] "key-value" itemi döndürür.
+*"ceilingEntry" metoduyla, belirtilen keye eşit veya belirtilen keyden daha büyük olan[en yakın] "key-value" itemi döndürür.
+*"lowerEntry" metoduyla, belirtilen keyden daha küyük olan[en yakın] "key-value" itemi döndürür.
+*"higherKey" metoduyla, belirtilen keyden daha büyük olan[en yakın] keyi döndürür.
+*"ceilingKey" metoduyla, belirtilen keye eşit veya belirtilen keyden daha büyük olan[en yakın] keyi döndürür.
+*"lowerKey" metoduyla, belirtilen keyden daha küçük olan[en yakın] keyi döndürür.
+*"descendingKeySet" metoduyla, treeMapin keylerini mapler ve ters indexleyerek döndürür.
+*"descendingMap" metoduyla, treeMapin itemlerini mapler ve "key-value" halinde ters indexleyerek döndürür.
+*"containsKey" metoduyla, belirtilen keyin mevcut olup olmadığını boolean döndürürüz.
+*"containsValue" metoduyla, belirtilen valuenin mevcut olup olmadığını boolean döndürürüz.
+*"firstEntry" metoduyla, ilk "key-value" çiftini döndürür. 
+*"LastEntry" metoduyla, son "key-value" çiftini döndürür. 
+*"firstKey" metoduyla, ilk keyi döndürür.
+*"LastKey" metoduyla, son keyi döndürür.
+*"keySet" metoduyla, hashmapin keylerinin bir viewini döndürür.
+*"entrySet" metoduyla, hashmapin itemlerini key-value halinde mapleyerek döndürür.
+*"values" metoduyla, hashmapin valuelerini mapleyerek döndürür.
+*"subMap(x,y)" metoduyla, belirtilen keyler arasındaki itemleri mapleyerek döndürür.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***Hashset kullanımı için:
+*Birden fazla aynı item barındırmaz.Aynı item tekrar eklenirse error vermez; override edilir.
+*Oluşturmak için "HashSet<String> hs1=new HashSet<String>()" yazarız.
+*"add" metoduyla item ekleriz.
+*"remove" metoduyla itemleri kaldırırız.
+*"clean" metoduyla hashSeti tamamen temizleriz.
+*"contains" metoduyla, belirtilen itemi içerip içermediğini boolean döndürürüz.
+*"size" metoduyla lengthini döndürürüz.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*final = Bu keyword, bulunduğu ifadenin "override" edilemeyeceğini belirtir.Yani ifadeye son kez değer atanmıştır ve tekrar atama gerçekleştirilemez.
+*abstract class = Bir abstract classı "extend" eden diğer classlar, abstract classın içerisinde bulunan "abstract" ifadelerini, kendi classları içerisinde "override" etmek zorundadırlar.Abstract class içerisindeki "abstract" ifadelerinin default değerleri böylece olamaz.
+*Collections.sort(arraylistName) = "ArrayList" veya "List" arraylerinin sıralanmasını sağlar.
+*Arrays.sort(arrayName) = Linear arrayleri veya "instance" ile oluşturulmuş arraylerin sıralanmasını sağlar.
+*Arrays.copyOf(arrayName, x) = Linear arrayleri veya "instance" arraylerini, spesifik uzunluğa sahip olacakları şekilde kopyalar, klonlar.
+*Arrays.copyOfRange(arrayName, x, y) = Linear arrayleri veya "instance" arraylerini, spesifik index aralıklarında kopyalar, klonlar.
+***"copyOf" ile "clone" arasındaki farklar: "copyOf", arrayi klonlarken yeni uzunluğunu ayarlayabilir.
+*arrayName.clone() = Linear arrayleri veya "instance" arraylerini klonlar.

@@ -1,0 +1,291 @@
+*adjektiv = adjective
+*adverb = adverb
+*alle = all[pronomen]
+*anrufen = call[verb]
+*antwort = answer[verb]
+*arbeiten = work[verb]
+*arbeit = job[substantiv]
+*arzt = doctor[substantiv]
+*aufstehen = stand up[verb]
+*aus = -den,-dan
+*auto = car[substantiv]
+*bank = bank[substantiv]
+*beginnen = begin[verb]
+*bei = yanında, yakınında
+*beklären = explain[verb]
+*bekommen = get[verb]
+*bestätigen = confirm[verb]
+*bezahlen = pay[verb]
+*bezählen = tell[verb]
+*besuchen = visit[verb]
+*blume = flower[substantiv]
+*boss = boss[substantiv]
+*brauchen = need[verb]
+*bruder = brother[s]
+*dokument = document[s]
+*doof = stupid[adjektiv]
+*dunkel = dark[adjektiv]
+*ei = egg[substantiv]
+*entshuldigen = apology[verb]
+*entscheiden = decide[v]
+*erfahren = experience[verb]
+*erfolgreiche = succesfull[adjektiv]
+*ermöglichen = enable
+*fahren = drive[verb]
+*falsch = false[adjektiv]
+*fehler = mistake[substantiv]
+*feminin = feminine[adjectiv]
+*fernsehen = television[s]
+*film = movie[substantiv]
+*finden = find[verb]
+*firma = firm[substantiv]
+*für = for[preposition]
+*fußball = football[substantiv]
+*fragen = ask[verb]
+*frau = Mrs[substantiv],Ms[substantiv]
+*frucht = fruit[substantiv]
+*geburtstag = birthday[substantiv]
+*gegenteil = opposite[substantiv]
+*gehen = go[verb]
+*geld = money[substantiv]
+*gemüse = vegetable[substantiv]
+*geschäft = business[substantiv]
+*geschenk = gift[substantiv]
+*gesundheit = health[substantiv]
+*geschlossen = closed[adjektive]
+*gesellschaft = company[substantiv]
+*gewinnen = win[verb]
+*glücklich = happy[adjektiv]
+*groß = large[adjektiv]
+*großfather = grandfather[substantiv]
+*gruppe = group[substantiv]
+*haben = have[verb]
+*hass = hate[verb]
+*haus = house[substantiv]
+*heer = Mr[substantiv]
+*heissen = mean[verb]
+*helfen = help[verb]
+*heute = today[a]
+*hier = here[adverb]
+*in = in[präposition]
+*jederzeit = anytime[adverb]
+*jetzt = now[adverb]
+*junge = boy[substantiv]
+*kaufen = buy[verb]
+*kaffee = coffee[substantiv]
+*klären = clarify[verb]
+*kommen = come[verb]
+*kochen = cook[verb]
+*kosten = cost[verb]
+*küssen = kiss[verb]
+*laden = load[verb]
+*laufen = walk[verb]
+*leben = live[verb]
+*lehrer = teacher[substantiv]
+*leicht = easy[adjectiv]
+*lernen = learn[verb]
+*lesen = read[verb]
+*liebe = love[substantiv]
+*lieben = love[verb]
+*liste = list[substantiv]
+*lotterie = lottery[substantiv]
+*machen = do[verb]
+*mädchen(feminin) = girl[substantiv]
+*mann = man[substantiv]
+*mannschaft = team[substantiv]
+*markt = market[substantiv]
+*maskulin = masculine[adjektiv]
+*mathematik = math[substantiv]
+*mehr = more[pronomen]
+*mögen = like[verb]
+*museum = museum[substantiv]
+*mutter = mother[s]
+*nach = after[preposition]
+*nehmen = have,take[verb]
+*neutral = neutral[adjektiv]
+*normal = normal[adjektiv]
+*normalerweise = usually[adverb], normally[adverb]
+*nur = only[adverb]
+*oder = or[verbindung]
+*onkel[maskulin] = uncle[substantiv]
+*opa[maskulin] = grandpa[substantiv]
+*öffnen = open[verb]
+*panik = panic[verb]
+*perfekt = perfect[adjektiv]
+*person = person[substantiv]
+*präposition = preposition
+*präteritum = past tense
+*pronomen = pronoun
+*prüfen = examine[verb]
+*prüfung = exam[substantiv]
+*putzen = clean[verb]
+*racuhen = smoke[verb],smoking[substantiv]
+*rechtsanwalt = lawyer[substantiv]
+*rezept = recipe[substantiv]
+*richtig = true[adjectiv]
+*sagen = say[verb]
+*schauen = look[verb]
+*schlafen = sleep[verb]
+*schließen = close[verb]
+*schrecken = horror[substantiv]
+*schreiben = write[verb]
+*schwester = sister[s]
+*schwein = pig[substantiv]
+*schwierig = difficult[adjektiv]
+*schwimmen = swim[verb]
+*sehen = see[verb]
+*sein = be[verb]
+*sieg = win[substantiv]
+*sparen = save[verb]
+*sprache = language[s]
+*spielen = play[verb]
+*stadt = city[substantiv]
+*starten = start[verb]
+*steigen = increase[verb]
+*substantiv = noun
+*suchen = search[verb]
+*tag = day[substantiv]
+*tasse = cup[substantiv]
+*tee = tea[substantiv]
+*telefon = phone[substantiv]
+*temperatur = temperature[substantiv]
+*textprüfung = text review[s]
+*tier = animal[substantiv]
+*theater = theatre[substantiv]
+*traurig = sad[adjektiv]
+*treffen = meet[verb]
+*tür = door[substantiv]
+*typ = guy[substantiv]
+*wann = when[adverb]
+*warten = wait[verb]
+*warum = why[adverb]
+*was = what[pronomen]
+*waschen = wash[verb]
+*weg = way[substantiv]
+*weil = because[verbindung]
+*welche = which[pronomen]
+*wen = whom[pronoun]
+*wem = whom[pronoun]
+*wer = who[pronoun]
+*werden = become[verb]
+*wie = as[verbindung]
+*wie = how[adverb]
+*wie lange = how long
+*wie viel = how much
+*wie viele = how many
+*wissen = know[v] [weiß,weißt,weiß,wissen,wisst,wissen]
+*wo = where[adverb]
+*woher = from where[adverb]
+*wohin = to where[adverb]
+*wohnen = live[verb]
+*wort = word[substantiv]
+*vater = father[substantiv]
+*verb = verb
+*verbindung = conjunction
+*verfahren = procedure[substantiv]
+*vergessen = forget[verb]
+*vermissen = miss[verb]
+*verstehen = understand[verb]
+*vor = before[preposition]
+*von = from,of[preposition]
+*zahlen = pay[verb]
+*zahl = number[substantiv]
+*zählen = count[verb]
+*zeige = show[verb]
+*zeit = time[substantiv]
+*zeitung = newspaper[substantiv]
+*zimmer = room[substantiv]
+***Eklenildikleri fiillere yeni anlam kazandıran ve ayrılabilen ekler:
+*ein
+*an
+*mit
+*zu
+*aus
+*ab
+*um
+*zurück = geri
+*fern
+*statt
+*teil
+*us
+***Eklenildikleri fiillere yeni anlam kazandıran ve ayrılamayan ekler:
+*be
+*er
+*zer
+*über
+*ent
+*ge
+*empf
+***Modalverben:
+*können = e-bilmek [rica,yetenek]
+-kann
+-kannst
+-kann
+-können
+-könnt
+-können
+*dürfen = e-bilmek [izin,yasak]
+-darf
+-darfst
+-darf
+-dürfen
+-dürft
+-dürfen
+*müssen = zorunda olmak
+-muss
+-musst
+-muss
+-müssen
+-müsst
+-müssen
+*sollen = malı, meli [gereklilik]
+-soll
+-sollst
+-soll
+-sollen
+-sollt
+-sollen
+*möchten = istemek
+-möchte
+-möchtest
+-möchte
+-möchten
+-möchtet
+-möchten
+*wollen = istemek, dilemek
+-will
+-willst
+-will
+-wollen
+-wollt
+-wollen
+***Die Zahlen:
+0-Null
+1-Eins
+2-Zwei
+3-Drei
+4-Vier
+5-fünf
+6-sechs
+7-sieben
+8-acht
+9-neun
+10-zehn
+11-elf
+12-zwölf
+13-dreizehn
+14-vierzehn
+15-fünfzehn
+16-sechzehn
+17-siebenzehn
+18-achtzehn
+19-neunzehn
+20-zwanzig
+30-dreizig
+40-vierzig
+50-fünfzig
+60-sechzig
+70-siebenzig
+80-achtzig
+90-neunzig
+100-hundert

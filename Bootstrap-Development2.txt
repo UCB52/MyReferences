@@ -1,0 +1,487 @@
+*****ALERT:
+*****alert = Bu class, bir alert mesaj boxı oluşturur.Temel padding ve marginleri ekler.Alert boxına eklenir.Alert elementleri için bir wrapperdır.
+*****alert-danger = Bu class, kırmızı alerttir.Tehlikeli veya potansiyel olarak olumsuz bir eylemi belirtir.
+*****alert-dark = Bu class, karanlık alerttir.Koyu gri alert boxı belirtir.
+*****alert-dismissible = Bu class, kapatılabilir bir alert boxını belirtir.Butona eklenen "close" classıyla beraber, alerti kapatmak için kullanılır.Ekstra padding ekler ve bordera da sahiptir.Alert boxına eklenir."alert" wrapperına eklenir.
+*****alert-heading = Bu class, alertlerin içerisindeki headinglere eklenir.Ayrıca belirtilen elemente "color:inherit" propertisini ekler.Alert boxının içerisine eklenir."alert" wrapperının içerisine eklenir.
+*****alert-info = Bu class, açık mavi alerttir.Tarafsız bir bilgi değişikliğini veya eylemi belirtir.
+*****alert-light = Bu class, parlak alerttir.Açık gri alert boxı belirtir.
+*****alert-link = Bu class, eşleşen renkli linkler sağlamak için alertlerin içerisindeki linklerde kullanılır.Linkin font colorunu da parenttan inherit eder.Alert boxının içerisinde tanımlanan <a> gibi link elementlerine eklenir.
+*****alert-primary = Bu class, mavi alerttir.Önemli bir eylemi belirtir.
+*****alert-secondary = Bu class, gri alerttir.Daha az önemli olan eylemi belirtir.
+*****alert-success = Bu class, yeşil alerttir.Başarılı veya pozitif bir eylemi belirtir.
+*****alert-warning = Bu class, sarı alerttir.Dikkatli olunması gerektiğini belirtir.
+*****btn-close = Bu class, alert box için "btn-close" butonunun stilini uygular.Font-size, renk, vs uygular ve butonu sağa float ettirir.Alert butonuna eklenir."buton"lara eklenir.
+*****fade = Bu class, alert boxı kapatılırken animasyon ekler.Alert boxına eklenir.Genellikle "show" classıyla beraber kullanılır."alert" wrapperına eklenir.
+*****show = Bu class, alert boxı kapatılırken animasyon ekler.Alert boxına eklenir.Genellikle "fade" classıyla beraber kullanılır."alert" wrapperına eklenir.
+*****data-bs-dismiss = Bu attribute, "alert" valuesini alarak, Javascript fonksiyonunu triggerlar.Alert boxının içerisindeki <button> elementinde kullanılır. "buton"lara eklenir.
+*****close = Bu metod, DOM'dan kaldırarak bir alerti kapatır.Eğer elementte "fade" veya "show" classları mevcutsa alert, kaldırılmadan önce kaybolur[fade-out].
+*****dispose = Bu metod, bir elementin alertini yok eder.Ayrıca mevcut DOM elementinde depolanan dataları da kaldırır.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan alert instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Alert.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan alert instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Alert.getOrCreateInstance(element)".
+*****close.bs.alert = Bu event, "close" metodu çağrıldığı anda triggerlanır.
+*****closed.bs.alert = Bu event, alert kapatıldıktan hemen sonra triggerlanır(mevcut CSS transitionlarının bitmesini bekler).
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****BADGE:
+*****badge = Bu class, bir badge görüntülememizi sağlar."span" taglarında kullanılır.
+*****rounded-pill = Bu class, badgeın köşeleri yuvarlatılmış şekilde görüntülenmesini sağlar."badge" containerına eklenir.
+*****rounded-circle = Bu class, badgeı yuvarlak şekilde görüntüler."badge" containerına eklenir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****BREADCRUMB:
+*****active = Bu class, breadcrumb iteminin aktif görünmesini sağlar."breadcrumb-item" containerına eklenir.
+*****breadcrumb = Bu class, breadcrumb tanımlar.Breadcrumb elementleri için bir wrapperdır."nav" tagının içerisinde bulunur.
+*****breadcrumb-item = Bu class, breadcrumb itemlerini tanımlar."breadcrumb" wrapperının içerisinde bulunur.
+*****--bs-breadcrumb-divider = Bu bir CSS styleıdır.Breadcrumb elementleri arasındaki dividerı belirtir."nav" tagına eklenir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****BUTTON:
+*****active = Bu class, bir butonu basılı halde simüle etmek için koyu mavi bir arkaplan rengi ekler."buton"lara eklenir.
+*****btn = Bu class, butona temel stilleri ekler.Temel padding ve marginleri ekler ve buton sizeını ayarlar."buton"lara eklenir.
+*****btn-check = Bu class, <input type="checkbox"> veya <input type="radio"> buton gruplarındaki butonlarda kullanılır."input"lara eklenir.
+*****btn-danger = Bu class, kırmızı butondur.Tehlikeli veya potansiyel olarak olumsuz bir eylemi belirtir.
+*****btn-dark = Bu class, karanlık butondur.Koyu gri butonu belirtir.
+*****btn-info = Bu class, açık mavi butondur.Tarafsız bir bilgi değişikliğini veya eylemi belirtir.
+*****btn-group = Bu class, birden fazla butonu birbirine yapıştırır.Her buton, birbirinden dikey bir çizgiyle ayrılır."btn-toolbar" containerının içerisinde kullanılır.
+*****btn-group-lg = Bu class, buton grubundaki butonları lg size yapar."btn-group" wrapperına eklenir.
+*****btn-group-md = Bu class, buton grubundaki butonları md size yapar."btn-group" wrapperına eklenir.
+*****btn-group-sm = Bu class, buton grubundaki butonları sm size yapar."btn-group" wrapperına eklenir.
+*****btn-group-vertical = Bu class, bir buton grubunun dikey olarak yığılmasını sağlar."btn-group" wrapperına eklenir.
+*****btn-lg = Bu class, lg size buton oluşturur."buton"lara eklenir.
+*****btn-light = Bu class, parlak butondur.Açık gri butonu belirtir.
+*****btn-link = Bu class, butonun link gibi görünmesini sağlar fakat hala buton davranışına sahip olacaktır.Spacing ayarları sabit kalır fakat dış borderı kaldıracaktır."buton"lara eklenir.
+*****btn-outline-primary = Bu class, solid arka planı kaldırarak mavi outlinea sahip bir buton oluşturur.
+*****btn-outline-secondary = Bu class, solid arka planı kaldırarak gri outlinea sahip bir buton oluşturur.
+*****btn-outline-success = Bu class, solid arka planı kaldırarak yeşil outlinea sahip bir buton oluşturur.
+*****btn-outline-info = Bu class, solid arka planı kaldırarak açık mavi outlinea sahip bir buton oluşturur.
+*****btn-outline-warning = Bu class, solid arka planı kaldırarak sarı outlinea sahip bir buton oluşturur.
+*****btn-outline-danger = Bu class, solid arka planı kaldırarak kırmızı outlinea sahip bir buton oluşturur.
+*****btn-outline-dark = Bu class, solid arka planı kaldırarak koyu gri outlinea sahip bir buton oluşturur.
+*****btn-outline-light = Bu class, solid arka planı kaldırarak açık gri outlinea sahip bir buton oluşturur.
+*****btn-primary = Bu class, mavi butondur.Önemli bir eylemi belirtir.
+*****btn-sm = Bu class, sm size buton oluşturur."buton"lara eklenir.
+*****btn-success = Bu class, yeşil butondur.Başarılı veya pozitif bir eylemi belirtir.
+*****btn-secondary = Bu class, gri butondur.Daha az önemli olan eylemi belirtir.
+*****btn-toolbar = Bu class birden fazla buton grubunu, daha karmaşık componentler için buton tollbarında birleştirir.Pagination rowuna benzer yapı ortaya çıkacaktır."btn-group" elementleri için bir wrapperdır.
+*****btn-warning = Bu class, sarı butondur.Dikkatli olunması gerektiğini belirtir.
+*****disabled = Bu class, buton olarak kullanılan <a> elementlerini devre dışı bırakır.Tıklanamaz hale gelir ve arka planı daha soluk yapar.Mouse pointerını da default yapar."buton"larda kullanılır.
+*****dropdown-toggle = Bu class, dropdown halinde içerik bulunduran butona eklenir."buton"larda kullanılır.
+*****data-bs-toggle = Bu attribute, "dropdown" valuesi alarak dropdown halinde içerik bulunduran butona eklenir veya "button" valuesini alarak da bulunduğu butonun aktif durumunu değiştirir.
+*****disabled = Bu attribute, butonu devre dışı bırakır.Tıklanamaz hale gelir ve arka planı daha soluk yapar.Mouse pointerını da default yapar."buton"larda kullanılır."buton"larda kullanılır.
+*****tab-index = Bu attribute, "tab" ile gezinildiği durumlarda bir elementin sekme sırasını belirtir.Bu yüzden eğer bir buton, "disabled" edilmişse; "tab-index=-1" vermeyi unutmayın.Aksi takdirde element, "disabled" olmasına rağmen; tab navigasyonu sayesinde erişilebilir olacaktır.
+*****toggle = Bu metod, basılma durumunu değiştirir.Butonun basılı görünmesini sağlar.
+*****dispose = Bu metod, bir elementin butonunu yok eder.DOM elementinde depolanan dataları da kaldırır.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan buton instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Button.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan buton instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Button.getOrCreateInstance(element)".
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****CARD:
+*****card = Bu class, bir card tanımlamamızı sağlar."card-group" wrapperının içerisine eklenir.
+*****card-body = Bu class, cardın içerik kısmıdır."card" containerının içerisine eklenir.
+*****card-footer = Bu class, cardın footer kısmıdır."card" containerının içerisine eklenir.
+*****card-group = Bu class, birden fazla card elementini tanımlar.Card grupları, default olarak üst üste yığılmış haldedir.Flex özelliği sayesinde "sm" size ekranlardan itibaren itemleri yan yana gösterir.Card elementleri için bir wrapperdır.
+*****card-header = Bu class, cardın header kısmıdır."card" containerının içerisinde kullanılır.Eğer card içerisinde nav bulunuyorsa, ekstra olarak "nav" containerına da eklenir.
+*****card-header-tabs = Bu class, card içerisinde kullanılan navın tablarını tanımlar."nav" containerına eklenir.
+*****card-img = Bu class, card içerisinde belirtilen imagei tanımlar."card" containerının içerisinde kullanılır.
+*****card-img-overlay = Bu class, cardın içerisindeki imagei arkaplana atarak; card içeriğinin, mevcut imagein üzerine yazılmasını sağlar."card" containerının içerisinde kullanılır.
+*****card-img-top = Bu class, card içerisinde belirtilen imagein üstte görüntüleneceğini belirtir."card" containerının içerisine eklenir.
+*****card-img-bottom = Bu class, card içerisinde belirtilen imagein altta görüntüleneceğini belirtir."card" containerının içerisine eklenir.
+*****card-link = Bu class, card içeriğinde linkleri belirtir."a" elementlerine eklenir.
+*****card-text = Bu class, card içeriğinde düz text belirtir."card-body" veya "card-overlay" containerlarının içerisine eklenir.
+*****card-title = Bu class, card içeriğinde başlık belirtir."card-body" veya "card-overlay" containerlarının içerisine eklenir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****CAROUSEL:
+*****active = Bu class, mevcut carousel itemini gösterir veya gizler."carousel-item" containerına eklenir.
+*****carousel = Bu class, bir carousel slideshowu oluşturur.Parent elementi "position:relative" gibi davranır ve bulunduğu containerın içerisinde position propertileriyle konumlandırılabilir."carousel" elementleri için wrapperdır.
+*****carousel-caption = Bu class, carouseldeki her slide için bir header texti oluşturur."carousel-item" containerının içerisine eklenir.
+*****carousel-control-next = Bu class, carouseldeki sonraki itemin linki için bir containerdır."carousel" wrapperının içerisine eklenir.
+*****carousel-control-next-icon = Bu class, bir "next" ikonu oluşturmak için "carousel-control-next" boxının içerisinde, genellikle <span> ile kullanılır.İkon, sağa dönük bir ok şeklindedir."carousel-control-next" containerının içerisine eklenir.
+*****carousel-control-prev = Bu class, carouseldeki önceki itemin linki için bir containerdır."carousel" wrapperının içerisine eklenir.
+*****carousel-control-prev-icon = Bu class, bir "previous" ikonu oluşturmak için "carousel-control-prev" boxının içerisinde, genellikle <span> ile kullanılır.İkon, sola dönük bir ok şeklindedir."carousel-control-prev" containerının içerisine eklenir.
+*****carousel-dark = Bu class, carouseldeki kontrol butonlarını, göstergeleri(indicators) ve captionları daha koyu tema haline getirir."carousel" wrapperına eklenir.
+*****carousel-fade = Bu class, slideların geçişlerine animasyon ekler."carousel" wrapperına eklenir.
+*****carousel-indicators = Bu class, her slideın altına küçük göstergeler ekler.Bu, carouselde kaç adet slide olduğunu ve kullanıcının, o esnada hangi slideda olduğunu belirtir.<ul> tagına atanır."carousel" wrapperının içerisine eklenir.
+*****carousel-inner = Bu class, carousel slide itemleri için bir wrapper containerdır."carousel" wrapperının içerisine eklenir.
+*****carousel-item = Bu class, her slideın içeriğini belirten bir wrapper containerdır."carousel-inner" containerının içerisine eklenir.
+*****slide = Bu class, bir carousel slideshowunu oluşturmak için "carousel" classıyla beraber kullanılır."carousel" wrapperına eklenir.
+*****data-bs-interval = Bu attribute, her slide arasındaki gecikmeyi milisaniye cinsinden belirtir.Eğer carouselin containerına eklenirse tüm itemler için geçerli olur.Fakat eğer "carousel-item" boxlarına eklenirse, her item için farklı süreler tanımlayabiliriz.Default değeri: 5000."carousel" wrapperına veya "carousel-item" containerlarına eklenir.
+*****data-bs-keyboard = Bu attribute, carouselin klavyedeki sağ ve sol yön tuşlarına tepki vererek sağ veya sol slidea geçip geçemeyeceğini belirtir.Booleandır.Default değeri: "true"."carousel" wrapperına eklenir.
+*****data-bs-pause = Bu attribute eğer "hover" valuesi alırsa, kullanıcının mouse pointerını carouselin üzerine getirdiği anda slide geçişlerini durduracaktır."false" değerinde ise deaktif olacaktır.Default değeri: "hover"."carousel" wrapperına eklenir.
+*****data-bs-ride = Bu attribute, "carousel" valuesini alırsa carouseli aktifleştirir.Yani sayfa yüklendiğinde carousel animasyonları otomatik olarak başlar.Eğer kullanılmazsa, carouselin aktifleşmesi için tıklanması gerekir.Default değeri: "false"."carousel" wrapperına eklenir.
+*****data-bs-slide = Bu attribute, hangi slayta gidileceğini belirtir."next" ve "prev" valuelerini alabilir.Carouselin control boxlarında kullanılır."carousel-control" containerlarına eklenir.
+*****data-bs-slide-to = Bu attribute, hangi slayta gidileceğini belirtir.İndexlerle belirtir ve 0dan başlar.Carouselin indicator boxlarında kullanılır."buton"lara eklenir.
+*****data-bs-target = Bu attribute, carouseldeki indicator ve kontrol butonlarının her birisine atanır ve ait oldukları carousel wrapper divini belirtir."buton"lara ve "carousel-control" containerlarına eklenir.
+*****data-bs-wrap = Bu attribute, carouselin tüm slideları bitince bile tekrarlayacağını veya son slidea gelince duracağını belirtir.Booleandır."true" valuesi ile devam eder; aksi takdirde son slideda duracaktır.Default değeri: "true"."carousel" wrapperına eklenir.
+*****data-bs-touch = Bu attribute, dokunmatik ekranlı cihazlarda sola-sağa kaydırma etkileşimlerini destekleyip desteklemeyeceğini belirtir.Booleandır.Default değeri: "true"."carousel" wrapperına eklenir.
+*****cycle = Bu metod, carousel itemlerini soldan sağa doğru slide eder.
+*****pause = Bu metod, carousel itemlerinin slideını durdurur.
+*****next = Bu metod, carouselin sonraki itemine geçer.
+*****prev = Bu metod, carouselin önceki itemine geçer.
+*****nextWhenVisible = Bu metod sayfa görünür olmadığında veya carousel veya onun parentı görünür olmadığında bir sonrakine slide etmez.Target item gösterilmeden önce, çağırana(caller) döndürür.
+*****to = Bu metod, carouseli belirli bir framee sürükler[0 indexli arrayler gibi].Target item gösterilmeden önce, çağırana(caller) döndürür.
+*****dispose = Bu metod, carouseli yok eder.DOM elementinde depolanan dataları da kaldırır.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan carousel instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Carousel.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan carousel instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Carousel.getOrCreateInstance(element)".
+*****direction = Bu property, carouselde slide yönünü belirtir.
+*****relatedTarget = Bu property, slide edilirken triggerlayan DOM elementini döndürür.
+*****from = Bu property, carouselde mevcut itemin indexini döndürür.
+*****to = Bu property, carouselde sıradaki itemin indexini döndürür.
+*****slide.bs.carousel  = Bu event, carouselde item slideı gerçekleşmek üzereyken gerçekleşir.
+*****slid.bs.carousel  = Bu event, carouselde item slıdeı gerçekleştiğinde gerçekleşir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****COLLAPSE:
+*****accordion = Bu class, altındaki collapsible elementlere accordion davranışı vermek için bir wrapper containerdır.Akordion elementlerinin wrapperına eklenir.
+*****accordion-body = Bu class, collapsible olan içeriğin içerisine eklenir.Stil uygular ve akordionun asıl text içeriğini barındırır."accordion-collapse" containerının içerisine eklenir.
+*****accordion-collapse = Bu class, akordion içerisinde collapsible olan boxı tanımlar."collapse" containerına eklenir.
+*****accordion-flush =Bu class, akordiondaki arkaplanı kaldırır ve seçili header kısımlarına stil uygular."accordion" wrapperına eklenir.
+*****accordion-header = Bu class, akordionun itemlerindeki tıklanabilir butonlar için bir wrapper containerdır.Stil uygular."accordion-item" containerının içerisine eklenir.
+*****accordion-item = Bu class, akordiondaki her bölüm için bir wrapper containerdır."accordion" containerının içerisine eklenir.
+*****collapse = Bu class, "hide" durumunda içeriği gizler."accordion-item" containerının içerisine eklenir.
+*****collapse-horizontal = Bu class, elemente yatay collapsing sağlar.Genişliğe bağlı olarak geçiş yapacaktır.Fakat düzgün çalışabilmesi için collapse olacak boxın child elementine "width" propertisi atanmalıdır."collapse" containerına eklenir.
+*****collapse show = Bu class ile collapsible olan içerik, default olarak görünür olacaktır.Sonrasında tıklanarak gizlenebilir."collapse" containerına eklenir.
+*****collapsed = Bu class, accordion içeriğinin default olarak gizlenmiş olmasını sağlar."buton" veya "a" elementlerine eklenir.
+*****collapsing = Bu class, transition başladığında eklenir ve bittiğinde de kaldırılır.Geçiş esnasında stiller vermek için kullanılır."collapse" containerına eklenir.
+*****multi-collapse = Bu class, birden fazla collapsible elementin aynı anda gösterilmesini ve gizlenmesini sağlar.Buton içerisine de target olarak "multi-collapse" verilmelidir ve böylece tüm collapsible elementlere erişebilir."collapse" containerına eklenir.
+*****open = Bu class, "accordion" classına sahip olan yapının açılmış halini görüntüler."accordion" wrapperına eklenir.
+*****data-bs-toggle = Bu attribute "collapse" valuesi alarak her çağrılmada, collapsible olan içeriği değiştirir.Default değeri: "true"."buton"lara eklenir.
+*****data-bs-target = Bu attribute, collapse edilecek olan target itemi belirtir.Herhangi bir selectorle belirtilebilir."buton"lara eklenir.
+*****data-bs-parent = Bu attribute, belirtilen parentın altındaki tüm collapsible elementler, bu daraltılabilir element görünür olduğunda kapanacaklardır.Eğer kullanılmazsa, birden fazla collapsible elementi aynı ayna açabiliriz.Default değeri: "false"."collapse" containerına eklenir.
+*****toggle = Bu metod, collapsible elementi değiştirir.
+*****show = Bu metod, collapsible elementi gösterir.
+*****hide = Bu metod, collapsible elementi gizler.
+*****dispose = Bu metod, collapsible elementi yok eder.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan collapse instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Collapse.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan collapse instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Collapse.getOrCreateInstance(element)".
+*****show.bs.collapse = Bu event, collapsible olan element gösterilmek üzereyken gerçekleşir.
+*****shown.bs.collapse = Bu event, collapsible olan element gösterildikten sonra gerçekleşir.
+*****hide.bs.collapse = Bu event, collapsible olan element gizlenmek üzereyken gerçekleşir.
+*****hidden.bs.collapse = Bu event, collapsible olan element gizlendikten sonra gerçekleşir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****DROPDOWN:
+*****active = Bu class, dropdown menüdeki itemin aktif durumda olmasını sağlar.
+*****disabled = Bu class, dropdown menüdeki herhangi bir itemi devre dışı bırakır.Tıklanamaz hale gelir ve arka planı daha soluk yapar.Mouse pointerını da default yapar.
+*****dropdown = Bu class, aşağı doğru açılır dropdown sağlar.Dropdownın wrapperına eklenir.
+*****dropdown-divider = Bu class, dropdown menudeki itemlerin arasında ayıraç olarak kullanılır."dropdown-menu" containerının içerisinde bulunur.
+*****dropdown-header = Bu class, dropdown menü içerisinde itemlerin yanında kullanılır.İtemlere başlık olarak görüntülenir."dropdown-menu" containerının içerisinde bulunur.
+*****dropdown-item = Bu class, dropdown menü ile açılan listedeki her elementi tanımlar."dropdown-menu" containerının içerisinde bulunur.
+*****dropdown-item-text = Bu class, dropdown menu itemi için tıklanabilir olmayan yani noninteraktif item tanımlar."dropdown-menu" containerının içerisinde bulunur.
+*****dropdown-menu = Bu class, dropdown içeriği için bir wrapper containerdır."dropdown-menu" veya "btn-group" containerının içerisinde bulunur.
+*****dropdown-menu-dark = Bu class, dropdown içeriği için olan wrappera dark stil uygular."dropdown-menu" containeırına eklenir.
+*****dropdown-menu-end = Bu class, dropdown menude açılan itemlerin sağ konumda açılmasını sağlar."dropdown-menu" containeırına eklenir.
+*****dropdown-toggle = Bu class, dropdownın görüntülenip gizlenmesini sağlar.Dropdownu sağlayan butona eklenir."buton"lara eklenir.
+*****dropdown-toggle-split = Bu class, dropdown butonunun sadece "caret" halinde görüntülenmesini sağlar.Yanında açıklama butonu da buluncuracağı için gruplu butonlar halinde kullanılır."buton"lara eklenir.
+*****dropend = Bu class, sağa doğru açılır dropdown sağlar."btn-group" veya "dropdown" containerına eklenir.
+*****dropstart = Bu class, sola doğru açılır dropdown sağlar."btn-group" veya "dropdown" containerına eklenir.
+*****dropup = Bu class, yukarı doğru açılır dropdown sağlar."btn-group" veya "dropdown" containerına eklenir.
+*****show = Bu class, dropdown menüdeki itemlerin daima açılmış olmasını sağlar."dropdown-menu" containerına eklenir.
+*****data-bs-auto-close = Bu attribute, dropdown menunun tıklanarak kapatılma davranışını değiştirir."buton"lara eklenir.Alabileceği valueler:
+*true : Default değerdir.Dropdown menünün hem içine hem dışına tıklanıldığında kapanacaktır.
+*inside : Dropdown menünün sadece içerisine tıklanıldığında kapanacaktır.
+*outside : Dropdown menünün sadece dışına tıklanıldığında kapanacaktır.
+*false : Dropdown menü, sadece toogle butonuna tıklanarak veya manuel olarak "hide" ve "toggle" metodları çağrılarak kapatılabilir.Menüler artık "ESC" tuşuyla da kapanmayacaktır.
+*data-bs-boundary = Bu attribute, dropdown menünün overflow kısıtlaması sınırıdır.Yalnızca Popper'ın "preventOverflow" modifierine uygular.Default olarak "clippingParents" valuesine sahiptir fakat bir HTMLElement referansını Javascript aracılığıyla kabul edebilir."buton"lara eklenir.
+*data-bs-display = Bu attribute, Popper sayesinde dinamik konumlandırma sağlar.Default değeri "dynamic" şeklindedir fakat "static" değeri de alabilir."buton"lara eklenir.
+*****data-bs-offset = Bu attribute, açılan dropdown menüyü x-y koordinatlarında relative olarak konumlandırır.Aldığı değeri "px" cinsinden hesaplayıp öteleme yapacaktır.Mesela: "data-bs-offset='30,90'".Default değeri: "[0, 2]"."buton"lara eklenir.
+*****data-bs-popperConfig = Bu attribute, Bootstrapin default olan Popper configini değiştirir.Popper configurasyonunu oluşturmak için bir fonksiyon çağrıldığında, Bootstrapin default Popper configurasyonunu içeren bir object ile çağrılır.Defaultu kendi configurasyonumuzla kullanmamıza ve birleştirmemize fayda sağlar.Fonksiyon, Popper için bir configurasyon objecti döndürmelidir.Default değeri: "null".
+"buton"lara eklenir.
+*****data-bs-reference = Bu attribute, dropdown menünün referans elementidir."buton"lara eklenir.Alabileceği valueler:
+*toggle (default)
+*parent
+*bir HTMLElement referansı
+*getBoundingClientRect sağlayabilen bir object
+*****data-bs-toggle = Bu attribute, dropdown butonuna tıklanıldığında drop içeriğinin görüntülenmesini sağlar."buton"lara eklenir.
+*****toggle = Bu metod, belirtilen navbarın veya tablı navigasyonun dropdown menüsünü değiştirir.
+*****show = Bu metod, belirtilen navbarın veya tablı navigasyonun dropdown menüsünü gösterir.
+*****hide = Bu metod, belirtilen navbarın veya tablı navigasyonun dropdown menüsünü gizler.
+*****update = Bu metod, bir elementin dropdownının konumunu günceller.
+*****dispose = Bu metod, bir elementin dropdown menüsünü yok eder.DOM elementinde depolanan dataları da kaldırır.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan dropdown instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Dropdown.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan dropdown instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Dropdown.getOrCreateInstance(element)".
+*****show.bs.dropdown = Bu event, "show" instance metodu çağrıldığı an gerçekleşir.
+*****shown.bs.dropdown = Bu event dropdown menü, kullanıcıya görünür hale geldiğinde ve CSS transitionları tamamlandığında gerçekleşir.
+*****hide.bs.dropdown = Bu event, "hide" instance metodu çağrıldığı an gerçekleşir.
+*****hidden.bs.dropdown = Bu event, dropdown menünün kullanıcıdan gizlenmesi bittiğinde ve CSS transitionları tamamlandığında gerçekleşir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****MODAL:
+*****fade = Bu class, modala transition efekti verir.Modalın wrapperına eklenir.
+*****modal = Bu class, ekranda modal oluşmasını sağlar.Modalın wrapperına eklenir.
+*****modal-body = Bu class, modalın içerik kısmıdır."modal-content" containerının içerisinde bulunur.
+*****modal-content = Bu class, modalın içerikleri için bir wrapper oluşturur.Tüm header, body ve footer kısımları bu containerın içerisindedir."modal-dialog" containerının içerisinde bulunur.
+*****modal-dialog = Bu class, modalın contenti için bir wrapper oluşturur."modal" containerının içerisinde bulunur.
+*****modal-dialog-centered = Bu class, modalın ekranda dikey olarak ortalanarak görüntülenmesini sağlar."modal-dialog" containerına eklenir.
+*****modal-dialog-scrollable = Bu class, scrollable bir modal içeriği oluşturur."modal-dialog" containerına eklenir.
+*****modal-footer = Bu class, modalın footerın kısmını oluşturur."modal-content" containerının içerisinde bulunur.
+*****modal-fullscreen = Bu class, modalın tüm ekranlarda fullscreen şekilde oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-fullscreen-sm-down = Bu class, modalın sm size veya daha küçük ekranlarda fullscreen şekilde oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-fullscreen-md-down = Bu class, modalın md size veya daha küçük ekranlarda fullscreen şekilde oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-fullscreen-lg-down = Bu class, modalın lg size veya daha küçük ekranlarda fullscreen şekilde oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-fullscreen-xl-down = Bu class, modalın xl size veya daha küçük ekranlarda fullscreen şekilde oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-fullscreen-xxl-down = Bu class, modalın xxl size veya daha küçük ekranlarda fullscreen şekilde oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-header = Bu class, modalın header kısmını oluşturur."modal-content" containerının içerisinde bulunur.
+*****modal-lg = Bu class, modalın lg size genişlikte oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-sm = Bu class, modalın sm size genişlikte oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****modal-title = Bu class, modala belirgin bir title ataması yapar."modal-header" containerının içerisinde bulunur.
+*****modal-xl = Bu class, modalın xl size genişlikte oluşmasını sağlar."modal-dialog" containerına eklenir.
+*****data-bs-backdrop = Bu attribute, bir modal-backdrop elementi içerir.Modalın dışına tıklanarak veya "ESC" tuşu ile kapanmaması içinse "static" valuesini verebiliriz.Default değeri "true".Modalın wrapperına eklenir.
+*****data-bs-dismiss = Bu attribute, "modal" valuesini alarak modalın kapanmasını sağlar."buton"lara eklenir.
+*****data-bs-focus = Bu attribute, initialize edilir edilmez modala focuslar.Default değeri: "true".Modalın wrapperına eklenir.
+*****data-bs-keyboard = Bu attribute, "ESC" tuşuyla modalın kapanmasını sağlar.Default değeri: "true".Modalın wrapperına eklenir.
+*****data-bs-target = Bu attribute, hedefi belirterek modalın ekranda görüntülenmesini sağlar."buton"lara eklenir.
+*****data-bs-toggle = Bu attribute, "modal" valuesini alarak modalın ekranda görüntülenmesini sağlar."buton"lara eklenir.
+*****toggle = Bu metod, modal geçişlerini sağlar.Modal, gerçekten gösterilmeden veya gizlenmeden önce çağıranı döndürür.
+*****show = Bu metod, bir modalı açar.Modal, gerçekten gösterilmeden çağıranı döndürür.
+*****hide = Bu metod, bir modalı gizler.Modal, gerçekten gizlenmeden çağıranı döndürür.
+*****handleUpdate = Bu metod, eğer bir modalın açık olduğu esnada yüksekliği değişirse; modalın konumunu manuel olarak ayarlar.Genellikle scrollbar, vs göründüğü durumlar içindir.
+*****dispose = Bu metod, bir elementin modalını yok eder.DOM elementindeki depolanan dataları da yok eder.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan modal instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Modal.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan modal instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Modal.getOrCreateInstance(element)".
+*****show.bs.modal = Bu event, "show" instance metodu çağrıldığı anda triggerlanır.Eğer bir "click" kaynaklıysa; tıklanan element, eventin relativeTarget propertisi gibi kullanılabilir.
+*****shown.bs.modal = Bu event modal, kullanıcıya görünür hale getirildiğinde triggerlanır.CSS transitionlarının tamamlanmasını bekler.Eğer bir "click" kaynaklıysa; tıklanan element, eventin relativeTarget propertisi gibi kullanılabilir.
+*****hide.bs.modal = Bu event, "hide" instance metodu çağrıldığı anda triggerlanır.
+*****hidden.bs.modal = Bu event modal, kullanıcıdan gizlenmeyi bitirdiğinde triggerlanır.CSS transitionlarının tamamlanmasını bekler.
+*****hidePrevented.bs.modal = Bu event, modal durumu "shown" iken; backdrop valuesi "static" iken modalın dışarısına tıklandığında ve data-bs-keyboard valuesi "false" iken "ESC" tuşuna basıldığında triggerlanır. 
+*****relatedTarget = Bu property, modalın statei değişirken triggerlayan DOM elementini döndürür.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****POPOVERS:
+*****data-bs-allowList = Bu attribute, izin verilen attributeleri ve tagları içeren bir objecttir.Güvenlik sebebiyle tavsiye edilmez.
+*****data-bs-animation = Bu attribute, popovera bir CSS transition fadei uygular.Default değeri "true".
+*****data-bs-boundary = Bu attribute, popoverın overflow kısıtlaması sınırıdır.Yalnızca Popper'ın "preventOverflow" modifierine uygular.Default olarak "clippingParents" valuesine sahiptir fakat bir HTMLElement referansını Javascript aracılığıyla kabul edebilir."buton"lara eklenir.
+*****data-bs-container = Bu attribute, popoverı belirli bir elemente ekler.Mesela: "container:'body'" şeklinde.Document akışında triggerlayan elementin yanına yerleştirmemize yardımcı olmaktadır.Böylece windowun resize olma durumunda, popoverın relatedTarget'tan uzaklaşmasını önler.Default değeri: "false".
+*****data-bs-content = Bu attribute, popoverın içerisindeki içeriği belirtir.Eğer fonksiyon verilirse "this" referansı, popoverın eklendiği elemente ayarlanmış olarak çağrılır.Default değeri "" yani boş stringdir.
+*****data-bs-customClass = Bu attribute, popover gösterildiği zaman eklenecek olan classları belirtir.Bu classlar, popoverın templateinde bulunan mevcut classlara ek olarak eklenecektir.Birden fazla class eklemek için classların arasını boşlukla ayırın.Ayrıca ekstra class isimleri içeren tek bir string döndürmesi gereken bir fonksiyonu da çağırabiliriz.Default değeri: "" yani boş bir stringdir.
+*****data-bs-delay = Bu attribute, popoverı gösterme ve gizleme gecikmeleri(ms), manuel triggerlanma türünde uygulanmaz.Objectin yapısı mesela şu şekilde olabilir: "delay : { 'show': 500, 'hide': 100 }".Default değeri: 0.
+*****data-bs-fallbackPlacements = Bu attribute, arraylerin yerleştirmedekilerin bir listesini orderlarına göre sağlayarak yedek yerleştirmeler tanımlarız.Default değeri: ['top', 'right', 'bottom', 'left'].
+*****data-bs-html = Bu attribute, popovera HTML eklememizi sağlar.Eğer valuesi "false" ise, DOM'a içerik eklemek için "innerText" propertisini kullanır.Fakat XSS saldırılarından korunmak için text kullanmalıyız!Default değeri: "false".
+*****data-bs-offset = Bu attribute, popoverın mevcut hedefine göre offset konumunu belirtir.Mesela: "data-bs-offset='10,20'".Eğer fonksiyon çağrılarak kullanılırsa; ilk argüman olarak popper yerleşimini, referansı ve "popper rect"lerini içeren bir object ile çağrılır.Triggerlayan element DOM nodeu, ikinci argüman olarak iletilir.Fonksiyon, iki sayı içeren bir array halinde şöyle döndürülmelidir: [skidding, distance].
+Default değeri: [0, 8].
+*****data-bs-placement = Bu attribute, popoverın nasıl konumlandırılacağını belirtir."auto", "top", "bottom", "left" ve "right" valuelerini alabilir."auto" belirtildiğinde popover, dinamik olarak yönlendirilecektir.Konumlandırmayı belirlemek için bir fonksiyon çağrıldığında; ilk argüman olarak popover DOM nodeunu, ikinci argüman olaraksa triggerlayan element DOM nodeu ile çağrılır."this" keywordu, popoverın instanceına ayarlanır.Default değeri: "right".
+*****data-bs-popperConfig = Bu attribute, Bootstrapın default Popper configurasyonunu değiştirir.Popper configurasyonunu oluşturmak için bir fonksiyon kullanıldığında, Bootstrapin default olan Popper configurasyonunu içeren bir object ile çağrılır.Defaultu, kendi configurasyonumuzla birleştirmemize ve kullanmamıza yardımcı olur.Fonksiyon, Popper için bir configurasyon objecti döndürmelidir.Default değeri: "null".
+*****data-bs-sanitize = Bu attribute, sanitizeı(temizlemeyi) etkinleştirir veya devre dışı bırakır.Eğer etkinleştirilse, "template", "content" ve "title" optionsları temizlenecektir.Güvenlik sebebiyle tavsiye edilmez.Default değeri: "true".
+*****data-bs-sanitizeFn = Bu attribute, kendi temizleme fonksiyonlarımızı çağırmamızı sağlar.Bu işlem, temizleme işlemini gerçekleştirmek için özel bir "library" kullanıyorsak faydalı olabilir.Default değeri: "null".
+Güvenlik sebebiyle tavsiye edilmez.
+*****data-bs-selector = Bu attribute eğer bir selector kullanılırsa; popover objectleri, belirtilen targetlara devredilecektir.Dinamik HTML içeriğinin, popoverların eklenmesini sağlamak için kullanılır.Default değeri: "false".
+*****data-bs-template = Bu attribute, popover oluşturulurken kullanılacak olan temel HTMLdir."title", "popover-header" classına eklenir."content", "popover-body" classına eklenir."popover-arrow" classı, popoverın arrowu olacaktır.En dıştaki wrapper element, "popover" classına sahip olmalıdır.Default değeri: 
+"<div class='popover' role='tooltip'>
+    <div class='popover-arrow'>
+    </div>
+        <h3 class='popover-header'>
+        </h3>
+    <div class='popover-body'>
+    </div>
+</div>".
+*****data-bs-title = Bu attribute, popoverın içerisindeki içeriğin başlığını belirtir.Default değeri "" yani boş stringdir.Bir fonksiyonlar çağrılırsa; "this" referansı, popoverın eklendiği elemente göre ayarlanmış olarak çağrılır.Default değeri: "" yani boş stringdir.
+*****data-bs-toggle = Bu attribute, popoverın geçişlerini sağlar.
+*****data-bs-trigger = Bu attribute, popoverın triggerlanma türünü belirtir."click", "hover", "focus" ve "manuel" valuelerinden birini veya birkaçını birden alabilir.Birden fazla trigger seçmek için aralarını birer boşlukla ayırın.Sadece "manuel" triggerını başka triggerlarla kullanamazsınız!Default değeri: "click".
+*****show = Bu metod, bir elementin popoverını gösterir.Popover gerçekten gösterilmeden önce çağırana döner.
+*****hide = Bu metod, bir elementin popoverını gizler.Popover gerçekten gizlenmeden önce çağırana döner.
+*****toggle = Bu metod, bir elementin popoverını değiştirir.Popover gerçekten gizlenmeden veya gösterilmeden önce çağırana döner.
+*****dispose = Bu metod, bir elementin popoverını gizler ve yok eder.DOM elementindeki depolanan data da yok edilir.
+*****enable = Bu metod, bir elementin popoverına gösterilme özelliği verir.Popoverlar default olarak enableddır.
+*****disable = Bu metod, bir elementin popoverının gösterilme özelliğini kaldırır.Bu popover, yalnızca tekrar enabled olursa gösterilebilecektir.
+*****toggleEnabled = Bu metod, bir elementin popoverının gösterilme veya gizlenme özelliğini değiştirir.
+*****update = Bu metod, bir elementin popoverının konumunu günceller.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan popover instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Popover.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan popover instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Popover.getOrCreateInstance(element)".
+*****show.bs.popover = Bu event, "show" instanceı çağrıldığı an gerçekleşir.
+*****shown.bs.popover = Bu event popover, kullanıcıya görünür hale geldiğinde gerçekleşir.CSS transitionlarının tamamlanmasını bekler.
+*****hide.bs.popover = Bu event, "hide" instanceı çağrıldığı an gerçekleşir.
+*****hidden.bs.popover = Bu event, popoverın kullanıcıdan gizlenmesi bittiğinde gerçekleşir.CSS transitionlarının tamamlanmasını bekler.
+*****inserted.bs.popover = Bu event popover templatei, DOMa eklendiğinde; "show.bs.popover" eventinden hemen sonra gerçekleşir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****LİST GROUP:
+*****active = Bu class, belirtilen itemi aktifleştirir.
+*****disabled = Bu class, belirtilen itemi defaktif eder.
+*****fade = Bu class, geçiş animasyonu ekler."tab-pane" containerına eklenir.
+*****flex-fill = Bu class, her yatay list grup iteminin tüm widthi kaplamasını ve eğer münkünse de eşit olmalarını sağlar."list-group-item" containerınına eklenir.
+*****list-group = Bu class, listenecek olan liste grup itemleri için bir wrapperdır.
+*****list-group-flush = Bu class, liste gruplarının borderını kaldırır."list-group" containerına eklenir.
+*****list-group-horizontal = Bu class, liste gruplarını horizontal şekilde sergiler."list-group" containerına eklenir.
+*****list-group-numbered = Bu class, liste gruplarını numaralandırılmış şekilde sergiler."list-group" containerına eklenir.
+*****list-group-item = Bu class, liste grubundaki her bir itemi tanımlar."list-group" containerının içerisine eklenir.
+*****list-group-item-action = Bu class, liste grubundaki her bir iteme hover efekti ekler."list-group-item" containerına eklenir.
+*****show = Bu class, belirtilen tabın default olarak sayfada görüntülenir şekilde olmasını sağlar."tab-pane" containerına eklenir.
+*****tab-content = Bu class, tab halindeki grup listelerinin target olarak görüntüleceği içerikler için bir wrapperdır.
+*****tab-pane = Bu class, tab grup listelerinin target olarak görüntüleyeceği her bir içeriği belirtir."tab-pane" containerının içerisine eklenir.
+*****data-bs-target = Bu attribute, grup liste elemanının görüntüleyeceği targetın IDsini belirtir."list-group-item" containerına eklenir.
+*****data-bs-toggle = Bu attribute, "list" valuesinin alarak tab grup listelerinin target listeleri görüntülemesini sağlar."list-group-item" containerına eklenir.
+*****show = Bu metod, belirtilen itemini seçer ve görüntüleceğini tab itemını gösterir.Diğer seçilmiş olan liste itemlerinin de seçimini kaldırır ve gizlenirler.Tab bölümleri gerçekte gösterilmeden önce çağırana döner.
+*****dispose = Bu metod, elementin tabını yok eder.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan popover instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Tab.getInstance(triggerElem)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan popover instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Tab.getOrCreateInstance(triggerElem)".
+*****show.bs.tab = Bu event, bir tab gösterildiğinde gösterildiği anda triggerlanır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın. 
+*****shown.bs.tab = Bu event, bir tab gösterildikten sonra triggerlanır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın.
+*****hide.bs.tab = Bu event, yeni bir tab gösterileceği zaman ve eski tab gizleneceğinde triggerlanır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın.
+*****hidden.bs.tab = Bu event, yeni bir tab gösterildikten sonra triggerlanır ve bu önceki aktif tab da gizlenmiş olmalıdır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****NAV AND TABS:
+*****fade = Bu class, geçiş animasyonu ekler."tab-pane" containerına eklenir.
+*****flex-column = Bu class, flex containerının column halinde görüntülenmesini sağlar.
+*****flex-row = Bu class, flex containerının row halinde görüntülenmesini sağlar.
+*****nav = Bu class, bulunduğu containera flexbox özellikleri uygular ve navigasyonu tanımlar.Nav itemleri için bir wrapperdır.
+*****nav-fill = Bu class, her yatay nav iteminin tüm widthi kaplamasını ve eğer münkünse de eşit olmalarını sağlar."nav" wrapperına eklenir.
+*****nav-item = Bu class, navdaki her bir itemi tanımlar."nav" wrapperının içerisine eklenir.
+*****nav-justified = Bu class, her yatay nav iteminin her biri eşit olacak şekilde tüm widthi kaplamasını sağlar."nav" wrapperına eklenir.
+*****nav-link = Bu class, nav itemlerindeki linkleri tanımlar."a" elementlerine eklenir.
+*****nav-pills = Bu class, navigasyon itemlerine pill stili ekler."nav" wrapperına eklenir.
+*****nav-tabs = Bu class, navigasyon itemlerine tab stili ekler."nav" wrapperına eklenir.
+*****show = Bu class, belirtilen tabın default olarak sayfada görüntülenir şekilde olmasını sağlar."tab-pane" containerına eklenir.
+*****tab-content = Bu class, tab veya pill halindeki nav itemlerinin target olarak görüntüleceği içerikler için bir wrapperdır.
+*****tab-pane = Bu class, tab veya pill halindeki nav itemlerinin target olarak görüntüleyeceği her bir içeriği belirtir."tab-pane" containerının içerisine eklenir.
+*****data-bs-target = Bu attribute, nav iteminin görüntüleyeceği targetın IDsini belirtir."buton" veya "a" elementlerine eklenir.
+*****data-bs-toggle = Bu attribute, "tab" veya "pill" valuelerini alarak tab veya pill içeriklerinin değişmesini sağlar."buton" veya "a" elementlerine eklenir.
+*****show = Bu metod, belirtilen itemini seçer ve görüntüleceğini tab itemını gösterir.Diğer seçilmiş olan nav itemlerinin de seçimini kaldırır ve gizlenirler.Tab bölümleri gerçekte gösterilmeden önce çağırana döner.
+*****dispose = Bu metod, elementin tabını yok eder.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan popover instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Tab.getInstance(triggerElem)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan popover instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Tab.getOrCreateInstance(triggerElem)".
+*****show.bs.tab = Bu event, bir tab gösterildiğinde gösterildiği anda triggerlanır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın. 
+*****shown.bs.tab = Bu event, bir tab gösterildikten sonra triggerlanır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın.
+*****hide.bs.tab = Bu event, yeni bir tab gösterileceği zaman ve eski tab gizleneceğinde triggerlanır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın.
+*****hidden.bs.tab = Bu event, yeni bir tab gösterildikten sonra triggerlanır ve bu önceki aktif tab da gizlenmiş olmalıdır.Mevcut aktif tabı belirlemek için "event.target" ve öncesindeki aktif tabı belirlemek içinse "event.relatedTarget" propertilerini kullanın.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****NAVBAR:
+*****active = Bu class, belirtilen nav linkini aktif durumda gösterir."a" veya "buton" elementlerine eklenir.
+*****collapse = Bu class, navbarın menu kısmının daraltılma durumunda gizlenmesini sağlar."navbar-collapse" classıyla beraber kullanılır.Belirtilen "container-fluid" containerının içerisine eklenir.
+*****fixed-top = Bu class, navbarı top konumuna sabitler."navbar" wrapperına eklenir.
+*****fixed-bottom = Bu class, navbarı bottom konumuna sabitler."navbar" wrapperına eklenir.
+******nav-item = Bu class, navbarın menu kısmındaki her itemi tanımlar."navbar-nav" containerının içerisine eklenir.
+******nav-link = Bu class, navbarın menu kısmındaki link itemlerini tanımlar."navbar-item" containerının içerisine eklenir.
+*****navbar = Bu class, navbar için bir wrapperdır.
+*****navbar-brand = Bu class, navbarın markasını belirtir.İçerisinde text veya image bulundurabilir.Belirtilen "container-fluid" containerının içerisine eklenir.
+*****navbar-collapse = Bu class, navbarın menu kısmının daraltılma durumunda gizlenmesini sağlar."collapse" classıyla beraber kullanılır.Belirtilen "container-fluid" containerının içerisine eklenir.
+*****navbar-dark = Bu class, navbara koyu tema ekler."navbar" wrapperına eklenir.
+*****navbar-expand = Bu class, navbarın belirlenen breakpointlere göre expand edilmesini sağlar."navbar" wrapperına eklenir.
+*****navbar-light = Bu class, navbara parlak tema ekler."navbar" wrapperına eklenir.
+*****navbar-nav = Bu class, collapse edilecek içeriklerin tümünü tanımlar."navbar-collapse" containerının içerisine eklenir.
+*****navbar-nav-scroll = Bu class, navbarın menusundeki itemlerin sığmadığı durumda scrollbarla scroll edileceğini belirtir."--bs--scrollHeight:?px" şeklinde style edilip kullanılmalıdır."navbar-nav" containerına eklenir.
+*****navbar-scroll = Bu class, ???
+*****navbar-text = Bu class, navbarın içerisinde düz text belirtir.Herhangi yere eklenebilir.
+*****navbar-toggler = Bu class, navbarın expand durumunda görüntülecek olan butonu belirtir."buton"lara eklenir.
+*****navbar-toggler-icon = Bu class, navbarın expan durumunda görüntülenecek olan butonun görselidir."navbar-toggler" containerının içerisine eklenir.
+*****sticky-top = Bu class, navbarın yeterli scrolling durumunda topa sabitler fakat DOĞRU ÇALIŞMIYOR!
+*****data-bs-target = Bu attribute, navbarın menu kısmının IDsini target olarak alır."buton"lara ve "a" lementlerine eklenir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****OFFCANVAS:
+*****offcanvas = Bu class, offcanvas tanımlaması yapılan bir wrapperdır.
+*****offcanvas-body = Bu class, offcanvasın içeriğini tutan kısmını belirtir."offcanvas" wrapperının içerisine eklenir.
+*****offcanvas-bottom = Bu class, offcanvasın ekranın alt kısmında görüntülenmesini sağlar."offcanvas" wrapperına eklenir.
+*****offcanvas-end = Bu class, offcanvasın ekranın sağ kısmında görüntülenmesini sağlar."offcanvas" wrapperına eklenir. 
+*****offcanvas-header = Bu class, offcanvasın header kısmını belirtir."offcanvas" wrapperının içerisine eklenir.
+*****offcanvas-start = Bu class, offcanvasın ekranın sol kısmında görüntülenmesini sağlar."offcanvas" wrapperına eklenir. 
+*****offcanvas-title = Bu class, offcanvasın başlığını belirtir."offcanvas-header" containerının içerisine eklenir.
+*****offcanvas-top = Bu class,  offcanvasın ekranın üst kısmında görüntülenmesini sağlar."offcanvas" wrapperına eklenir. 
+*****show = Bu class, offcanvasın default olarak görüntülenmesini sağlar.
+*****text-reset = Bu class, bir textin veya linkin rengini sıfırlar ve böylece mevcut element, sadece parentından inherit eder.
+*****data-bs-backdrop = Bu attribute offcanvas açıkken, "body" elementine tıklanarak offcanvasın kapanmasını sağlar."offcanvas" wrapperına eklenir.Eğer "false" değeri alırsa defaktif olur.Default değeri "true".
+*****data-bs-dismiss = Bu attribute, "offcanvas" valuesini alarak, açık olan offcanvasın kapatılmasını sağlar."buton" veya "a" elementlerine eklenir.
+*****data-bs-keyboard = Bu attribute, "ESC" tuşuna basıldığında offcanvasın kapatılmasını sağlar.Default değeri: "true".
+*****data-bs-scroll = Bu attribute, offcanvasın açık olduğu durumlarda, mevcut documentin bodysine scroll yapılabilmeyi sağlar.Default değeri: "true".
+*****data-bs-target = Bu attribute, targettaki offcanvasın IDsini belirtir."buton" veya "a" elementlerine eklenir.
+*****data-bs-toggle = Bu attribute, "offcanvas" değerini alarak offcanvasın açılıp kapatılmasını sağlar."buton" veya "a" elementlerine eklenir.
+*****tab-index = Bu attribute, elementlerin tab sırasını index olarak belirtir.Görüntülecek olan offcanvas wrapperına ekleyin çünkü açık olmadığı durumlarda kullanıcıların erişmemesi gerekir.
+*****toggle = Bu metod, bir offcanvas elementini görüntüler veya gizler.Offcanvas elementi gerçekten gösterilmeden veya gizlenmeden önce çağırana döner.
+*****show = Bu metod, bir offcanvas elementini görüntüler.Offcanvas elementi gerçekten gösterilmeden veya gizlenmeden önce çağırana döner.
+*****hide = Bu metod, bir offcanvas elementini gizler.Offcanvas elementi gerçekten gösterilmeden veya gizlenmeden önce çağırana döner.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan popover instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Offcanvas.getInstance(triggerElem)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan popover instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Offcanvas.getOrCreateInstance(triggerElem)".
+*****show.bs.offcanvas = Bu event, "show" metodu çağrıldığı an triggerlanır.
+*****shown.bs.offcanvas = Bu event, "show" metodu çağrıldıktan sonra triggerlanır.
+*****hide.bs.offcanvas = Bu event, "hide" metodu çağrıldığı an triggerlanır.
+*****hidden.bs.offcanvas = Bu event, "hide" metodu çağrıldıktan sonra triggerlanır.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****PAGINATION:
+*****pagination = Bu class, pagination itemleri için bir wrapperdır.
+*****pagination-lg = Bu class, paginationu lg size yapar."pagination" wrapperına eklenir.
+*****pagination-sm = Bu class, paginationu lg size yapar."pagination" wrapperına eklenir.
+*****page-item = Bu class, paginationdaki itemleri birer birer tanımlar."pagination" wrapperının içerisine eklenir.
+*****page-link = Bu class, paginationdaki link itemlerini tanımlar."a" veya "button" elementlerine eklenir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****PROGRESS:
+*****progress = Bu class, progress barları için bir wrapperdır.
+*****progress-bar = Bu class, her bir progress barını tanımlar."progress" wrapperının içerisine eklenir.
+*****progress-bar-animated = Bu class, progress barlarına hareketli animasyon ekler."progress-bar" containerına eklenir.
+*****progress-bar-striped = Bu class, progress barlarına zebre deseni ekler."progress-bar" containerına eklenir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****SCROLLSPY: İçerik kısmının parentına şu styleler eklenmelidir: "height, overflow-y:scroll, position:relative;".
+*****data-bs-method = Bu attribute, belirtilen elementin hangi sectionda olduğunu bulur."auto" valuesi, scrolling koordinatlarını almak için en iyi metodu seçer."offset" valuesi, scrolling koordinatlarını almak için "Element.getBoundClientRect()" metodunu kullanır."position" valuesi, scrolling koordinatlarını almak için "Element.offsetLeft" ve "Element.offsetTop" propertilerini kullanır.Default değeri: "auto". 
+*****data-bs-offset = Bu attribute, scrolling konumunu hesaplarken, üstten ekstradan scroll edilmiş gibi hesaplamaya eklenecek olan pixel sayısını belirler.İçeriklerin bulunduğu wrappera eklenirç
+*****data-bs-spy = Bu attribute, Scrollspy pluginini uygulayacağı elementi belirtir.
+*****data-bs-target = Bu attribute içeriklerin, menü itemleriyle eşleşmesini sağlar.Hem menünün "a" veya "buton" elementlerine hem de içeriklerin wrapperına eklenir.
+*****refresh = Bu metod, DOMa element ekleme veya çıkarma işlemi ile birlikte scrollspy kullanırken kullanılır.
+*****dispose = Bu metod, bir elementin scrollspyını yok eder.DOM elementindeki depolanan dataları da yok eder.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan popover instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.ScrollSpy.getInstance(triggerElem)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan popover instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.ScrollSpy.getOrCreateInstance(triggerElem)".
+*****activate-bs-scrollspy = Bu event, scrollspy tarafından yeni bir element aktifleştirildiğinde, scroll elementinin içerisinde triggerlanır.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****SPINNERS:
+*****spinner-border = Bu class, bir spinner oluşturur.Spinnerlar default olarak "display:inline-flex" şeklindedir.
+*****spinner-border-sm = Bu class, spinnerı sm size yapar.
+*****spinner-border-lg = Bu class, spinnerı lg size yapar.
+*****spinner-grow = Bu class, bir büyüyen spinner oluşturur.Spinnerlar default olarak "display:inline-flex" şeklindedir.
+*****spinner-grow-sm = Bu class, büyüyen spinnerı sm size yapar.
+*****spinner-grow-lg = Bu class, büyüyen spinnerı lg size yapar.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****TOASTS:
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****TOOLTİPS:
+*****title = Bu class, tooltipte gösterilecek olan içeriği belirtir.İçerisine HTML elementlerini de alabilir.
+*****data-bs-allowList = Bu attribute, izin verilen attributeleri ve tagları içeren bir objecttir.Güvenlik sebebiyle tavsiye edilmez.
+*****data-bs-animation = Bu attribute, tooltipe bir CSS fade transitionu uygular.Default değeri: "true".
+*****data-bs-boundary = Bu attribute, tooltipin overflow kısıtlaması sınırıdır.Yalnızca Popper'ın preventOverflow modifieri için geçerlidir.
+*****data-bs-container = Bu attribute, tooltipi belirli bir elemente uygular.Mesela: container:'body'.Bu örnekteki value; tooltipi, document akışında triggerlayan elementin yanına yerleştirmemizi sağlar.Bu, window resize edilse bile tooltipin konumunun bozulmamasını sağlar.Default değeri: "false".
+*****data-bs-customClass = Bu attribute, tooltip gösterildiği zaman ona classlar eklememizi sağlar.Bu classlar, templatedeki mevcut classlara ek olarak eklenecektir.Birden çok class eklemek için aralarına boşluk koyarak ayırın.Ayrıca ek class isimleri içeren ve tek bir string döndürmesi gereken bir fonksiyonu da çağırabiliriz.Default değeri: "" yani boş bir stringdir.
+*****data-bs-delay = Bu attribute, tooltipi gösterme ve gizleme gecikmesidir(ms).Manual triggerlama türlerine uygulanmaz.Eğer tek bir number verilirse, hem hide hem de show için delay uygulanır.Object yapısı şöyledir: delay: { "show": 500, "hide": 100 }.Default değeri: "0".
+*****data-bs-fallbackPlacements = Bu attribute, arraydeki yerleştirmelerin bir listesini sağlayarak; tercih sırasına göre yedek yerleştirmeleri tanımlar.Default değeri: ['top', 'right', 'bottom', 'left'].
+*****data-bs-html = Bu attribute, tooltipte HTMLye izin verir.Eğer "true" ise, tooltipin "title"ındaki HTML tagları, tooltipte renderlanacaktır.Eğer "false" ise, DOMa içerik eklemek için "innerText" propertisi kullanılacaktır.XSS saldırılarından korunabilmek için text kullanılmalıdır.Default değeri: "false".
+*****data-bs-offset = Bu attribute, tooltiptin targetına relative ilişkili olan offsetini belirtir.Mesela: "data-bs-offset='10,20'".Eğer fonksiyon çağrılarak kullanılırsa; ilk argüman olarak popper yerleşimini, referansı ve "popper rect"lerini içeren bir object ile çağrılır.Triggerlayan element DOM nodeu, ikinci argüman olarak iletilir.Fonksiyon, iki sayı içeren bir array halinde şöyle döndürülmelidir: [skidding, distance].
+Default değeri: [0, 0].
+*****data-bs-placement = Bu attribute, tooltipin nasıl konumlandırılacağını belirtir."auto", "top", "bottom", "left" ve "right" valuelerini alabilir."auto" belirtildiğinde tooltip, dinamik olarak yönlendirilecektir.Konumlandırmayı belirlemek için bir fonksiyon çağrıldığında; ilk argüman olarak popover DOM nodeunu, ikinci argüman olaraksa triggerlayan element DOM nodeu ile çağrılır."this" keywordu, tooltipin instanceına ayarlanır.Default değeri: "top". 
+*****data-bs-popperConfig = Bu attribute, Bootstrapin default olan Popper configini değiştirir.Popper configurasyonunu oluşturmak için bir fonksiyon çağrıldığında, Bootstrapin default Popper configurasyonunu içeren bir object ile çağrılır.Defaultu kendi configurasyonumuzla kullanmamıza ve birleştirmemize fayda sağlar.Fonksiyon, Popper için bir configurasyon objecti döndürmelidir.Default değeri: "null".
+*****data-bs-sanitize = Bu attribute, sanitizeı(temizlemeyi) etkinleştirir veya devre dışı bırakır.Eğer etkinleştirilse, "template", ve "title" optionsları temizlenecektir.Güvenlik sebebiyle tavsiye edilmez.Default değeri: "true".
+*****data-bs-sanitizeFn = Bu attribute, kendi temizleme fonksiyonlarımızı çağırmamızı sağlar.Bu işlem, temizleme işlemini gerçekleştirmek için özel bir "library" kullanıyorsak faydalı olabilir.Default değeri: "null".
+Güvenlik sebebiyle tavsiye edilmez.
+*****data-bs-selector = Bu attribute eğer bir selector sağlanırsa; tooltip objectleri, belirtilen targetlara devredilecektir.Dinamik olarak eklenen DOM elementlerine tooltipini uygulamak için kullanılır.JQuery desteği şarttır.
+*****data-bs-template = Bu attribute, tooltipini oluştururken kullanılacak olan temel HTMLdir.Tolltipin "title"ı, "tooltip-inner"a eklenir."tooltip-arrow" classı, tooltipin arrow kısmı olacaktır.En dıştaki wrapper elementin "tooltip" classı olması gerekir.Default değeri: 
+"<div class='tooltip' role='tooltip'>
+<div class='tooltip-arrow'>
+</div>
+<div class='tooltip-inner'>
+</div>
+</div>".
+*****data-bs-title = Bu attribute, eğer title attributeu belirtilmemişse, default title valuesini belirtir.Bir fonksiyonlar çağrılırsa; "this" referansı, tooltipin eklendiği elemente göre ayarlanmış olarak çağrılır.Default değeri: "" yani boş stringdir.
+*****data-bs-toggle = Bu attribute, "tooltip" valuesini alarak tooltipin görünüp gizlenmesini sağlar.
+*****data-bs-trigger = Bu attribute, tooltipin triggerlanma türünü belirtir."click", "hover", "focus" ve "manuel" valuelerinden birini veya birkaçını birden alabilir.Birden fazla trigger seçmek için aralarını birer boşlukla ayırın.Sadece "manuel" triggerını başka triggerlarla kullanamazsınız!Default değeri: "hover focus".
+*****show = Bu metod, bir elementin tooltipini görüntüler.Tooltip gerçekten gösterilmeden önce çağırana döner."title" lengthi 0 olan tooltipler görüntülenmez.
+*****hide = Bu metod, bir elementin tooltipini gizler.Tooltip gerçekten gizlenmeden önce çağırana döner.
+*****toggle = Bu metod, elementin tooltipini değiştirir.Tooltip gerçekten gizlenmeden veya gösterilmeden önce çağırana döner.
+*****dispose = Bu metod, bir elementin tooltipini gizler ve yok eder.DOM elementinde depolanan dataları da kaldırır.
+*****enable = Bu metod, bir elementin tooltipine gösterilme özelliği kazandırır.Tooltipler default olarak enableddır.
+*****disable = Bu metod, bir tooltipin gösterilme özelliğini kaldırır.Tooltip, yalnızca yeniden enabled edildiğinde görüntülenebilir.
+*****toggleEnabled = Bu metod, bir elementin tooltipinin gösterilme veya gizlenme özelliğini değiştirir.
+*****update = Bu metod, bir elementin tooltipinin konumunu günceller.
+*****getInstance = Bu metod, bir DOM elementiyle ilişkişi olan tooltip instanceına erişmemizi sağlar.Statik bir metoddur.Mesela: 
+"bootstrap.Tooltip.getInstance(alert)".
+*****getOrCreateInstance = Bu metod, bir DOM elementiyle ilişkisi olan tooltip instanceını döndürür veya eğer initialize edilmemişse de yeni bir tane oluşturur.Statik bir metoddur.Mesela: "bootstrap.Tooltip.getOrCreateInstance(element)".
+*****show.bs.tooltip = Bu event, "show" instanceı çağrıldığı an gerçekleşir.
+*****shown.bs.tooltip = Bu event tooltip, kullanıcıya görünür hale geldiğinde gerçekleşir.CSS transitionlarının tamamlanmasını bekler.
+*****hide.bs.tooltip = Bu event, "hide" instanceı çağrıldığı an gerçekleşir.
+*****hidden.bs.tooltip = Bu event, tooltipin kullanıcıdan gizlenmesi bittiğinde gerçekleşir.CSS transitionlarının tamamlanmasını bekler.
+*****inserted.bs.tooltip = Bu event tooltip templatei, DOMa eklendiğinde; "show.bs.tooltip" eventinden hemen sonra gerçekleşir.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****input-group = Bu class, önüne veya arkasına "yardım texti" olarak bir simge, text veya buton ekleyerek; inputu veya labelı geliştirmeyi sağlayan wrapper containerdır.
+*****input-group-append = Bu class, bir input alanının arkasına "yardım texti" eklemek için kullanılan bir input grubu containerıdır."ml:-1" değerini ekler.
+*****input-group-lg = Bu class, lg size input grubu tanımlar.
+*****input-group-prepend = Bu class, bir input alanının önüne "yardım texti" eklemek için kullanılan bir input grubu containerıdır."mr:-1" değerini ekler.
+*****input-group-sm = Bu class, sm size input grubu tanımlar.
+*****input-group-text = Bu class, bir input grubu içerisinde belirtilmiş "yardım texti"ne stil verir.Arka plan rengi ve text stilleri ekler.
+*****input-lg = Bu class, lg size input grubu tanımlar.
+*****input-sm = Bu class, sm size input grubu tanımlar.
+------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,530 @@
+*****NEW SELECTORS:
+*****:first = Bu selector, ilk elementi seçer.Sadece ilk elementi seçmektedir.Eğer tüm ilk elementleri seçmek istersek "first-child()" selectorunu kullanmalıyız.Syntaxı:
+-$(":first")
+*****:last = Bu selector, sonuncu elementi seçer.Sadece son elementi seçmektedir.Eğer tüm sonuncu elementleri seçmek istersek "last-child()" selectorunu kullanmalıyız.Syntaxı:
+-$(":last")
+*****:even = Bu selector, çiftli index numaralarına(2,4,6,..) sahip olan tüm elementleri seçer.Syntaxı:
+-$(":even")
+*****:odd = Bu selector, tekli index numaralarına(1,3,5,..) sahip olan tüm elementleri seçer.Syntaxı:
+-$(":odd")
+*****:eq(index) = Bu selector, belirtilen index numarasına sahip olan elementi seçer.Syntaxı:
+-$(":eq(index)")
+*****gt(index) = Bu selector, belirtilen index numarasından daha büyük index numaralarına sahip elementleri seçer.Syntaxı:
+-$(":gt(index)")
+*****lt(index) = Bu selector, belirtilen index numarasından daha düşük index numaralarına sahip elementleri seçer.Syntaxı:
+-$(":lt(index)")
+*****not(selector) = Bu selector, belirtilen elementin dışındaki tüm elementleri seçer.Syntaxı:
+-$(":not(selector)")
+*****:header = Bu selector, "h1" ile "h6" arasındaki tüm header elementlerini seçer.Syntaxı:
+-$(":header")
+*****:animated = Bu selector, "animate()" metodu eklenmiş olan tüm animasyonlu elementleri seçer.Syntaxı:
+-$(":animated")
+*****:contains(text) = Bu selector, belirtilen stringi içeren elementleri seçer.Bu string, bir text olarak direk elementin içerisinde de yer alabilir veya elementin child elementlerinde de bulunabilir.Kullanılan text case-sensitivedir.Syntaxı:
+-$(":contains(text)")
+*****:has(selector) = Bu selector, içerisinde bir veya daha fazla element bulunan ve belirtilen selectorle eşleşen tüm elementleri seçer.Birden fazla selector kullanmak için aralarını virgülle ayırın.Syntaxı:
+-$(":has(selector)")
+*****:parent = Bu selector, başka bir elementin(text nodeları da dahil olmak üzere) parentı olan tüm elementleri seçer.Syntaxı:
+-$(":parent")
+*****:hidden = Bu selector, tüm visible olmayan elementleri yani; "type='hidden'" olan form elementlerini veya "display:none" olan tüm elementleri seçer.Syntaxı:
+-$(":hidden")
+*****:visible = Bu selector, tüm visible olan elementleri yani; "type='hidden'" olmayan form elementlerini veya "display:none" olmayan tüm elementleri seçer.Syntaxı:
+-$(":visible")
+*****:input = Bu selector, button elementleri de dahil olmak üzere bütün form elementlerini seçer.Syntaxı:
+-$(":input")
+*****:text = Bu selector, "input type='text'" türündeki tüm input elementlerini seçer.Syntaxı:
+-$(":text")
+*****:password = Bu selector, "input type='password'" türündeki tüm input elementlerini seçer.Syntaxı:
+-$(":password")
+*****:radio = Bu selector, "input type='radio'" türündeki tüm input elementlerini seçer.Syntaxı:
+-$(":radio")
+*****:checkbox = Bu selector, "input type='checkbox'" türündeki tüm input elementlerini seçer.Syntaxı:
+-$(":checkbox")
+*****:submit = Bu selector, tüm "button type='submit'" ve "input type='submit'" türündeki button ve input elementlerini seçer.Eğer buttonların typeı belirtilmemişse dahi çoğu browser, butonları default olarak "type='submit'" olarak tanımlar.Syntaxı: 
+-$(":submit")
+*****:reset = Bu selector, tüm "button type='reset'" ve "input type='reset'" türündeki button ve input elementlerini seçer.Syntaxı:
+-$(":reset")
+*****:button = Bu selector, tüm "button type='button'" ve "input type='button'" türündeki button ve input elementlerini seçer.Syntaxı:
+-$(":button")
+*****:image = Bu selector, "input type='image'" türündeki tüm input elementlerini seçer.Syntaxı:
+-$(":image")
+*****:file = Bu selector, "input type='file'" türündeki tüm input elementlerini seçer.Syntaxı:
+-$(":file")
+*****:enabled = Bu selector, tüm "disabled" edilmemiş yani enabled haldeki form elementlerini seçer.Syntaxı:
+-$(":enabled")
+*****:disabled = Bu selector, tüm "disabled" edilmiş form elementlerini seçer.Syntaxı:
+-$(":disabled")
+*****:selected = Bu selector, önceden "selected" olarak ayarlanmış olan tüm select elementlerini seçer."checkbox" vey "radio" buttonlarda işe yaramaz!Syntaxı:
+-$(":selected")
+*****:checked = Bu selector, önceden "checked" olarak ayarlanmış tüm radio butonlarını ve checkboxları seçer.Syntaxı:
+-$(":checked")
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****$(document).ready() = Bu metod, kullandığın kodların ancak sayfa yüklemesini tamamladıktan sonra sağlıklı bir biçimde çalışmasını sağlar.
+Kısayolu $() şeklindedir.
+***DOmdaki "window.onload" ile "$(document).ready()" arasındaki fark şudur: "$(document).ready()", sayfanın yüklenmesini, görsellerin, framelerin, DOMun yüklenmesini yani genel olarak documentin yüklenmesini bekler.Fakat "window.onload" ise windowun yüklenmesini bekler fakat DOMu beklemez.
+*****AJAX:
+*****ajaxComplete() = Bu metod, bir Ajax requesti tamamlandığında çağrılacak olan bir handlerı belirtir.Her request tamamlandığında çağrılacaktır."document"e eklenmelidir.
+Eğer "global" optionu "false" ayarlanmış olarak çağrılan "$.ajax()" veya "$.ajaxSetup()" metodları mevcutsa; bu event, başlatılmayacaktır."xhr.responseText" sayesinde Ajax içeriğini görüntüleyebiliriz.Syntaxı:
+-$(document).ajaxComplete(function(event,jqXHR,ajaxOptions))
+*****ajaxError() = Bu metod, Ajax requestleri bir errorla tamamlandığında çağrılacak olan bir handlerı belirtir.Genellikle Ajax dosyasının kayıp veya pathının yanlış olduğu durumlardır."document"e eklenmelidir."options.url" ile documentin kayıtlı adını döndürürüz.
+Eğer "global" optionu "false" ayarlanmış olarak çağrılan "$.ajax()" veya "$.ajaxSetup()" metodları mevcutsa; bu event, başlatılmayacaktır.
+Syntaxı:
+-$(document).ajaxError(function(event,jqXHR,ajaxOptions,thrownError))
+*****ajaxSend() = Bu metod, bir Ajax requesti gönderilmeden önce execute edilecek bir fonksiyon belirtir."document"e eklenmelidir.
+Eğer "global" optionu "false" ayarlanmış olarak çağrılan "$.ajax()" veya "$.ajaxSetup()" metodları mevcutsa; bu event, başlatılmayacaktır.
+Syntaxı:
+-$(document).ajaxSend(function(event,jqXHR,ajaxOptions))
+*****ajaxStart() = Bu metod, ilk Ajax requesti başladığında execute edilecek bir fonksiyon belirtir."document"e eklenmelidir.
+Eğer "global" optionu "false" ayarlanmış olarak çağrılan "$.ajax()" veya "$.ajaxSetup()" metodları mevcutsa; bu event, başlatılmayacaktır.
+Syntaxı:
+-$(document).ajaxStart(function())
+***Bir Ajax requesti gönderilmek üzere olduğunda jQuery, bekleyen başka Ajax requestleri olup olmadığını kontrol eder.Eğer bekleyen request kalmadıysa jQuery, "ajaxStart()" eventini triggerlar.
+*****ajaxStop() = Bu metod, tüm Ajax requestleri tamamlandığında execute edilecek bir fonksiyon belirtir.Son bekleyen Ajax requesti, "beforeSend" callback fonksiyonu sayesinde "false" döndürülerek iptal edilirse de triggerlanacaktır."document"e eklenmelidir.
+Eğer "global" optionu "false" ayarlanmış olarak çağrılan "$.ajax()" veya "$.ajaxSetup()" metodları mevcutsa; bu event, başlatılmayacaktır.
+Syntaxı:
+-$(document).ajaxStop(function())
+***Bir Ajax requesti tamamlandığında jQuery, bekleyen başka Ajax requestleri olup olmadığını kontrol eder.Eğer kalan Ajax requesti yoksa jQuery, "ajaxStop()" eventini triggerlar.
+*****ajaxSuccess() = Bu metod, bir Ajax requesti başarıyla tamamlandığında execute edilecek bir fonksiyon belirtir.Her request tamamlandığında triggerlanır."document"e eklenmelidir."xhr.responseText" veya "xhr.responseXML" sayesinde HTML ve XML için de Ajax içeriğini görüntüleyebiliriz.
+Eğer "global" optionu "false" ayarlanmış olarak çağrılan "$.ajax()" veya "$.ajaxSetup()" metodları mevcutsa; bu event, başlatılmayacaktır.Syntaxı:
+-$(document).ajaxSuccess(function(event,jqXHR,ajaxOptions,data))
+*****$.ajax() = Bu metod, asenkron bir HTTP [Ajax] requesti gerçekleştirir.Name/value çifti halinde parametreler almaktadır.Genellikle diğer metodlar kullanılamadığında tercih edilir.Syntaxı:
+-$.ajax(url, settings)
+-$.ajax({url:urlName, name:value, name:value,...}) 
+***xhr'nin propertileri şunlardır:
+-readyState
+-responseXML
+-responseText
+-status
+-statusText (may be an empty string in HTTP/2)
+-abort( [ statusText ] )
+-getAllResponseHeaders() as a string
+-getResponseHeader( name )
+-overrideMimeType( mimeType )
+-setRequestHeader( name, value )
+-statusCode( callbacksByStatusCode )
+*****$.ajaxPrefilter() = Bu metod, her request gönderilmeden ve "ajax" metodu tarafından işlenmeden önce Ajax optionslarını kullanır veya mevcut optionsları ayarlar.Syntaxı:
+-$.ajaxPrefilter(dataTypes, function(options,originalOptions,jqXHR))
+*****$.ajaxSetup() = Bu metod, gelecekteki Ajax requestleri için default valueleri ayarlar.Kullanılması tavsiye edilmez!Bu ayarlar yapıldıktan sonra tüm Ajax requestleri, yeni bir "ajaxSetup" bildirilene kadar yeni ayarları kullanmaya devam edecektir.Syntaxı:
+-$.ajaxSetup(options)
+-$.ajaxSetup({url:urlName, name:value, name:value, ... })
+*****$.ajaxTransport() = Bu metod, Ajax verilerinin gerçek iletişimini[aktarımını] işleyen bir object oluşturur.Transport, requestleri aktarmak için internal olarak "$.ajax" metodu tarafından kullanılan "send" ve "abort" metodlarını sağlayan bir objecttir.Syntaxı:
+-$.ajaxTransport(dataType, function(options,originalOptions,jqXHR))
+*****$.get() = Bu metod, bir HTTP GET requesti kullanılarak serverdan dataları yüklemeyi sağlar.
+"jqXHR.done()", "jqXHR.fail()" ve "jqXHR.always()" metodları kullanılabilir.
+Syntaxı:
+-$.get(url, data, callback(data,textStatus,jqXhr), dataType)
+-$.get("test.php", { 'colors[]' : ["Red","Green","Blue"] });
+*****$.getJSON() = Bu metod, bir GET HTTP requesti kullanarak serverdan JSON formatında encode edilmiş olan verileri yükler.Servera gönderilen datalar, query string olarak URLye eklenirler."data" parametresinin valuesi bir plain objectse, bir stringe dönüştürülür ve URLye eklenmeden önce de url-encoded edilir."done","fail" ve "always" callbackleri mevcuttur.
+Syntaxı:
+-$(selector).getJSON(url, data, callback(data,textStatus,jqXhr))
+*****$.getScript() = Bu metod, bir GET HTTP isteği kullanarak serverdan bir Javascript dosyası yükler ve ardından çalıştırır.
+Syntaxı:
+-$(selector).getScript(url, callback(script,textStatus,jqXHR))
+*****$.param() = Bu metod, bir URL query stringinde veya Ajax requestinde kullanıma uygun bir arrayin, bir plain objectin veya jQuery objectinin serileştirilmiş bir temsilini oluşturur.Bir jQuery objectinin aktarılması durumunda, name/value propertilerine sahip input elementleri içermelidir.Serileştirilmiş valueler, bir Ajax requesti yapılırken URL query stringinde kullanılabilir.
+Syntaxı:
+-$.param(obj,traditional)
+*****$.post() = Bu metod, bir HTTP POST requesti kullanarak dataları servera gönderir.
+Syntaxı:
+-$.post(url, data, callback(data,textStatus,jqXHR), dataType)
+-$.post("test.php", { 'colors[]' : ["Red","Green","Blue"] });
+*****load() = Bu metod, serverdan data yükler ve döndürülen HTMLyi, eşleşen elementlere yerleştirir.
+"$.get()" metoduyla oldukça benzerdir.Eğer datalar, bir object olarak sağlanmışsa "POST"; aksi takdirde "GET" metodu kullanılır.
+Syntaxı:
+-$.load(url, data, callback(responseText,textStatus,jqXHR))
+*****serialize() = Bu metod, form elementlerini submit etmek için string olarak encode eder.Standart URL encoded gösteriminde bir text stringi oluşturur.
+Syntaxı:
+-$(selector).serialize()
+*****serializeArray() = Bu metod, form elementlerini bir name/value arrayi olarak encode eder.JSON stringi olarak encoded edilmeye hazır bir Javascript object arrayi oluşturur.Genellikle jQuery koleksiyonunda veya form kontrollerinde kullanılır.Syntaxı:
+-$(selector).serializeArray()
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****ATTRIBUTES:
+*****addClass() = Bu metod, eşleşen tüm elementlere belirtilen classları ekler.Birden fazla class eklerken, classların arasını boşlukla ayırın.
+Syntaxı:
+-$(selector).addClass(classname, callback(index,currentClassName))
+*****attr() = Bu metod, eşleşen elementin attributelerinin valuesini döndürür veya ayarlar.
+-$(selector).attr(attribute)
+-$(selector).attr(attribute, value)
+-$(selector).attr(attribute, function(index,currentValue))
+-$(selector).attr({attribute:value, attribute:value,...})
+*****hasClass() = Bu metod, eşleşen elementlerden herhangi birisinin belirtilen classa sahip olup olmadığını belirten bir booleandır.
+Syntaxı:
+-$(selector).hasClass(classname)
+*****html() = Bu metod, eşleşen elementin HTML içeriğini döndürür veya ayarlar.XML documentlerinde kullanılamaz."innerHTML" propertisiyle aynıdır.Syntaxı:
+-$(selector).html()
+-$(selector).html(htmlString) 
+-$(selector).html(function(index,oldHTML)) 
+*****prop() = Bu metod, seçilen elementlerin propertilerini ve valuelerini ayarlar veya döndürür.Eğer eşleşmezse "undefined" döndürür.Syntaxı:
+-$(selector).prop(attribute)
+-$(selector).prop(attribute, value)
+-$(selector).prop(attribute, function(index,currentValue))
+-$(selector).prop({attribute:value, attribute:value,...})
+*****removeAttr() = Bu metod, seçilen elementlerden bir veya daha fazla attribute kaldırır.Birden fazla attribute kaldırmak için aralarını boşlukla ayırın.Syntaxı:
+-$(selector).removeAttr(attribute)
+*****removeClass() = Bu metod, seçilen elementlerden bir veya daha fazla classı kaldırır.Birden fazla class kaldırmak için aralarını boşlukla ayırın.Eğer parametre belirtilmezse, seçilen elementin bütün classlarını kaldırır.Syntaxı:
+-$(selector).removeClass(classname, function(index,currentClass))
+*****removeProp() = Bu metod, "prop" metodu tarafından ayarlanan bir propertiyi kaldırır.Syntaxı:
+-$(selector).removeProp(property)
+*****toggleClass() = Bu metod, seçilen elementlerden bir veya daha fazla class adı ekleme ve çıkarma arasında geçiş yapar.Belirtilen class adları için her elementi kontrol eder.Eğer class adları eksikse eklenir; zaten ayarlanmışsa da kaldırılır.İşte bu toggle efekti sağlar.Syntaxı:
+-$(selector).toggleClass(classname, function(index,currentClass), state)
+*****val() = Bu metod, seçilen elementlerin mevcut valuesini döndürür veya ayarlar.Genellikle form elementlerinde kullanılır.Eğer boş bir element çağrılırsa "undefined" döndürür.Syntaxı:
+-$(selector).val() 
+-$(selector).val(value) 
+-$(selector).val(function(index,currentValue)) 
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****CORE:
+*****jQuery() = Bu metod, kullanım farklılıklarına göre sağlanan ham HTML stringinden anında DOM elementleri oluşturabilir; DOM, yüklemeyi bitirdiğinde execute edilecek bir fonksiyon bağlar veya elementleri eşleştirmek için kullanılan bir CSS selectoru içeren bir stringi kabul eder.
+DOMun yüklenmesini bitirmesini bekleyen fonksiyon, en sık kullanılandır ve 2 çeşit syntaxı mevcuttur:
+-$(function(){});
+-jQuery(function($){});
+*****$.noConflict() = Bu metod, jQuery'nin "$" değişkeni üzerindeki denetiminden vazgeçer.Birçok JS libraryisi, jQuery gibi "$" değişkenini kullanmaktadır.Fakat jQuery için "$", sadece bir aliastır ve bu kullanılmadan da kodlar çalıştırılabilir.
+Bu alias mesela şu şekilde customlanabilir: "x = jQuery.noConflict();".Ardından tüm kodlarda "$" aliası yerine "x" ifadesini alias olarak kullanabiliriz.En sık kullanılan syntaxı:
+-$.noConflict();
+jQuery( document ).ready(function( $ ) {
+  // $ aliası kullanılan jQuery kodları
+});
+// $ aliası kullanan başka libraryler
+*****$.ready = Bu property, document hazır olduğunda çözülen promise benzeri ve sonra thenable bir objecttir."thenable" yapılar, içerisinde "then" metodu bulunduran objectler veya fonksiyonlardır.Syntaxı:
+-$.ready
+*****$.readyException = Bu metod, "jQuery()" metodu veya "jQuery(document).ready()" metodu veya eşdeğerlerinin içerisine wrapped olan fonksiyonlarda senkronizasyonlu olarak oluşan errorlar oluştuğunda triggerlanır ve işler.Syntaxı:
+-$.readyException( error )
+*****$.when() = Bu metod, genellikle asenkron eventleri temsil eden "Deferred" objectler olmak üzere sıfır veya daha fazla thenable objectine dayalı callback fonksiyonlarını execute etmeyi sağlar.Genellikle bazı durumlara bağlı olarak, sonradan gerçekleştirilecek fonksiyonlar için kullanılır.Eğer herhangi bir argüman almazsa, resolved bir Promise döndürür.Syntaxı:
+-$.when( deferreds ) 
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****CSS:
+*****css() = Bu metod, eşleşen elementlerin işlenen tüm stylelarını döndürür veya CSS propertilerini ayarlar.Syntaxı:
+-css("propertyname");
+-css("propertyname","value");
+-css({"propertyname":"value","propertyname":"value",...});
+*****height() = Bu metod, geçerli elementlerin mevcut işlenen yüksekliğini ayarlar veya döndürür.Mevcut elementin padding, margin ve borderını hesaplamaya eklemez.Syntaxı:
+-$(selector).height() 
+-$(selector).height(value) 
+-$(selector).height(function(index,currentHeight)) 
+*****innerHeight() = Bu metod, geçerli elementlerin mevcut işlenen yüksekliğini ayarlar veya döndürür.Mevcut elementin sadece paddingini hesaplamaya ekler.Syntaxı:
+-$(selector).innerHeight()
+*****innerWidth() = Bu metod, geçerli elementlerin mevcut işlenen genişliğini ayarlar veya döndürür.Mevcut elementin sadece paddingini hesaplamaya ekler.Syntaxı:
+-$(selector).innerWidth()
+*****$.cssHooks = Bu object, belirtilen CSS propertilerinin nasıl alındığını veya ayarlandığını belirtmek, CSS properti adını standartlaştırmak veya custom propertileri oluşturmak için fonksiyon tanımlayan bir object döndürür.Syntaxı:
+-$.cssHooks
+*****$.cssNumber = Bu property, bir unite[birime] ihtiyaç olmadan kullanılabilecek tüm CSS propertilerini içeren bir objecttir.Mesela "css" metodu, unitsiz valuelere px ekleyip eklemeyeceğini anlamak için bu objecti kullanır.İçerdiği valueler: "zIndex, fontWeight, opacity, zoom, lineHeight, widows, orphans, fillOpacity, columnCount, order, flexGrow, flexShrink" şeklindedir.Syntaxı:
+-$.cssNumber
+*****$.escapeSelector() = Bu metod, özel anlamlı karakter veya stringe sahip olan CSS selectorlerinden kaçmak için kullanılır.Genellikle bir elementin class veya IDsinin nokta, noktalı virgül, hash, vs gibi CSSde özel anlamı olan karakterleri içerdiği durumlarda kullanışlıdır.Syntaxı:
+-$.escapeSelector( selector ) 
+*****offset() = Bu metod, belirtilen elementin documente relative olan offset koordinatlarını ayarlar veya döndürür.2 propertiye sahip bir ojecti pixel cinsinden  döndürür: "top" ve "left".Syntaxı:
+-$(selector).offset() 
+-$(selector).offset({top:value,left:value})
+-$(selector).offset(function(index,currentoffset)) 
+*****outerHeight() = Bu metod, geçerli elementlerin mevcut işlenen yüksekliğini ayarlar veya döndürür.Mevcut elementin paddingini, borderını ve isteğe bağlı olarak da marginini hesaplamaya ekler.Eğer "true" parametresi alırsa, elementin marginini de hesaplar.Syntaxı:
+-$(selector).outerHeight(includeMargin)
+*****outerWidth() = Bu metod, geçerli elementlerin mevcut işlenen genişliğini ayarlar veya döndürür.Mevcut elementin paddingini, borderını ve isteğe bağlı olarak da marginini hesaplamaya ekler.Eğer "true" parametresi alırsa, elementin marginini de hesaplar.Syntaxı:
+-$(selector).outerWidth(includeMargin)
+*****position() = Bu metod eşleşen ilk elementin, offset parentına relative olan konumunun koordinatlarını döndürür.2 propertiye sahip bir ojecti pixel cinsinden  döndürür: "top" ve "left".Syntaxı:
+-$(selector).position()
+*****scrollLeft() = Bu metod, seçilen elementlerin yatay scrollbar konumunu ayarlar veya döndürür.Scrollbar en sol taraftayken de veya element, scrollable değilse de konum 0dır.Syntaxı:
+-$(selector).scrollLeft() 
+-$(selector).scrollLeft(position) 
+*****scrollTop() = Bu metod, seçilen elementlerin yatay scrollbar konumunu ayarlar veya döndürür.Scrollbar en sol taraftayken de veya element, scrollable değilse de konum 0dır.Syntaxı:
+-$(selector).scrollTop() 
+-$(selector).scrollTop(position) 
+*****toggleClass() = Bu metod, seçilen elementlere bir veya daha fazla class ekleme ve çıkarma geçişleri yapar.Syntaxı:
+-$(selector).toggleClass(classname, function(index,currentclass), state)
+*****width() = Bu metod, geçerli elementlerin mevcut işlenen genişliğini ayarlar veya döndürür.Mevcut elementin padding, margin ve borderını hesaplamaya eklemez.Syntaxı:
+-$(selector).width() 
+-$(selector).width(value) 
+-$(selector).width(function(index,currentWidth)) 
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****EFFECTS:
+*****animate() = Bu metod, CSS propertilerini kullanarak özel animasyonlar sağlar.Syntaxı:
+-(selector).animate(properties, duration, easing, callback)
+-(selector).animate({properties}, {options})
+*****clearQueue() = Bu metod, kuyrukta bulunan ve henüz çalıştırılmamış olan tüm itemleri kaldırır.Syntaxı:
+-$(selector).clearQueue(queueName)
+*****delay() = Bu metod, kuyruktaki bir sonraki itemin execute edilmesi için bir delay miktarı ayarlar.Syntaxı:
+-$(selector).delay(duration, queueName)
+*****dequeue() = Bu metod, sıradaki fonksiyonu kuyruktan kaldırır ve ardından da mevcut fonksiyonu execute eder."queue" metoduyla beraber kullanılır.
+*****fadeIn() = Bu metod, seçilen elementlerin opaklığını kademeli olarak artırır ve görünür yapar.Easing parametresi yani hız eğrileri içinse "linear" ve "swing" valueleri kullanılabilir.Syntaxı:
+-$(selector).fadeIn(duration, easing, callback)
+-$(selector).fadeIn({options})
+*****fadeOut() = Bu metod, seçilen elementlerin opaklığını kademeli olarak azaltır ve transparent yapar.Syntaxı:
+-$(selector).fadeOut(duration, easing, callback)
+-$(selector).fadeOut({options})
+*****fadeTo() = Bu metod, seçilen elementlerin opaklığını kademeli olarak belirtilen opaklık düzeyine getirir.Syntaxı:
+-$(selector).fadeTo(duration, opacity, easing, callback)
+*****fadeToggle() = Bu metod, seçili element için "fadeIn" ve "fadeOut" metodları arasında geçiş uygular.Syntaxı:
+-$(selector).fadeToggle(duration, easing, callback)
+-$(selector).fadeToggle({options})
+*****finish() = Bu metod, o esnada çalışan animasyonları durdurur, kuyruktaki tüm animasyonları kaldırır ve seçili elementler için tüm animasyonları tamamlayıp son görüntüye ulaştırır.Syntaxı:
+-$(selector).finish(queueName)
+***"finish" ile "stop" metodları arasındaki fark şudur: "finish", kuyruğa alınmış ve beklemekte olan tüm animasyonların CSS propertilerinin de durmasını sağlar.
+*****hide() = Bu metod, seçilen elementleri gizler."display:none" propertisiyle aynıdır.Gizlenen elementler sayfadan kaldırılacak ve yerleri doldurulabilecektir.Syntaxı:
+-$(selector).hide(duration, easing, callback)
+-$(selector).hide({options})
+*****$.fx.off = Bu property, tüm animasyonları global olarak devre dışı bırakmak veya etkinleştirmek için kullanılır.Default değeri: "false" ve animasyonların normal şekilde çalışmasına izin verir."true" şeklinde ayarlanırsa animasyonlar devre dışı kalır ve animasyonları oynatmak yerine direkt olarak son görüntüye atlanılır.Genellikle düşük özellikle cihaz kullanan veya erişebilirlik sorunu yaşayan kullanıcılar için kullanılır.Syntaxı:
+-$.fx.off = true|false;
+*****$.speed = Bu property, custom animasyonların tanımında kullanılmaya hazır propertileri içeren bir object oluşturur.Yeni animasyon metodları oluşturan plugin developerları içindir.Syntaxı:
+-$.speed(duration, easing, callback)
+-$.speed({options})
+*****queue() = Bu metod, seçilen elementler üzerinde execute edilecek olan fonksiyonların sırasını belirtir veya sıralarını değiştirir.Bir queue, çalışmayı bekleyen bir veya daha fazla fonksiyon grubudur.Genellikle "dequeue" metoduyla beraber kullanılır.Manipüle ederek, fonksiyon sırasının herhangi bir yerine de callback sayesinde fonksiyonlar ekleyebiliriz."fx" parametresi sayesinde elementteki mevcut fonksiyon kuyruğunu belirtiriz.
+Bir elementteki animasyon kuyruğunu bulmak içinse "HTMLElement.queue().length" yapabiliriz.Syntaxı:
+-$(selector).queue(queueName)
+-$(selector).queue(queueName, newQueue)
+-$(selector).queue(queueName, callback)
+*****show() = Bu metod, seçilmiş "hidden" elementleri gösterir.Syntaxı:
+-$(selector).show(duration, easing, callback)
+-$(selector).show({options})
+*****slideDown() = Bu metod, seçilmiş "hidden" elementleri aşağı slide ederek görünür hale getirir.Syntaxı:
+-$(selector).slideDown(duration, easing, callback)
+-$(selector).slideDown({options})
+*****slideToggle() = Bu metod, seçilen elementleri "slideDown" ile "slideUp" metodları arasında geçiş yaptırır.Syntaxı:
+-$(selector).slideToggle(duration, easing, callback)
+-$(selector).slideToggle({options})
+*****slideUp() = Bu metod, seçilmiş "hidden" elementleri aşağı slide ederek görünür hale getirir.Syntaxı:
+-$(selector).slideDown(duration, easing, callback)
+*****stop() = Bu metod, seçili elementlerin sadece o esnada çalışan animasyonunu durdurur.Eğer "true" parametresini alırsa, mevcut tüm queueleri durdurur.Eğer "true, true" parametresini alırsa aynı "finish" metodu gibi tüm queueleri durdurup, elementin son görüntüsüne getirir.Syntaxı:
+-$(selector).stop(clearQueue, jumpToEnd)
+-$(selector).stop(queueName, clearQueue, jumpToEnd)
+*****toggle() = Bu metod, seçili elementlerde "hide" ve "show" metodları arasında toggle sağlar.Syntaxı:
+-$(selector).toggle(duration, easing, callback)
+-$(selector).toggle({options})
+$(selector).toggle(display)
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****EVENTS:
+*****event.data = Bu property, mevcut event handler bağlandığında, bir event metoduna isteğe bağlı olarak aktarılan dataları içerir.Dataları eventin optionu sayesinde etkileşime girdiği elemente aktarırırz.Daha sonra da datayı görebilmek için "event.data.x" şeklinde elemente bağlanmış olan "x" datasını çekeriz çünkü object halinde döndürür.Syntaxı:
+-event.data
+*****event.delegateTarget = Bu property, o esnada çağrılan jQuery event handlerının eklendiği elementi döndürür.Genellikle "on" metoduyla çoklu event atamalarında, mevcut elementi seçebilmek için kullanışlıdır."currentTarget" propertisiyle aynı mantıkta çalışır; dış elementi kapsar fakat "delegateTarget", herzaman handlerın atandığı elementi seçecektir.Syntaxı:
+-event.delegateTarget
+*****event.isImmediatePropagationStopped() = Bu metod, belirtilen elementte "immediatePropagationStop" metodunun çağrılıp çağrılmadığını belirten bir boolean döndürür.Syntaxı:
+-event.isImmediatePropagationStopped()
+*****event.isPropagationStopped() = Bu metod, belirtilen elementte "propagationStop" metodunun çağrılıp çağrılmadığını belirten bir boolean döndürür.Syntaxı:
+-event.isPropagationStopped()
+*****event.namespace = Bu property, event triggerlandığı anda custom namespacei döndürür.Genellikle plugin developerları tarafından, kullanılan namespacelere bağlı olarak taskları farklı şekillerde işlemek için kullanılır.Syntaxı:
+-event.namespace
+*****event.result = Bu property, belirtilen event tarafından triggerlanan ve bir event handlerı tarafından döndürülen son valueyi içerir.Bu value, bir event içerisinde "return" ile döndürülen bir değer bile olabilir.Syntaxı:
+-event.result 
+*****event.stopImmediatePropagation() = Bu metod, aynı elemente atanmış aynı türdeki eventlerin geri kalanını disabled eder ve sadece mevcut eventin çalışmasını sağlar.Ayrıca eventin bubbling özelliğini de kaldırır.Syntaxı:
+-event.stopImmediatePropagation() 
+*****event.stopPropagation() = Bu metod, bir eventin parent elementlere bubblingini durdurarak; herhangi bir parent event handlerının execute edilmesini engeller.Aynı zamanda "trigger" metodu ile triggerlanan custom eventler için de çalışır.Syntaxı:
+-event.stopPropagation()
+*****event.which = Bu property, event için hangi klavye keyine veya mouse butonuna basıldığını döndürür."event.keyCode" ve "event.charCode" metodlarını normalize eder.Syntaxı:
+-event.which 
+*****$.ready = Bu property, document hazır olduğunda çözülen promise benzeri ve sonra thenable bir objecttir."thenable" yapılar, içerisinde "then" metodu bulunduran objectler veya fonksiyonlardır.Syntaxı:
+-$.ready
+*****off() = Bu metod, genellikle "on" metoduna bağlı olan event handlerları kaldırmak için kullanılır.Eğer parametre almadan kullanılırsa, belirtilen elementteki tüm event handlerları kaldırır.Özel kullanımları da vardır.
+Mesela: "$('p').off( 'click', '**' )" ifadesi, "p" elementlerine yetki verilmiş tüm "click" handlerları kaldırır.Syntaxı:
+-$(selector).off(events, selector, function(eventObj), map)
+-$(selector).off()
+*****on() = Bu metod, seçilen elementler ve child elementleri için bir veya daha fazla event handler eklenmesini sağlar.Birden fazla eventi aynı anda belirtmek için aralarına birer boşluk bırakılmalıdır.Eğer "childSelector" parametresi seçilirse event, seçilen elementin sadece belirtilen child selectorunde çalışacaktır.ğer "false" parametresi alırsa, evente "preventDefault" metodunu uygulayacak ve çalıştırmayacaktır."trigger" metoduyla da kolaylıkla bu metoda data aktarabilir ve içerisinde işleyebiliriz.Eventleri custom namespacelerle de çağırabiliriz.
+Mesela: "$('p').on('click.myPlugin.simple')" ifadesi, mevcut click eventi için hem "myPlugin" hem de "simple" namespacelerini tanımlar.Daha sonrasında "off" metodu ile bu namespaceler, ayrı olarak veya birleşik yazılarak da kaldırılabilir: "$('p').off('click.myPlugin.simple')".
+Syntaxı:
+-$(selector).on(events, childSelector, {data}, function(eventObj), map) 
+*****one() = Bu metod, seçilen elementler için bir veya daha fazla event handler ekler ve event triggerlandığında gerçekleştirilecek bir fonksiyon da belirtebilir.Fakat mevcut her event türü, her element için sadece bir kez triggerlanma hakkına sahiptir.Syntaxı:
+-$(selector).one(events, childSelector, {data}, function(eventObj)) 
+*****ready() = Bu metod, DOM tamamen yüklendiği anda triggerlanır.Genelde tüm jQuery kodları için sağlıklı bir wrapperdır."<body onload=''>" eventi ile beraber kulanmayın çünkü farklılıklar mevcuttur!Syntaxı:
+-$(document).ready(function)
+-$(function)
+*****trigger() = Bu metod, seçilen elementler için belirtilen eventi ve bir eventin[mesela form submit gibi] default davranışını triggerlar.Kısacası belirtilen event türü için, eşleşen elementlere eklenmiş olan tüm handlerları ve davranışları execute eder.Syntaxı:
+-$(selector).trigger(eventType, {eventObj}, param1, param2,...) 
+***"trigger" ve "triggerHandler" metodları arasındaki fark şudur: "triggerHandler", belirtilen eventin default davranışını asla triggerlamaz.Fakat "trigger", hem event davranışını sergiler hem de eventi triggerlar."trigger", jQuery objectiyle eşleşen tüm elementler üzerinde çalışır; "triggerHandler" ise yalnızca ilk eşleşen elementi etkiler.Ayrıca "triggerHandler" DOM ağacında bubblingi sağlamaz!
+*****triggerHandler() = Bu metod, seçilen elementler için sadece belirtilen eventi triggerlar.Kısacası belirtilen event türü için, eşleşen elementlere eklenmiş olan tüm handlerları execute eder.Syntaxı:
+-$(selector).triggerHandler(eventType, {eventObj}, param1, param2,...)
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****MANIPULATION:
+*****addClass()
+*****after() = Bu metod belirtilen elementleri veya içerikleri, seçilen elementlerden hemen sonrasına ekler.Yani yeni içerik, eklendiği elementin siblingi olacaktır.Syntaxı:
+-$(selector).after(newContent, function(index,html))
+*****append() = Bu metod belirtilen elementleri veya içerikleri, seçilen elementlerin sonuna[end] ekler.Yani yeni içerik, eklendiği elementin last childı olacaktır.Syntaxı:
+-$(selector).append(newContent, function(index,html))
+*****appendTo()
+*****attr()
+*****before() = Bu metod belirtilen elementleri veya içerikleri, seçilen elementlerden hemen öncesine ekler.Yani yeni içerik, eklendiği elementin siblingi olacaktır.Syntaxı: 
+-$(selector).before(newContent, function(index,html))
+*****clone()
+*****css()
+*****detach() = Bu metod, tüm textler ve child nodelar da dahil olmak üzere seçili elementi kaldırır.Kaldırdığı elementlerin tüm datalarını hafızasında tutar ve döndürür.Syntaxı:
+-$(selector).detach()
+-$(selector).detach(selector)
+***"detach" ile "remove" metodları arasındaki fark şudur: "detach", kaldırdığı elementin ve childlarının sahip olduğu tüm özellikleri, animasyonları ve eventlerini de kaldırır."remove" ise sadece elementi kaldırır.İkisi de kaldırdığı içeriği döndürebilir.
+*****empty()
+*****hasClass()
+*****height()
+*****html() = Bu metod, seçilen elementlerin html içeriğini ayarlar veya döndürür.Döndürülen elementlerin HTML markuplarını ve özelliklerini de muhafaza eder.XML dökümanlarında kullanılamaz.Syntaxı:
+-$(selector).text() 
+-$(selector).text(content) 
+-$(selector).text(function(index,currentContent)) 
+***"html" ile "text" metodları arasındaki fark şudur: "html", içeriğin HTML markuplarını ve özelliklerini korur; "text" ise düz text halinde döndürür.Ayrıca "html" ile birden fazla element seçilirse ve value döndürülürse, sadece ilk eşleşen elementin içeriğini alır; "text" ise eşleşen tüm elementlerin içeriğini döndürür.Ayrıca "html", XML dökümanlarında kullanılamaz!
+*****innerHeight()
+*****innerWidth()
+*****insertAfter()
+*****insertBefore()
+*****$.cssNumber
+*****$.htmlPrefilter() = Bu metod, jQuery manipülasyon metodlarından geçirilen HTML stringlerini modifiye etme ve değiştirmeyi sağlar.Syntaxı:
+-$.htmlPrefilter(html)
+*****offset()
+*****outerHeight()
+*****outerWidth()
+*****position()
+*****prepend() = Bu metod belirtilen elementleri veya içerikleri, seçilen elementlerin başlangıcına[beginning] ekler.Yani yeni içerik, eklendiği elementin first childı olacaktır.Syntaxı:
+-$(selector).prepend(newContent, function(index,html))
+***"prepend" ile "prependTo" arasındaki tek fark syntaxlarının birbirine zıt olmasıdır.
+*****prependTo() = Bu metod belirtilen elementleri veya içerikleri, seçilen elementlerin başlangıcına[beginning] ekler.Syntaxı:
+-$(newContent).prependTo(target)
+*****prop()
+*****remove()
+*****removeAttr()
+*****removeClass()
+*****removeProp()
+*****replaceAll() = Bu metod, seçilen elementleri yeni içeriklerle veya HTML elementleriyle değiştirir.Kaldırılan nodelarla ilişkili olan tüm dataları ve event handlerlarını da kaldırır.Syntaxı:
+-$(newContent).replaceAll(target)
+***"replaceAll" ile "replaceWith" arasındaki tek fark syntaxlarının birbirine zıt olmasıdır.
+*****replaceWith() = Bu metod, seçilen elementleri yeni içeriklerle veya HTML elementleriyle değiştirir ve kaldırılan elementleri object olarak döndürür.Kaldırılan nodelarla ilişkili olan tüm dataları ve event handlerlarını da kaldırır.Syntaxı:
+-$(selector).replaceWith(newContent, function(index))
+*****scrollLeft()
+*****scrollTop()
+*****text() = Bu metod, seçilen elementlerin text içeriğini ayarlar veya döndürür.Döndürülen elementlerin HTML markuplarını kaldırarak düz bir text halinde görünmesini sağlar.XML dökümanlarında kullanılabilir.Syntaxı:
+-$(selector).text() 
+-$(selector).text(content) 
+-$(selector).text(function(index,currentContent)) 
+*****toggleClass()
+*****unwrap() = Bu metod, seçilen elementlerin parentlarını DOMdan kaldırır.Eğer parametre belirtilmezse ve elementin birden fazla parentı mevcutsa, en üst katmandaki parenttan[bodye kadar] kaldırmaya başlayarak alt katmandaki parentlara doğru ilerler.Belirtilen parametre ise, parent seçer.Belirtilen elementler arasında yalnızca belirtilen parenta sahip olan elementler unwrap edilir.Syntaxı:
+-$(selector).unwrap()
+-$(selector).unwrap(parentSelector)
+*****val()
+*****width()
+*****wrap() = Bu metod, belirtilen HTML elementlerini, seçilen her elementin etrafına wrap eder.Kısaca elementlere wrapper sağlar.Syntaxı:
+-$(selector).wrap(wrappingElement, function(index))
+***"wrap" ile "wrapAll" metodları arasındaki fark şudur: "wrap", seçilen her elementi teker teker wrap eder.Fakat "wrapAll", seçilen elementlerden oluşan yanyana grup mevcutsa; tüm gruba birden birer kez wrap eder.Ve "wrappAll" ile belirtilen elementler eğer yanyana değilse; belirtilen tüm elementleri, ilk elementin yanına çeker ve yanyana ekler.
+*****wrapAll() = Bu metod belirtilen HTML elementlerini, seçilen tüm elementlerin etrafına wrap eder.Kısaca elementlere toplu halde wrapper sağlar.Syntaxı:
+-$(selector).wrapAll(wrappingElement, function())
+*****wrapInner() = Bu metod belirtilen HTML elementlerini, seçilen her elementin içeriğine yani innerHTML'sine wrap eder.Böylece içerik kısmı, artık wrap edilen elementin childı olacaktır.Syntaxı:
+-$(selector).wrapInner(wrappingElement, function(index))
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****MISCELLANEOUS:
+*****data() = Bu metod, seçilen elementlere datalar ekler veya çeker.Birden fazla data kullanılabilir.Syntaxı:
+-$(selector).data(key, value)
+-$(selector).data(object)
+*****each() = Bu metod, eşleştiği her element için execute edilecek bir fonksiyonu belirtir.Eşleştiği elementler bir jQuery objecti oluşturur ve bu iterable objectin itemlerin üzerinde teker teker fonksiyon execute eder."return false;" ile istediğimiz fonksiyondan çıkış sağlayabiliriz.İkinci parametresi yerine "this" keywordu de kullanılabilir.Syntaxı:
+-$(selector).each(function(index, currentElement))
+*****get() = Bu metod, jQuery objectiyle eşleşen elementlerin indexini döndürür.Eğer parametre almazsa, belirtilen elementleri bir array halinde döndürür.Objectleri rahatça "object[x]" şeklinde de çağırabiliriz.Syntaxı:
+-get(index)
+-get()
+*****index() = Bu metod, belirtilen elementlerin mevcut indexlerini döndürür.Eğer belirttiği bir objectse, parametre olarak objectin indexini bulacağı elementi belirtiriz; böylece object içerisinde index araması yapar.Aradığı elementi bulamazsa "-1" döndürür.Syntaxı:
+-$(selector).index()
+-$(selector).index(element)
+*****removeData() = Bu metod, öncesinde bir elemente "data" metodu ile ayarlanmış olan dataları kaldırır.Eğer hiç argument kullanılmazsa, belirtilen elementte mevcut olan tüm dataları siler.Syntaxı:
+-$(selector).removeData(name)
+-$(selector).removeData(object)
+*****toArray() = Bu metod, jQuery selectoru tarafından seçilen elementleri bir array olarak döndürür.Syntaxı:
+-$(selector).toArray()
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****TRAVERSING:
+*****add() = Bu metod, mevcut bir element grubuna yeni elementler ekleyerek yeni bir jQuery objecti oluşturur.Genellikle multiple element seçmek için kullanılır.Tüm documente veya eğer "context" parametresi belirtilmişse, sadece "context" elementlerinin içerisine yeni elementler ekler.Yeni HTML elementleri oluşturabilir fakat oluşturulan elementleri documentte görebilmek için yerleştirme metodları kullanmamız gerekir.Syntaxı:
+-$(selector).add(element,context)
+-$(selector).add(selector)
+*****addBack() = Bu metod kuyruktaki element grubunu, isteğe bağlı olarak bir selector tarafından filtrelenen mevcut bir gruba ekler.Kısacası orjinal seçimdeki elementle, sonra seçtiği elementleri birleştirir ve object yapar.
+Mesela: "$('div').find(p,a,span).addBack()" ifadesi, "div,p,a,span" objecti oluşturacaktır.Syntaxı:
+-addBack(selector)
+*****children() = Bu metod, seçilen elementin tüm child elementlerini döndürür.Element odaklıdır o yüzden sadece textNodelarını döndürmez.Syntaxı:
+-$(selector).children(filter) 
+***"children" ile "contents" arasındaki fark şudur: "contents", mevcut etki alanındaki nodeları da, iframeleri ve hatta templateleri de döndürür.
+*****closest() = Bu metod seçilen elementin, belirtilen selectoruyle eşleşen ilk parentını döndürür.Syntaxı:
+-$(selector).closest(filter)
+***"closest" ile "parents" metodları arasındaki fark şudur: "closest", eşleşen en yakın ilk parent elementi döndürür; "parents" ise en üste DOM ağacına kadar[documentElemente kadar] eşleşen tüm parent elementleri döndürür.Ayrıca "parents", eşleşmek için arama yapmaya elementin parentından başlar.Fakat "closest", arama yapmaya elementin kendisinden başlar.Böylece mesela: "$('span').closest('span')" ifadesi, elementin kendisini döndürür.
+*****contents() = Bu metod, seçilen elementin textNodeları veya commentNodeları da dahil olmak üzere tüm childlarını döndürür.Özellikle "iframe" elementlerinin içeriğine erişmek için kullanılır.Syntaxı:
+-$(selector).contents()
+*****end() = Bu metod, mevcut chainin en sondaki filtreleme işlemini durdurur ve eşleşen elementleri, orjinal[başlangıç] durumlarına döndürür.Kısacası sonradan eklenen selectorleri resetleyerek kaldırır; sadece main selectoru korur.Genellikle "filter" gibi chain şeklinde Jquery objectleri oluşturan işlemlerde kullanılır.
+Mesela: "$('div').find('p').end()" ifades, "p" elementlerin filtre seçimlerini durdurup; elementleri resetler ve "div" elementlerini seçer.Syntaxı:
+-$(selector).end()
+*****eq() = Bu metod, seçilen elementlerin belirtilen index numarasına sahip olan elementini döndürür.Çoklu elementi barındıran jQuery objectleri üzerinde çalışır.Parametre olarak negatif value alırsa, index hesaplamasına sondan başlar.Syntaxı:
+-$(selector).eq(index)
+*****even() = Bu metod, seçilen elementlerin sadece çift tamsayı[0-2-4...] index numarasına sahip olan elementlerini döndürür.Syntaxı:
+-$(selector).even()
+*****filter() = Bu metod seçilen elementleri filtreleyip; belirtilen selectorlerle eşleşen veya belirtilen fonksiyonla eşleşen elementlerini döndürür.Birden fazla selector belirtmek için aralarını virgülle ayırın.Eşleşen elementlerle yeni bir jQuery objecti oluşturur.Sadece kriterlerle eşleşen elementler döndürülür.Genellikle bir grup elementin içerisinde bir elementi aramak için kullanılır.Syntaxı:
+-$(selector).filter(selector)
+-$(selector).filter(function(index,element))
+***"filter" ile "find" arasındaki fark şudur: "filter", sadece seçilen elementlerin arasında dolaşır; "find" ise seçilen elementlerin descendantlarına kadar dolaşır ve arar.
+*****find() = Bu metod, seçilen elementin tüm child elementleri içerisinde[descendantlar dahil] belirtilen elementleri arar ve eşleşenleri döndürür.Eşleşen elementlerle yeni bir jQuery objecti oluşturur.Parametre olarak "*" kullanılırsa, tüm descendantları döndürür.Birden fazla selector belirtmek için aralarını virgülle ayırın.Syntaxı:
+-$(selector).find(filter)
+*****first() = Bu metod, seçilen elementlerin ilk elementini döndürür.Syntaxı:
+-$(selector).first()
+*****has() = Bu metod, içerisinde bir veya daha fazla element bulunan ve belirtilen selectorlerle eşleşen tüm elementleri döndürür.Birden fazla selector belirtmek için aralarını virgülle ayırın.Syntaxı:
+-$(selector).has(element)
+*****is() = Bu metod, seçilen elementlerden herhangi birisinin belirtilen selectorle eşleşip eşleşmediğini kontrol eder ve boolean döndürür.Syntaxı:
+-$(selector).is(elements)
+-$(selector).is(selector, function(index,element))
+*****last() = Bu metod, seçilen elementlerin son elementini döndürür.Syntaxı:
+-$(selector).last()
+*****map() = Bu metod, seçilen her elemente fonksiyon uygular ve dönüş değerleriyle de yeni bir jQuery objecti oluşturur."array-like" jQuery objectleri için kullanılır.Dönüş valuesi bir jQuery objecti olduğundan dolayı genellikle hemen arkasından "get" metodu kullanılır ki basic bir array haline gelebilsin.Syntaxı:
+-$(selector).map(function(key,value))
+*****next() = Bu metod, seçilen her elementin bir sonraki sibling elementini döndürür.Eğer parametrede selector tanımlıysa; elementten sonraki sibling, ancak bu selectorle eşleşirse döndürülür.Syntaxı:
+-$(selector).next(selector)
+*****nextAll() = Bu metod seçilen her elementin, sonraki bütün sibling elementlerini döndürür.Eğer parametrede selector tanımlıysa; elementten sonraki siblingler, ancak bu selectorle eşleşirse döndürülür.Syntaxı:
+-$(selector).nextAll(selector)
+*****nextUntil() = Bu metod, verilen 2 adet selector arasındaki tüm sibling elementleri döndürür.DOM elementlerinin siblingleri boyunca documentin sonuna doğru hareket edecektir.Syntaxı:
+-$(selector).nextUntil(selector, filter)
+-$(selector).nextUntil(element, filter)
+***"nextUntil" ile "prevUntil" arasındaki fark şudur: "prevUntil", siblingleri aramak için documentin başına doğru ilerler; "nextuntil" ise documentin sonuna doğru ilerleme sağlar.
+*****not() = Bu metod, belirtilen kriterle eşleşmeyen elementleri döndürür.Kriterle "filter" metodunun zıttıdır.Syntaxı:
+-$(selector).not(selector)
+-$(selector).not(selector, function(index, element))
+*****odd() = Bu metod, seçilen elementlerin sadece tek tamsayı[1-3-5...] index numarasına sahip olan elementlerini döndürür.Syntaxı:
+-$(selector).odd()
+*****offsetParent() = Bu metod, belirtilen elemente en yakın olan konumlandırılmış[fixed,absolute,..] parentını döndürür.Eğer parentları arasında positioned element yoksa,"body"yi döndürür.Syntaxı:
+-$(selector).offsetParent()
+*****parent() = Bu metod, seçilen elementlerin direkt olarak parentını döndürür.İsteğe bağlı filtrelenebilir.Sadece DOM ağacında 1 seviye geçer.Syntaxı:
+-$(selector).parent(selector)
+*****parents() = Bu metod, seçilen elementlerin tüm parentlarını[htmle kadar] döndürür.Arama yapmaya mevcut elementten başlamaz; parentından başlar.Birden fazla parent filtrelemek için aralarını virgülle ayırın.Syntaxı:
+-$(selector).parents(selector)
+*****parentsUntil() = Bu metod seçilen elementlerin, belirtilen selectorlere kadar olan aralıktaki parentlarını döndürür.Filter uygulanarak bu aralıkta olan elementlerden spesifik olarak seçtiklerimizi döndürebiliriz.Eğer parametre belirtilmezse, "documentElement"e kadar tüm parentları döndürür.Syntaxı:
+-$(selector).parentsUntil(selector,filter)
+*****prev() = Bu metod, seçilen her elementin bir önceki sibling elementini döndürür.Eğer parametrede selector tanımlıysa; elementten önceki sibling, ancak bu selectorle eşleşirse döndürülür.Syntaxı:
+-$(selector).prev(selector)
+*****prevAll() = Bu metod, seçilen her elementin, önceki bütün sibling elementlerini döndürür.Eğer parametrede selector tanımlıysa; elementten önceki siblingler, ancak bu selectorle eşleşirse döndürülür.Syntaxı:
+-$(selector).prevAll(selector)
+*****prevUntil() = Bu metod, verilen 2 adet selector arasındaki tüm sibling elementleri döndürür.DOM elementlerinin siblingleri boyunca documentin başına doğru hareket edecektir.Syntaxı:
+-$(selector).prevUntil(selector, filter)
+-$(selector).prevUntil(element, filter)
+*****siblings() = Bu metod, seçilen elementlerin tüm siblinglerini[sağ-sol] döndürür.Syntaxı:
+-$(selector).siblings(selector)
+*****slice() = Bu metod seçilen elementlerin, belirtilen index aralıklarındaki elementlerini seçerek döndürür.Eğer hiç paremetre belirtilmezse, elementlerin tümünü döndürür.İkinci parametresi negatif valueler alabilir ve "exclusive"dir.Syntaxı:
+-$(selector).slice(start,end)
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****UTILITIES:
+*****$.contains() = Bu metod seçilen elementin, seçilen diğer elementin descendantı olup olmadığını belirten bir boolean döndürür.Syntaxı:
+-$.contains(container, contained)
+*****$.each() = Bu metod, hem arrayler hem de objectler üzerinde iterationlar yapılmasını sağlar.Arraylerde, indexleri[keys] üzerinden
+iterationlar yapılır.Objectlerde ise propertileri[keys] üzerinden iteration yapılır."return" ile iterationlardan çıkabiliriz.Syntaxı:
+-$.each(array, callback(key,value))
+-$.each(object, callback(key,value))
+*****$.extend() = Bu metod, iki veya daha fazla objectin içeriğini ilk objectte birleştirir.Objectlerin "null" veya "undefined" argumentleri yok sayılır.Eğer "true" parametresi alırsa, objectler arasında çakışan key/value kısımlarında ilk objecti muhafaza ederek birleştirecektir.Eğer sadece bir object belirtirsek, jQuery objectinin kendisi "target" olur.Böylece jQuery namespaceine yeni fonksiyonlar ekleyebiliriz.Genelde [plugin] developerları bu yöntemi uygular.Syntaxı:
+-$.extend(target, object1, object2,...objectN)
+-$.extend(boolean, target, object2,...objectN)
+*****$.fn.extend() = Bu metod, bir objectin içeriğini jQuery prototipiyle birleştirir."jQuery" metoduna zincirlenebilecek yani metodlar sağlamak için, jQuery prototipi olan [$.fn] objectini genişletir.Syntaxı:
+-$.fn.extend( object )
+*****$.globalEval() = Bu metod, global olarak bazı JS kodlarını execute eder.JSteki "eval" metodundan farklı davranır.Özellikle external scriptleri dinamik olarak yükleyebilmek için önemlidir.Syntaxı:
+-$.globalEval(code)
+-$.globalEval(code, [options])
+-$.globalEval(code, [options],[doc])
+*****$.grep() = Bu metod, bir filtre fonksiyonunu karşılayan bir arrayin elementlerini bulur.Arrayi teste tabi tutar.Orjinal arrayi değiştirmez.Sadece testten geçen itemler, sonuçlanan arraye eklenecektir.Sadece testi geçmeyenleri sonuç arrayine eklemek için "true" parametresi kullanılır.Syntaxı:
+-$.grep(array, function(value,key), boolean)
+*****$.inArray() = Bu metod, bir array içerisinde belirtilen valueyi arar ve indexini döndürür.Eğer bulamazsa "-1" döndürür.Arrayi aramaya istediği indexten itibaren başlayabilir.JSteki "indexOf" metoduyla aynıdır.Syntaxı:
+-$.inArray(value, array, formIndex)
+*****$.isEmptyObject() = Bu metod, bir objectin boş olup olmadığını kontrol ederek boolean döndürür.Enumarable propertileri içermez.Hem objectin kendi propertilerini hem de inherit ettiği propertileri kontrol eder.Parametre olarak belirtilecek object, doğru sonuçlar için herzaman bir plain object olmalıdır.Syntaxı:
+-$.isEmptyObject(object)
+*****$.isPlainObject() = Bu metod, bir objectin bir plain object olup olmadığını kontrol ederek boolean döndürür.Plain objectler, "{}" veya "new Object" şeklinde oluşturulmuş objectlerdir.Syntaxı:
+-$.isPlainObject(object)
+*****$.isXMLDoc() = Bu metod, belirtilen DOM nodeunun bir XML documenti içerisinde olup olmadığını veya XML documenti olup olmadığını kontrol ederek boolean döndürür.Syntaxı:
+-$.isXMLDoc(node)
+*****$.makeArray() = Bu metod, bir array-like objectini gerçek bir Javascript arrayine dönüştürür.
+Array-like objectler mesela "$('div')", "$('p')", "$('span:odd')" şeklindeki jQuery objectleridir.Syntaxı:
+-$.makeArray(obj)
+*****$.map() = Bu metod, bir arraydeki veya objecteki tüm itemleri yeni bir arrayın itemleri haline getirir.Bir arraydeki veya objectteki her iteme bir fonksiyon uygular ve her birisinin sonuçlarıyla yeni bir array oluşturur.Syntaxı:
+-$.map(array, callback(value,key))
+-$.map(object, callback(value,key))
+*****$.merge() = Bu metod, iki arrayin içeriğini ilk arrayde birleştirir.Arraydeki elementlerin sırası, ikinci arraydeki elementler eklenerek korunur.Eğer ilk arrayin orjinal haline ihtiyacımız varsa, merge etmeden önce kopyasını oluşturmayı unutmayın!
+Mesela arrayi şöyle klonlayabiliriz: "newArray = $.merge([],oldArray)".Syntaxı:
+-$.merge(first, second)
+*****$.noop() = Bu metod, boş bir fonksiyondur.Hiçbir şey yapmayacak bir fonksiyonu dolaşmak istediğimizde kullanırız.Genelde callbackler sunan plugin developerları içindir.Syntaxı:
+-$.noop()
+*****$.parseHTML() = Bu metod bir stringi, DOM nodelarından oluşan bir arraye ayrıştırır.Genellikle bir stringi, documente eklenebilmesi için DOM nodelarına dönüştürmek için kullanılır.String içerisindeki whitespaceleri dahi renderlar.Syntaxı:
+-$.parseHTML(data, [context], boolean)
+*****$.parseXML() = Bu metod bir stringi, bir XML documentine ayrıştırır.Geçerli bir XML Belgesi oluşturmak için, browserın native parsing fonksiyonunu kullanır.Syntaxı:
+-$.parseXML(data)
+------------------------------------------------------------------------------------------------------------------------------------------------

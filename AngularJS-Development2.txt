@@ -1,0 +1,1261 @@
+*****MAİN SCHEMA: Modules-Components-Services>>>Guards-Directives-Pipes
+*Install Angular: npm install -g @angular/cli
+*Angular Version Check: ng --version
+*New angular application: ng new applicationName
+*Live compile: ng serve -o
+*Material UI: ng add @angular/material (yes-yes)
+*New child component: ng g c componentName
+*Child component for spesifik "module": ng g c componentName --module=app.module.ts
+*New routing module: ng g m routingName --flat --module=app
+*Generate custom pipes: ng g p pipes/pipeName
+*New directives: ng g directive directiveName
+*if-else: <div ngIf="color2=='orange'; else template6"></div>
+*if-else: <div ngIf="color2=='orange'; then template5 else template6"></div>
+*else-if: <ng-template #template1 [ngIf]>="color3=='purple'"</ng-template>
+*switch: [ngSwitch]="color1"
+*case: *ngSwitchCase="'red'"
+*array loop: *ngFor="let y of x.array"
+*Conditional class add: [class.some-css-class]="some-condition"
+*@Input
+*@Output
+*EventEmitter
+*new EventEmitter<type>()
+*emit
+*function($event)
+*Binding [(ngModel)]="data"
+*Variable type: HTMLInputElement,HTMLMediaElement,HTMLMenuElement,HTMLLinkElementany,[],number[],string[],
+[string,string,number],{},{name:string,age:number},Date
+*Pipes: |uppercase|lowecase|date|date:'fullDate'|slice:x[include]:y[exclude]|json
+|number:'3.3-5'|currency:'GBP'|currency:'TRY':'TL':'4[min].2[min]-2[max]'
+*For custom pipes: {{value|pipe1:'args'}}
+*For form modules: import { FormsModule } from '@angular/forms';
+imports[FormsModule]
+*Form stuff: (ngsubmit), #loginForm1="ngForm", ngModel
+*For Reactative Forms: import {ReactiveFormsModule} from '@angular/forms';
+imports[ReactiveFormsModule]
+import {FormGroup,FormControl} from '@angular/forms';
+*****Decoration içerisindeki componentin HTMLini 2 şekilde belirtiriz:
+1-templateUrl = Default ayardır.HTML belgesini işaret eder.Mesela: './app1.component.html'.
+2-template = İçerisine HTML taglariyle yazarız ve böylece bu kodları tanır.Mesela: `<h1>Test{{string1}}</h1>`.
+*****Decoration içerisindeki componentin STYLEını 2 şekilde belirtiriz:
+1-styleUrls = Default ayardır.Style belgelerini işaret eder.Mesela: './app1.component.css'.
+2-styles = İçerisine CSS yazarız ve böylece kodları tanır.Mesela: "[h1{color:'red'}]".
+*****Componentlere "decorator" eklemek için:
+1-Component içerisine "@Component({})" yaz.
+2-Süslü parantez içerisine "selector" ekle.Mesela: "selector:'app-product'".
+3-Süslü parantez içerisine "template" veya "templateUrl" ekle.Mesela: "templateUrl:'./product.component.html'".
+4-Süslü parantez içerisine "styles" veya "styleUrls" ekle.Mesela: "styleUrls:['./product.component.css']".
+5-Süslü parantez içerisine "providers" ekle.Mesela: "providers[AlertifyService]".Bunu sadece lokal servis kullanmak istersek yaparız.
+6-Eklenen itemlerin aralarına virgül[,] koymayı unutma.
+*****Servicelere "decorator" eklemek için:
+1-Service içerisine "@Injectable({})" yaz.
+2-Süslü parantez içerisine de "providedIn: 'root'" ekleriz.Buradaki "root" ifadesi, bu servicein "global" olduğunu belirtir.Bunun alternatifi ise, "appModule"e girip, "providers[]" arrayinin içerisine oluşturduğumuz servicein ismini ekleriz.Eğer bir servisi lokal kullanmak istersek, süslü parantez içerisinde silerek; kullanacağımız componentin içerisine gireriz ve oraya ekleriz.
+*****Jquery eklemek için:
+1-"npm install jquery --save" kodunu cmdden yaz.
+2-"angular.json" dosyasındaki "scripts" arrayinin içerisine "node_modules/jquery/dist/jquery.min.js" yaz.
+3-Component içerisinde kullanırken "declare var $ : any;" deklerasyonunu yapmamız gerekir. 
+*****Bootstrap eklemek için:
+1-"index.html" içerisine CDN ekle.Eğer olmazsa da 2. adımı izle.
+2-"ng add @ng-bootstrap/ng-bootstrap" kodunu cmdden yaz.Böylece hem normal Bootstrap hem de AngularBootstrap yüklenecektir.
+3-Ardından "angular.json" içerisinde "styles[]" arrayini bulup içerisine 
+"node_modules/bootstrap/dist/css/bootstrap.min.css" ekle.
+*****Bootstrap icons eklemek için:
+1-"npm i bootstrap-icons" kodunu cmdden yaz.Eğer olmazsa da "index.html" içerisine CDN ekle.
+*****Font-awesome eklemek için:
+1-"npm install @fortawesome/fontawesome-free" kodunu cmdden yaz."node_modules" içerisine ekledi.
+2-"angular.json" içerisinde "styles" arrayini bulup içerisine 
+"node_modules/@fortawesome/fontawesome-free/css/all.min.css" ekle.
+-------------------------------------------------------------------------------------------------------------
+*****alertifyjs eklemek için:
+1-"npm i alertifyjs" kodunu cmdden yaz.Böylece "node_modules" içerisine eklenecek.
+2-Daha sonra "angular.json" içerisine girip "scripts[]" arrayini bul.Buraya eklediğimiz alertify pathını şöyle gireriz: "node_modules/alertifyjs/build/alertify.min.js".
+3-Ardından yine burada "styles[]" arrayini bularak alertifyin css ve bootstrapini şöyle ekleriz:
+"node_modules/alertifyjs/build/css/alertify.min.css",
+"node_modules/alertifyjs/build/css/themes/bootstrap.min.css".
+4-Fakat alertifyı kullanacağınız componentlerin içerisinde "declare let alertify:any" şeklinde deklare etmemiz gerekir.
+-------------------------------------------------------------------------------------------------------------
+*****Service eklemek için:
+1-Önce "app" içerisine bir "services" folder oluştur çünkü serviceleri, bu folderın içerisine ekleyeceğiz.
+2-Terminal ile services için oluşturulan folderın pathına gel ve "ng g s serviceName" yaz.
+3-Eğer global olmasını istiyorsak, decoratora dokunmayız.Fakat local yapmak istersek, decorator içerisine temizleriz.Ardından eklemek istediğimiz componente gelip, "Providers: []" arrayı oluşturup, içerisine de local servisleri ekleriz.
+-------------------------------------------------------------------------------------------------------------
+*****HttpClient "service"te "get" kullanmak için:
+1-"appModule" içerisine girerek import için "import {HttpClientModule} from '@angular/common/http'" ekle.
+2-Ardından da "imports[]" arrayine "HttpClientModule" ekle.
+3-içerisinde kullanacağın bir "product1" isimli service oluştur ve service içerisine de import için "import { HttpClient } from '@angular/common/http'" ekle.
+4-Servicein decorator içerisindeki "providedIn:'root'" sil çünkü servicei, global olarak değil de lokal olarak kullanacağız.
+4-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(private http1:HttpClient){}" vermeliyiz.
+5-Ardından service içerisinde metod oluşturarak observable objectini çağırırız.Çünkü biz istediğimiz zaman subscribe olabilmek istiyoruz.Mesela:
+"getProducts():Observable<Product[]>{
+    return this.http1.get<Product[]>(http://localhost:3000/products).pipe(
+      catchError(this.handleError)
+    );
+}
+handleError(err: HttpErrorResponse) {
+  let errorMessage = '';
+  if (err.error instanceof ErrorEvent) {
+     errorMessage = 'Bir hata oluştu' + err.error.message;
+     } 
+  else {
+      errorMessage = 'Sistemsel bir hata';
+      }
+  return throwError(errorMessage);
+}"
+6-Daha sonra kullanacağımız componente gelerek "@Component" dekorasyonuna "providers[]" arrayi ekleriz ve içerisine de oluşturduğumuz servicei yazarız.Ayrıca componente bu servicei import da ederiz.
+7-Ardından "constructor" metoduna parametre olarak şöyle veririz: "private productService: ProductService".
+8-HTMLden çekebilmek ve bu dataları depolamak için, componentte bir object oluşturmamız lazım: "products:Product[]=[]".Böylece service ile çektiğimiz dataları, bunun içerisine yükleyeceğiz.
+9-Son olaraksa "ngOnInit" içerisine servisi çağırarak şunu yazarız ve dataları, objecte aktarırız:
+"this.productService.getProducts().subscribe((data) => {
+  this.products = data;
+});"
+-------------------------------------------------------------------------------------------------------------
+*****HttpClient "service"te "post" kullanmak için:
+1-"appModule" içerisine girerek import için "import {HttpClientModule} from '@angular/common/http'" ekle.
+2-Ardından da "imports[]" arrayine "HttpClientModule" ekle.
+3-içerisinde kullanacağın bir "product1" isimli service oluştur ve service içerisine de import için "import { HttpClient } from '@angular/common/http'" ekle.
+4-Servicein decorator içerisindeki "providedIn:'root'" sil çünkü servicei, global olarak değil de lokal olarak kullanacağız.
+4-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(private http1:HttpClient){}" vermeliyiz.
+5-Ardından service içerisinde metod oluşturarak observable objectini çağırırız.Çünkü biz istediğimiz zaman subscribe olabilmek istiyoruz.Mesela:
+"postProduct(postData:Product):Observable<Product>{
+  const httpOptions = {
+    headers:new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization' : 'Token'
+    })
+  }
+  return this.http.post<Product>('http://localhost:3000/products',postData,httpOptions).pipe(
+    catchError(this.handleError)
+  )
+}
+handleError(err: HttpErrorResponse) {
+  let errorMessage = '';
+  if (err.error instanceof ErrorEvent) {
+    errorMessage = 'Bir hata oluştu' + err.error.message;
+  } else {
+    errorMessage = 'Sistemsel bir hata';
+  }
+  return throwError(errorMessage);
+}"
+6-Daha sonra kullanacağımız componente gelerek "@Component" dekorasyonuna "providers[]" arrayi ekleriz ve içerisine de oluşturduğumuz servicei yazarız.Ayrıca componente bu servicei import da ederiz.
+7-Ardından "constructor" metoduna parametre olarak şöyle veririz: "private productService: ProductService".
+8-Burada post edeceğimiz "Product" tipindeki datalar için bir container olarak kullanacağımız "product:Product = new Product()" değişkeni oluşturacağız.Post ederken bilgileri, bu değişkene aktarıp ve bu değişkeni post edeceğiz.
+9-Post işlemini reactive form üzerinden gerçekleştireceğiz o yüzden önce form oluşturacağız.Mesela "name" ve "email" isteyen şöyle bir form olsun:
+"firstFormGroup = this.fb.group({
+  name: ['', Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(50)])]
+})
+secondFormGroup = this.fb.group({
+  email: ['', Validators.compose([Validators.required,Validators.email,Validators.minLength(5),Validators.maxLength(50)])]
+})".
+10-Daha sonra htmlde bir butona "onSubmit()" adından fonksiyon atarız ve bu fonksiyonu componentte şöyle çağırırız:
+"onSubmit(){
+  if(this.firstFormGroup.valid&&this.secondFormGroup.valid){
+    this.product = Object.assign(
+      {},
+      this.firstFormGroup.value,
+      this.secondFormGroup.value
+    );
+    this.productService.postProduct(this.product).subscribe((data) => {
+      console.warn(data.name + 'Başarıyla eklendi');
+      console.warn(data.email + 'Başarıyla eklendi');
+    });
+  }
+}"
+11-Böylece "product:Product" değişkenine "assign" metodu sayesinde, değerleri atadık ve post işlemini bu değişken üzerinden sağladık.
+-------------------------------------------------------------------------------------------------------------
+*****Activated Route ile "dinamik" parametreyle object çekmek:
+1-Bu senaryoda, "cityComponent"te kişiler bulunacak.Biz buradaki şehre tıkladığımızda, "cityDetailComponent" gideceğiz ve kişinin idsini çekeceğiz.
+2-Önce "routingModule" git ve path olarak "{path:'cityDetail/:cityId', component:CityDetailComponent}" ekle.Buradaki "cityId", bir değişkendir ve urldeki "id" değerlerini belirtecektir ve herhangi bir "cityDetail/x" urlsine girdiğimizde bizi, "cityDetailComponent"e yönlendirecektir.
+3-Ardından servis yazacağız."city" service oluştur.Bulunduğumuz urldeki "id" parametresini almak için şunu yaz:
+"getCity(cityId:number):Observable<City>{
+  return this.http.get<City>('http://localhost:3000/cities' + '/' + cityId).pipe(
+    catchError(this.handleError)
+  )
+}
+handleError(err: HttpErrorResponse) {
+  let errorMessage = '';
+  if (err.error instanceof ErrorEvent) {
+     errorMessage = 'Bir hata oluştu' + err.error.message;
+     } 
+  else {
+      errorMessage = 'Sistemsel bir hata';
+      }
+  return throwError(errorMessage);
+}
+".
+4-Böylece belirttiğimiz urldeki "city" objectlerinden, mevcut olduğumuz urlnin idsine göre "city" çekeceğiz.Şimdi "cityDetailComponent"e gel.Hem "CityService" hem "activatedRoute" çağır.
+5-Atama yapabilmek için "City" tipindeki "city:City" değişkeni oluştur.
+6-"activatedRoute" import et ve "ngOnInit" içerisine de şunu gir:
+"this.activatedRoute.params
+.pipe(map((params) => params.cityId))
+.subscribe((cityId) => {
+  this.cityService.getCity(cityId).subscribe((data: City) => {
+    this.city = data;
+  })
+})".
+7-Böylece "cityId", bulunduğumuz urlnin "cityDetail/:cityId" kısmındaki yeri çekecektir ve ona göre object döndürerek "city" değişkenine atayacaktır.Artık personı, htmlde çağırıp yazabiliriz.
+-------------------------------------------------------------------------------------------------------------
+*****CanActivate ile guard yapmak ve LocalStorage ile depolayarak login olmak:
+****Bu senaryoda "LoginComponent","HomeComponent" ve "AddProductComponent" componentlerimiz olacak."AddProductComponent"e izinsiz erişim olmayacak ve aksi durumlarda otomatik olarak "LoginComponent"e yönlendirilecek:
+1-Userları "get" ile çekeceğimiz için öncelikle model oluşturacağız."Models" folderı içerisine "user.ts" şeklinde şöyle oluştur:
+"export class User{
+  id:number=0;
+  username:string="";
+  password:string="";
+}".
+2-Ardından bunları servis edecek "account" servisi şöyle oluştur:
+"constructor(private http:HttpClient) { }
+loggedIn:boolean=false;
+login(user:User):boolean{
+  this.http.get<User[]>('http://localhost:3000/accounts').pipe(
+    catchError(this.handleError)
+  ).subscribe((data:User[])=>{
+    for(let i=0;i<data.length;i++){
+      if(data[i].username==user.username&&data[i].password==user.password){
+        this.loggedIn=true;
+        localStorage.setItem('isLogged',user.username);
+      }
+    }
+  });
+  return this.loggedIn;
+}
+isLoggedIn():boolean{
+  return this.loggedIn;
+}
+logOut(){
+  localStorage.removeItem('isLogged');
+  this.loggedIn=false;
+}
+handleError(err: HttpErrorResponse) {
+  let errorMessage = '';
+  if (err.error instanceof ErrorEvent) {
+     errorMessage = 'Bir hata oluştu' + err.error.message;
+     }
+  else {
+      errorMessage = 'Sistemsel bir hata';
+      }
+  return throwError(errorMessage);
+}".
+3-Şimdi guard yazacağız."Login" componentin dizinine gel ve "login" adında guard oluştur.Bu, aslında bir servistir.İçerisine şöyle yaz:
+"@Injectable({
+  providedIn: 'root',
+})
+export class LoginGuard implements CanActivate {
+  constructor(private accountService: AccountService, private router: Router) {}
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
+    let logged = this.accountService.isLoggedIn();
+    if (logged) {
+      return true;
+    }
+    this.router.navigate(['login']);
+    return false;
+  }
+}".
+4-Böylece artık eğer "logged" true ise "true" döndürecek fakat eğer false ise de "login" pathına yönlendirecek.Böylece kullanıcıyı login ekranına getirecek ve "false" dönecek.
+5-"app-routing-module" gir ve şöyle yaz:
+"const routes:Routes = [
+  {path:'addProduct', component:AddProductComponent,canActivate:[LoginGuard]},  
+  {path:'login', component:LoginComponent},
+  {path:'home',component:HomeComponent},
+  {path:'**',redirectTo:'home',pathMatch:'full'}
+]".
+6-Böylece guardımızı "AddProduct" componente ekledik ve onu koruduk.Şimdi "login" hmtline gel ve şöyle bir form gir:
+"<main class='form-signin'>
+<form [formGroup]='form1'>
+  <div class='d-flex align-items-center justify-content-center'>
+    <img class='mb-4 mx-auto' src='https://images.unsplash.com/photo-1624455806586-037944b1fa1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80' alt='' width='72' height='57'>
+  </div>
+  <h1 class='h3 mb-3 fw-normal'>Please sign in</h1>
+
+  <div class='form-floating'>
+    <input formControlName='name1' type='text' class='form-control' id='floatingInput' placeholder='Your Name'>
+    <label for='floatingInput'>Name</label>
+  </div>
+  <div class='form-floating'>
+    <input formControlName='password1' type='password' class='form-control' id='floatingPassword' placeholder='Password'>
+    <label for='floatingPassword'>Password</label>
+  </div>
+  <button (click)='onSubmit()' class='w-100 btn btn-lg btn-primary' type='submit'>Sign in</button>
+  <p class='mt-5 mb-3 text-muted'>&copy; 2017–2021</p>
+</form>
+</main>
+<div *ngIf='spinner' style='position: absolute;top: 50%;right: 50%;' class='spinner-border' role='status'>
+</div>".
+7-Artık form oluşturduk ve "login" componente gelerek hem reactive form içeriğini yaz hem de butona tıklayınca "account" servisle iletişime geçeceğiz.Şöyle:
+"constructor(private fb:FormBuilder,private accountService:AccountService) { }
+model:User = new User();
+spinner!:boolean;
+form1 = this.fb.group({
+  name1:["",Validators.required],
+  password1:["",Validators.required]
+})
+onSubmit(){
+  this.spinner=true;
+  this.model.username=this.form1.get('name1')?.value;
+  this.model.password=this.form1.get('password1')?.value;
+  this.accountService.login(this.model);
+  setTimeout(()=>{
+    this.spinner=false;
+    if(this.accountService.login(this.model)){
+      alert('Tebrikler!');
+    }
+    else{
+      alert('Malesef !')
+    }
+  },1000);
+}".
+8-Böylece tıklandığı zaman form ögelerini "User" tipindeki "model" objectine atadık ve "model" objectini servise gönderdik.Servis kontrol edecek ve boolean döndürecek.Eğer "true" dönerse "Tebrikler"; "false" dönerse "Malesef" yazacak.
+9-Artık istediğimiz komponentten servisi çekerek, servisteki "isLoggedIn()" boolean fonksiyonunu çağırarak kullanıcının login olup olmadığını kontrol ederiz.Hatta servisin "logOut()" fonksiyonuyla da LocalStoragedaki kaydı silerek logout yaparız.
+--------------------------------------------------------------------------------------------------------------
+***"router" modülü ile statei kaybetmeden sayfa yönlendirmesi yapmak:
+1-Mesela html kısmında şöyle bir button olsun "<button (click)='router1()'></button>".
+2-Componente gel."contructor(private router:Router){}" şeklinde inject et ve şöyle yaz:
+"router1(){
+  this.router.navigate(['home']);
+}"
+3-Böylece path olarak "/home" olarak yönlendirmiş olduk.
+--------------------------------------------------------------------------------------------------------------
+*****Sıfırdan, en baştan "rout" yapmak için:
+1-"app" içerisine bir "app-routing-module.ts" classı oluştur.Fakat içerisini şöyle editleriz:
+"const routes:Routes = [
+  {path:'login', component:LoginComponent},
+  {path:'**',redirectTo:'login',pathMatch:'full'}
+];
+@NgModule({
+  declarations: [],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports:[RouterModule]
+})
+export class AppRoutingModule { }
+".
+2-"appModule" git ve "imports[]" arrayi içerisine, oluşturduğumuz "AppRoutingModule" ekle.
+5-HTML içerisinde kullanmak için de "<router-outlet>" tagını kullanırız.
+--------------------------------------------------------------------------------------------------------------
+*****custom pipe eklemek için:
+1-Önce terminal ile, pipeı eklemek istediğin componentin dizinine gel.Mesela "product" componentindeyiz.
+2-"ng g p pipes/pipeName" şeklinde yaz.
+-------------------------------------------------------------------------------------------------------------
+*****Reactive Formlar için:
+1-Componente gir ve "import{FormControl,FormGroup} from '@angular/forms'" modüllerini import et.
+2-Tekli binding[componentten çekerek] için önce bir değişkene "FormControl" objecti tanımla.Mesela: 
+"name1 = new FormControl('')".
+3-Ardından bind edilecek inputa bu değişkeni çağır.Mesela: "<input [formControl]='name1'>".Artık HTML içerisinde istediğimiz yere "{{name1.value}}" şeklinde bind edebiliriz.
+4-Grup tanımları[veya nested gruops] için önce bir değişkene "FormGroup" objecti tanımla ve objectin içerisine de <input> taglarının içerisine atayacağın değişkenleri tanımla.Mesela:
+"form1 = new FormGroup({
+    firstName : new FormControl(''),
+    lastName : new FormControl(''),
+    skills: new FormGroup({
+        skillName: new FormControl(''),
+        experience: new FormControl(''),
+    })
+})"
+5-Daha sonra hem form tagına grup değişkenini tanımla hem de form içerisindeki inputlara objectin içerisindeki değişkenleri tanımla.Nested gruplar için de "formGroupName" kullan.Mesela:
+"<form1 [formGroup]='form1'>
+<input formControlName='firstName'>
+<input formControlName='lastName'>
+<div formGroupName='skills'>
+<input formControlName='skillName'>
+<input formControlName='experience'>
+</div>
+</form1>"
+6-Artık inputlara girilen valuelerle grup içerisindeki değişkenleri bağladık.Şimdi konsolda görüntülemek içinse butona "click" eventi veya "<form>" tagına "ngSubmit" fonksiyonu atarız.Mesela: "<form (ngSubmit)='function1()'>"
+7-Componente gel ve "function1()" metodunu "value" propertisiyle şöyle çağır:
+"function1(){
+    console.log(this.form1.value);
+}"
+8-Tanımlı form değişkenlerine bir sürü property atayabiliriz.Bunlardan bazıları:
+-value= Form inputlarının "submit" edilirkenki değerlerini gösterir."console.log(this.form1.value)".
+-status= Formu, submit edilirken "valid" veya "invalid" döndürür."console.log(this.form1.status)".
+-get= Form içerisinde belirtilen kontrol elemanlarını döndürür.Mesela:
+"console.log(return this.form1.get('firstName'))"
+-get[nestedGrup] = FOrm içerisindeki nested grup kontrol elemanlarını döndürür.Mesela:
+"console.log(return this.form1.get('skills')?.get('skillName'))"
+-push = Form grubundaki "FormArray" arrayindeki aliaslara eleman ekler.Öncesinde "get getAlias()" ile isimsiz alias grubunu çekeriz.Bu metod, aliasları Array olarak döndürecek ve biz de bu metodu çağırırız.Mesela:
+"addAlias(){this.getAliases.push(this.fb.control(''))}"
+9-Formun tüm elemanları "valid" olana kadar, butonların "disabled" olmasını şöyle sağlarız:
+"<button (click)='function1()' [disabled]='!form1.valid' type='submit'>test</button>"
+10-Forma entegre ettiğimiz valueleri değiştirmek için "setValue()" metodu gerekli.Normal binding değişkenlerini direk çağırabiliriz fakat gruba ait form değişkenlerini çağırmak içinse şöyle kullanırız:
+"function1(){
+    this.name1.setValue('turşu1');  //tekliFormControl
+    this.form1.setValue({           //FormGroup
+      firstName:'turşu2',
+      lastName:'turşu3',
+      skills: {
+          skillName: 'turşu4',
+          experience: 'turşu5'
+      }
+    });
+}"
+11-Value değiştirmek için "patchValue()" metodunu da kullanabiliriz.Aradaki fark şudur: "setValue" kullanıyorsak, formun tanımlanmış bütün elemanlarını yazmak ve kullanmak zorundayız; fakat "patchValue", bütün elemanları yazmaya gerek kalmadan bize, tek tek value değişimleri de sağlıyo.
+12-"Validator" tanımlarını yaparken de değişkenleri tanımlarken yaparız.Bunlardan bazıları:
+-"name1 = this.fb.control('',Validators.required)".
+-"name1 = this.fb.control('',Validators.maxLength)".
+-"name1 = this.fb.control('',Validators.minLength)".
+-"name1 = this.fb.control('',Validators.forbiddenNameValidator(/john/i))".  //RegExp
+-"name1 = this.fb.control('', Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(50)]))".  //Multiply
+13-Directivelerle "RegExp" oluşturarak Validationlar için, önce Directive oluştur.
+14-Custom Validator da oluşturup, mesela register formlarda 2 adet şifrenin birbiriyle eşlenip eşlenmediğini şöyle sağlarız:
+"form1 = this.fb.group(
+  {name1 : ['',Validators.required],
+  password1 : ['',Validators.required],
+  password2 : ['',Validators.required]},
+  {Validator:this.passwordMatcher1})
+passwordMatcher1(g:FormGroup):boolean{
+  return g.get('password')?.value === g.get('password2')?.value?null:{mismatch:true};
+}".
+15-"FormBuilder" kullanarak da grup form değişkenleri tanımlarken her defasında "FormControl" veya "FormGroup" kullanmaktan kurtuluruz."constructor(private fb1:FormBuilder)" ekle ve import et.
+16-Ardından çok daha sade bir biçimde yazabileceğiz.Mesela 4. adımdaki nested grupları tekrar yazalım:
+"form1 = this.fb1.group({
+  firstName:['',Validators.required],
+  lastName:['',Validators.required],
+  skills:this.fb1.group({
+    skillName:['',Validators.required],
+    experience:['',Validators.required]
+  })
+})"
+17-Tekli form değişkenini "FormBuilder" ile şöyle yazarız: "name1 = this.fb.control('',Validators.required)".
+18-İsimlendirilmemiş form control elemanlarını yönetmek için "import {FormArray} from '@angular/forms'" import ederiz.
+19-Bu isimsiz form elemanları için "control()" metoduyla genel bir "alias" şöyle belirtiriz:
+"form1 = this.fb1.group({
+    firstName:['',Validators.required],
+    lastName:['',Validators.required],
+    skills:this.fb1.group({
+      skillName:['',Validators.required],
+      experience:['',Validators.required]
+  }),
+  aliases: this.fb1.control([
+      this.fb1.control('',Validators.required);
+  ]);
+})"
+20-Bu "aliases" kontrol arrayine "push" metoduyla yeni elemanlar ekleyebiliriz.Böylece mesela bu metodu bir butona atayarak, her tıklamada form için yeni bir eleman ekletebiliriz:
+"addAlias() {
+    this.aliases.push(this.fb.control(''));
+}"
+21-İsimsiz form elemanlarını array içerisinde tuttuğumuz için, HTML'de "ngFor" ile çağırmak en doğrusudur."formArrayName" kullanarak içerisine toplarız.Ayrıca "[formControlName]" ile inputa atayarak index numarasına eşitleriz her bir inputu.Mesela:
+"<form1 [formGroup]='form1'>
+<input formControlName='firstName'>
+<input formControlName='lastName'>
+<div formGroupName='skills'>
+<input formControlName='skillName'>
+<input formControlName='experience'>
+</div>
+<div formArrayName='aliases'>
+<button (click)='addAlias'>+Add Aliases!</button>
+<div *ngFor='let alias of aliases.controls; let i=index'>
+<input [formControlName]='i'>
+</div>
+</div>
+</form1>"
+22-Form elemanlarını oluştururken, bütün hepsine "get" metodu atarız ki submit edildikten sonra valueleri çekebilelim.Nested grupları çekerken de hiyerarşik olarak sırayla "get" ile art arda çekeriz.Mesela:
+"get getFirstname(){
+    return this.form1.get('firstName');
+}
+  get getLastname(){
+    return this.form1.get('lastName');
+}
+  get getSkillname(){
+    return this.form1.get('skills')?.get('skillName');
+  get getExperience(){
+    return this.form1.get('skills')?.get('experience');
+}
+  get getAliases(){
+    return this.form1.get('aliases')?.value as FormArray;
+}"
+23-Daha sonra form elementine "<form (ngSubmit)='function1()'>" atarız ve get metodlarını çağırırken "value()" metoduyla konsolda şöyle görüntüleriz:
+"console.log(this.form1?.value);
+console.log(this.getAliases?.value);
+console.log(this.getFirstname?.value);
+console.log(this.getLastname?.value);
+console.log(this.getSkillname?.value)
+console.log(this.getExperience?.value);"
+24-Form inputlarının mevcut statülerine göre "*ngIf" içerisine bazı classlar tanımlarız.Belirtilen inputun "formControlName"ini kullanan "get" metodlarını çekerek kullanırız ki; böylece hangi inputa bağlı çalışacağını biliriz.Bazıları:
+-ng-valid= Geçerli olup olmadığını kontrol eder.
+-ng-invalid= Geçerli olup olmadığını kontrol eder.
+-ng-pending= Eğer form, gönderilebilme durumundaysa gerçekleşir.
+-ng-pristine= Kullanıcı, herhangi input girmediği sürece geçerlidir.
+-ng-dirty= Kullanıcı, input girdikten itibaren devamlı geçerlidir.
+-ng-untouched= Sadece focus kaybetmediği sürece geçerlidir.
+-ng-touched= Focus aldıktan sonra focusu kaybederse geçerlidir.
+-ng-submitted= Submit edildiğinde gerçekleşir.
+-En genel kullanımı:
+"<input formControlName='firstname1'><div *ngIf='firstname1.invalid&&(firstname1.dirty||firstname1.touched)'></div>"
+-Üsttekine alternatif:
+"<input formControlName='firstname1'><div *ngIf='firstname1.errors&&(firstname1.dirty||firstname1.touched)'></div>"
+-En genel style kullanımı:
+"<input formControlName='lastname1'><div [style.visibility]='(lastname1?.invalid)||(lastname1?.dirty&&lastname1?.touched))?'visible':'hidden''></div>"
+-"hasError" ile "required" kullanımı[tabi Validators ile önceden tanımlanmış olmaları gerek]:
+"<input formControlName='firstname1'><div *ngIf='firstname1.hasError('required')&&(firstname1.dirty||firstname1.touched)'></div>"
+-"hasError" ile "minLength()" kullanımı[tabi Validators ile önceden tanımlanmış olmaları gerek]:
+"<input formControlName='firstname1'><div *ngIf='firstname1.hasError('minlength')&&(firstname1.dirty||firstname1.touched)'></div>"
+-Multiply kullanımı:
+"<p *ngIf='(name1?.hasError('minlength')&&!(name1?.hasError('required'))&&!(name1?.hasError('maxlength'))&&(name1?.dirty||name1?.touched))'>Max.50 Karakter!</p>"
+-"mismatch" ile kullanımı[formun kendisini çeker controller çekmez]:
+"<p *ngIf='form1.hasError('mismatch')&&(password1.dirty||password1.touched)'>Şifreler uyumsuz!</p>
+<p *ngIf='form1.hasError('mismatch')&&(password2.dirty||password2.touched)'>Şifreler uyumsuz!</p>"
+-------------------------------------------------------------------------------------------------------------
+*****"ngFor" directive özellikleri:
+1-Object içerisinde gezinmek için mesela:
+"<li *ngFor='let user of users'>{{users.length}}.{{user}}</li>".
+2-Object içerisinde gezinirken, her loopu "index" ile takip etmek için:
+"<li *ngFor='let user of users; index as i'>{{i}}/{{users.length}}.{{user}}</li>".
+3-Object içerisinde gezinirken, "ilk" ve "son" loopu takip etmek için:
+"<li *ngFor='let user of users; index as i; first as first1; last as last1'>
+{{i}}/{{users.length}}.{{user}}
+<span *ngIf='first1'>TEXT</span>
+<span *ngIf='last1'>TEXT</span>
+</li>".
+4-Object içerisinde gezinirken, her looptaki "tek" ve "çift" indexleri takip etmek için:
+"<li *ngFor='let user of users; odd as odd1; even as even1'>
+{{users.length}}.{{user}}
+<span *ngIf='odd1'>TEXT</span>
+<span *ngIf='even1'>TEXT</span>
+</li>".
+5-Object içerisinde gezinirken, toplam kaç defa loop olduğunu belirlemek için:
+"<li *ngFor='let user of users; count as count1'>
+{{users.length}}.{{user}}
+<span>{{count1}}</span>
+</li>"
+-------------------------------------------------------------------------------------------------------------
+*****"ngIf" directive özellikleri:
+1-Bir yapıyı, bir conditiona göre göstermek için:
+"<div *ngIf='user==true'>TEXT</div>"
+2-Bir yapıyı, bir conditiona göre gösterip, sonra conditionun aksine göre de bir "template" belirlemek için:
+"<div *ngIf='user==true; else span1'>TEXT</div>
+<ng-template #span1></ng-template>"
+***"else" ve "then" conditionları sadece "ng-template"ler üzerinde UYGULANABİLİR!
+3-Eğer componentte local olarak bir değişken tutuyorsak, bununla şöyle condition sağlarız:
+"<div *ngIf='condition as value1; else elseBlock'>{{value1}}</div>
+<ng-template #elseBlock>Will show when value1 is null</ng-template>" 
+4-Componentte "show=false" adında boolean tutalım ve bunu, html içerisinde elemente condition olarak atalım ve bunu da buton sayesinde değiştirelim ve ayrıca "false" durumlar için alternatif bir "ng-template" kuralım:
+"<button (click)='show=!show'>TIKLA</button><span>{{show}}</span>
+<div *ngIf='show; else temp1'>Show if true</div>
+<ng-template #temp1>Show if false</ng-template>"
+5-Üstteki örnekteki gibi componentte bir "show=false" booleanı tutalım ve ek olarak "then" conditionu da ekleyelim:
+"<button (click)='show=!show'>TIKLA</button><span>{{show}}</span>
+<div *ngIf='show; then temp1 else temp2'>Here is IGNORED</div>
+<ng-template #temp1>Show if true</ng-template>
+<ng-template #temp2>Show if false</ng-template>"
+-------------------------------------------------------------------------------------------------------------
+*****Style normal ve conditional kullanımı:
+1-Birden fazla css aynı anda uygulamak için mesela:
+"<div [ngStyle]='{'backgroundColor':'red','fontSize':'10px','fontSize':'700'}'></div>"
+2-Conditional olara uygulamak için:
+"<div [ngStyle]='{'fontWeight': (i%2 ? '600':'900'),'fontSize': (i==2 ? '12px':'24px')}'></div>"
+3-Eğer üstteki condition çalışmıyorsa bunu dene:
+"<div [style.color]='boolean1?'black':'white''></div>"
+4-Bu kullanım türünü normal olarak da kullanabiliriz:
+"<div [style.fontSize]='22px'></div>"
+-------------------------------------------------------------------------------------------------------------
+*****Class normal ve conditional kullanımı:
+1-Birden fazla class aynı anda uygulamak için:
+"<div [ngClass]='{'text-danger':boolean1,'bg-dark':boolean2}'>123</div>"
+2-Sadece classlar eklemk için:
+"<span [ngClass]="'text-danger bg-dark'">123</span>"
+3-Birden fazla classı tek bir conditionla eklemek için:
+"<div [ngClass]='{'text-danger bg-dark':boolean1}'>123</div>"
+4-Spesifik olarak classlar ekleyebiliriz:
+"<div [class.text-danger]='boolean1'>123</div>"
+5-Ternary içinse:
+"<div [ngClass]='boolean1?'text-danger':'bg-dark''>123</div>"
+-------------------------------------------------------------------------------------------------------------
+*****Attribute normal ve conditional kullanımı:
+1-Tekli attribute değişimi:
+"<div [attr.draggable]='boolean1'>123</div>"
+2-Spesifik attributeler için:
+"<img [attr.height]='boolean1?'300px':'500px''>".
+-------------------------------------------------------------------------------------------------------------
+*****Routerlink normal ve conditional kullanımı:
+1-Tek statik adrese yönlendirmek için:
+"<a routerLink='/Home' routerLinkActive='active'></a>"
+2-Dinamik adrese yönlendirmek için:
+"<a [routerLink]='city.id' routerLinkActive='active'></a>"
+3-Üstteki olmazsa bunu dene:
+"<a routerLink='{{city.id}}' routerLinkActive='active'></a>"
+4-Ternary için:
+"<a [routerLink]='x=='Home'?'/home':'/about'' routerLinkActive='active'></a>".
+5-Multiple condition için:
+"<a [routerLink]='x=='Home'?'/home':x=='About'?'/about':x=='HOW TO'?'/howto':null'></a>"
+-------------------------------------------------------------------------------------------------------------
+*****Server-side rendering:
+1-Normalde browserda request atınca, browser html, css ve js dosyalarını çeker ve renderlar.Bulunduğun sayfada, kullanılan html içeriğini "view page source" ile görebiliriz.Fakat burada, serverda tüm site datalarını tutacağız.Request gelince, tüm hepsini yükleyecek.İlk sayfa yüklemede zorlanabilir fakat ardından siteyi dolaşırken çok rahat edecektir.Proje dizinindeyken terminali aç ve "ng add @nguniversal/express-engine" tıkla.
+2-Test için "npm run dev:ssr" yaz.Browserda "http://localhost:4200/" aç.Böylece live reload sağlar.Fakat server-side rendering olabilmesi için, "app-routing-module" içerisindeki "initialNavigation" ifadesinin valuesi "enabled" olmalıdır.Kontrol et.
+3-"ng build && ng run appName:server" komutundaki "appName", bizim aplikasyonumuzun ismidir.Bu komut, projeyi deploy etmek için build eder.Böylece hem server scriptini hem de aplikasyonu "production mode"da çalıştırır.
+4-"npm run serve:ssr" komutu aplikasyonu, server-side renderingle lokal olarak servis etmek için server scriptini başlatır.Ayrıca "ng run build:ssr" komutu tarafından oluşturulan build artifactlerini kullandığından dolayı bu komutu da kullanmalıyız."serve:ssr" komutu aplikasyonu, sadece local olarak test etmek için kullanılır.
+5-"npm run prerender" komutu, bir aplikasyonun sayfalarını "prerender" etmek için kullanılır.Dinamik sayfaların "build" sırasında işlendiği ve statik HTML olarak oluşturulduğu süreçtir.Dinamik routelar da renderlanacaktır.Bu komutun çalıştığı esnada ek olarak routelar eklemek için şunu kullan: 
+"ng run <app-name>:prerender" veya "ng run <app-name>:prerender --routes /product/1 /product/2".Burada "product" componentine statik routelar verdik.
+-------------------------------------------------------------------------------------------------------------
+*****Dynamic Meta Title için:
+1-"index.html" içerisine default bir meta title ekle.Mesela: "<title>City Guide and Person Guide</title>".
+2-Sonra her component için ayrı ayrı title belirleyebiliriz.Mesela sitenin "home" componentine gel."constructor" içerisine de "private title:Title" şeklinde servisi inject et.
+3-Ardından "ngOnInit" içerisine gel ve bu servisi çekerek titleı şöyle editle: 
+"this.title.setTitle('Here is the İstanbul!')".Artık kullanıcı, her "home" componente geldiğinde titleı dinamik olarak değişecek.
+-------------------------------------------------------------------------------------------------------------
+*****Compodoc:
+1-Local yükleme için "npm install --save-dev @compodoc/compodoc" yaz.
+2-"package.json" gir ve "scripts" objecti içerisine "compodoc": "npx compodoc -p tsconfig.doc.json" ekle.Böylelikle "node_modules" içerisine eklediğimiz compodocu belirttik ve projeye ekledik.
+3-Projenin içerisine[en üst folde levelına] "tsconfig.doc.json" adında bir file oluştur ve bu jsonın içerisine şunu ekle:
+"{
+  'include': ['src/**/*.ts'],
+  'exclude': ['src/test.ts', 'src/**/*.spec.ts', 'src/app/file-to-exclude.ts']
+}".
+5-"compodoc src -p tsconfig.doc.json" yaz.Eğer olmazsa "compodoc -p tsconfig.doc.json" yaz.
+6-"compodoc -p tsconfig.doc.json -s" yaz ve karşımızda açılacak.
+-------------------------------------------------------------------------------------------------------------
+*****Lite-server:
+1-"npm install lite-server --save-dev" ile yükleyelim projemize.
+2-"package.json" içerisindeki "scripts" objecti içerisine "'dev': 'lite-server'" ekle.
+3-Ayağa kaldırmak için "npm run dev" yaz.
+-------------------------------------------------------------------------------------------------------------
+*****ng-mocks:
+1-"npm install ng-mocks --save-dev" yaz.
+2-"src" içerisindeki "test.js" içerisine gel ve "import { MockInstance, ngMocks } from 'ng-mocks'" import et.
+3-Ardından içerisine şunları ekle:
+"ngMocks.autoSpy('jasmine');
+jasmine.getEnv().addReporter({
+  specDone: MockInstance.restore,  specStarted: MockInstance.remember,  suiteDone: MockInstance.restore,  suiteStarted: MockInstance.remember,
+})".
+4-BUNU ANLAMADIM!
+-------------------------------------------------------------------------------------------------------------
+**Nx:
+1-"npm install -g @angular/cli" yazarak CLI güncelle."npm install -g @nrwl/schematics" yazarak da chematics yükle.
+2-"npx create-nx-workspace@latest --preset angular appName" yaz.Böylece aynı CLI ile workspace oluşturmuşuz gibi Nx workspacei oluşturduk.Çalışırken soracak adımlara yes de.Eğer projede hala eksik varsa VSCode'dan çıkış yapıp tekrar gir."npm install" yaz ve eksikler yüklenecek.Tekrar çıkıp gir.Eğer yine olmazsa 
+CTRL+SHİFT+P ile extension paneli açıp, "restart ESlink" veya "restart TS server" çek.
+3-"e2e"yi test etmek için terminale "npx ng e2e e2eName --watch" yaz.Böylece google test ortamında launchlanacak.Eğer "cypress verification" hatası alırsan, "ng_modules/cypress/lib/tasts" gir ve "verify.js" bul.Burada "VERIFY_TEST_RUNNER_TIMEOUT_MS" değişkeninin değeri default olarak 30000dir.Bunu 100000 yap.
+4-Workspacee angular yüklemek için "npm install -D @nrwl/angular" yaz.
+5-Artık run yaparken "npx nx serve appName" şeklinde aplikasyonun adını yazarak run ederiz.Böylece Nx ekstra featurelerini aktif ederiz.
+6-"libs" içerisine eklemek için "npx ng g lib libName" ekleriz.Mesela "npx ng g lib header"
+7-"header" libin içerisine component eklemek içinse "npx ng g component header --project=header" yaz."--project=header" yazarak hangi lib içerisindeki module ait bir component oluşturacağımızı belirtiriz.Böylece "header" componenti oluşturduk.
+8-Componentlere storybook eklememiz için önce "npm install -D @nrwl/storybook" yazarak storybook schematics yükleriz.
+9-Artık "header" componenti için storybook generate edebiliriz."npx ng g storybook-configuration header" yaz.Çıkan steplere hep "yes" de.Böylece component için storybook oluşturduk.
+10-"header" componentinin storybookunu generate içinse "npx ng run header:storybook" yaz.
+11-Nx coluda projeyi eklemek için "npx ng add @nrwl/nx-cloud" yaz.Ardından "git add ." yaz.
+"git commit -m 'First Commit'" yaz."git push" yaz.
+-------------------------------------------------------------------------------------------------------------
+*****FELAKET SENARYOLARI:
+1-"npm install".
+2-"npm update".
+3-"npm cache clean --force" + "npm cache verify".
+4-"npm install --legacy-peer-deps" + "npm config set legacy-peer-deps true".
+5-"npm install rxjs-compat"
+-------------------------------------------------------------------------------------------------------------
+*****Typescript için "setTimeout" kullanımı:
+1-Mesela önce bir html butonuna bir event atayalım:
+"<button (click)='function1()'></button>"
+2-Ardından componente gel ve fonksiyonu çağırdıktan sonra içerisine şunu ekle:
+"function1(){
+  setTimeout(()=>{
+    alert('heyy');
+  },5000);
+}"
+3-İçerisinde istediğimiz işlemi yaparız ve delayı da callback olarak sonuna ekleriz.
+-------------------------------------------------------------------------------------------------------------
+**Sticky Navbar için:
+1-Öncelikle eklenecek olan classları oluşturmak için "css" içerisine git.Şu iki classı ekle:
+".fixed{
+  position: fixed;
+  width: 100%;
+  transition: all 1.2s ease-in-out;
+  top: 0;
+  left:0;
+}
+.nofixed{
+  position: static;
+  transition:all 1.2s ease-in-out;
+  top: -50px;
+}".
+2-Ardından html gel ve "nav" tagına şu attributeleri ekle: 
+"(scroll)='onscroll()' [ngClass]='navbarfixed?'fixed':'nofixed''".
+3-Componente gel ve şunları ekle:
+"navbarfixed:boolean = false;
+@HostListener('window:scroll',['$event']) onscroll(){
+  if(window.scrollY>60){
+    this.navbarfixed=true;
+  }
+  else{
+    this.navbarfixed=false;
+  }
+}".
+-------------------------------------------------------------------------------------------------------------
+*****Arraydeki duplicate[veya daha fazla tekrar eden] itemleri filtreleme:
+1-"array.filter(function (value, index, array) {
+  return array.indexOf(value) === index;
+})".
+-------------------------------------------------------------------------------------------------------------
+*****Smooth scroll to top için:
+1-Bir html butonuna "function1()" atadık diyelim.Componente şunu yaz:
+"function1(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}"
+-------------------------------------------------------------------------------------------------------------
+*****İframedeki Safe url için DOMSanitizer kullanımı:
+1-Önce pipe oluşturacağız.Mesela "safepipe" oluştur ve "appModule" içerisinde "declarations[]" arrayine ekle.
+2-Pipe içerisine "constructor" oluştur ve "constructor(private sanitizer: DomSanitizer) {}" şeklinde inject et.
+3-Ardından transform methodunu şöyle yap:
+"transform(url) {
+  return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+}".
+4-Daha sonra Kullanacağın iframe gel ve pipeı şöyle kullan:
+"<iframe [src]='x.src | safepipe'></iframe>"
+"<iframe src='{{x.src | safepipe}}'></iframe>"
+-------------------------------------------------------------------------------------------------------------
+*****"innerHTML" ile databasedeki içerisinde html bulunan verileri, html içerisinde renderlayıp görüntülemek:
+1-Mesela "json" dosyamızda şöyle bir "people" object olsun:
+"{
+  'fullname':'<b>Ali Tatar</b>',
+  'website':'<em>www.google.com</em>'
+}"
+2-Bunu html içerisinde normalde sadece text olarak gösterebilirdik.HTML kısmının renderı için şöyle yap:
+"<ul>
+<li *ngFor='let person of people'>
+<span>{{person.fullname}}</span>                    //rendersız
+<span [innerHTML]='person.fullname'></span>         //renderlı
+<span [innerHTML]='person.website'></span>          //renderlı
+</li>
+</ul>".
+-------------------------------------------------------------------------------------------------------------
+*****@ViewChild kullanımı: 2 tip kullanımı vardır:
+****Bu senaryoda child Componentteki bir değişkeni, Parent Componentinin içerisinde kullanacağımız "viewChild" ile parenta aktarıp parent içerisinde kullanacağız:
+1-Mesela "AppComponent" içerisinde kullandığımız bir "FooterComponent" olsun.Öncelikle FooterComponent içerisinde bir "string1:string = 'Merhaba!'" tanımlayalım.
+2-Şimdi parent olan AppComponente gel ve "@ViewChild(FooterComponent) footerComponent:FooterComponent" şeklinde tanımla.Böylece FooterComponenti parenta import ettik ve "FooterComponent" türündeki bir değişkene atadık.Bu değişken ile footerın her özelliğini çekebileceğiz.
+3-"AfterWiewInit" içerisine gel ve footerdaki özelliği şöyle çek
+****Bu senaryoda tek componentta çalışacağız.Componentin HTMLinden bir elementi çekip, componentte kullanarak DOM manipülasyonu yapacağız:
+1-Mesela HTMLimizde bir "<div #test1>Just Text</div>" elementi oluştur ve componente dön.
+2-Burada elementi "@ViewChild('test1') element1!:ElementRef" şeklinde çektik.Buradaki "element1", elementi atadığımız bir variabledır.
+3-Ardından "AfterWiewInit" componente implement et ve içerisine gelerek şunu yaz:
+"ngAfterViewInit(): void {
+  this.element1.nativeElement.innerText='Changed!'
+}".
+4-Böylece DOM manipüle ettik ve içeriğini değiştirdik.
+***"ViewChild" kullanırken, "AfterViewInit" içerisinde kullanmalısınız!!!
+------------------------------------------------------------------------------------------------------------
+*****@Input kullanımı: Child componentte bulunun bir değeri, parent component içerisinde değiştirilmesini sağlar.
+****Eventsiz kullanımı:
+1-Öncelikle elimizde bir child olan "FooterComponent" ve parent olan "AppComponent" olsun.Child componente gir ve "@Input() childString1:string='Merhaba!'" tanımla.
+2-Childın HTMLine gir ve bu değişkeni şöyle bind et: "<p>{{childString1}}</p>".Artık FooterComponentin viewinde paragraf olarak "Merhaba" yazacaktır.Bunu parentından değiştireceğiz.
+3-Parent componente gel ve "parentString1:string='Değişti!'" tanımla.Yeni bir değişken oluşturduk ve value verdik.
+4-Parentın htmline gel ve Footer Componenti tanımladığımız kısma şunu ekle:
+"<app-footer [childString1]='parentString1'></app-footer>".Böylece artık Footerın viewindaki paragraf, "Değişti!" olarak görünecektir.
+------------------------------------------------------------------------------------------------------------
+*****@Output kullanımı: Parent componentte bulunun bir değeri, child component içerisinde değiştirilmesini sağlar.
+****Eventle beraber kullanımı:
+1-Öncelikle elimizde bir child olan "FooterComponent" ve parent olan "AppComponent" olsun.
+2-Childın htmline gir ve bir buton tanımlayarak bu butona da click eventini şöyle tanımla: 
+"<button (click)='sendData1()'></button>".
+3-Child componente gir ve "string1:string='Merhaba!'" tanımla.
+4-Ayrıca component içerisinde "@Output() childStringSend1:EventEmitter<string> = new EventEmitter()" ekle.
+5-Atadığımız eventi de componentte şöyle tanımla:
+"sendData1(){
+  this.childStringSend1.emit.(this.string1)
+}".
+6-Parentın htmline gel ve footerı tanımladığınz alanı şöyle düzenle:
+"<app-footer (childStringSend1)='getData1($event)'></app-footer>".
+7-Parentın componentine gir ve yeni bir boş string oluştur: "childStringReceived1:string=''".
+8-Ardından parentın htmlinde oluşturduğumuz fonksiyonu componentte çağır ve şöyle yaz:
+"getData1(event:any){
+  this.childDataReceived1=event;
+}".
+9-Böylece parenttaki değişkene, childdaki stringin değerini atadık ve parentın htmlinde istediğimiz yerde kullanabiliriz.Childdaki clicker ile çalışacaktır.
+****Eventsiz kullanımı:
+1-Öncelikle elimizde bir child olan "FooterComponent" ve parent olan "AppComponent" olsun.
+2-Child componente gir ve "string1:string='Merhaba!'" tanımla.
+3-Ayrıca component içerisinde "@Output() childStringSend1:EventEmitter<string> = new EventEmitter()" ekle.
+4-Parentın htmline gel ve footerı tanımladığınz alanı şöyle düzenle:
+"<app-footer (childStringSend1)='getData1($event)'></app-footer>".
+5-Parentın componentine gir ve yeni bir boş string oluştur: "childStringReceived1:string=''".
+6-Ardından parentın htmlinde oluşturduğumuz fonksiyonu componentte çağır ve şöyle yaz:
+"getData1(event:any){
+  this.childDataReceived1=event;
+}".
+7-Böylece parenttaki değişkene, childdaki stringin değerini atadık ve parentın htmlinde istediğimiz yerde kullanabiliriz.
+------------------------------------------------------------------------------------------------------------
+*****Componentler[sibling] arasında data ve değişken paylaşımı.2 yöntemi vardır:
+****Bu senaryoda bir componentte input ile girilen valueyi her tıklayışta, başka componentte anlık olarak görüntüleyeceğiz:
+1-Parentları[AppComponent] aracılığıyla 2 child component[sibling] arasında data paylaşılabilir.Önce service yazıcaz.
+2-Cmd'ye "ng g s data" yazarak data service oluştur."private messageSource = new BehaviorSubject<string>('')" değişkeni oluşturarak "messageSource" değişkenine boş bir "default" message tanımlarız.
+3-Mevcut mesajı da anlık çekebilmek için "currentMessage = this.messageSource.asObservable()" değişkenine atarız.
+4-Sonrasında ise, "input search" ile girdiğimiz değeri değiştirebilmek için fonksiyon tanımlarız:
+"changeMessage(message:string){
+  this.messageSource.next(message);
+}"
+5-Şimdi input girilecek componente gel ve data servicei import et.
+6-Forma ait olan inputun valuesini, değişkene şöyle ata: "filterText1:string = this.form1.get('filterText1')?.value".Yani form1 içerisinde "filterText1" olarak tanımlanmış kontrolün valuesini, bu değişkene atadık.
+7-Ardından input içerisine "<input [(ngModel)]='filterText1'>" şeklinde bind ederiz çünkü biz input girdikçe, değişken de değişecek.
+8-İnputa "<input (keyup)='change()'>" fonksiyonu ata.Componente gelip fonksiyonu çağır ve servicete yazdığımız fonksiyonla şöyle ilişkilendir:
+"change(){
+  this.dataService.changeMessage(this.filterText1);
+}".
+9-Böylece yazdığımız valueyi servicee ilettik ve fonksiyon, default mesajı değiştirdi.Ardından "ngOnInit" içerisine de 
+"ngOnInit(): void {
+  this.dataService.currentMessage.subscribe(data=>{
+    this.filterText1=data;
+  })
+}" ekle.
+10-Şimdi parent componente gel.Service import et ve "filterText1!:string" buraya da tanımla.Ve bunda da "ngOnInit" içerisine
+"ngOnInit(): void {
+  this.dataService.currentMessage.subscribe(data=>{
+    this.filterText1=data;
+  })
+}" ekle.
+11-Şimdi sibling componente gel.Service import et."filterText1!:string;" buraya da tanımla.Ve bunda da "ngOnInit" içerisine
+"ngOnInit(): void {
+  this.dataService.currentMessage.subscribe(data=>{
+    this.filterText1=data;
+  })
+}" ekle.
+12-Ve bu componentin hmmtlinde bir yerde "{{filterText1}}" bind et.Artık ilk componentin inputuna herhangi bir value girdiğimizde, bu componentteki değişkenin valuesini de değiştirmiş olacağız.
+13-Artık buradaki ürünleri filtrelemek çok basit.Filtre için oluşturduğumuz "filtre" pipeını, 
+"*ngFor='let city of cities | filter:filterText'" olarak ekle.
+****Bu senaryoda bir componentte input ile girilen valueyi her tıklayışta, başka componentte anlık olarak görüntüleyeceğiz:
+1-Mesela elimizde "Sibling1" ve "Sibling2" isimli 2 adet component olsun.Önce service transport için "dataTransfer" adında servis oluştur.İçerisine gir.
+2-Decoratorün içerisine boşalt çünkü local kullanacağız.Ardından içerisine şunları yaz:
+"subject1 = new BehaviorSubject<any>('');
+emit<T>(data:T){
+  this.subject1.next(data);
+}
+on<T>():Observable<T>{
+  return this.subject1.asObservable();
+}".
+3-İnput yazacağımız Sibling1 componentin htmline gel ve "dataTransfer" servisi lokal olarak inject et.
+4-Ardından htmline gir ve şunu ekle: 
+"<input (keyup)='send1($event)' formControlName='input1' type='text'>".
+5-Bu input için reactive control oluşturacağız.Önce "appModule" içerisine "ReactiveFormsModule" import et.
+6-Ardından Sibling1 componentine gel ve şunları ekle:
+"string1:string="";
+input1 = this.fb.control(this.string1,Validators.required);
+send1(event:any){
+  this.dataTransferService.emit<string>(event.target.value);
+}".
+7-Artık her inputta, aldılayacak ve servise gönderecektir.Şimdi Sibling2 componentine gel."dataTransfer" servisi lokal olarka inject et.
+8-Ardından içerisine şunları gir:
+"data1:string = "";
+ngOnInit(): void {
+  this.dataTransferService.on<string>().subscribe(data=>{
+    this.data1=data;
+  })
+}".
+9-Böylece her data değiştiğinde subscribe olarak "data1" değişkenine aktaracağız.Şimdi ise Sibling2 htmli içerisine gir ve değişkeni görüntülemek için şöyle ekle: "<p>{{data1}}</p>"
+------------------------------------------------------------------------------------------------------------
+*****Custom filter pipe ile sibling componentler arasında arama[search] motoru yapmak:
+****Bu senaryoda Elimizde "NavComponent" ve "MainComponent" var.Kullanıcı, Nav componentindeki inputa değer girdiğinde, Main componentindeki ürünleri filtreleyecek:
+1-Terminal ile, pipeı eklemek istediğin componentin dizinine gel.Terminalden "productFilter" pipeını oluştur.
+2-Burada transform metoduyla, "filterText2" olarak htmldeki inputa alacağımız değerlere belirli işlemler uygulatacağız.Tabi burada "Product" objectini, buraya import etmemiz gerekecek çünkü metodun içerisinde kullanıyoruz.Mesela:
+"transform(value: Product[], filterText2?: any): Product[] {
+    filterText2 = filterText2?filterText2.toLocaleLowerCase('tr'):null;
+    return filterText2?value.filter((p:Product)=>p.name.toLocaleLowerCase('tr').indexOf(filterText2)!==-1):value;
+}"
+3-Ardından "dataTransfer" adında bir service oluştur ve içerisine şunları gir:
+"subject1 = new BehaviorSubject<any>('');
+emit<T>(data:T){
+  this.subject1.next(data);
+}
+on<T>():Observable<T>{
+  return this.subject1.asObservable();
+}".
+4-Servisin decoratorını boşalt çünkü local olarak kullanacağız.
+4-İnput girilecek olan "Nav" componentinin htmline gel ve şunu yaz:
+"<input (keyup)='send1($event)' formControlName='input1' type='text'>"
+5-Bu input için reactive control oluşturacağız.Önce "appModule" içerisine "ReactiveFormsModule" import et.
+6-Nav componentine gel ve "dataTransfer" servisini lokal olarak inject et.Ardından içerisine şunları ekle:
+"string1:string="";
+input1 = this.fb.control(this.string1,Validators.required);
+send1(event:any){
+  this.dataTransferService.emit<string>(event.target.value);
+}".
+7-Artık her inputta, algılayacak ve servise gönderecektir.Şimdi Main componentine gel."dataTransfer" servisi lokal olarka inject et.
+8-Ardından içerisine şunları gir:
+"data1:string = "";
+ngOnInit(): void {
+  this.dataTransferService.on<string>().subscribe(data=>{
+    this.data1=data;
+  })
+}".
+9-Böylece her data değiştiğinde subscribe olarak "data1" değişkenine aktaracağız.Şimdi ise Sibling2 htmli içerisine gir ve burada "ngFor" ile belirttiğin ürünleri, 
+"<div *ngFor='let product of products | productFilter:data1'>" şeklinde yap.Yani sadece pipe kısmını ekle.
+Burada "productFilter", üreteceğimiz custom pipeın ismidir."data1" ise, componentte atadığımız değişkendir.
+-------------------------------------------------------------------------------------------------------------
+*****Pipes:
+1-Birden fazla pipe türü vardır.İlk olarak 'date' pipeları inceleyelim:
+****Date Pipe OPTİONS[Parametreleri ayarlanmış olan templatelerdir]:
+-'short' = Mesela: "{{date1 | date :'short'}}"
+-'medium'
+-'long'
+-'full'
+-'shortDate'
+-'mediumDate'
+-'longDate'
+-'fullDate'
+-'shortTime'
+-'mediumTime'
+-'longTime'
+-'fullTime'
+****Date Pipe PARAMETERS: Aşağıdaki parametreleri birden fazla tekrar[max 5 tekrar], konumlarını değiştirerek, vs dilediğimiz şekilde formatlayarak kullanabiliriz:
+-y[year] : Yıl.Mesela: "{{date1 | date :'y/MM/d hh:mm:ss:SS'}}".
+-Y[Week-numbered year] : Yıl.
+-M[month] : Ay[1-12]|[January,February..December].
+-L[month-standalone] : Ay[1-12]|[January,February..December].
+-W[weekOfMonth] : Aydaki hafta[1-5].
+-w[weekOfYear] : Yıldaki hafta[1-53].
+-d[day] : Gün[1-31].
+-E[enumericDay] : Gün[Sunday,Monday..Saturday]
+-h[hour] : Saat.[0-23]
+-h[hour] : Saat[1-12].
+-m[minute] : Dakika[0-59].
+-s[second] : Saniye[0-59].
+-S[millisecond] : Milisaniye[0-999].
+-a[period] : Gün dönümleri.[PM,AM,a,p,mid]
+-B[period] : Gün dönümleri.[am,pm,midnight,noon,morning,afternoon,evening,night..]
+-b[period] : Gün dönümleri.[am,pm,midnight,noon,morning,afternoon,evening,night..]
+-z[zone] : Zaman dilimi[GMT-8,GMT-08:00..].
+-Z[zone] : Zaman dilimi[-0800,GMT-8:00,-08:00..].
+-O[zone] : Zaman dilimi[GMT-8,GMT-08:00..].
+2-"uppercase" pipe: Büyük harfe dönüştürür.Mesela: "{{string1 | uppercase}}".
+2-"lowercase" pipe: Küyük harfe dönüştürür.Mesela: "{{string1 | lowercase}}".
+3-"currency" pipe: Sayısal verilere, para birimi ekler.
+****Currency Pipe OPTİONS: Bazı optionlar, bazı parametreler alabilir:
+--currencyCode : Ülkenin para birimlerinin kodlarıdır."İSO 4217"de tüm ülke para birimleri mevcuttur.
+--display : Para birimlerinin formatlarıdır.Bunlar:
+-code : Kodu beraberinde gösterir.Mesela: "{{number1 | currency: 'USD' : 'code'}}".
+-symbol : Parayı sembolüyle beraber gösterir.Mesela: "{{number1 | currency: 'USD' : 'symbol' : '4.2-2'}}".
+-symbol-narrow : Para birimi olarak birden fazla sembolü bulunan yerel ayarlar için kullanılır.Mesela doların simgesi "$".Fakat Kanada Dolarının[CAD] simgesi ise "CA$" şeklindedir.
+-string : Para birimi olarak gösterilecek string değerdir.Herhangi birşey girebiliriz.HTML entity ile de seçebiliriz.Mesela "Türk Lirası" için: "{{number1 | currency: 'TRY' : '&#8378;' : '4.2-2'}}".
+--Digitsİnfo : 3 farklı birimden oluşur.Mesela : "4.2-3".İnteger kısmı minimum 4, decimal kısmı minimum 2 ve maksimum 3 olacağını söyler.Eğer sayı, minimum değerlerden küçükse; display edilirken sol tarafına otomatik olarak sıfır[0] eklenir.
+4-"decimal" pipe: Aynı "currency"de kullandığımız gibi sayının decimal ve integer kısmını düzenler.3 birimden oluşur.Mesela : "{{number1 | number: '4.2-3'}}".Eğer sayıyı sadece integer olarak göstereceksek "x.0-0" şeklinde kullan.
+5-"percent" pipe: Sayıyı, yüzdelik dilimlere dönüştürür.Genelde 0 ile 1 arasındaki ondalık datalarda kullanılır.Mesela: "{{number1 | percent}}".Ayrıca bunda da sayının decimal ve integer kısmını düzenleyebiliriz.Mesela: "{{number1 | percent : '4.2-3'}}".
+6-JSON pipe: Bir valueyi JSON formatındaki bir stringe dönüştürür.Genelde nested objectleri debugging içindir.Mesela elimizde bir "object1 = {name:'ali',lastname:'koç',skills:{skillname:'javascript',certificates:[1,2,3,4,5]}}" objecti olsun.Buna html içerisinde "{{object1|json}}" uygularsak, yine aynı şekilde HTMLde de görüntüleriz.
+7-"async" pipe: BUNU ANLAMADIM!
+------------------------------------------------------------------------------------------------------------
+*****Observable object kullanmak için:
+1-"OnInit" ve "Observable" modüllerini componente ekleriz.Eğer birden fazla "observer" kullanacaksak, "Subject" modulünü de ekleriz.Subjecte birden fazla "observer" tarafından "subscribe" olunabilir.Sıradan bir "subject" kullanırken "observer"ı, tüm iletilen datalardan önce kullanırsak; sonrasındaki tüm dataları alır.Fakat belirli datalardan sonra "observer" kullanırsak, öncesinde kalan dataları "subscribe" edemeyecektir.Üç farklı "subject" vardır:
+1-A = BehaviorSubject : Akışa "subscribe" olan "observer"ın, akıştaki bir önceki datadan başlayarak dataları çekmesini sağlar."İnitial value"si olmak zorundadır."BehaviorSubject" modülü eklenmelidir.Mesela:
+"const subject1 = new Subject('Hilmi1');
+subject1.subscribe(data=>console.log('Observer1' + data));
+subject1.subscribe(data=>console.log('Observer2' + data));
+subject1.next('ali2');
+subject1.next('veli3');
+subject1.subscribe(data=>console.log('Observer3' + data));
+subject1.next('halil4');
+//Output:
+Observer1 Hilmi1
+Observer2 Hilmi1
+Observer1 ali2
+Observer2 ali2
+Observer1 veli3
+Observer2 veli3
+Observer3 veli3
+Observer1 halil4
+Observer2 halil4
+Observer3 halil4"
+1-B = ReplaySubject : Akışa "subscribe" olan "observer"ın, akıştaki "n" kadar önceki datadan başlayarak dataları çekmesini sağlar."ReplaySubject" Modülü eklenmelidir.Mesela:
+"const subject1 = new ReplaySubject(2);
+subject1.subscribe(data=>console.log('Observer1' + data));
+subject1.subscribe(data=>console.log('Observer2' + data));
+subject1.next('ali2');
+subject1.next('veli3');
+subject1.subscribe(data=>console.log('Observer3' + data));
+subject1.next('halil4');
+//Output:
+Observer1 ali2
+Observer2 ali2
+Observer3 ali2
+Observer1 veli3
+Observer2 veli3
+Observer3 veli3
+Observer1 halil4
+Observer2 halil4
+Observer3 halil4"
+2-C = AsyncSubject : Akışa "subscribe" olan "observer"ın, akıştaki sadece son datayı çekmesini sağlar.Sonuncu veriyi anlayabilmesi için, "complete()" metodu zorunludur."AsyncSubject" modülü eklenmelidir.Mesela:
+"const subject1 = new AsyncSubject();
+subject1.subscribe(data=>console.log('Observer1' + data));
+subject1.subscribe(data=>console.log('Observer2' + data));
+subject1.next('ali2');
+subject1.next('veli3');
+subject1.subscribe(data=>console.log('Observer3' + data));
+subject1.next('halil4');
+subject1.complete();
+//Output:
+Observer1 halil4
+Observer2 halil4
+Observer3 halil4"
+***Observable objectlerine typeları "<string>","<number>" vs şeklinde veririz.
+***"next()" metodunu "Obversable" objectine data iletmek için, her evrede sınırsız şekilde kullanabiliriz.Ayrıca "observer"a, iletilen verileri sunar.Observer yani subscribe olunduğu zaman ise bu dataları okur.
+***Veri akışının sonlandığını belirtmek için "complete()" metodunu kullanırız.Ayrıca "observer"a, bu fonksiyondan sonra iletilen herhangi datayı kabul etmemesi gerektiğini bildirir.
+***Atanan değişkeni çağırıp subscribe[akışı izlememizi sağlar] ediyoruz.Akıştan veri elde eden, subscribe ederek veriyi izleyen ve isteyen; tüketici olan yapıya "observer" diyoruz.
+9-Scheduler : Bu object, "subscribe"ın ne zaman başlayacağını ve datanın ne zaman "observer"lara iletileceğini kontrol eder.Kısacası zamanlayıcıdır.Üç bileşenden oluşur:
+9-A = Executeion Context : Taskın nerede ve ne zaman çalıştırılacağını gösterir.
+9-B = Execution Policy : Belirli politikala göre taskların nasıl saklanacağı ve hangi sırayla alınacağı belirtir.
+9-C = Clock : "now()" metodu sayesinde sanal olarak, mevcut zamanın bilgisinin alınmasını sağlar."Observer"lar, bu zamansal bilgiye uyarak çalışırlar.
+10-4 adet Scheduler türü vardır:
+10-A-queueScheduler : Yapılacak işi kuyruğa[queue] alır.Belli bir sıra ile arka arkaya çalıştırılacak işler için kullanılır."QueueScheduler" modülünü ekleriz.
+10-B-asapScheduler : Micro tasklar için kullanılır.Mevcut işten sonra ve bir sonraki işten önce çalışır.Asenkron dönüşümler için kullanılır."AsapScheduler" modülünü ekleriz.
+10-C-asyncScheduler : Zaman tabanlı işlemlerde kullanılır."setTimeOut()" metodu ile çalışır ve bu yüzden de datalar, "observer"a asenkron halde iletilir.Kısaca zamanlayıcıdır."AsyncScheduler" modülünü ekleriz.
+10-D-animationFrameScheduler : Browserın, bir sonraki içeriği yeniden boyamadan önce triggerlanan bir türdür."AnimationFrameScheduler" modülünü ekleriz.
+11-RxJS kütüphanesindeki "creation" operatörler:[amaçları observation objectleri oluşturmak ve döndürmektir]
+11-A-ajax() = Herhangi bir endpointe[JSONUrl,vs..] yapılan bir request sonucunda gelen sonuçları "Observable" olarak döndürür."ajax" modülünü çağırırız.Fakat bunun yerine endpointdeki dataları leech için "HttpClient" librarysini kullanın.
+11-B-bindCallback = Özünde operatör değildir.Yapılan işlemlerin ardından callback fonksiyonları sağlar ve bu callback fonksiyonunu, "Observable" objecti olarak döndürür."bindCallback" modülünü çağırırız.
+11-C-defer = Kısaca "Observable" objectini, bir "observer" tarafından subscribe olunana kadar oluşturmaz, başlatmaz; bekletir.Bunu her "subscribe" için yapar."defer" modülü ekleriz.Mesela:
+"const obsv1 = of(new Date().getMinutes());
+const obsv2 = defer(()=>of(new Date().getMinutes()));
+timer(5000).subscribe(()=>{
+  obsv1.subscribe(data=>console.log('Observable1 dakikası:' + data));
+  obsv2.subscribe(data=>console.log('Observable2 dakikası:' + data));
+});
+//Output:
+Observable1 dakikası:10
+Observable2 dakikası:15"
+11-D-empty = Boş bir "Observable" objecti döndürür.Yani observableın streaminde herhangi bir data bulunmaz."empty" modülünü ekleriz.
+11-E-from = Herhangi bir arrayi veya mesela "[1,2,3]", "[{},{},{}]" veya "[[],[],[]]" gibi koleksiyonel objectleri alır ve her bir itemını "Observable" objecti olarak döndürür."from" modülü ekleriz.Mesela:
+"const araclar1=new Map<string,number>();
+araclar1.set('Klavye','1');
+araclar1.set('Mouse','2');
+araclar1.set('Kitap','3');
+const obsv1 = from(araclar).subscribe(data=>console.log(data));
+//Output:
+['Klavye',1]
+['Mouse',2]
+['Kitap',3]"
+11-F-fromEvent = Herhangi bir HTML objectinin belirtilen eventine bağlanarak, bu eventi "Observable" objecti olarak sunar."fromEvent" modülü ekleriz.Mesela htmlimizde "<button>tık1</button>" elementimiz olsun:
+"const button1 = document.getElementsByTagName('button')[0];
+const obsv1 = fromEvent(button1, 'click').subscribe(data=>{
+  console.log(data);
+})
+//Output:
+click{Object...}
+"
+11-G-generate = Verilen koşula göre loop oluşturarak "Observable" objecti olarak döndürür.Syntaxı, "for" loopuna çok benzer.Output için "repeat()" metodu sayesinde string de kullanılabilir."generate" modülü ekleriz.Mesela:
+"const obsv1 = generate(100 , x=>x>0 , x=x-3).subscribe(data=>console.log(data));
+//Output:
+100
+97
+94
+...
+1"
+11-H-interval = Belirtilen number valuesine[millisecond] karşılık gelen zaman aralığında periodlar oluşturur."interval" modülünü ekleriz."subscribe" kullanılan metodun "data" parametresi, bize her periodun indexini döndürecektir.Mesela:
+"const obsv1 = interval(5000).subscribe(data=>console.log('merhaba'));
+//Output:
+Her 5 saniyede bir 'merhaba' yazacak"
+11-I-of = Verilen herhangi tür valueleri birer "Observable" objectine dönüştürür."of" modülünü ekleriz.Mesela:
+"const obsv1 = of(1,5,'Ahmet',[true,false]).subscribe(data=>console.log(data));
+//Output:
+1
+5
+Ahmet
+[true,false]"
+***"from" ile "of" operatörleri arasındaki fark şudur: "from", sadece koleksiyonel ve arraysel değerleri; "of" ise herhangi verilen değeri Observable objectine dönüştürür.
+11-J-range = Belirtilen bir aralıkta, arraysel value halinde yayılan bir "Observable" objecti döndürür."range" modülü ekleriz.Mesela:
+"const obsv1 = range(555,50).subscribe(data=>console.log(data));
+//Output:
+555
+556
+557
+...
+604"
+11-K-throwError = Üzerinde hiçbir item barındırmayan ve bir "error" throw eden bir "Observable" objecti döndürür."throwError" modülünü ekleriz.Mesela:
+"throwError(new Error('Örnek bir Hata!')).subscribe(data=>console.log(data));
+//Output:
+Örnek bir Hata!"
+11-L-timer = Belirtilen süre kadar[millisecond] bekledikten sonra mevcut "stream"i yayacak olan bir "Observable" objecti döndürür.Kısaca delay işlevi görür."timer" modülünü ekleriz.İkinci parametresi bir "scheduler"dir.Yani zamanlayıcıdır ayni "interval" operatörü işlevi görür.Mesela:
+"const obsv1 = timer(3000, 2000).subscribe(()=>console.log('merhaba!'));
+//Output:
+3 saniyenin ardından 'merhaba!'
+Her 2 saniyede bir 'merhaba!'"
+11-M-iif = İki "Observable" objecti arasında belirtilen şarta bağlı olarak seçim yapar.Yani "if" koşulu gibidir.İlk parametresi koşulu belirtir.İkinci parametresi koşulun "true" olması; üçüncü parametresi de "false" olması durumunda çalışacak bloklardır."iif" modülünü ekleriz.Mesela:
+"let state1:boolean = true;
+const obsv1 = iif(()=>state1, of(3,5,7), of(10,11,12));
+obsv1.subscribe(data=>console.log(data));
+//Output:
+3
+5
+7"
+12-RxJS kütüphanesindeki "join creation" operatörleri:[birden fazla observable objectleri içindir]
+12-A-combineLatest = Belirtilen tüm "Observation" objectlerinin streamlerindeki en sonuncu valueleri yakalar ve bu valuelerle bir "Kombinasyon" yaratır.Kombinlenecek olan "Obversable" objectlerin, operatörün içerisindeki dizilişlerine dikkat et!"combineLatest" modülü ekleriz.Mesela:
+"const obsv1 = of('a','b','c');
+const obsv2 = of(1,2,3);
+const obsv3 = of(7,8,9);
+combineLatest(obsv1,obsv2,obsv3).subscribe(data=>console.log(data));
+//Output:
+[c,3,7]
+[c,3,8]
+[c,3,9]"
+12-B-concat = Belirtilen tüm "Observable" objectlerini sıralı bir şekilde yayar ve bunları tek bir "Observable" objecti olarak döndürür."concat" modülünü ekleriz.Mesela:
+"const obsv1 = of(1,2);
+const obsv1 = of(4,5);
+const obsv1 = of('a');
+concat(obsv1,obsv2,obsv3).subscribe(data=>console.log(data));
+//Output:
+1
+2
+4
+5
+a"
+***"concat" ile "merge" operatörü arasındaki fark şudur: "concat", aldığı objectlerin valuelerini birleştirerek, sıralı bir şekilde teker teker görüntüler."merge" ise, bunların zamansal farklılıklarını da baz alarak işlem yapar.
+12-C-forkJoin = Kendisine verilen birden fazla "Observable" objectinin tamamlanmalarını bekler ve ardından da her bir objectin yayınlanan en sonuncu değerleri çekerek, tek bir sonuç olarak döndürür."forkJoin" modülü ekleriz.Mesela:
+"const obsv1 = of('a','b','c');
+const obsv2 = of(1,2,3);
+const obsv3 = of(7,8,9);
+forkJoin(obsv1,obsv2,obsv3).subscribe(data=>console.log(data));
+//Output:
+[c,3,9]"
+12-D-merge = Belirtilen tüm "Observable" objectlerini birleştirerek, tek bir "Observable" objecti haline getirir ve döndürür.İşlem yaptığı "Observable" objectleri arasında zamansal farklılıklar olmalıdır."merge" modülü ekleriz.
+12-E-partition = Seçilen "Observable" objectini belirtilen koşula göre, bu koşula uyanlar ve uymayanlar olmak 
+üzere objectin itemlerini ikiye bölerek ayırır.Sonuçlanan bu iki ayrı grubu, array içerisinde[obs1,obs2] 2 adet item halinde döndürür. "partition" modülünü ekleriz.Mesela:
+"const obsv1 = of(1,2,3,6,7,9);
+const [obsv2,obsv3] = partition(obsv1, x=>x % 3 == 0);
+obsv2.subscribe(data=>console.log('uyanlar ' + data));
+obsv3.subscribe(data=>console.log('uymayanlar ' + data));
+//Output:
+uyanlar 3
+uyanlar 6
+uyanlar 9
+uymayanlar 1
+uymayanlar 2
+uymayanlar 7"
+12-F-race = Birden fazla "Observable" objectinin bulunduğunu varysayarsak; bunların arasında ilk streame başlayacak olan objecte "subscribe" olur."race" modülü ekleriz.Mesela:
+"const obsv1 = interval(1000).pipe(mapTo('Birinci'));
+const obsv2 = interval(250).pipe(mapTo('İkinci'));
+const obsv3 = interval(2000).pipe(mapTo('Üçüncü'));
+race(obsv1,obsv2,obsv3).subscribe(data=>console.log(data));
+//Output:
+İkinci
+İkinci
+..."
+12-G-zip = Birden fazla "Observable" objectlerinden, streamdeki aynı perioddaki dataları toplar ve arrayler olarak döndürür."zip" modülü ekleriz.Mesela:
+"const obsv1 = of(1,2,3);
+const obsv2 = of(4,5,6);
+const obsv2 = of(7,8,9);
+zip(obsv1,obsv2,obsv3).subscribe(data=>console.log(data));
+//Output:
+[1,4,7]
+[2,5,8]
+[3,6,9]"
+12-H-pipe = Kod içerisinde yaygın olarak kullanılan birden fazla operatör dizisi varsa eğer, bu fonksiyon kullanılabilir.Kısaca "Observable" objectine birden fazla operatörle müdahale edeceksek, hepsini ayrı ayrı yazmaktansa; "pipe" metoduyla tekte müdahale edebiliriz."pipe" modülü ekleriz.Mesela:
+"const obsv1 = of(1,4,7,234,34,3,99);
+obsv1.pipe(filter(x=> x%3 == 0),map(x=>x + 'degerim')).subscribe(data=>console.log(data));
+//Output:
+234 degerim
+3 degerim
+99 degerim"
+13-RxJS kütüphanesindeki "filtering" operatörleri:
+13-A-audit = Bir süre için "Observable" streamindeki valueler üzerinde işlem yapmamıza izin verir ve ardından da en sonuncu değerleri yayınlar.Yani streamde gelen dataların arasına "audit" ile gireriz ve zamansal olarak durdururuz.İşte bu duran zamandaki akan değerlerin en sonuncusunu seçer ve döndürür.İçerisinde genellikle "interval" ile kullanılır."audit" modülü ekleriz.Mesela:
+"const obsv1 = interval(1000);
+obsv1.pipe(audit(x=>interval(2000)),map(x=>x + 'degerim')).subscribe(data=>console.log(data));
+//Output:
+2. saniyede: 2 degerim
+5. saniyede: 5 degerim
+8. saniyede: 8 degerim
+11. saniyede: 11 degerim
+..."
+13-B-auditTime = "audit" operatörünün parametreli[millisecond] halidir.Bunu tercih et."auditTime" modülü ekleriz.Mesela:
+"const obsv1 = interval(1000);
+obsv1.pipe(auditTime(2000),map(x=>x + 'degerim')).subscribe(data=>console.log(data));
+//Output:
+2. saniyede: 2 degerim
+5. saniyede: 5 degerim
+8. saniyede: 8 degerim
+11. saniyede: 11 degerim
+..."
+13-C-debounce = Streamdeki valuelerin zaman aşımı sürelerini belirleyebilmek için kullanılır.Kısaca streamin zamanını kontrol ederek; belirtilen zamanın altındaki valueleri görmezden gelir.Böylece mesela bir tıklama eventine 1 saniye kısıtlaması getirerek, 1 saniyede sadece bir kez gerçekleşmesini sağlayarak; bu koşulu karşılayan valueleri, zaman aşımı bittikten sonra döndürürüz."debounce" modülü ekleriz.Mesela:
+"const obsv1 = fromEvent(document,'click').pipe(debounce(x=>interval(1000))).subscribe(()=>console.log('tıklandı'));
+//Output:
+Böylece her 1 saniyede sadece bir kez eventi okuyacak ve bir kez 'tıklandı' yazacak"
+13-D-debounceTime = "debounce" operatörünün parametreli[millisecond] halidir.Bunu tercih et."debounceTime" modülü ekleriz.Mesela:
+"const obsv1 = fromEvent(document,'click').pipe(debounceTime(1000)).subscribe(()=>console.log('tıklandı'));
+//Output:
+Böylece her 1 saniyede sadece bir kez eventi okuyacak ve bir kez 'tıklandı' yazacak"
+13-E-distinct = Streamdeki veriler içerisindeki tekrar eden verileri, tekil olarak döndürür."distinct" modülü ekleriz.Mesela:
+"const obsv1 = of(1,3,5,5,6,6);
+obsv1.pipe(distinct(x=>x)).subscribe(data=>console.log(data));
+//Output:
+1
+3
+4
+6"
+13-F-distinctUntilChanged = Streamdeki verileri değişiklik olana kadar tekilleştirir.Yani "distinct" gibi genel bazlı gözlem yapmaz.İndex olarak 0dan başlar ve sıralı halde valueleri gözlemler.Genellikle istatistiksel çalışmalarda kullanılır."distinctUntilChanged" modülü ekleriz.Mesela:
+"const obsv1 = of<Person>(
+  {age:10,name:'ali'}
+  {age:15,name:'ali'}
+  {age:30,name:'veli'}
+  {age:30,name:'murat'}
+  {age:35,name:'murat'}
+  );
+  obsv1.pipe(distinctUntilChanged((p:Person, q:Person) => p.name == q.name)).subscribe(data=>console.log(data));
+//Output:
+{age:10 , name:ali}
+{age:30 , name:veli}
+{age:30 , name:murat}"
+13-G-distincUntilKeyChanged = "distinctUntilChanged" operatöründen tek farkı, parametre olarak "key" kullanmasıdır.Yani objectler üzerinde çalışır.Objectlerde bunu tercih et."distinctUntilKeyChanged" modülü ekleriz.Mesela:
+"const obsv1 = of<Person>(
+  {age:10,name:'ali'}
+  {age:15,name:'ali'}
+  {age:30,name:'veli'}
+  {age:30,name:'murat'}
+  {age:35,name:'murat'}
+  );
+  obsv1.pipe(distinctUntilKeyChanged('name').subscribe(data=>console.log(data));
+//Output:
+{age:10 , name:ali}
+{age:30 , name:veli}
+{age:30 , name:murat}"
+13-H-elementAt = Streamdeki itemler içerisinden index numarası verilen değeri döndüren operatördür."elementAt" modülü ekleriz.Mesela:
+"const obsv1 = of(1,2,3,4,5,6,7,8,9).pipe(elementAt(5)).subscribe(data=>console.log(data));
+//Output:
+6"
+13-I-filter = Belirtilen "Observable" objectindeki dataları, belirli bir şarta göre yayınlar.Kısaca filtreleme yapar."filter" modülü ekleriz.Mesela:
+"const obsv1 = of('ahmet','mehmet','hilmi','ali');
+obsv1.pipe(filter(x=>x.indexOf('a') == 1)).subscribe(data=>console.log(data));
+//Output:
+ahmet
+ali"
+13-J-first = Streamdeki ilk valueyi döndürür."first" modülü ekleriz.Mesela:
+"const obsv1 = of(1,2,3,4,5).pipe(first()).subscribe(data=>console.log(data));
+//Output:
+1"
+13-K-ignoreElements = Belirtilen "Observable" objecti tarafından yayınlanan tüm itemleri yok sayarak görmezden gelir.Yalnızca "complete" ve "error" outputlarını yakalar."ignoreElements" modülü ekleriz.Mesela:
+"const obsv1 = of(1,2,3,4).pipe(ignoreElements()).subscribe({
+  error : error => console.log(error),
+  complete : () => console.log('the end')
+});
+//Output:
+the end"
+13-L-last = Streamdeki son valueyi döndürür."last" modülü ekleriz.Mesela:
+"const obsv1 = of(1,2,3,4,5).pipe(last()).subscribe(data=>console.log(data));
+//Output:
+5"
+13-M-sample = Periyodik zaman aralıkları içerisinde, bir "Observable" tarafından yayınlanan en son itemi yayınlar."sample" modülü ekleriz.Mesela:
+"const obsv2 = fromEvent(document,'click');
+obsv1.pipe(sample(x => interval(2000))).subscribe(data=>console.log(data));
+//Output:
+Her 2 saniyede tek bir click değeri alır ve 2 saniye boyunca tıklamaların sadece son tıklama değerlerini alır ve yazdırır."
+13-N-sampleTime = "sample" operatörünün parametreli[millisecond] halidir."sampleTime" modülü ekleriz.Mesela:
+"const obsv2 = fromEvent(document,'click');
+obsv1.pipe(sampleTime(2000)).subscribe(data=>console.log(data));
+//Output:
+Her 2 saniyede tek bir click değeri alır ve 2 saniye boyunca tıklamaların sadece son tıklama değerlerini alır ve yazdırır."
+13-O-single = Belirtilen koşulu "Observable" objectlerine uygular.Eğer birden fazla value döndüdürse "error"; herhangi bir value döndürmezse de "undefined" döndürür.Yani kısaca, verilen koşula uygun olarak sadece bir adet value döndürülmelidir."single" modülü ekleriz.Mesela:
+"const obsv1 = range(1,10).pipe(single(x=>x==9)).subscribe({
+  next:data=>console.log(data),
+  error:error=>console.log(error)
+});
+//Output:
+Sadece bir adet 9 döndürecek."
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****gRSPC Library: Remote Procedure Call.Uzak bir servardaki metodları, sanki kendi ortamının bir parçasıymış gibi çağırabildiği sistemdir.Veri iletimini[transport] HTTP2 protokolü üzerinden gerçekleştirir.Dataları "JSON" veya "XML" gibi text yerine "binary" formatına çevirerek gönderir.Fakat istersek yine "XML" veya "JSON" da tercih edilebilir.HTTP1 protokolü, "request" ve "response" mantığını kullandığı için, HTTP2'nin çalışma mantığı çok daha farklıdır.Farkları:
+-Http1, her bir statik dosya için[.css,.js,.jpg,.png..] ayrı request gönderir.Bu durum, yük ve maaliyeti artırır.Metinsel tabanlıdır.Her requestinde "header"ları sıkıştırılmamış halde gönderir.Bir request olduğunda yalnızca bir response döner.
+-Http2 ise dosyaları için tüm requestleri tek seferde toplu olarak yapabilmektedir.Böylece açılış hızı artmakta ve süresi düşmektedir.Buna "Multiplexing" denir.Teknik olarak tek bir "TCP"  bağlantısı üzerinden yapılan request ve responsetur.Client ile server arasındaki iletişimi "binary" formattaki küçük framelere ayırmaktadır.Bu duruma "Binary Protocol" denir.Her requestinde "header"ları "HPACK" ile sıkıştırarak gönderir.Bu duruma ise "Header Compression" denir.Bir reques olduğunda birden fazla response ile karşılık verebilir.Buna da "Server Push" denir.
+--------------------------------------------------------------------------------------------------------------
+*OnInıt : Bir component başlatılmak üzereyken, başlatılmadan önce triggerlanan bir yapıdır.İnitialize görevi görür.
+*AfterViewInıt : Component başlatıldıktan sonra triggerlanacak olan yapıdır.
+--------------------------------------------------------------------------------------------------------------
+*****ANGULAR PLAYGROUND:
+***Bir componentin sanboxını oluşturmak için:
+1-Mesela "nav" folderı içerisinde "NavComponent" bulunsun.CLI ile bu foldera gel.
+"ng g angular-playground:sandbox nav --flat" yaz.Böylece aynı dizine, sandboxını ekleyecektir.
+2-Sanboxın içerisine otomatik olarak şu ikisi import edilecektir: "import { sandboxOf } from 'angular-playground'" ve "import { NavComponent } from './nav.component'".Yani "nav" componentimize de erişimi var.
+3-"npm run playground" ile run ederiz.Eğer serve ederken error alıyorsan, "angular-playground" içerisine gir."sandboxes.ts" gir ve import edilen componentlerin urllerini kontrol et.İmport pathlarında folderlar arasında ikişer tane "\\" bulunmalıdır.

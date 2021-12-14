@@ -1,0 +1,34 @@
+*3 farklı cloud yapısı vardır:
+-Virtual Machines
+-Containers[docker,..] = OS içermediği için OS önyüklemesi yapmaz ve bu nedenle hızlıdır.Kolay taşınabilirler.
+-Serverless = Fonksiyonellik üzerinedir.Mesela bir müşteri, bir ürün satın aldığında otomatik onay epostası göndermek için serverless fonksiyonlar oluşturabiliriz.Serverlesslarda her fonksiyon için, kullanılan işlem süresi kadar ödeme yapılır!
+*4 genel fonksiyon içerir:
+-İşlem gücü
+-Storage
+-Network
+-Analiz
+*CapEx = Sermaye maliyetidir.Öncesinde fiziksel altyapılara harcama yapmak ve sonrasında zaman içerisinde bu harcamaları vergilerimizden düşmektir.Değeri zaman içerisinde düşen maliyettir.Mesela: server maliyeti, depolama maliyeti, network cihazları maliyeti, yedekleme ve arşivleme maliyeti, olağanüstü durumlar için kurtarma maliyeti, veri merkezi altyapı maliyeti, teknik personel maliyeti,vs...
+*CapEx = İşletme maliyetidir.Hizmetlere ve ürünlerde şimdiden harcama yapmak için şimdi faturalandırılmasıdır.Bu harcamaları aynı yıl içerisinde vergimizden düşeriz.Hiç ön maliyeti yoktur.Hizmet veya ürünleri kullandığımız esnada ödeme yaparız.Kullanıcı veya kuruluş seviyesinde faturalandırmalar yapılabilir.
+*3 farklı cloud tipi vardır:
+-Public cloud = CapEx yok böylece yatırıma ihtiyaç olmaz.Yüksek agility: Uygulamalara hızlı erişim veya hızlı kaldırma.Tüketim temellidir.OpEx modeli yani kurumlar, kullandıklarını veya çalıştıklarını öder.
+-Private cloud = Güvenlik ve kontrol gibi kısımlarda tam kontrol sağlanır.
+-Hybrit cloud = Public ve Private cloudu birleştirerek kullanılır.Esnektir.Mesela web sitemizi global cloudda barındırırken, veri tabanımızı ekstra güvenlikler sağlayarak private cloudda barındırırız.Bu, genel bir kullanımdır.
+*3 farklı cloud computing türü vardır:
+-IaaS[Infrastructure-as-a-Service] = En temel türdür.VMler, storage, network, OS, vs. kiralanır ve kullandıkça ödenir.
+-Paas[Platforms-as-a-Service] = Applikasyonlar oluşturmak, test etmek veya distribüte etmek için environment sağlar.Kullandıkça ödenir.
+-SaaS[Software-as-a-Service] = End-users için merkezi olarak yönetilen ve barındırılan softwarelerdir.Kullanıcılar, cloud tabanlı softwarelere web üzerinden bağlanır ve bunları kullanır.Mesela: Microsoft Office 365, Teams, eposta, takvimler,vs..Kullanım miktarına bakılmaz; aylık veya yıllık abonelikleri mevcuttur.
+***Googlea "azure speed test" yazarak, yeryüzünde bulunan Azure data centerlarının sizin konumuza göre olan "ms" miktarlarını gösterir.Genelde en düşük ms, "west europe" regionunda yani Hollanda civarındakidir.
+*Resource group : Azure'ye başlarken genellikle ilk başta oluşturulacak olandır.Azuredeki çözümlerimiz için ürettiğimiz kaynakları tutan bir containerdır.Azurede diğer üretilen kaynakları bu gruplarda tutabilir ve rahat şekilde yönetebiliriz.
+*wordpress : Azure Marketplace'de mevcuttur.Burada wordpress sitelerini oluştururuz.Default ayarlarda "www.xxx.azurewebsites.net" şeklinde website extensions alacaktır.İçerisinde mysql provider seçip, configurasyon da ayarlarız.
+*log analytics : Azure'ye başlarken, 90 gün boyunca ücretsiz hizmet verir.Bu, yapılan işlemler esnasında veya sonrasında size notificationlar sağlar.Üzerine tıklayarak tutulan bütün logları takip edebiliriz.
+*Cloud Shell : Azure CLI'dır.Azure kaynaklarını üretmek, geliştirmek veya yönetmek için kullanılan browser tabanlı bir shelldir[command line].Mesela Azurede oluşturduğumuz her bir App Servicee tek tek tıklayarak ulaşmaktansa, bu shelldeki komutlar sayesinde erişim sağlarız.
+***Azure'un datacenterlarında herhangi bir felakete veya düşmelere[drop] karşı başlıca şu iki önlem alınmıştır:
+1-Availability Zones : Kendine ait bağımsız güç kaynakları, networkleri ve soğutma sistemleriyle birbirinden hem fiziksel hem logic olarak ayrılmış data centerlardır.Birbirine yüksek hızda fiberoptik kablolarla bağlıdır.Düşük msli bir ağa bağlı kalan yapılardır.Birbirine bağlı en az 3erli alanlar olmak üzere tasarlanmışlardır.
+2-Region pairs : Aynı coğrafyadaki iki bölgeden oluşur.Azure, mesela planlı platform updatelerini bu bölgesel çiftler arasında planlayarak, her bir updatete yalnızca bir bölgenin güncellenmesini sağlar.Eğer bir kesinti, birden fazla bölgeyi etkiliyorsa; kurtarmak için her bir bölge çiftinde en az bir bölgeye öncelik verilecektir.
+***Azure'nin datacenterlarında güncelleme veya bakım için kurulan "availability sets":
+1-Update Domain : Bir "availability set" içerisinde oluşturduğumuz VMlerin planlı bakım, performans veya güvenlik updateleri gibi işlemlerini bu etki alanları arasında otomatik olarak dağıtarak gerçekleştirir.
+2-Fault Domain : Bir datacenterdaki farklı fiziksel donanımlar arasında iş yüklerinin fiziksel olarak ayrılmasını sağlar.
+*Azure Batch : Bir VM havuzu oluşturur ve yönetir[ölçeklendirme,zamanlama,vs birçok özelliği mevcut].İşlerimizi çok daha kontrollü şekilde yönetebiliriz.
+*Containerlar : Bir host makinesinde, bir uygulamanın birden fazla kopyasını çalıştırmak istiyorsak en iyi tercihtir.Containerı configure ederek başlatma, durdurma, scaling,vs yapılabilir.VMlerden daha hafiftir çünkü mevcut OS Coreunu kullanarak çalışır.Ayrıca VMler fiziksel donanımı virtualize eder; Containerlar ise OSyi virtualize eder.Containerler için en çok kullanılan Azure servisleri şunlardır:
+-Azure Container İnstances
+-Azure Kubernetes Services

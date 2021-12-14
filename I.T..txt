@@ -1,0 +1,143 @@
+***Apps and Features
+***Control Panel
+***Computer Management
+***Registry Editor
+***Remote Desktop Connection
+***Windows Administrator Tools
+***DOMAİN CONTROLLER eklemek için:
+1-Yeni bir virtual machine oluşturmak için "Create VM" tıkla.
+2-"Create new Virtual Machine" tıkla.
+3-Burada domain controllerın sanal makinesi için isim belirleriz.Mesela "DC100" olsun.
+4-"OS family" için "Windows" ve "OS version" içinse "Microsoft Server" seçeriz.
+5-Kaplayacağı yer için serverın datastoreunu seçeriz.Listede birden fazla datastore olabilir; seçerken dikkat edin.
+6-Minimum 2 adet CPU seçmeye dikkat edelim.Memorysi minimum 4 gb olabilir çünkü zaten domain controller olacağından dolayı pek fazla işlem trafiği veya kullanıcı olmayacaktır.Harddisk içinse minimum 40gb olabilir.Ayrıca harddiski ileride azaltabilir veya artırılabilir kılmak istiyorsak, "thin provisioned" şeklinde işaretlemeliyiz.
+7-Yüklenecek olan OS'nin ISO dosyasını seçmek içinse, "CD/DVD Drive" kısmından dosyanın pathını belirtiriz.Bu dosya "Windows 10 Enterprise" olarak adlandırılır.
+8-Böylece virtual machine oluştu.Ardından OS yüklemek için "DC100" virtual machineinin içerisine gireriz.
+9-Başlangıç seviye elemanlar için "Windows Server Datacenter ... Desktop Experience" versiyonunu seçerek yükleriz.
+10-"Custom İnstallation" seçeriz ve yükleme işlemini tamamlarız.
+11-Yükleme bittikten sonra giriş için "domain join instead" tıklarız.Bizden password isteyecek.DC için bir şifre belirlemeliyiz.Ve bu belirtilen şifreyle de accountu açıp giriş sağlarız.
+12-Ağ bağdaştırıcı ayarlarına girip "IPv4 Properties" seçeriz.Burada DNSyi "127.0.0.1" yaparız çünkü localhost olan serverın dnssini referans alırız.Alternate DNS kısmını ise googleın DNSi olan "8.8.8.8" yapabiliriz.
+13-"Rename the PC" yaparız.PCnin adını virtual machine ile eşleşsin diye "DC100" yaparız.Burada bizden "restart pc" isteyecek fakat hayır deyip firewallu açacağız.Firewallu deaktif edeceğiz fakat BU KAPATMA İŞLEMİNI, ŞİRKETTEN ONAY ALMADAN KESİNLİKLE YAPMAYINIZ!"Public network" ve "private network" firewalları kapatılır.Ardından da restart atarız.
+14-Artık bu serverı, DC yapmak için rol eklemeliyiz.Server maganera girip "Manage" kısmından "Add roles and features" seçeriz.
+15-"Role based or feature based installation" seçeriz.
+16-"Server Selection" bölümünde mevcut serverı yani "DC100"ü seçeriz.
+17-Rol listeleri arasında da "Active Directory Domain Services" seçip ekleriz.Ve ardından install diyerek tamamlarız.
+18-Yükleme bitince, ekranı kapatmadan "Promote the server to a domain controller" tıklarız.
+19-"Add a new forest" seçeriz çünkü yeni oluşturuyoruz.Burada domain name seçeceğiz.Mesela "DC100.jobskillshare.org" şeklinde yaptık.
+20-Burada bizden parola isteyecek.DC'nin parolasını gireceğiz.
+21-Bizden "NetBIOS domain name" isteyecek.Biz DC ismini "DC100" yaptığımız için, bize default olarak "DC1000" görüntüleyecektir.Ardıdan "install" çıkana kadar "next" tıklarız.Ve böylece bu servera rol vererek AD yükledik ve Domain Server haline getirdik.
+22-Restart attıktan sonra windowu başlatırken, domain ismiyle beraber "DC1000/Administrator" şeklinde username belirecektir.DC'nin şifresini girerek açarız.
+***USER eklemek için:
+1-DC'nin içerisinden AD içerisindeki "Users" kısmına gir ve "add user" tıkla.
+2-Mesela "firstname:helpdesk2,lastname:,User login name:helpdesk2@dc100.jobskillshare.org" şeklinde ekledik.Şifre içinse kullanıcının girmesi için "helpdesk2pass1" girdik.Bu şifre geçicidir."user must change password at first login" tickini işaretledik.Böylece kullanıcı, AD'de oluştu.
+2-AD'ye eklediğimiz "helpdesk2" userını şimdi de virtual machinede oluşturacağımız bir windowsta ekinleştireceğiz."Create new Virtual Machine" tıkla.
+3-Burada sanal makine için isim belirleriz.Mesela "HELPDESK100a" olsun.
+4-"OS family" için "Windows" ve "OS version" içinse "WİNDOWS 10" seçeriz.
+5-Kaplayacağı yer için serverın datastoreunu seçeriz.Listede birden fazla datastore olabilir; seçerken dikkat edin.
+6-Minimum 2 adet CPU seçmeye dikkat edelim.Memorysi minimum 8 gb olabilir.Harddisk içinse minimum 32gb olabilir.Ayrıca harddiski ileride azaltabilir veya artırılabilir kılmak istiyorsak, "thin provisioned" şeklinde işaretlemeliyiz.
+7-Yüklenecek olan OS'nin ISO dosyasını seçmek içinse, "CD/DVD Drive" kısmından dosyanın pathını belirtiriz.Bu dosya "Windows 10" olarak adlandırılır.
+8-Böylece virtual machine oluştu.Ardından OS yüklemek için "HELPDESK100a" virtual machineinin içerisine gireriz.
+9-"Custom İnstallation" seçeriz ve yükleme işlemini tamamlarız.
+10-Yükleme bittikten sonra giriş için "domain join instead" tıklarız.Bir local name belirleriz; mesela "helpdesk".Bizden password isteyecek."helpdesk" için bir şifre belirlemeliyiz.Ve bu belirtilen şifreyle de accountu açıp giriş sağlarız.
+11-"Rename the PC" yaparız.PC'nin adını virtual machine ile eşleşsin diye "HELPDESK100a" yaparız.Restart atarız.
+12-"change adapter settings" tıkla.Kullanılan adaptera sağ tıkla ve "properties" tıkla.
+13-"IPv4 properties" seçeriz.Burada DNS'yi, DC'nin IPsi haline getiririz.Bu yüzden önce DC'nin IP adresini öğrenmemiz gerekmektedir.
+DC'nin IPsini "ping" cdm komutuyla öğrenebiliriz.Alternate DNS kısmını ise googleın DNSi olan "8.8.8.8" yapabiliriz.
+14-"System" gir."change settings" tıkla çünkü artık "workgroup" yerine bir domaine ait olacak.
+15-"change" tıkla.Burada "domain" kısmını işaretleyeceğiz ve DC'nin ismini yani "dc100.jobskillshare.org" yazacağız.
+16-"OK" tıkladığımızda bizden username-password isteyecek.Burada "user" oluştururken belirlediğimiz yani "helpdesk2" ve "helpdesk2pass1" gireceğiz.Restart atacağız.
+17-Giriş yapılırken  "other users" kısmından yapılacaktır.
+***Bir User'a adminlik yetkisi vermek için:
+1-AD içerisinde belirtilen userı bulup sağ tıkla ve "properties" tıkla.
+2-"Member of" kısmına gel ve listeye eklemek için "add" tıkla.Çıkacak olan yerde bizden object name isteyecek.Buraya "domain admins" yazacağız çünkü mevcut userı "domain admins" grubuna ekliyoruz.Böylece mevcut user, hem "domain users" hem de "domain admins" memberı olacaktır.
+***Adminlik verilmiş bir User ile adminlik yapabilmek için:
+1-Adminlik sağlanan virtual machineye gir.Adminlik hesabıyla giriş sağla.
+2-"Apps and features" kısmına gir."add a feature" tıkla.
+3-İçerisinde "... Active Directory Domain Services ..." geçen özelliği bul ve ekle.Bu özellik eklendikten sonra, "Administrator Tools" klasörü içerisine AD eklenmiş olacaktır.
+***GROUP POLICY ayarları için:
+1-Domain servera gir.
+2-"Server Manager" içerisinden "Group Policy Management"e gir.Domain server oluşur oluşmaz, default ayarları bulunacaktır.
+3-"Default domain policies"e sağ tıklayarak "edit" tıklarız.Burada bütün configurationlar bulunur.
+***LOCKOUT hesaplar için:
+1-AD içerisinde belirtilen userı bulun ve sağ tıklayıp "properties" tıkla.
+2-"Account" kısmına gel.
+3-"Unlock account" yazısını işaretle ve tamamla.
+***PASWORD RESET için:
+1-AD içerisinde belirtilen userı bulun ve sağ tıklayıp "reset password" tıkla.
+2-Burada temporay password oluştururuz.Eğer "user must change password next login" tıklarsak, userın passwordu değiştirmesini zorunlu kılarız ve bu tercih önerilir.
+***Userlar için OUTLOOK account eklemek için:
+1-"portal.office.com" gir ve "admin" appini seç.
+2-"users" bölümü içerisinde "active users" seç.Burada bütün mevcut accountlar bulunur.
+3-"Add a user" tıkla.Gerekli boşlukları doldur.Özellikle "username" kısmına dikkat et çünkü user, bu account adıyla giriş yapacaktır.'@' ifadesinden sonraki kısım ise serverın "domain name"ini ifade eder.
+4-Password içinse "let me create the password" işaretle ve kendi belirlediğin bir passwordu yaz.
+5-Userın ilk girişinde, passwordünü değiştirmemesi için alttaki "require this user to change password..." yazan metnin işaretini kaldır.Böylece senin belirlediğin passwordde kullanmaya devam edecek.
+6-Location seçeriz.
+7-Alttaki "assign user as a product licence" işaretleriz.Çünkü microsoft, bize satın aldığımız paketlere göre belirli lisans sayısı sağlar.Her bir user, bir lisans tüketir.
+8-Default olarak "user" rolü atanır.Fakat eğer admin erişimi sağlamak istersek, "admin access" kısmını işaretleriz.Ve adminlik levelındaki erişimlerini de aşağısındaki listeden tek tek belirleyebiliriz."global admin", en geniş kapsamlısıdır.Buradaki yetkiler, kısıtlamalardan ibarettir.Ve devam edip işlemi bitiririz.
+***DESKTOP OUTLOOK applikasyonunu senkronize problemini çözmek için:
+1-"Control Panel" gir."User accounts" gir."Mail" tıkla.
+2-"Veri dosyaları" gir.Burada, Outlook'un hesapları kaydettiği dosyanın pathini göreceğiz."Open folder path" tıkla.
+3-Açılan folderda outlookta kayıtlı olan accountlar ve verileri tutulmaktadır.Senkronize etmek istediğimiz accountu bulacağız ve sadece hesap ismi kısmını sileceğiz ve böylece resetlenecek.Mesela: "ugurcanbas52@hotmail.com - ugurcanbas52.ost" dosyasında hesap kısmını silerek "ugurcanbas52@hotmail.com" yaparız.
+4-Ardından da outlooku açarız.Resetlediğimiz profili seçeriz.Böylece en baştan profil yüklemesi yapacaktır ve clouddaki mail verilerinizi çekecektir.
+***Damage görmüş OUTLOOK hesaplarını repair etmek için:
+1-"Program files" gir."Microsoft office" gir."Office16" gir.
+2-Bu folderde çok sayıda file olacak."SCANPST" tıkla.Bu, outlook profillerini repair etmemizi sağlayan bir tooldur.
+3-"Browse" tıklayarak outlook profilimizin pathını seçeriz.Ardından da "start" deriz.
+***OUTLOOK'u safe modda açmak için:
+1-RUN windowunu açın.
+2-"outlook.exe /safe" yazın.Ardından profil seçerek giriş yaparız.
+***NET BIOS NAME öğrenmek için:
+1-"Server Manager" gir."Tools" tıkla ve AD aç.
+2-Sol taraftaki domain name üzerine sağ tıkla ve "properties" tıkla.
+3-NETBIOS NAME burada yazacaktır.
+***FİLE SHARİNG için:
+1-DC'ye gir.Dosyayı, "C" veya "D" diskinin içerisine taşıyın çünkü böylece paylaşım yaparken dosyanın pathini kısaltmış olmaktayız.
+2-Dosyaya sağ tıkla ve "properties" tıkla.
+3-"Sharing" tabına gel.Burada üstte "sharing path" görünecektir.Fakat belirli userlara erişim vermeliyiz ki bu pathe ulaşabilsinler.
+4-"Advanced setting" tıkla."Permissions" tıkla.Burada izne sahip userlar ve bu userların ne çeşit izne sahip oldukları[full,read,change] belirtilir.
+5-"add" tıkla.Burada tek tek user, hazır grupları[domain users,vs..] veya AD'de userlarla oluşturduğumuz grupları da ekleyebiliriz.Eğer grup ekleyeceksek şuna dikkat et: ADye gir.Grubun üstüne sağ tıkla ve "properties" tıkla.Eğer grup typeı "security" ise, servera bağlı makineler arasında paylaşım yapar.Eğer "distribute" ise, outlooklar arasında paylaşım yapar.Biz "security" seçeceğiz.
+6-Ekledikten sonra verilecek izinleri de seçeriz.Tamam deyip kapatırız.Artık bu domain servera bağlı başka bir virtual machine, file path kısmına bu dosyanın "sharing path"ını yazarak ulaşabilecektir.Paylaşılan dosyanın "sharing path"ı, sadece bulunduğu DC'den belirlenebilir.
+7-Eğer path yazmadan erişmek istiyorsak, DİSK A,B,C.. bulunan "This PC"yi açın."This PC" üzerinde boş biryere sağ tıkla ve "add Network Location" tıkla.Burada dosyanın "sharing path"ını yaz ve tamam de.Artık "This PC" içerisinde oluşan yeni klasöre çift tıklayarak, paylaşılan dosyaya erişebiliriz.Fakat bu işlemin yerine "Map Network Drive" işlemi önerilir çünkü çok daha fonksiyoneldir.
+***Bir Network Driveını Mapping için:
+1-File Explorer gir."This PC" sağ tıkla ve "Map Network Drive" tıkla.
+2-Burada networkde bulunan yani paylaşıma açık olan dosyaların ve paylaşıma açık olmayan fakat kullandığımız PC'nin şahsi klasörlerinin de pathını belirterek map ederiz.Pathını gir ve paylaşılan klasörün içeriğini görürüz.
+***FİLE SERVER RESOURCE MANAGER featureı kullanmak için:
+1-Yüklememiz için DC içerisinde "Server Manager" gir ve "Add roles and features" tıkla.
+2-Next,next..."Roles" kısmı gelince, "File and Storage Services" tıklayarak expand et.İçerisinde bir yerde "File Server Resource Manager" bul.
+3-Next, next ve tamam.Yüklendi.Şimdi "Server Manager" gir ve bu featureı aç.
+4-"File Screens" aç.İçerisinde boş biryere sağ tıkla ve "create" tıkla.Burada DCnin içerisinde paylaşılacak olan klasörü doğrudan seçeriz.
+5-Burada kısıtlamaları belirleyeceğiz.Mesela "Block audio and video" diyerek, belirtilen pathtaki klasöre erişimi olan kullanıcıların, audio ve video eklemelerini engelledik.
+***User accountlarına SOFTWARE yüklemek için:
+1-Mesela Firefox yüklemek için bile sıradan bir userın yetkisi yoktur.Yüklemeye tıklayalım.
+2-Bizden username/pass isteyecek.Fakat buradaki username şu şekilde olacak "NETBIOSNAME\USERNAME" ve "PASSWORD".
+***PDQ ile tüm userlara software deploy ve patching için:
+1-PDQ indir ve kur.
+2-Userlara yükleyeceğimiz dosyanın yükleme dosyasını internetten indir ve disklerden birisine kaydet.
+3-İndirilen bu dosyayı sharing yap ve hem "everyone" hem de yüklemek istediğin userlar veya user grupları için permission belirt.
+4-PDQ gir."new Package" tıkla.Burada package adlandırması yaparız.Mesela "filezilla".
+5-"steps" tıkla ve "install" tıkla.Burada yüklemek istediğimiz dosyanın pathını belirtmek için dosyayı bul.
+6-Burada "command line" kısmına dikkat etmeliyiz.Burada zaten dosyayı eklediğimiz için dosyayı belirten bir command bulunacaktır.Biz bu bu commandin sonuna deploy etmesi için yükleme komutu yazmalıyız.Mesela filezillanın yükleme komutu için googleda "filezilla silent install" aratıp buluruz ve buraya ekleriz.
+7-Sol üstte kaydetme ikonuna tıkla ve PDQnun ana ekranına dön.Artık sol columnda eklemiş olduğumuz "filezilla" packagei belirecektir.Bu packagee tıkla ve sağ taraftaki "deploy" butonuna tıkla.
+8-Açılan ekranda "choose target"->"active directory"->"computers" tıkla.Burada DCye bağlı olan userları göreceğiz.Tümünü seçelim ve OK tıkla.Fakat tüm userlara yüklemeden önce virtual bir "test machine" oluştur.Önce bu machineye deploy et ve eğer problem yoksa diğer userları da dahil ederiz.
+9-Sol tarafta target user listesi çıkacak.Eğer deploy için uygunlarsa hemen sağ taraflarında bir yeşil tik çıkacaktır.Mesela firewalllarında sıkıntı varsa veya eğer bu virtual machineler o esnada açık ve çalışır durumda değilse, bu yeşil tik yerine ünlem görünecektir.
+10-"Deploy now" tıkla.Seçilen tüm userlara yüklenecektir.Progressi ekrandaki statusten takip edebiliriz.
+***Birden fazla virtual machineye OS yüklemek için:
+1-DC gir ve "server manager" gir.
+2-"Tools" tıkla ve "DHCP" gir.
+3-"IPv4" içerisindeki "scope"a sağ tıkla, "activate" de ve sağ tıklayıp "properties" seç.Scope, alan demektir ve buradaki IP adreslerinin rangeini belirtir.
+4-"advanced" gir ve default olarak "DHCP" seçili olacaktır fakat bunu "both" olarak işaretleriz."OK" tıkla ve çıkarak "server manager"a gel.
+5-"Tools" girerek "windows deployment services" tıkla."Servers" gir ve domain serverını seçerek sağ tıkla ve "configure server" tıkla.
+6-"Next","Next".Burada path çıkacak ve genellikle "D Disk"i seçeriz.
+7-"Next"."PXE SERVER INITIAL" kısmı çıkacak."response all client computers" tıklarız çünkü yeni eklenmiş ve tanımlanmayan virtual machineleri de dahil ediyoruz."OK" tıkla ve yükle.
+8-Yükleme bitince de "windows deployment services" ana ekranı gelicek.Yine domainin üzerine sağ tıkla ve "all tasks"->"start" tıkla.Böylece server configurasyonunu sağladık.
+9-Domain içerisinde "install images" sağ tıkla ve "add install image" tıkla.Burada image grubunun ismini ayarla.Mesela "imageTest1".
+10-Burada eklenecek olan image dosyalarını içeren dosyanın network pathını gireriz.Mesela: "\\VMachine1\Win10\sources\install.wim"."Next".
+11-Eğer dosyaları doğru şekilde detect edebilirse, burada işaretlenmiş olarak Windows OS'yi işaretli olarak gösterecektir."Next"."Next".İmagei yüklemeye başlayacak.
+12-"windows deployment services" ana ekranı gelicek.Yine domain içerisinde "boot images" sağ tıkla ve "add boot image" tıkla.
+13-Burada eklenecek olan image dosyalarını içeren dosyanın network pathını gireriz.Mesela: "\\VMachine1\Win10\sources\boot.wim"."Next"."Next".Yüklemeye başlayacak.
+14-Yüklendikten sonra, windows 10 dosyaları bulunan virtual machineye git[örnekteki 'VMachine1'] ve admin kısmından oturum aç.
+15-Burada "server manager" gir."Tools" kısmından "Hyper-V Manager" gir.
+16-Buradaki listede virtual machineler mevcut.Yükleme yapacağımız VMye sağ tıkla ve "settings" tıkla.
+17-Bu VMnin network adapterını "remove" et ve en üstteki "add hardware" kısmına gelerek "lageacy network adapter" ekle.Çünkü bu adapter, PXE featureını içerir ve böylece hedef VMye elektrik bağlayıp başlattığımız zaman, gönderdiğimiz Windows imagelerini kendi hard disklerinde,CD-Driveında veya usbde aramaktansa IP ile arama yapacak ve yükleyecektir.
+18-DVD-Dive kısmını "none" ayarla."OK" tıkla ve ekrana dön.
+19-Hedefteki VMnin üzerine sağ tıkla ve "connect" tıkla.Böylece VM başlatılacak ve DHCP serverı aramaya başlayacak ve bulduğunsaysa TFTP sayesinde yükleme yapacak.

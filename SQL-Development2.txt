@@ -1,0 +1,73 @@
+*Alias = Seçilen kolonları görüntülerken; kolon isimlerini, seçtiğimiz alias isimleri olarak görüntüler.Mesela
+"select id,company sirket,last_name soyadi,city sehir from customers;" ifadesi, "customers" tablosundaki "company", "last_name" ve "city" kolonlarını, ekranda "sirket", "soyadi" ve "sehir" kolonları olarak görüntüler.
+*or = Genellikle "where" koşullarında kullanılır.Birden fazla şartı görüntülemek içindir.Mesela:
+"select * from products where category='Sauces' or category='condiments'".
+*and = Genellikle "where" koşullarında kullanılır.Şartların tümünü sağladığı takdirde görüntülemek içindir.Mesela:
+"select * from products where category='Sauces' and category='condiments'".
+*order by = Alfabetik veya numerik olarak sıralamk içindir.Mesela: "select * from customers order by age desc, name asc".Eğer 
+"select * from products order by category,id" gibi çoklu kullanılırsa; önce "category"yi sıralar.Ardından aynı "category" grupları içerisinde bulunan itemlerin de "category" columnunu bozmadan, "id"lerini sıralar.
+*asc = Artan anlamı vardır.Sıralamalarda numerik veya alfabetik artışı ele alır.Default değerdir.Mesela: 
+"select * from products order by standard_cost desc,id asc".
+*desc = Azalan anlamı vardır.Sıralamalarda numerik veya alfabetik azalışı ele alır.Mesela: 
+"select * from products order by standard_cost desc,id asc".
+*count = Sayım yapar.Mesela "select count(*) Adet from products where category='Sauces'" ifadesi, "products" tablosundaki "category" columnunda "Sauces" valuesine sahip olan tüm[*] satırların sayısını "Adet" aliasıyla beraber döndürür.
+*group by = Belirli bir columndaki datayı inceler, gruplandırır ve tekrar etmeyecek şekilde tekilleştirir.Mesela:
+"select employeeNo,avg(salary),count(*)from salaries group by employeeNo".
+*sum = Toplanan verilerin sayısal bazda toplamını döndürür.Mesela: "SELECT sum(salary) FROM salaries".
+*count = Toplanan verilerin adedini döndürür.Mesela: "SELECT count(*) FROM salaries".
+*min = Toplanan veriler arasındaki minimum değeri döndürür.Mesela: "SELECT min(salary) FROM salaries".
+*max = Toplanan veriler arasındaki maximum değeri döndürür.Mesela: "SELECT max(salary) FROM salaries".
+*avg = Toplanan verilerin ortalama değerini döndürür.Mesela: "SELECT avg(salary) FROM salaries".
+*having = Kümülatif koşul belirtir.Genellikle "group by" ifadelerinin ardından kullanılır."where" koşulu ile uygulandığında, ilk olarak "where" koşulu uygulanır ve ele alınır.Mesela: 
+"select category from products group by category having count(*)<=3" ifadesi, "category" columnundaki dataları tekrar etmeyecek şekilde gruplandırarak yazdırır fakat yazdırılan datalar, en fazla 3 adet tekrara sahip olmalıdır. 
+*select = Veritabanındaki tablolardan kayıtları kolonlar halinde çeker.Mesela: "select id,name from customers where customers.age>30".
+*insert = Belirtilen tabloya veri eklemek için kullanılır.Mesela: "insert into customers (ad,soyad,age) values ('ali','tatar',33)".
+***Excel tablosundan da veriler hesaplanıp, veritabanına aktarılabilir.Mesela: 
+[="insert into customers (customerName,district,gender) values ('"&A2&"','"&B2&"','"&C2&"')"].Ardından excelin bu satırındaki fonksiyonu, diğer satırlara yayıyoruz.
+*update = Bir tablodaki kaydın bir veya daha fazla alanını değiştirir ve günceller.Mesela: "update customers set age=datediff(now(),birthdate)/365 where gender='e'".
+*delete = Bir tablodan kayıt siler.Mesela: "delete from customers where district='üsküdar'".
+*truncate = Tablonun içini tamamen boşaltır ve ilk oluşturduğumuz haline çevirir.İndexler, primary keyler, vs sıfırlanır.Mesela: "truncate table customers".
+*where = Veri çekerken koşul sağlar.Mesela: "selec*from customers where age>=30".
+*create = Bir veritabanı objecti oluşturur.
+*alter = Bir veritabanı objectinin özelliğini değiştirir.
+*drop = Bir veritabanı objectini siler.
+*distinct = Tekrar eden verileri tekilleştirerek, tek bir veri olarak döndürür.Mesela: "select distinct city from customers where city='istanbul'".
+*limit = Görüntülenecek olan verilerin başlangıç noktasını belirtir ve adetini bir sayıyla sınırlar.Mesela: "select*from customers limit 25,150".
+*and = Bu operatör, "ve" anlamı taşır.Mesela: "select*from customers where district='ankara' and age>22".
+*or = Bu operatör, "veya" anlamı taşır.Mesela: "select*from customers where district='ankara' or district='izmir'".
+*not = Bu operatör, eşit değildir[!=] anlamına gelir.Mesela: "select*from customers where not district='istanbul'".
+*<> = Bu operatör, eşit değildir[!=] anlamına gelir.Mesela: "select*from customers where district<>'istanbul'".
+*between = Bu operatör, değer aralığını belirtir.Mesela: "select*from customers where age between 20 and 33".
+*like = Bu operatör, bir arama patterni içerebilir.Birden çok arama patterni bulunur:
+-like 'x%' = İfadenin x ile başlaması gerektiğini belirtir.Mesela: "select*from customers where customerName like 'ba%'".
+-like '%x' = İfadenin x ile bitmesi gerektiğini belirtir.Mesela: "select*from customers where customerName like '%can'".
+-like '%x%' = İfadenin içerisinin herhangi bir kısmında x, mevcut olabilir.Mesela: "select*from customers where district like '%stanb%'".
+-like '_x%' = İfadenin ikinci karakterinin x olması gerektiğini belirtir.Mesela: "select*from customers where customerName like '_r%'".
+-like 'x_%' = İfadenin x karakteriyle başlaması ve en az 2 karakter uzunluğunda olması gerekir.Mesela: "select*from customers where district like 'i_%'".
+-like 'x__%' = İfadenin x karakteriyle başlaması ve en az 3 karakter uzunluğunda olması gerekir.Mesela: "select*from customers where district like 'i__%'".
+-like 'x%y' = İfadenin x ile başlayıp, y ile bitmesi gerektiğini belirtir.Mesela: "select*from customers where district like 'ist%bul'".
+*in = Bu operatör, koşulun içerdiği birden fazla alanı belirtir.Mesela: "select*from customers where district in ('istanbul','ankara','samsun')".
+*not like = "like" operatörünün tam tersidir.Belirtilen koşulu kapsamayanları döndürür.Aynı özelliklerin tümüne sahiptir.
+*not in = "not" operatörünün tam tersidir.Belirtilen koşulu kapsamayanları döndürür.Aynı özelliklerin tümüne sahiptir.
+*datediff(x,y) = 2 değerin arasındaki gün sayısını döndürür."x-y" şeklinde hesaplar.Mesela: "SELECT DATEDIFF('2017-06-25 09:34:21', '2017-06-15 15:25:35')".
+*timediff(x,y) = 2 değerin arasındaki saat sayısını döndürür."x-y" şeklinde hesaplar.Mesela: "SELECT DATEDIFF('2017-06-25 09:34:21', '2017-06-15 15:25:35')".
+*convert(value,type) = Belirtilen valueyi, seçtiğimiz türden verilere dönüştürür.Alabileceği typelar:
+-date : Mesela "select convert("2021-03-13 00:00:00",DATE)".
+-datetime : Mesela "select convert("2021-03-13",DATETIME)".
+-decimal : Mesela "select convert("2021-03-01", DECIMAL)".
+-time : Mesela "select convert("2021-03-01 00:03:01", TIME)".
+-char : Sabit lengthli bir stringe dönüştürür.Mesela "select convert(150,CHAR)".
+-signed : İşaretli[+,-] 64 bitlik integera dönüştürür.
+-unsigned : İşaretsiz 64 bitlik integera dönüştürür.
+*create = Tablo veya database oluşturmak içindir.Mesela: "create database database1".Table için:
+create table IF NOT EXISTS test (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(45) NOT NULL, age INT NOT NULL, birthdate DATE NOT NULL,
+created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP) ENGINE=INNODB;
+*drop = Tablo veya database silmek içindir.Mesela: "drop database database1".Table için: "drop table table1".
+*inner join = İlişkisel tablolardaki foreign keylerle eşleşen dataları döndürmeyi sağlar.Mesela: 
+"select users.*,adress.ADRESS_TEXT,countries.COUNTRY from users join adress on adress.USERS_ID=users.ID join countries on countries.ID=adress.COUNTRIES_ID".
+*on = Koşul belirtir.Genellikle "join" querylerinde kullanılır.
+*left join = "foreign key"e sahip ilişkisel tablolar arasında kullanılır.Tablolardaki eşleşen dataları ve sol tabloda olup da sağ tabloda bulunmayan[eşleşmeyen] dataları da döndürür.
+"select*from products inner join suppliers on products.supplier_ids=suppliers.id where suppliers.id is null" ifadesi, "products" tablosundaki "supplier_ids" columnu ile "suppliers" tablosundaki "id" columunu, karşılıklı gelecek şekilde birleştirdi ve "suppliers" tablosundaki "suppliers.id=null" olan değerleri döndürdü.
+*right join = "foreign key"e sahip ilişkisel tablolar arasında kullanılır.Tablolardaki eşleşen dataları ve sağ tabloda olup da sol tabloda bulunmayan[eşleşmeyen] dataları da döndürür.
+*outer join = 
