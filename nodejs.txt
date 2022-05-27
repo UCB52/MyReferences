@@ -1,0 +1,192 @@
+*****Starter pack:
+1-"npm init -y" yaz.
+2-"npm install express --save" yaz.
+3-"npm install --save-dev nodemon" yaz.
+4-"package.json" gel ve şöyle ekle:
+"'scripts': {
+    'start': 'nodemon ./index.js'}".
+5-"npm install mongoose --save" yaz[mongodb için].
+6-Eğer MySQL kullanacaksan da "npm install mysql" yaz.
+7-"npm i dotenv" yaz[bazı dosyalarımızı güvenli environmentta tutmak için].
+8-"npm i body-parser" yaz[aldığımız requestin bodysi için].
+9-"npm i cors" yaz[cross browsing için].
+---------------------------------------------------------------------------------------------
+*****Serverı çalıştırmak için:
+1-Ana dizine gel ve "node index.js" yaz.
+2-Eğer nodemon ve scriptiyle yüklüyse, "npm start" ile çalıştır.
+---------------------------------------------------------------------------------------------
+*****MongoDB bağlantısı için:
+1-MongoDB websitesine git ve oluşturduğun clustura gir.
+2-"database access" gir ve burada bir user oluştur.
+3-"network access" gir ve "add IP Adress" tıkla.Burada IP adresimizi gir.Eğer bilmiyorsak, "add current ip adress" tıklayıp kaydet.
+4-"database" gir ve "connect"->"connect your application" tıkla.Burada bize bir connection string verecek[uzun, karmaşık bir string].Bunu kopyala çünkü sonrasında "index.js"te kullanıcaz.
+5-Proje ana dizinine ".env" dosyası oluştur ve mongo databaseimizin bilgilerini içerisine şöyle ekle:
+"MONGO_USERNAME = admin
+MONGO_PASSWORD = admin".
+6-"index.js" gir ve şöyle ekle:
+"const mongoose = require('mongoose')
+require('dotenv/config')
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster1.leyq0.mongodb.net/?retryWrites=true&w=majority`,
+    (error) =>{
+        if (error) {
+            console.log(error)
+        }   else{
+            console.log('Connected to database!')}
+    })".
+7-
+---------------------------------------------------------------------------------------------
+*****MySQL bağlantısı için:
+1-
+2-
+3-
+---------------------------------------------------------------------------------------------
+*****APInin portunu belirlemek için:
+1-"index.js" gel ve şöyle yaz:
+"app.listen(5000, ()=>{
+    console.log('Server is running on PORT 5000')
+})".
+2-Artık "localhost:5000/" pathından dinlenebilir.
+---------------------------------------------------------------------------------------------
+*****"get" routeları yapmak için[get all data list]:
+1-"routes" folderı oluştur ve içerisine "products.js" dosyası ekleyerek bu dosyaya şöyle ekle:
+"const express = require('express')
+const router = express.Router()
+router.get('/', (req, res)=>{
+    res.send('fetch all products list')
+})
+module.exports = router".
+2-"index.js" gel ve şöyle ekle:
+"const productsRouter = require('./routes/products')
+const app = express()
+app.use('/products', productsRouter)".
+3-Artık "localhost:5000/products" pathı çalışıyor.
+---------------------------------------------------------------------------------------------
+*****"get" ile çektiğimiz querysetin eleman sayısını limitleme:
+1-"products.js" routeuna şöyle yaz:
+"router.get('/', (req, res)=>{
+    Product.find().limit(3)     //querysetin ilk 3 objectini response edecek
+    .then((products)=>{
+        res.json(products)
+    }).catch((error)=>{
+        res.json(error)
+    })
+})".
+---------------------------------------------------------------------------------------------
+*****"get" routeları yapmak için[get only single data]:
+1-"routes" folderı oluştur ve içerisine "products.js" dosyası ekleyerek bu dosyaya şöyle ekle:
+"const express = require('express')
+const router = express.Router()
+router.get('/:id1', (req, res)=>{
+    res.send(`fetch single product ${req.params.id1}`)
+})
+module.exports = router".
+2-"index.js" gel ve şöyle ekle:
+"const productsRouter = require('./routes/products')
+const app = express()
+app.use('/products', productsRouter)".
+3-Artık "localhost:5000/products/:id1" dynamic pathı çalışıyor.
+---------------------------------------------------------------------------------------------
+*****"post" routeları yapmak için:
+1-"routes" folderı oluştur ve içerisine "products.js" dosyası ekleyerek bu dosyaya şöyle ekle:
+"const express = require('express')
+const router = express.Router()
+router.post('/', (req, res)=>{
+    res.send('create single product')
+})
+module.exports = router".
+2-"index.js" gel ve şöyle ekle:
+"const productsRouter = require('./routes/products')
+const app = express()
+app.use('/products', productsRouter)".
+---------------------------------------------------------------------------------------------
+*****"put" routeları yapmak için:
+1-"routes" folderı oluştur ve içerisine "products.js" dosyası ekleyerek bu dosyaya şöyle ekle:
+"const express = require('express')
+const router = express.Router()
+router.put('/:id1', (req, res)=>{
+    res.send(`update single product ${req.params.id1}`)
+})
+module.exports = router".
+2-"index.js" gel ve şöyle ekle:
+"const productsRouter = require('./routes/products')
+const app = express()
+app.use('/products', productsRouter)".
+---------------------------------------------------------------------------------------------
+*****"delete" routeları yapmak için:
+1-"routes" folderı oluştur ve içerisine "products.js" dosyası ekleyerek bu dosyaya şöyle ekle:
+"const express = require('express')
+const router = express.Router()
+router.delete('/:id1', (req, res)=>{
+    res.send(`delete single product ${req.params.id1}`)
+})
+module.exports = router".
+2-"index.js" gel ve şöyle ekle:
+"const productsRouter = require('./routes/products')
+const app = express()
+app.use('/products', productsRouter)".
+---------------------------------------------------------------------------------------------
+*****Bütün pathlara auth eklemek için:
+1-"index.js" gel ve şöyle ekle:
+"const app = express()
+const isLoggedIn = false
+app.use((req, res, next)=>{
+    if(!isLoggedIn){
+        res.send('You must be logged in to view this page!')}
+    else{
+        next()}
+    })".
+2-Böylece tüm pathlara erişim kapandı.Ancak "isLoggedIn" değişkeni "true" olursa tüm pathlara erişim açılır.
+---------------------------------------------------------------------------------------------
+*****Model oluşturmak için[schema]:
+1-"models" folderı oluştur ve içerisine "Product.js" dosyası ekleyerek bu dosyaya şöyle ekle:
+"const mongoose = require('mongoose')
+const productSchema = new mongoose.Schema({
+    name: {type : String, required : true},
+    price: {type : Number, required : true},
+    description: {type : String, required : true},
+    createdAt: {
+      type : Date,
+      default : Date.now()},
+  })
+module.exports = mongoose.model('Product',productSchema)   //database table name: Product".
+---------------------------------------------------------------------------------------------
+*****Aldığımız requestin bodysine ulaşmak için:
+1-"body-parser" yükledikten sonra "index.js" gir ve şöyle ekle:
+"const bodyParser = require('body-parser')
+app.use(bodyParser.json())".
+2-"routes"->"products.js" gir ve şöyle ekle:
+"const express = require('express')
+const router = express.Router()
+router.post('/', (req, res)=>{
+    console.log(req.body)
+    console.log(req.body['name'])
+    res.send('create single product')
+})
+module.exports = router".
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------

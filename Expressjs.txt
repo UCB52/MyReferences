@@ -1,0 +1,122 @@
+*****Kurulum için :
+1-"npm i express mysql2 body-parser express-validator bcryptjs jsonwebtoken" yaz.
+2-Ardından "npm i -D nodemon" yaz.
+3-"package.json" gir ve "scripts" objectini şöyle düzenle:
+"'scripts': {
+    'start': 'nodemon index.js'}".
+-----------------------------------------------------------
+*****Proje kurulumu : 
+****Nx workspace içerisine "apps" içerisinde bir "backend" folderı oluşturup, express yazıcaz:
+1-Basic kurulumları yap.
+2-Mysql gir ve şunları execute et:
+"CREATE SCHEMA `posts`;
+CREATE TABLE `posts`.`users`(
+	`id` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`));".
+3-"backend" içerisine "index.js" oluştur ve şöyle yaz:
+"const express = require('express');
+const bodyParser = require('body-parser');
+const authRoutes = require('./routes/auth');
+const errorController = require('./controllers/error');
+const app = express();
+const ports = process.env.PORT || 3000;
+app.use(bodyParser.json());
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization');
+  next();});
+app.use('/auth',authRoutes);
+app.use(errorController.get404);
+app.use(errorController.get500);
+app.listen(ports,()=>console.log(`Listening on port ${ports}`));".
+4-"backend" içerisine "config" folderı oluştur ve içerisine de "config.json" dosyası oluştur ve şunu yaz:
+"{'host':'localhost',
+    'user':'root',
+    'database':'posts',
+    'password':'admin'}".
+5-Burada mysql configurasyonunu yaptık."backend" içerisine "util" folderı oluştur ve içerisine de "database.js" dosyası oluştur ve şunu yaz:
+"const mysql = require('mysql2');
+const config = require('../config/config.json');
+const pool = mysql.createPool({
+  host : config.host,
+  user : config.user,
+  database : config.database,
+  password : config.password,});
+module.export = pool.promise();"
+6-"backend" içerisinde "models" folderı oluştur ve içerisine de "user.js" dosyası oluştur ve şunu yaz:
+"const db = require('../util/database');
+module.exports = class User {
+  constructor(name, email, password){
+    this.name = name;
+  this.email = email;
+  this.password = password;}
+  static find(email){
+    return db.execute(
+      'SELECT * FROM users WHERE email = ?', [email]
+    )}
+  static save(user){
+    return db.execute(
+      'INSERT INTO users (name, email, password) VALUES (?, ?, ?)', [user.name, user.email, user.password])
+}}"
+7-"backend" içerisinde "routes" folderı oluştur ve içerisine de "auth.js" dosyası oluştur ve şunu yaz:
+"const express = require('express');
+const { body } = require('express-validator');
+const router = express.Router();
+const User = require('../models/user');
+const authController = require('../controllers/auth');
+router.post(
+  '/signup',[
+    body('name').trim().not().isEmpty(),
+    body('email')
+      .isEmail()
+      .withMessage('Please enter a valid email.')
+      .custom(async (email) => {
+        const user = await User.find(email);
+        if (user[0].length > 0) {
+          return Promise.reject('Email address already exist!');
+        }})
+      .normalizeEmail(),
+    body('password').trim().isLength({ min: 7 }),],
+  authController.signup);
+module.exports = router;"
+8-"backend" içerisinde "controllers" folderı oluştur ve içerisine de "auth.js" dosyası oluştur ve şunu yaz:
+"const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
+const User = require('../models/user');
+exports.signup = async (req, res, next) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()) return
+  const name = req.body.name;
+  const email = req.body.email;
+  const password = req.body.password;
+  try{
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const userDetails = {
+      name:name,
+      email:email,
+      password:hashedPassword}
+    const result = await User.save(userDetails);
+    res.status(201).json({message:'User registered!'})
+  } catch(err){
+    if(!err.statusCode){
+      err.statusCode = 500;}
+    next(err);}}"
+9-"controllers" folderı içerisine "error.js" dosyası oluştur ve şunu yaz:
+"exports.get404 = (req, res, next) => {
+    const error = new Error('Not Found.');
+    error.statusCode = 404;
+    next(error);}
+  exports.get500 = (error, req, res, next) => {
+    const data = error.data;
+    res.status(error.statusCode || 500)
+    res.json({
+      error:{
+        message:error.message,
+        data:data,}
+    })
+}"
+10-

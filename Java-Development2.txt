@@ -1,4 +1,4 @@
-***Gite yüklemek için: 
+*****Gite yüklemek için: 
 -or create a new repository on the command line
 1-echo "# testt" >> README.md
 2-git init
@@ -12,7 +12,19 @@
 2-git branch -M main
 3-git push -u origin main
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Dosya Okumak ve Yazmak için:
+*****Veri tipleri:
+1-long = Number türüdür."-2⁶³, 2⁶³-1" arası değerler alır.
+2-int = Number türüdür."-214.748.364.8, 214.748.364.7" arası değerler alır.
+3-short = Number türüdür."-32.768, 32.767" arası değerler alır.
+4-byte = Number türündedir."-128, 127" arası değerler alır.
+***"long">"int">"short">"byte".
+5-double = Ondalıklı number türüdür."-2-¹⁰⁷⁴, (2-2-⁵²)·2¹⁰²³" arası değerler alır.
+6-float = Ondalıklı number türüdür."-2-¹⁴⁹, (2-2-²³)·2¹²⁷" arası değerler alır.
+***"double">"float".
+7-boolean = Booleandır."true, false" alabilir.
+8-char = Tek bir karakter belirtir."0,2¹⁶– 1" arası değerlere denk gelen karakterleri kabul eder.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Dosya Okumak ve Yazmak için:
 public class class1{
 	File newFile1 = new File("test.txt");  //Dosya, mevcut proje ile aynı dizinde olmalıdır[yani src içerisinde değil].
 	try{
@@ -38,7 +50,7 @@ public class class1{
 	}
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Generic Types: İsimlendirme standartı şu şekildedir:
+*****Generic Types: İsimlendirme standartı şu şekildedir:
  HARF:	ANLAM:
 - E     Element	(Java Collection Frameworkde kullanılır)
 - K	Key
@@ -70,7 +82,7 @@ public void addNumbers(List<? super Number> list) {
     }
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***"Array" objectinden "newInstance"lar oluşturularak, yeni arrayler türetebiliriz ve "get" ve "set" metodlarıyla ayarlamalar yapabiliriz:
+*****"Array" objectinden "newInstance"lar oluşturularak, yeni arrayler türetebiliriz ve "get" ve "set" metodlarıyla ayarlamalar yapabiliriz:
 String[] array1 = (String[]) Array.newInstance(String.class, 2);
     Array.set(array1, 0, "Mahesh");
     Array.set(array1, 1, "Ramesh");
@@ -80,7 +92,7 @@ String[] array1 = (String[]) Array.newInstance(String.class, 2);
 	for(int i : array1){System.out.println(i);}
 	System.out.println(Arrays.toString((String[]) array1));  //Array to String
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***"ArrayList" kullanımı:
+*****"ArrayList" kullanımı:
 *Oluşturmak için: "ArrayList<Integer> al1 = new ArrayList<Integer>()".
 *Kısayoldan item eklemek için: "ArrayList<Integer> al1 = new ArrayList<Integer>(Arrays.asList(1,3,5,7,9))".
 ***"ArrayList" ile "List" arasındaki fark şudur: "ArrayList", bir "List"in implementation classıdır; "List" ise, bir interfacedir.
@@ -90,35 +102,35 @@ String[] array1 = (String[]) Array.newInstance(String.class, 2);
 *"indexOf" metoduyla, belirtilen itemin indexini döndürürüz.
 *"clear" metoduyla arrayListi temizleriz.
 *"remove" metoduyla, "itemName" veya "index" belirterek silme yaparız.
-*removeAll" metoduyla, belirtilen arrayListin itemleriyle uyuşan mevcut arrayListin itemlerini kaldırarak filtreleme yapar.Mesela: "arrayList1.removeAll(arrayList2);".
+*"removeAll" metoduyla, belirtilen arrayListin itemleriyle uyuşan mevcut arrayListin itemlerini kaldırarak filtreleme yapar.Mesela: "arrayList1.removeAll(arrayList2);".
 *"contains" metoduyla arrayList içerisinde item arayarak boolean döndürürüz.
 *"size" metoduyla lengthini döndürür.
 *ArrayListi sort etmek için "Collections.sort(arrayListName)" kullanırız.
 *ArrayListi reverse sort etmek için "Collections.sort(arrayListName, Collections.reverseOrder())" kullanırız.
 *İtemleri arasında iteration için:
-for(String i: arrayList) {
+for(String i : arrayList) {
   System.out.println(i);  
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***"List" kullanımı:
-*List = Oluşturmak için: "List<Interface1> credits = new ArrayList<Interface1>();".
+*****"List" kullanımı:
+*List = Oluşturmak için: "List<Interface1> list1 = new ArrayList<Interface1>();".
 *"add" metoduyla eklemeler yaparız.
 *"get" medotuyla, belirtilen indexteki itemi çekeriz.
 *"set" metoduyla, belirtilen indexteki itemı değiştiririz.
 *"indexOf" metoduyla, belirtilen itemin indexini döndürürüz.
 *"clear" metoduyla arrayListi temizleriz.
 *"remove" metoduyla, "itemName" veya "index" belirterek silme yaparız.
-*removeAll" metoduyla, belirtilen Listin itemleriyle uyuşan mevcut Listin itemlerini kaldırır ve filtreleme yapar.Mesela: "list1.removeAll(list2);".
+*"removeAll" metoduyla, belirtilen Listin itemleriyle uyuşan mevcut Listin itemlerini kaldırır ve filtreleme yapar.Mesela: "list1.removeAll(list2);".
 *"contains" metoduyla List içerisinde item arayarak boolean döndürürüz.
 *"size" metoduyla lengthini döndürür.
 *Listi sort etmek için "Collections.sort(listName)" kullanırız.
 *Listi reverse sort etmek için "Collections.sort(listName, Collections.reverseOrder())" kullanırız.
 *İtemleri arasında iteration için:
-for(String i:list) {
+for(String i : list) {
   System.out.println(i);  
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Hastable kullanımı için: 
+*****Hastable kullanımı için: 
 *Ekleme sırası LIFO(Last in first out) şeklindedir.
 *Oluşturmak için "Hastable<K,V> ht1 = new Hastable<K,V>();" yazarız.
 *"put" metoduyla eklemeler veya updateler yaparız.Birden fazla aynı iteme izin verilmez.
@@ -126,10 +138,11 @@ for(String i:list) {
 *"get" metoduyla spesifik keyleri çekerek, valuelerini görüntüleriz.
 *"clear" metoduyla hashtableı komple temizleriz.
 *"size" metoduyla hashtablein lengthini buluruz.
-*"containsKey" metodu, hashtablein keylerinin içerisinde arama yaparak boolean döndürür.Mesela: "ht1.containsKey("cities")".
-*"containsValue" metodu, hashtablein keylerinin içerisinde arama yaparak boolean döndürür.Mesela: "ht1.containsValue("Istanbul")".
+*"containsKey" metodu, hashtablein keylerinin içerisinde arama yaparak boolean döndürür.Mesela: "ht1.containsKey('cities')".
+*"containsValue" metodu, hashtablein keylerinin içerisinde arama yaparak boolean döndürür.Mesela: "ht1.containsValue('Istanbul')".
 *"entrySet" metodu, hastablein itemlerini key-value halinde map ederek view döndürür.
 *"keySet" metodu, hashtablein itemlerinin sadece keylerini map ederek view döndürür.
+*"values" metodu, hastablein itemlerinin sadece valuelerini map ederek view döndürür.
 *İnitialize valuesi ekleyerek, stackteki dizilen başlangıç itemini belirtebiliriz.Mesela: "Hastable<K,V> ht1 = new Hastable<K,V>(2);" ifadesi, 2. eklenen itemi başa koyacaktır.
 *Başka bir hash tablosunu, initialize itemi olarak kullanabiliriz : "Hastable<K,V> ht2 = new Hastable<K,V>(ht1);".
 *İtemleri arasında iteration için:
@@ -137,7 +150,7 @@ for(Map.Entry<String, String> i : ht2.entrySet()) {
     System.out.println(i.getKey() + " " + i.getValue());
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***SortedSet kullanımı için:
+*****SortedSet kullanımı için:
 *İtem ekleme yapıldığı anda sorting yapılır.
 *Birden fazla aynı item barındırmaz.Aynı item tekrar eklenirse error vermez; override edilir.
 *Oluşturmak için "SortedSet<String> ss1 = new TreeSet<String>()" yazarız.
@@ -158,7 +171,7 @@ for (String value : ss1) {
 *subset(item1, item2) = SortedSetin, belirtilen itemleri arasındaki itemleriyle yeni bir set oluşturur[belirtilen itemler dahil].Mesela: 
 "SortedSet<Integer> ss2 = ss1.subSet(6, 33);".
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Stack kullanımı için:
+*****Stack kullanımı için:
 *Ekleme sırası LIFO şeklindedir.
 *Oluşturmak için "Stack<String> stk1 = new Stack<String>()" yazarız.
 *"push" metoduyla itemler ekleriz.
@@ -174,7 +187,7 @@ for(String i : stk1) {
     System.out.println(i);
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Queue kullanımı için:
+*****Queue kullanımı için:
 *Ekleme sırası FIFO şeklindedir.
 *Sortingli oluşturmak için "Queue<String> q1 = new PriorityQueue<String>()" yazarız.
 *Sortingli oluşturmak için "Queue<String> q1 = new PriorityBlockingQueue<String>()" yazarız.
@@ -187,7 +200,7 @@ for(String i : stk1) {
 *"contains" metoduyla, belirtilen itemi içerip içermediğini boolean döndürürüz.
 *"poll" metoduyla ilk itemini kaldırır veya döndürür['remove' metoduna benzer].
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***LinkedList kullanımı için:
+*****LinkedList kullanımı için:
 *Ekleme sırası FIFO şeklindedir.
 *Oluşturmak için "LinkedList<String> l1 = new LinkedList<String>()" yazarız.
 *"add" metoduyla itemler ekleriz.
@@ -206,7 +219,7 @@ for(String i : stk1) {
 *"removeFirstOccurrence" metoduyla, belirtilen itemin listedeki ilk oluşumunu kaldırır.
 *"removeLastOccurrence" metoduyla, belirtilen itemin listedeki son oluşumunu kaldırır.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Hashmap kullanımı için:
+*****Hashmap kullanımı için:
 *key-value şeklinde dataları tutar ve keyleri "unique" olmalıdır.
 *Oluşturmak için "HashMap<Integer, String> hm1 = new HashMap<Integer, String>()" yazarız.
 *Oluşturmak için "LinkedHashMap<Integer, String> lhm1 = new LinkedHashMap<Integer, String>()" yazarız.
@@ -228,7 +241,7 @@ for(Map.Entry<int,String> i : hm1.entrySet()){
     System.out.println(i.getKey() + " " + i.getValue());
 }
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***TreeMap kullanımı için:
+*****TreeMap kullanımı için:
 *Sorted şekilde key-valueleri tutar.
 *Oluşturmak için "TreeMap<Integer, String> lhm1 = new TreeMap<Integer, String>()" yazarız.
 *"put" metoduyla belirtilen indexlere itemler ekleriz.
@@ -262,7 +275,7 @@ for(Map.Entry<int,String> i : hm1.entrySet()){
 *"values" metoduyla, hashmapin valuelerini mapleyerek döndürür.
 *"subMap(x,y)" metoduyla, belirtilen keyler arasındaki itemleri mapleyerek döndürür.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-***Hashset kullanımı için:
+*****Hashset kullanımı için:
 *Birden fazla aynı item barındırmaz.Aynı item tekrar eklenirse error vermez; override edilir.
 *Oluşturmak için "HashSet<String> hs1=new HashSet<String>()" yazarız.
 *"add" metoduyla item ekleriz.
@@ -270,6 +283,164 @@ for(Map.Entry<int,String> i : hm1.entrySet()){
 *"clean" metoduyla hashSeti tamamen temizleriz.
 *"contains" metoduyla, belirtilen itemi içerip içermediğini boolean döndürürüz.
 *"size" metoduyla lengthini döndürürüz.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Mysql için API yapımı:
+****Bu senaryoda tablodan oluşturmak yerine, hibernate ile biz tabloları oluşturacağız ve "get","post" ve "put" sağlayacağız:
+1-Projenin artifacti "company1" ve adı "test1".Şu dependencyleri ekleyerek "maven" ile spring bootu başlat: "Spring Boot DevTools, Lombok, Spring Web, Spring Data JPA, Mysql Driver, Spring Security".
+2-Kodlamaya başlamadan önce "pom.xml" içerisindeki "security" ve "securityTest" dependencylerini sil çünkü hata verecektir.İleride bunları tekrar ekleyeceğiz.
+3-Mysql gir ve "quest-app" adında boş bir database oluştur.
+4-Javaya dön ve "application.properties" içerisine şunları ekle:
+"spring.jpa.hibernate.ddl-auto = update
+spring.datasource.url = jdbc:mysql://localhost:3306/quest-app?useUnicode=true&useLegacyDateTimeCode=false
+spring.datasource.username=root
+spring.datasource.password=admin
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver"
+5-Burada "localhost:3306/quest-app" ile mysqldeki oluşturduğumuz databasei işaret ettik."ddl-auto=update" ile de hibernatein bizim için tabloları otomatik oluşturmasını sağladık."password" ve "username" ise mysqlde oluşturduğumuz local instanceın bilgileridir.
+6-Ardından "test1" paketi içerisine bir "entities" paketi oluştur ve içerisine de "Comment","Like","Post","User" classlarını ekle.Burada database objectlerimizi tutacağız.Yani bu classlar, databasee mapleneceklerdir.
+7-"entities" paketinde "User" classını şöyle yap:
+"@Entity
+@Table(name = 'user')
+@Data
+public class User {
+	@Id
+	Long id;
+	String userName;
+	String password;
+	public Long getId() {
+		return id;}
+	public void setId(Long id) {
+		this.id = id;}
+	public String getUserName() {
+		return userName;}
+	public void setUserName(String userName) {
+		this.userName = userName;}
+	public String getPassword() {
+		return password;}
+	public void setPassword(String password) {
+		this.password = password;
+	}}"
+8-"entities" paketinde "Post" classını şöyle yap:
+"@Entity
+@Table(name = 'post')
+@Data
+public class Post {
+	@Id
+	Long id;
+	Long userId;
+	String title;
+	@Lob
+	@Column(columnDefinition = 'text')
+	String text;
+	public Long getId() {
+		return id;}
+	public void setId(Long id) {
+		this.id = id;}
+	public Long getUserId() {
+		return userId;}
+	public void setUserId(Long userId) {
+		this.userId = userId;}
+	public String getTitle() {
+		return title;}
+	public void setTitle(String title) {
+		this.title = title;}
+	public String getText() {
+		return text;}
+	public void setText(String text) {
+		this.text = text;}}"
+9-"entities" paketinde "Like" classını şöyle yap:
+"@Entity
+@Table(name = 'p_like')
+@Data
+public class Like {
+	@Id
+	Long id;
+	Long postId;
+	Long userId;
+	public Long getId() {
+		return id;}
+	public void setId(Long id) {
+		this.id = id;}
+	public Long getPostId() {
+		return postId;}
+	public void setPostId(Long postId) {
+		this.postId = postId;}
+	public Long getUserId() {
+		return userId;}
+	public void setUserId(Long userId) {
+		this.userId = userId;}}"
+10-"entities" paketinde "comment" classını şöyle yap:
+"@Entity
+@Table(name = 'comment')
+@Data
+public class Comment {
+	@Id
+	Long id;
+	Long postId;
+	Long userId;
+	@Lob
+	@Column(columnDefinition = 'text')
+	String text;
+	public Long getId() {
+		return id;}
+	public void setId(Long id) {
+		this.id = id;}
+	public Long getPostId() {
+		return postId;}
+	public void setPostId(Long postId) {
+		this.postId = postId;}
+	public Long getUserId() {
+		return userId;}
+	public void setUserId(Long userId) {
+		this.userId = userId;}
+	public String getText() {
+		return text;}
+	public void setText(String text) {
+		this.text = text;}}"
+11-Şuan projeyi ayağa kaldırırsak, database içerisinde tablolar oluşturacaktır.Şimdi ise bu classlar için birer repo oluşturacağız böylece biz rest oluştururken, sql için querleri ve "findAll()","findById()" gibi metodları kullanabileceğiz."test" paketi içine bir "repos" paketi oluştur ve bunun içerisine de "UserRepository","CommentRepository", "LikeRepository", "PostRepository" interfacelerini "JpaRepository" extend ederek oluştur.
+12-"repos" paketindeki "UserRepository" şöyle yap:
+"public interface UserRepository extends JpaRepository<User, Long> {}"
+13-"repos" paketindeki "CommentRepository" şöyle yap:
+"public interface CommentRepository extends JpaRepository<Comment, Long> {}"
+14-"repos" paketindeki "PostRepository" şöyle yap:
+"public interface PostRepository extends JpaRepository<Post, Long> {}"
+15-"repos" paketindeki "LikeRepository" şöyle yap:
+"public interface PostRepository extends JpaRepository<Like, Long> {}"
+16-Artık bunlara mysql için controllerlarını[get,post,put..] yazabiliriz."test1" paketi içerisine "UserController" classı oluştur ve şöyle yaz:
+"@RestController
+@RequestMapping('/users')
+public class UserController {
+	private UserRepository userRepository;
+	public UserController(UserRepository userRepository) {
+		this.userRepository = userRepository;}
+	@GetMapping
+	public List<User> getAllUsers() {
+		return userRepository.findAll();}
+	@PostMapping
+	public User createUser(@RequestBody User newUser) {
+		return userRepository.save(newUser);}
+	@GetMapping('/{userId}')
+	public User getOneUser(@PathVariable Long userId) {		
+		return userRepository.findById(userId).orElse(null);}
+	@PutMapping('/{userId}')
+	public User updateOneUser(@PathVariable Long userId, @RequestBody User newUser) {
+		Optional<User> user = userRepository.findById(userId);
+		if (user.isPresent()) {
+			User foundUser = user.get();
+			foundUser.setUserName(newUser.getUserName());
+			foundUser.setPassword(newUser.getPassword());
+			userRepository.save(foundUser);
+			return foundUser;
+		} else {
+			return null;
+		}
+	}
+	@DeleteMapping('/{userId}')
+	public void deleteOneUser(@PathVariable Long userId) {
+		userRepository.deleteById(userId);}}"
+17-Burada "rest"  oluşturduk ve artık belirttiğimiz "http://localhost:3306/users" pathına get ve post yapabileceğiz.Ayrıca "http://localhost:3306/{userId}" pathına da spesifik userları editleyebileceğiz.
+18-
+19-
+20-
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 *final = Bu keyword, bulunduğu ifadenin "override" edilemeyeceğini belirtir.Yani ifadeye son kez değer atanmıştır ve tekrar atama gerçekleştirilemez.
 *abstract class = Bir abstract classı "extend" eden diğer classlar, abstract classın içerisinde bulunan "abstract" ifadelerini, kendi classları içerisinde "override" etmek zorundadırlar.Abstract class içerisindeki "abstract" ifadelerinin default değerleri böylece olamaz.
@@ -279,3 +450,25 @@ for(Map.Entry<int,String> i : hm1.entrySet()){
 *Arrays.copyOfRange(arrayName, x, y) = Linear arrayleri veya "instance" arraylerini, spesifik index aralıklarında kopyalar, klonlar.
 ***"copyOf" ile "clone" arasındaki farklar: "copyOf", arrayi klonlarken yeni uzunluğunu ayarlayabilir.
 *arrayName.clone() = Linear arrayleri veya "instance" arraylerini klonlar.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Maven Project Dependency List:
+1-Spring Boot DevTools : Projede değişiklik yapıldığında, projenin LİVE RELOAD olmasını falan sağlıyor.
+2-Lombok : Entitylere data ekledikten sonra GETTER, SETTER, vs hazırlanmasını sağlıyor.
+3-Spring Web : Web projeleri içindir.
+4-Spring Data JPA : JPA'in bir implementasyonu olan Hibernate içindir.Javadaki objectlerin, bizim relational databaseimizdeki tablolara maplenmesini sağlar.
+5-Spring Security : Applikasyonlar için authenticationlar sağlar.
+6-MySQL Driver : MySQL bağlantısı içindir.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****API Project Starter:
+1-Springi init et ve Eclipse'in workspace klasörüne ekle.
+2-Bu projeyi Eclipse'e girerek aç.Projeye sağ tıklayıp MAVEN->UPDATE PROJECT tıkla ve "Force Update of Snapshots/Releases" boxını işaretleyerek "OK" butonuna tıkla.
+3-SRC->MAIN->RESOURCES gir ve "application.properties"e şu configurationları ekle:
+"spring.jpa.hibernate.ddl-auto = update		//bizim java kodlarımıza okuyara databasedeki tabloları otomatik olarak oluşturacak
+spring.datasource.url = jdbc:mysql://localhost:3306/quest-app?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone = Turkey	   //datasourceu yani databasede hangi şemaya bağlanacağımızı saat ayarlarıyla beraber belirtir
+spring.datasource.username = root	//databasee credentials
+spring.datasource.password = admin	//databasee credentials
+spring.datasource.driver-class-name = com.mysql.jdbc.Driver		//MySQLe bağlanması için".
+4-MySQL gir ve "app1" tablosu oluştur.
+5-
+6-
+7-

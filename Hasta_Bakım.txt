@@ -1,0 +1,54 @@
+Ayakta Taburculuk ve Yatışta Taburculuk
+***Taburculuk, hastanın hastaneden çıkışı ile evine geçiş sürecini kapsar.4 çeşidi vardır:
+1-Tam Şifa Haliyle Taburculuk : Hekimin bilgisi ve isteğiyle hastanın iyilik halini kazanmasıyla sağlanır.
+2-Hastanın Kendi İsteğiyle Taburculuk: Bu durumda hasta, bütün riskleri ve bütün hayati tehlikeyi kabul ettiren bir evrak imzalayarak hastaneden çıkabilir.Mesuliyet, hastane ve dokordan çıkarak hastanın kendisine geçer.
+3-Sakatlık ya da Evde Bakım Haliyle Taburculuk: Yaşlı veya sakat olabilir.Hastanın medikal tedavisi sağlanır ve hasta, evine yollanır.Çünkü hastaneler, huzurevi veya bakımevi şeklinde kullanılamaz.
+4-Ölüm: Buna söz yok...
+***Taburculukta doktor görevleri:
+1-Hastanın kullanması gereken ilaçlarını, öneri ve tavsiyelerini sunmuş olması gerekir.
+2-Hemşire veya hemşireye tedavi sonunda ödeme almasını rica eder[eğer ödeme mevcutsa].Vezneye yönlendirilir.
+***Taburculukta hemşire görevleri:
+1-Doktorun yazdığı reçeteyi, okunaklı bir şekilde hastanın formuna günde kaç adet, hangi günler, vs.. kullanacağı şeklinde yazar.
+1-Eğer ileri tarihe kontrol verilmişse, bunun uyarısını yapmalıdır.
+3-Evde bakıma muhtaç hasta ise, önerilerde bulunur.
+4-Formların imzalatılması ve kayıtların tutulmasını sağlar.
+5-Hasta ölmüşse, ölüm nedeni, saati, tarihi, vs.. tutulur.Hastanın morga transportu sağlanır.
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Egzersiz Türleri:
+1-İzotonik Egzersizler: Kas gerilim kuvvetinde herhangi bir değişim meydana getirmeden kasın kısalmasıdır.Birey, kaslarını kısaltarak ve eklemlerini oynatarak aktif hareketler meydana getirir.Pasif hareketler de yaptırılabilir.Koşma, yüzme, yürüme, vs.. egersizler örnektir.
+2-İzometrik Egzersizler: Kasın boyunda herhangi değişiklik meydana gelmeden kas geriliminin artmasıdır.Hareketsiz duran bir cismi bastırmak, belirli pozisyonda belirli bir cismi tutmat, vs.. bunlara örnektir.Kas gücünün artması, kas kontrolü sağlanması, vs için kullanılır.
+3-İzokinetik Egzersizler: Vücudun belirli bir bölümünü bir sınır içerisinde hareketli tutmak için yapılır.Genellikle özel geliştirilmiş araçlar kullanılır.Kas geliştirmenin en idealidir.
+***İzolasyon Türleri:
+1-Solunum İzolasyonu : Hastanın solunum yoluyla bulaşan hastalığa sahip olduğu durumdur.
+2-Damlacık İzolasyonu : Ağızdan çıkan partiküller.Verem, tüberküloz, covid gibi hastalıklar bu sayede çabuk yayılır.
+3-Temas İzolasyonu : Red zonedur.Hastaya herhangi temas edilmemesi gerekir.Aynı odada dahi koruma kıyafetleriyle bulunulmalıdır.
+4-Dört Yapraklı Yonca : Düşme riski olan hastalar içindir.Bunlar için bir takım önlemler alınır.
+------------------------------------------------------------------------------------------------------------------------------------------------
+***Hastalık Türleri:
+1-Zihinsel Hastalıklar
+2-Fiziksel Hastalıklar
+3-Fonksiyonel Hastalıklar : 
+***5S davranış kuralları:
+1-Sağduyulu yaklaşmak
+2-Sabırlı olmak
+3-Stresi taşımak
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+***Tıbbi Dökümantasyon : Sağlık sunucuları, sağlık ocakları ve sağlık hizmeti veren heryere başvuran sağlıklı veya hasta bireylerin tedavi sonucu sakladıkları verilerdir.Toplanır, düzenlenir ve kaydedilir.Hasta dosyaları kişiye özeldir, gizlidir ve paylaşılması yasaktır.Sadece savcılık kararıyla alınabilir.Sadece hastayı tedavi eden hekimlere verilir.
+***Ampütasyon : Organların bedendeki yerlerinden çıkartılmasıdır.
+***Form çeşitleri:
+1-Doktor Gözlem Formu
+2-Anestezi Formu[Preop değerlendirme] : Ameliyat edilecek olan hastaya yapılacak anestezi uygulamasının, ameliyat öncesi hangi değerde, kaç birimde vs olacağı belirlenir.
+3-Anestezi Formu[Postop değerlendirme] : Ameliyat sonrasında hastanın hastanede veya evinde devamı idamesidir.Hastanın uyanma süresi, halisünasyon görüp görmediği, vs kaydedilir.
+4-Ameliyat Formu : Ameliyat sonrası tüm durumlar, ne olup ne bittiği, nasıl geçtiği, vs sıcağı sıcağına yazılır.
+5-Konsilütasyon Formu : Bir hekimin yapmış olduğu tedavi esnasında başka bir hekimin fikrini veya onayını almış olması sürecidir.
+6-Hemşire Değerlendirme Formu
+7-Hemşire Gözlem Formu
+8-Fizik Tedavi Rehabilitasyon Formu
+9-Epikriz : Hastanın, hastanede aldığı tedavi sonucundaki durumunu ifade eder.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+***Etik Değerler:
+1-Hasta kayıtları gizliliği
+2-Hastanın doktorunun hastanın özel durumunu, tedavisiyle ilgisi olmayan kişilerle bunu paylaşması
+3-Hasta mahremiyeti[ahlaksızlık,vs..]
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+***Sağlık nedir: Fiziksel, ruhsal, patolojik, vs olarak iyi olma durumudur.

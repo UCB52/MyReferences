@@ -1,0 +1,290 @@
+*****Kriptografi = Terim olarak "kripto", "gizli"; "grafi" ise "yazmak" demektir.Üçüncü şahısların mesajları ele geçirme tehdidi altında güvenli haberleşme yöntemlerini ve uygulamalarını araştıran bilim dalıdır.İlgilendiği bazı birimler:
+1-İki taraflı veya çok taraflı güvenli haberleşme problemi
+2-Anahtar üretme problemi
+3-Gizli bilginin paylaşılması problemi
+4-Şifrelenmiş bilgiyi çözmeden üzerinde işlem yapma problemi
+5-Sayısal imza problemi
+6-Uzaktan rastsal sayı seçme problemi
+7-Veri bütünlüğü problemi
+***Asimetrik ve simetrik algoritmalar arasındaki fark şudur: asimetrik, bir tarafta public key ve diğer tarafda private keyden oluşur; simetrikte ise iki tarafın keyi de privatedır ve ortaktık.
+***HSM[Harware Security Modules] = Yüksek performanslı kriptonik işlemler yapabilir.Şifrelemede kullanılan anahtarları üretir, güvenli bir şekilde saklar ve dağıtır.Hassas verileri, yetkisiz erişimlere karşı sürekli zamanda korur[hatta elektrikler kesilse bile!].
+*****Rastsal Sayılar = Kaynağı, sonucunu önceden belirli yöntemlerle tahmin edemediğimiz olaylara dayanan sayılardır.
+****Rastsal Sayılar Temel özellikleri:
+1-Yüksek rastsallık/Entropi [tahmin edilememezlik] : Bilgi kuramında belirsizliğin ölçüsüdür.Rastsallığı yüksek olan sayıların entropileri de yükske olur.
+2-Düzgün dağılım [her sayının ortaya çıkma olasılığının eşit olması] : Rastsal sayıların kaynak küme içerisinde homojen dağılıma sahip olmasını gerektirir.Böylece kaynaktan alınan her sayı örneğinin ortaya çıkma olasılığı eşit olur.
+3-Bağımsızlık [ardışıl üretilen sayılar arasında ilinti olmaması] : Kaynak kümeden örnek olarak alınan ardışıl 2 sayıdan birinin gözlemlenmesi, diğerinin gözlemlenme ihtimalini etkilemiyorsa; bu 2 sayı da istatistiksel olarak bağımsızdır.
+4-Aperiyodiklik ya da çok uzun periyod [Kullanım sürecinde sayıların tekrar etmemesi] : Sabit aralıklarla tekrarlanmayan rastsal olayları tanımlar.Güvenlik açısından rastsal sayı dizilerinin kendilerini tekrar etmemeleri gerekir.İdealde periyodun sonsuz, şartlar elvermiyorsa da olabildiğince uzun olması gerekir.
+5-Kolay ve hızlı üretilebilirlik
+****Rastsal Sayılar Kullanım Alanları:
+1-Şifreleme Anahtarları : İki uç nokta arası simetrik/asimetrik şifreleme algoritmalarında anahtar olarak kullanılırlar.
+2-Tek kullanımlık şifreler : Tek defalık üretilen [OTP] ve kullanılan sayılardır.
+3-Zaman Damgası : Hesaplama işlemlerinde verileri tekil olarak etiketlemek için kullanılırlar.
+4-Sözde Rastsal Sayılar Üreteçlerinin İlklendirilmesi : Başlangıç değerler olarak algoritmik üreteçlerin ilk değeri.
+5-Kimlik Doğrulama : Sorgu değerleri rastsal olarak üretilip karşılıklı paylaşım sonrası işlenerek karşılaştırılır.
+*****Rastsal Sayı Üreteçleri = Rastsal sayıları üreten aygıt ve algoritmalardır.3 çeşidi vardır:
+****Sözde Rastsal Sayı Üreteçleri[Algoritmik] : Belirlenimci algoritmik bir yapıda yazılımsal veya sayısal donanım şeklinde gerçeklenebilirler.Bir ilk değerden başlayarak üretilen sayı dizileri çok uzun olsalar dahi bir periyoda sahiptir.Üretilen ardışıl sayılar birbirinden bağımsız değildirler; lineer ve lineer olmayan bir ilinti bulunur.Kısa zamanda çok yüksek hızlarda rastsal sayı sağlanabilir.Gerektiği durumlarda daha önce üretilmiş olan bir sayı dizisi, aynı şekilde yeniden sentezlenebilir.İlk değer ve algoritmanın bilinmesi, tüm dizinin tahmin edilebilir olmasını sağlar ve "GÜVENLİK RİSKİ" doğurur!Sistemin entropisi, ilk değerinkiyle sınırlıdır.Belirlenimci doğası nedeniyle gerçek rastsallık üretemez.
+**Sözde RSÜ çeşitleri:
+*Yazılımsal
+*Donanımsal
+****Kriptografik Güvenli Sözde RSÜler : Üreteç çıkışının ilk değere en az şekilde bağımlı olduğu algoritmalardır.Bir saldırganın ilk değeri bilmesinin çıkışı tahmin etmek için avantaj sağlamaması beklenir.Periyodların çok uzun olması gereklidir.İstatistiksel olarak da çok kapsamlı şekilde test etmeleri gerekir.Örnek: Kesintisiz şifreleme algoritmaları, sayaç modda veya geri beslemeli modda blok şifreleme algoritmaları, çeşitli kombinasyonlar...
+****Gerçek Rastsal Sayı Üreteçleri[Fiziksel Aygıt] : İstatistiksel olarak birbirinden bağımsız, ilintisiz ve düzgün dağılıma sahip tahmin edilemez sayılar üreten fiziksel aygıtlardır.
+**Gerçek RSÜ, mimari olarak 3 bölümden oluşur:
+*Entropi Kaynağı : 
+-Isıl Gürültü
+-Çığ Gürültüsü
+-Faz/Seğirtim Gürültüsü
+-Kaotik İşaret
+-Metastabilite
+*Örnekleyici :
+-Periyodik Örnekleme
+-Aperiyodik Örnekleme
+-Genlik Karşılaştırma
+*Art İşlemci :
+-Von Neumann Algoritması
+-XOR Fonksiyonu
+-LFSR Karıştırıcı
+**Gerçek RSÜ çeşitleri:
+*Elektriksel Gürültü
+*Osilator Seğirtimi
+*Kaotik Sistem
+*Mesestabilite
+*Kuantum
+*MEMS
+***Sözde RSÜ ile Gerçek RSÜ arasındaki farklar:
+        Sözde RSÜ                               Gerçek RSÜ
+    Belirlenimci rastsallık kaynağı             Belirlenimsiz rastsallık kaynağı
+    İlk değer bağımlı                           İlk değer bağımsız
+    Periyodlu                                   Periyodsuz
+    Tahmin edilebilir                           Tahmin edilemez
+*****Rastsal Sayıların İstatistiksel Testleri = Her biri farklı rastsallık özelliklerini sınayan çeşitli testlerden oluşur.Testler, uzun bir bit dizisinin alt dizilerinde desen ve tekrarları kontrol eder.Toplanan veri, sabit uzunluklu bit bloklarına bölünür ve bu bloklar test edilir.Her test için, bunların testleri geçme oranları hesaplanır ve bu orana göre güven seviyesi artar veya azalır.2 çeşidi vardır:
+****Çevrimiçi Testler : 
+**Avantajlar:
+-Donanımsal gerçekleme yapılabilir.
+-Hızlı veri işleyebilir.
+-Alarm üretebilir.
+**Dezavantajları:
+-Test sayısı sınırlıdır!
+-Sınırlı sayısa örnek uzayı bulunur!
+****Çevrimdışı Testler : 
+**Avantajları:
+-Test sayısı çok çeşitlidir.
+**Dezavantajları:
+-Yazılımsal gerçekleme yapılabilir.
+-Geniş örnek uzayı mevcuttur.
+-Yavaş veri işlemesi yapar.
+-Sadece geçti/Kaldı ikilik sonuçları mevcuttur.Sebep-sonuç olmadığı için debug çok zordur.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Güvenli Bellek Elemanları = Fiziksel saldırılara karşı dayanıklıdırlar.Fiziksel saldırılara örnek olarak Invazıf Saldırılar[Mikroterminaller ile saldırılar(Micro-probing),Odaklanmış iyon demeti saldırısı(Focused-ion beam)] ve Invazıf Olmayan Saldırılar[Yan kanal saldırıları] mevcuttur.Kritik anahtarları[master keyleri], herhangi bir silinemeyen[non-valotile] bellekte tutmak[usb,vs..] güvenli değildir.
+1-Mikroterminaller ile Saldırı : 
+-Mikroskobik iğnelerle tüm devre içerisindeki tellere müdahale etmektedir.
+-Açığa çıkması istenmeyen bir veri okunabilir.
+-Hataya neden olacak veriler, tümdevreye enjekte edilebilir.Tümdevreler genellikle epoksi bir kılıfla kaplanır.
+2-Odaklanmış İyon Demeti Saldırısı :
+-Elektron mikroskoplarına benzer bir çalışma mekanizması vardır.
+-Elektron demetleri yerine, iyon demetlerini kullanır.
+-Hem görüntülenme hem de materyal üzerinde düzenleme için kullanılabilir.
+3-Yan Kanal Saldırısı :
+-Tümdevreye herhangi bir fiziksel müdahalede bulunmadan gizli bilgileri ortaya çıkarır.
+-Bunun için kullanılan bazı ölçüm ve parametreler şunlardır: Çekilen akım değeri, çalışma zamanı ve elektromanyetik emisyondur.
+-Bu saldırılara alınan önlenmler genellikle algoritmik seviyededir.
+***İnvazıf Saldırı ile İnvazıf Olmayan Saldırı arasındaki farklar: invazıf, çok pahalı araçlar ve bunun yanında elektronik devre bilgisi gerektirir; invazıf olmayan ise çok daha ucuz materyallerle mümkündür fakat bilgi ve tecrübe olarak çok şey gerektirir.
+****Güvenli Bellek Elemanları Özellikleri :
+1-Fiziksel saldırılara karşı dayanıklıdır.
+2-Çeşitli sensörlerle atak yapıldığını tespit edip; kritik verileri silebilir.
+3-Normal tümdevre üretim işlemleri ile yapılmadığından maliyeti artırır.
+4-Master keyleri burada tutabiliriz.Fakat FGPAlarda uygulamak için dışarıdan bağlanması gerekir ve ekstra maliyetler doğurur.
+*****Fiziksel Klonlanamayan Fonksiyonlar = Physical Unclonable Functions[PUF].Aslında girişi ve çıkışı olan fonksiyonlardır.Üretim varyasyonları kullanılarak her bir tümdevre için farklı çıkışlar üreten devrelerdir.Güvenli bellek elemanlarının yerine kullanılabilirler.Fiziksel klonlanamayan fonksiyonların, güvenli bellek elemanlarına karşı avantaj ve dezavantajları : 
+**Avantajları:
+*İçgüdüsel olarak fiziksel saldırılara karşı dayanıklıdır.
+*Normal CMOS üretim süreçleri kullanılarak rahatlıkla gerçeklenebilir.
+*Sahada programlanabilir Kapı dizilerinde[FPGA] kolaylıkla gerçeklenebilir.
+**Dezavantajları:
+*Çevre koşulları altında dayanıklı bir PUF üretmek gerçekten zordur.
+****PUF kullanım alanları:
+1-Tümdevreye özel gizli anahtarlar üretmek.
+2-Fikri mülkiyetlerin [Intellectual Property] korunması.
+****Güçlü ve Zayıf PUFlar : Girişlere "Dürtü", cevaplara ise "response" denir."Challange" ve "response" kombinasyonlarının sayısına göre PUFlar sınıflandırılır.Limitli sayıda "Challange-response" çifti varsa "Weak",çok sayıda varsa da "Strong" olarak adlandırılır.Zayıflara örnek olarak "SRAM PUF","Halka Osilatör PUF"; güçlülere ise "Arbiter PUF" örnek verilebilir.Şöyle bir grafiği vardır:
+         |                              |
+         |Dürtü[Challange]              |Dürtü[Challange]
+         |                              |
+    Zayıf[Weak PUF]                   Güçlü[Strong PUF]
+         |                              |
+         |Cevap[Response]               |Cevap[Response]
+         |                              |
+****PUFlarda Başarı Kriterleri :
+1-Tekillik[Uniqueness] : Her bir devrenin aynı PUF fonksiyonu için ne kadar farklı cevaplar ürettiğini belirtir.
+2-Güvenilirlik[Reliability] : Bir tümdevreden farklı zamanlarda elde edilen PUF cevaplarının ne kadar aynı olduğu bilgisini verir.
+3-Uniformity : Üretilen cevap değerlerinin 1 ve 0 dağılımlarının birbirine ne kadar yakın olduğunu belirtir.
+4-Bit-aliasing : Farklı tümdevrenin aynı dürtüler[challange] için ne kadar farklı cevaplar ürettiğini bit bazında ölçen metriktir.
+*****PUFlara Karşı Ataklar:
+1-Fiziksel ataklara karşı içgüdüsel olarak dayanıklıdır.
+2-Modelleme atakları yapılabilir.Bunda bilinen challenge-response verilerinden PUF davranışı elde edilmeye çalışılır.
+3-Yan kanal saldırıları ile ilgili bilgi toplamak ve ataklar yapmak mümkündür.
+***PUF Ataklarına Karşı Önlemler:
+1-İnvazif ve invazif olmayan atakların ikisinde de temel önlem, fiziksel erişimin kısıtlanmasıdır.
+2-Örneğin SRAM PUF'ta başlangıçtaki bit değerlerinin erişilememesi ve değiştirilememesi gerekir.
+3-Machine-learning temelli ataklar için challange-response tablosundaki değerlerin arasındaki kolerasyonun yok edilmesi gerekir.
+4-Yan kanal saldırılarına karşı önlem alabilmek için donanımın 1 üretirken ve 0 üretirken ki harcadığı gücün eşit seviyeye getirilmesi gerekir.
+*****DES[Data Encryption Standard] Şifreleme Algoritması : İlk simetrik şifreleme algoritmasıdır.Bir blok şifreleme örneğidir.Yani bir veriyi belirli uzunluktaki bir blok uzunluğuna böler[64 bit] ve o şekilde şifreler.Key uzunluğu 64 bittir.Daha sonra da bu şifrelenen veriler birleştirilir.Key uzunluğunun kısa olması sebebiyle yeterli güvenliği sağlayamamıştır.Daha sonra da yerini 3DES ve AES algoritmalarına bırakmıştır.
+***Algoritmalarda güvenliği sağlayan en önemli şey "key" ve "key length"tir.
+****Simetrik Şifreleme : Tek keye dayanan bir şifreleme türüdür.Yani bir açık veriyi "sadece bir key" kullanarak şifreleyerek şifrelenmiş bir metin elde ederiz.Daha sonra bu şifrelenmiş metni tekrar eski haline getirip okumak için yine aynı keyi[ortak key] kullanarak çözeriz fakat buradaki sıkıntı şudur: biz bu keyi karşı tarafa da gönderirken güvenlik açığı yaratmış olmayacak mıyız?Keyler kesinlikle gizli tutulmalıdır.Eğer atak sonucu key ele geçirilirse, bu keyle şifrelenen bütün verileri çözebilirler!Hızlı çalışırlar çünkü key lengthleri asimetrik şifreleme algoritmalarına göre daha kısadır.Örnekler: AES,DES ve 3DES.
+**DES Algoritmasının Genel Yapısı : Simetrik algoritmadır.Algoritmadaki matematiksel işlemler 0 ve 1 bitleri üzerinden gerçekleşir.Veriyi ayırdığı blok uzunlukları 64 bittir.Key lengthi ise aslında 64 bittir fakat bunun sadece 56 bitlik kısmını şifrelemede kullanır; geriye kalan 8 bit ise kontrol bitleridir[parity bitleri].Henüz şifrelenmemiş, şifrelenecek olan veriye "plain text" denir.Bu plain texti 64 bitlik bloklara ayırır, her bloğu birbirinden bağımsız olarak şifrelenir ve aynı uzunlukta şifrelenmiş metinler[cipher textler] elde edilir.
+"Round" yani döngü yapısı vardır ve algoritmalar çalışırken bu döngüler 16 kere kullanılır.3 farklı aşamadan oluşur:
+1-Initial Permutation[Başlangıç Permütasyonu] : Algoritmanın ilk aşamasıdır.Dışarıdan aldığımız 64 bitlik plain textteki bitler, initial permutation tablosundaki koordinatlara göre yer değiştirirler.Yani tablodaki tüm valueleri mix yaparak karıştırır.
+2-Döngü İşlemleri[Rounds] : Permütasyon işlemine tabi tutulan 64 bitlik veri, buraya getirilir.16 adet round bulunur.
+3-Inverse Inıtial Permutation[Ters Permütasyon] : Algoritmanın son adımıdır.Başlangıç permütasyonundaki işlemin tersi uygulanır ve 64 bitlik şifrelenmiş metin[cipher text] çıkışa verilir.
+**DES Algoritmasının Güvenliği:
+1-56 bitlik key lengthi yeterli değildir.Bunun için 128 bitlik 3DES algoritması oluşturuldu.DES algoritmasını arka arkaya 3 kere uygular.3DES, bankalar ve devlet daireleri olmak üzere hala kullanılıyor.Fakat günümüzün en standart ve geçerli algoritması "AES"tir.
+2-Brute-force ataklarına dayanıklı değildir.Bütün keylerin tek tek denenerek keyin tahmini saldırısına "brute force" denir.
+*****AES[Advanced Encryption Standard] Şifreleme Algoritması : Simetrik algoritmadır.128 bit blok uzunluğundadır.128 bit, 192 bit ve 256 bit uzunluğunda 3 farklı key length seçeneği mevcuttur.4 fonksiyondan oluşan round operasyonlarının tekrar etmesiyle oluşur.Bu round sayısı, key lengthine göre değişimler göstererek 10, 12 veya 14 round olabilir.
+***Akış şifreleme ve blok şifreleme arasındaki fark şudur: akış, veriyi bit bit ayırarak şifreler; blok ise belirli uzunlukta bitler haline çevirerek şifreler.
+****AES operasyon modları : AES, görselleri şifrelerken iyi performans göstermez.Görsellerin içeriğini yeterince gizleyemez çünkü birden fazla blok bulunan verilerde performans sorunu mevcuttur.Eğer operasyon modları kullanılmazsa; saldırganlar, trafik analizi dahi yapabilir.Brute-force ataklarına karşı dayanıklıdır ve başarılı olmuş olan pratik bir saldırı yoktur; sadece yan kanal atakları sonuç verebilir.5 adet mod vardır:
+1-Electronic Code Book[ECB] : Giriş değeri olarak plain texti alır ve bloklara böler.Oluşan şifreyi tekrar bloklar ve cipher texti elder ederiz.Fakat birden fazla blok bulunan verilerde kullanılması sakıncalıdır!
+2-Cipher Block Chaining[CBC] : Giriş değeri olarak plain texti alır ve IV[Initialization Vector] getirerek XORlama yapar.Sonra bloklara bölerek şifreleme yapar.Bu şekilde 3 farklı blokta işlemler yapar.
+3-Counter[CTR] : Giriş değeri olarak plain text değil de counter değerlerini alır.Counter değerleri genellikle bir önceki counter değerine +1 ekleyerek belirlenir.
+4-Cipher Feedback[CFB]
+5-Output Feedback[OFB]
+*****Asimetrik anahtarlar : Paylaşılan anahtarlı[public key] şifreleme kavramı olarak da bilinir.Simetrik algoritmalardaki anahtar paylaşımı problemini çözmek için üretilmiştir.Temel olarak şifrelemek ve şifre çözmek için ayrı keyler kullanır ve böylece kişilerin zarar vermesi oldukça zorlaşır.Herkeste tüm key bilgileri olması yerine sadece keyler paylaştırılır.Public key, herkes tarafından bilinebilir fakat private keyi paylaşmak yasaktır!Diffie-helman ve El-gamal algoritmaları ilk örnekleridir.
+**Örnek Bir Asimetrik Şifreleme : Elimizde bir plain text var.Biz bu plain texti public key ile şifreleriz.Ve karşı tarafa ulaşan cipher text, karşı tarafın sahip olduğu private key ile çözülür ve okunur.Kimsede private keyler olmadığı için, araya başkası giremez ve verileri okuyamaz.Public keyi bilen herkes, karşı tarafa veri gönderebilecektir fakat private key bilinmediği için; sadece private keyi bilen kişi tarafından decrypt edilip çözülebilecektir.
+****RSA Şifreleme Algoritması : Asimetrik kriptografide en yaygın olarak kullanılan algoritmadır.Asal çarpanlarına ayırma problemi üzerine inşa edilmiştir.
+**RSA Güvenliği:
+1-Asallara Ayırma : N sayısını asallarına ayırmaya çalışmak bir atak yöntemidir.
+2-Zamanlama Atakları : Exponansiyelin farklılığı durumundaki zaman farkları kullanılarak gizli bilgiler ortaya çıkarılabilir.
+3-Yan kanal saldırıları mümkündür.
+****ECC[Elliptic Curve Cryptography] Şifreleme Algoritması : Asimetriktir.Temeli, bir elipsin alanını hesaplamaya yarayan bir denkleme dayanmaktadır.Bu denkleme "Weierstrass Eşitliği" denir.Bu denklemi sağlayan [x,y] koordinatlarından oluşan eğriye eliptik eğri[elliptic curve] denir.3 temel yapıtaşı vardır:
+1-Gizlilik[Confidentiality] : Simetrik kriptografiyle sağlanır.Belirlenen şifre ile veri gizliliği sağlanıyor ve ihtiyaç halinde aynı şifreyle aynı şifreyle çözülerek, güvenliği sağlarız.
+2-Veri Bütünlüğü[Data Integrity] : Veride herhangi kayıp veya değişiklik olup olmadığını anlamamızı sağlayan hash fonksiyonlarıyla sağlarız.
+3-Kimlik Doğrulama[Authntentication] : Asimetrik kriptografiyle sağlanır.
+--------------------------------------------------------------------------------------------------------------------------------------------
+*****Tek Yönlü[Hash] Fonksiyonlar : Hash fonksiyonu, değişken uzunluklu veri kümelerini sabit uzunluklu veri kümelerine haritalayan[mapleyen] algoritma veya alt programdır.Hash foonksiyonları şifrelemek için kullanılamaz çünkü tersi elde edilemez bundan dolayı çözülemez!Verinin boyutu veya uzunluğu ne olursa olsun, kullanılan hash fonksiyonuna göre şifrelenerek sabit uzunlukta hash çıktısı alırız.İlk başlarda MD5 ve SHA1 algoritmaları kullanılmaya başlanmıştı fakat çok güvenlik zafiyeti veriyordu.Günümüzde ise SHA2 ve SHA3 algoritmaları en sık kullanılır.
+****Hash Fonksiyonlarının Matematiksel Altyapısı : Bir görevi[task] yerine getiren fonksiyonlardır.Tek yönlülerdir ve tersini almak çok zordur ve tersinin olma zorunluluğu da yoktur.Önce bir IV[Initialization Vector] ile başlangıç valuesi oluştururuz.Mesaj bloğunun ilk 32 bitlik veya 64 bitlik bloğu, bizim hash fonksiyonumuzda işleme girer ve ilk hash valuemizi oluşturur.Bunlar roundlar şeklinde ilerleyerek bize final hash değerini verirler.
+***Fonksiyonların özellikleri arasında "Bire-Bir Olması", "Örten Olması", "Tersine Olması" veya "Tek Yönlü Olması".Biz hash fonksiyonları için, Tek Yönlü Olma özelliğini arıyor olucaz.
+**SHA2 Algoritması : Hash algoritmalarındandır.Tek bir algoritma değildir ve içerisinde 6 farklı algoritma daha bulundurur: SHA224, SHA256, SHA384, SHA512, SHA512/224 ve SHA512/256. Yanlarındaki valueler, bu algoritmaların çıktılarının bit değerleridir.4 farklı boyutta çıktı verebilir.
+**SHA3 Algoritması : Hash algoritmalarındandır.SHA ailesinin en güvenilir algoritmasıdır.Tasarımında ise "sponge method" kullanılmıştır.Saniyedeki çıktı sayısı çok yüksektir, düşük kaynak tüketir ve düşük enerji tüketir.4 farklı boyutta çıktı verebilir.2 temel aşamadan oluşur:
+1-Sönümleme[absorbing]
+2-Sıkıştırma[squeezing]
+**Neden Hash Fonksiyonları Kullanmalıyız :
+1-Kriptografide fonksiyonların tersinin zor elde edilmesi çok önemlidir.Tüm şifreleme algoritmaları için bu geçerlidir.
+2-Dijital imzalardan sonra tek yönlü fonksiyonlara ihtiyaç doğdu.
+3-Hem şifreleme hem key değişim algoritmalarında hem de veri güvenliği alanlarında önem kazandı.
+4-Her sonuç, aynı algoritma için aynı boyutta çıkar.
+5-Doğrulama ve özetleme işlemlerinde oldukça yararlıdır.
+**Hash Algoritmalarına Saldırılar : 
+1-En basit saldırısı "dictionary" saldırılarıdır.Saldırı şu şekildedir: mesela SHA256 için düşünelim.Önceden özeti alınmış mesajlar ve çıktıları karşılıklı kaydedilir.Bu veri tabanı büyüdüğünde kullanıcı, bir özetin tersini bulmak için bu sözlüğe başvurur.O yüzden karmaşık şifreler koymak önemlidir.Çünkü şifre basitse, bu saldırılar ile tersi kolayca bulunabiliyor.
+2-Diğeri ise "brute-force" atağıdır.Bu saldırı şöyledir: Elimizde bir özet vardır ve bu özet değeri, çeşitli GPU veya CPUlarla çok fazla sayıda farklı girdilerin özet değerleriyle karşılaştırırız.Bu saldırıda önemli olan şey, sayısal işlemi yapan işlemcinin ne kadar güçlü olduğudur.MD5 gibi 128 bitlik çıkışı olan ve günümüz için küçük çıktı boyutu sayılan algoritmalar için işe yarayabiliyor.Fakat 256bit ve üstü için oldukça zordur.
+3-Çarpışma[collusion] ataklarıdır.Mesela SHA256 için 2²⁵⁶ farklı çıktısı vardır ki bu devasa büyüklükte bir sayıdır.Ama yine de 2 farklı verinin, özet değerlerinin aynı olma olasılığı vardır.Çarpışma olasılığını azaltmak için yapılan çeşitli matematiksel yöntemler vardır.Bu yöntemlerin en basiti ise çıkıştaki bit sayısını artırmaktır.
+4-Doğum günü[birthday paradox] saldırılarıdır.Bir hash algoritmasındaki çarpışmayı[collusion] bulma olasılığı 2^(L/2)dir."L", algoritma çıktısının boyutunu temsil eder.Mesela SHA256 için "L" değeri 256dır.
+5-Ters görüntüye dayanıklılık[Pre-image Resistance].Hash fonksiyonunun oluşturduğu özet değerinden orjinal verinin bulunmaması gerekir.
+6-İkincli ters görüntüye dayanıklılık[Second Pre-image Resistance].İki ayrı mesajın da aynı hash değerlerine sahip olması çok zor olmalıdır.
+**Hash Algoritmaları İçin Alınan Önlemler: Aşağıdaki dirençleri[Resistance] sağlamak için çeşitli matematiksel methodlar kullanılır:
+1-Çakışma Direnci[Collusion Resistance] : Herhangi 2 farklı girdinin aynı özeti, çıktı olarak üretmemeleridir.
+2-Ters görüntüye dayanıklılık[Pre-image Resistance] : Hash fonksiyonunun oluşturduğu özet değerinden orjinal verinin bulunmaması gerekir.
+3-İkincli ters görüntüye dayanıklılık[Second Pre-image Resistance].İki ayrı mesajın da aynı hash değerlerine sahip olması çok zor olmalıdır.
+*****Yan Kanal Saldırıları[Side-Channel Attacks,SCA] : Kriptografik algoritmaların kriptografik cihazlar üzerinde gerçeklemelerinden kaynaklanan istemsiz çıkışların analiz edilmesi ve bazı girişlerin kontrol edilmesiyle cihaz üzerinde saklı olan anahtarı[private key] ele geçirmektir.Bu saldırılarda algoritmaya değil de algoritmanın gerçeklemesine saldırılır.
+****Yan Kanal Çeşitleri :
+1-Akustik Saldırılar : Elektronik cihazların ürettiği sesleri analiz ederek yapılan saldırılardır.Mesela telefonun mikrofonu kullanılarak, laptopunuzda bastığınız tuşların sesleri analiz edilebilir; yazdığınız mesajlar ve girdiğiniz şifreler saldırgan tarafından ele geçirilebilir.Mesela yazıcıdan çıkan seslere göre de alınan mesajlar ele geçirilebilir.Çıkan sesler, anlık güç tüketimine bağlı olarak değişkenlik gösterir.Güç tüketimi de yapılan işlem hakkında bilgi sağladığından dolayı akustik saldırılar ile private key ele geçirilebilir.
+2-Zamanlama Saldırıları : İşlemlerin farklı girişler için farklı sürelerde sonuçlanmasından faydalanır.Mesela doğrulama yapılan döngü fonksiyonlarında[for,while,...] her fonksiyonun gerçekleşme süresi mevcuttur.
+3-Güç Analizi Saldırıları : Üzerinde en çok çalışma yapılan saldırılardır.Kriptografik bir işlem esnasında elektronik componentlerin anlık güç tüketimleri kontrol edilerek saldırı yapmak mümkündür.Günümüzün elektronik cihazlarında CMOS teknolojisi baskındır.Bu teknolojide düşük statik güç tüketimi ve yüksek dinamik güç tüketimi mevcuttur.Yani entegre devre içerisindeki lojik ve hafıza elemanlarının giriş-çıkışları değişirken kayda değer güç tüketirler.İşte bu güçler ölçülebilir."Basit" ve "Diferansiyel" olarak 2 çeşidi vardır.
+-Basit Güç Analizi Saldırısı
+-Diferansiyel Güç Analizi Saldırısı : Kompleks ve anlaşılması zordur.İlk olarak güç ölçümü için bir düzenek kurulur.Analiz yapar ve kriptografik cihazı kontrol etmek için bir bilgisayar, güç ölçümlerini toplamak için osiloskop ve şifrelemek için kriptografik cihaz[kriptografik algoritmanın gerçeklenmesi için] ve ek devrelerden oluşabilir.Sistemin giriş-çıkış ve güç bilgileri analiz edilerek bilgisayar ortamında toplanır.Birden fazla giriş sağlanır ve bu güç tüketimleri ölçülür.
+***Güç analizi saldırılarına karşı karşı, algoritmalara özel "maskeleme" yöntemleri ile önlemler alınabilir.Maskeleme yönteminde işleme rastgele başka değerler de dahil ederek ve tabi algoritmanın da doğru sonucu üretmesi için bu eklenen değerlerin etkisi de ortadan kaldırılarak saldırganın oluşturacağı tahmini güç ölçümleri ile tahmini güç ölçümleri arasındaki kolerasyonu bozmak hedeflenir.
+4-Elektromanyetik Analiz Saldırıları : Yapılan işleme ve işledikleri veriye göre güç tüketimlerinde anlık değişimler meydana gelir.Ve benzer şekilde yayılan elektromanyetik radyasyonda da anlık değişimler olur.Bu saldırıda, bu değişimler bir "Elektro Manyetik Probe" yardımıyla toplanır ve analiz edilip, private keye ulaşılmaya çalışılır.
+5-Hata[Fault] Saldırıları
+6-Önbellek Saldırıları
+7-Görünür Işık Saldırıları
+***Kriptografik cihaz, kriptografik algoritmalar çalıştıran ve içerisinde kriptografik anahtarlar barındıran elektronik cihazlardır.Bu keyi kullanarak şifreleme ve şifre çözme yapılır.
+***Kerckhoff Prensibi, bir kripto sisteminin güvenliği, sistemin gizliliğine değil de keyin gizliliğine bağlı olmalıdır.Ayrıca bu kriptografik sistemler de aynı zincir gibi en zayıf halkası kadar sağlamdırlar.
+****Yan Kanal Bilgileri :
+1-İşlem Süresi : 
+2-Güç Tüketimi :
+3-Elektromanyetik Yayınım
+4-Isı, ışık ve ses
+5-Frekans bilgisi
+****Yan Kanal Saldırı Sınıflandırmaları:
+**Kriptografik Cihazın Kontrol Edilmesine Göre:
+1-Pasif Saldırı : Cihazın işleyişine müdahale edilmez ve cihazın yan kanal bilgilerine müdahale edilir.Analiz edilerek saldırı yapılır.
+2-Aktif Saldırı : Cihaza dışarıdan müdahale edilir.Bu müdahalenin cihaz içerisindeki ve cihaz çıkışlarındaki etkisi analiz edilerek saldırı yapılır.
+**Kriptografik Cihazın Erişilmesine Göre:
+1-İstilacı[invasive] saldırılar : Cihazın paketini aşarak içerisindeki componentlere doğrudan erişim sağlanır.Bu tarz tehditler için "kurcalama algılayıcı sensörler" kullanılarak tehdit algılandığında mesela içerideki keyin silinmesi şeklinde saldırılara karşı konulabilir.
+2-Yarı istilacı[semi-invasive] saldırılar : Cihazın içerisindeki componentlere doğrudan erişim söz konusudur.Ancak cihazın paketlerine zarar verilmez.Mesela lazer ışınlarıyla hafıza elemanlarına müdahale bulunulması buna örnektir.
+3-İstilacı olmayan[non-invasive] saldırılar : Cihaza doğrudan erişimin olmadığı saldırı çeşitleridir.
+**Yan Kanal Analiz Metodlarına Göre:
+1-Basit saldırılar : Sadece bir ölçümün kullanılarak yapılan analiz sonuç verebilir.
+2-Diferansiyel saldırılar : Çok daha güçlü ataklardır.Çok fazla ölçümün ve çeşitli istatiksel metodların sonuçlarıyla ulaşılır.
+****Yan Kanal Saldırılarına Karşı Önlemler :
+**Rastgeleştirme[Randomization] :
+1-Saldırgan şaşırtılarak yan kanal bilgileri ile gizli bilgiler arasındaki kolerasyonu azaltmayı hedeflenir.
+2-İşlem arasında rastgele beklemek, işlemlerin sırasına rastgele karar vermek, vs..
+**Saklamak[Blinding] :
+1-Örnek uygulaması : RSA.Burada algoritma içerisine bir takım değişiklikler eklenir ve kriptolama işleminden sonra bunlar uygulanır.
+**Maskeleme[Masking] :
+1-Örnek uygulaması : AES.Dışarıdan kullanıcı tarafından sağlanan inital değeri, başka bir rastgele değerle çeşitli şekilde işlemler uyguladıktan sonra kriptolama işlemini başlatır.Kriptolama işleminden önce uygulanır.
+*****Donanımsal Güvenlik Modülleri[Hardware Security Modules,HSM] : Kısaca güvenliği fiziksel ve mantıksal olarak sıkılaştırılmış bir tür sunucu[server] denebilir.Bu sunucu, yalnızca kriptografik keylerin saklanması ve kriptografik operasyonların gerçekleştirilmesi için kullanılabilir.Diğer serverlar gibi sistem adminlerine açık ve esnek bir interface sağlamaz!Zaten yapacağı işler kesin olarak bellidir.İlk olarak 1970lerde bankacılıkta kullanıldı."Root of Trust" olarak kullanılır.Çoğunlukla sunucu kabinlerine monte edilerek kullanılır.Kendisine erişecek olan sucunu[server] ya da diğer bilişim sistemleriyle bilgisayar ağı üzerinden haberleşir.Görevleri arasında kriptografik keylerin güvenli bir şekilde depolanması, saklanması ve bu keylerin güvenli ve yüksek performanslı bir şekilde kullanılmasını sağlamaktır.
+***HSM, kriptografik keyler haricinde asla veri saklamaz!Ve bu anahtarları kullanarak verileri şifreleme, şifre çözme ve imzalama gibi işlemler yapmamızı sağlar.İçerisindeki verilerin şifrelenmiş bir halde cihaz dışında saklanmasının da pek bir sakıncası yoktur fakat tavsiye edilmez.Ayrıca bir Firewall veya VPN tarzı cihaz da değildir!
+**Neden HSM?
+1-Normalde standart serverlarda da kriptografik keylerimizi saklayabiliriz ve bu key ile şifreleme, çözme ve imzalama gibi kriptografik oprasyonlarımızı gerçekleştirebiliriz.Fakat bu durumda ters gidebilecek bir çok durum vardır.Mesela servera zararlı yazılımların ve virüslerin bulaşması, kötü niyetli sistem yöneticileri, yanlışlıkla oluşabilecek veri sızıntıları, vs... olabilir.
+****HSM Güvenlik Önlemleri:
+**Kurcalamaya Karşı Önlemler[Tamper Protection] :
+1-Hologramlı etiketler, kurcalama etiketleri,...[Tamper Evidence] : Yani cihazın kurcalanması halinde bunun görsel olarak belirgin olması ve gizlenememesini sağlayan güvenli önlemleridir.Bunun için genellikle HSM cihazlarının kasalarında üretici tarafından belirlenmiş olan naktalara, hologramlı etiketler veya bu iş için özel olarak tasarlanmış olan etiketler yapıştırılır.Bir kişi kasayı açmak isterse, bu etiketleri kısmen veya tamamen sökmek zorunda kalacaktır.Ve böylece kasayı inceleyen kişinin, kasanın açıldığını rahatlıkla farketmesini sağlar.
+2-Günvelik vidaları, epoksi dolgu, fiziksel erişimi zorlaştırıcı unsurlar[Tamper Resistance] : Bir saldırganın, cihaızn kritik bölgelerine fiziksel olarak erişmesini zorlaştırır.Standart tornavidalarla açılamayan güvenlik tornavidaları kullanmak, cihazın kritik bölgelerini epoksi ile enkapsüle etmek gibi kullanımları olabilir.
+3-Kurcalamaya karşı aktif izleme[Tamper Detection]:
+-Mekanik Sensörler : Mesela cihaz kapaklarının açılmasını algılar.
+-Optik Sensörler : Mesela cihaz kasasının içerisine ışık sızmasını algılar.
+-Sıcaklık Sensörleri : Mesela ortam sıcaklığını algılar.
+-Hareket Sensörleri : Mesela cihazın hareket ettirilmesini algılar.
+-Güç Hattı Sensörleri : Mesela cihazın güç hattının manipüle edilmesi durumundaki güç değişikliklerini algılar.
+4-Kurcalanma algılanması durumunda belli prosedürler işletme[Tamper Response]
+-Sıfırlama[Zeroization] : Cihazın içerisinde saklanan keylerin anında silinmesi ve yok edilmesidir.
+**Yan Kanal Önlemleri[Side CHannel Countermeasures] :
+1-Basit Güç Analizi[Single Power Analysis,SPA]
+2-Diferansiyel Güç Analizi[Differantiel Power Analysis,DPA]
+3-Elektromanyetik Emisyon Analizi[Electromagnetic Emission Analysis]
+4-Hata Analizi Saldırıları[Fault Analysis Attacks]
+**Mantıksal Güvenlik Önlemleri[Logical Security] : En yaygın olarak kullanılanlardır.
+1-Yazılımsal ve donanımsal bütünlük kontrolleri
+2-Kripto çekirdekleri kendi kendine test mekanizmaları[Self-Test, Known Answer Test]
+3-Erişim kontrolü
+4-İletişim güvenliği
+5-Mantıksal HSM bölümleri
+6-Güvenlik kayıtları
+****HSM Türleri:
+**Sağladığı Özelliklere Göre:
+1-Genel Amaçlı HSM[General Purpose HSM]
+2-Ödeme Sistemleri HSM[Payment/Finance HSM]
+**Form Faktörüne Göre:
+1-Ağ Tipi HSM : Genellikle server kabinlerine monte edilebilir formda üretilir ve kendi başlarına çalışabilirler.Diğer bilişim sistemleri ile bilgisayar networkü üzerinden haberleşir.
+2-PCI Express HSM : Çalışabilmeleri için uyumlu bir servera takılması gerkeir.Bağlı bulundukları server ile PCI Express interfacei üzerinden haberleşme sağlar.Kullanım kolaylığı vardır ve ekstra bir IT operasyonu gerektirmez.Daha yaygındır.
+****HSM nasıl kullanılır : Standart ya da üreticiye özel programlama arayüzlerinden birine veya birkaçına sahip olabilirler.Bu arayüzlerin ortak amacı, HSM içerisine saklanan bir keyin değerinin bilinmeden kullanılabilmesine imkan sağlamaktır.Arayüzlerden bazıları PKCS#11[Public Key Cryptography Standards], JCE[Java Cryptography Extension] ve CAPI[Microsoft Cryptography API]. 
+HSM cihazının sahip olduğu programlama arayüzleri ya da üretici tarafından sağlanan arayüz programları kullanılarak HSM üzerinde birbirinden bağımsız mantıksal bölümler, bu bölümlere erişebilecek olan kullanıcılar ve kullanıcıların erişim seviyeleri tanımlanır.Farklı uygulamalar için farklı mantıksal bölümler oluşturulabilir.Keyler, bu bölümler içerisinde saklanır ve her keyin de ayrı güvenlik parametreleri bulunur.Bu parametreler, söz konusu keyin hangi kriptografik operasyonlarda ve nasıl kullanılabileceğini belirler.
+**Bulut HSM : Gündelik yaşamda server kiralama çok yaygınlaştı.Artık uzak fiziksel serverları kiralayıp kolayca erişebiliyoruz.Aynı durum HSM için de geçerlidir.Yani bir HSM kiralayıp, kullandığımız serverı da bu HSM ile haberleşmesini sağlayabiliriz.
+**HSM Sertifikasyonları : HSM'leri günvelik bakış açılarıyla sınar ve her biri birbirinden farklı güvenlik gereksinimleri ve test senaryolarına sahip olan sertifikasyon programları vardır.
+1-FIPS 140-2 [Yakında FIPS140-3 olacak] : MasterCard, Visa ödeme şemaları bu standarda uymak zorundadır.
+-NIST[National Institute of Standards and Technology]
+-Level 1,2,3,4
+2-Ortak Kriterler[Common Criteria][ISO/IEC 15408] : MasterCard, Visa ödeme şemalarında kullanılabilir.
+-ISO[International Organization for Standardization]
+-EAL 1,2,3,4,5,6,7
+3-PCI HSM
+-PCI [Payment Card Industry]
+4-ISO/IEC 19790-24759
+****HSM'lerin güvenliği : 
+1-HSM'ler aslında içerisinde bulunduğu ortamı sihirli bir şekilde güvenli hale getirmez.Uygun bir fiziksel ortama, uygun bir ağ yapılanmasıyla doğru bir şekilde configuration edilmesi çok önemlidir.
+2-Ayrıca cihaza erişecek olan kullanıcıların gerekli eğitimleri almış olmaları ve ne yaptıklarını biliyor olmaları gerekir.
+3-Kurgulanacak key management sisteminin uygunluğu da önemlidir.
+-----------------------------------------------------------------------------------------------------------------------------
+*****Güncel Kriptoloji Uygulamaları : 
+****Kriptolojinin Amaçları:
+1-Veri gizliliğinin sağlanması
+2-Muhatabın doğrulanması[dijital kimlik]
+3-Veri bütünlüğünün korunması[saklarken veya transfer ederken]
+****Şifreli İletişim Altyapısı: Ortamların durumuna göre gereksinimler ya da iletişimin güvenliği için yapılan işlemler değişmektedir.
+**2 Güvenli Ortam Varsa:
+*Key paylaşımı gerçekleşir.
+*Rasgele sayılar üretilerek bunlar üzerinden oturum bazlı keyler üretilir.
+*Simetrik algoritmalar kullanılır: TDES, AES, vs..
+*Örnekleri: Kurumlar arası iletişim[HSM-HSM,2 banka, 2 devlet kurumu,..], akıllı kart ile banka iletişimi[SecuredElement-HSM], IOT cihazları,...
+**1 Güvenli-1 Güvensiz veya 2 Güvensiz Ortam varsa:
+*Asimetrik algoritmalarla key paylaşımı : RSA, ECC, Diffie-Helman,...
+*Asimetrik algoritmalarla key oluşturulduktan sonra bazen simetrik algoritmalarla devam edilebiliyor: TDES, AES,...
+*Örnekleri: SSL/TLS, PGP, mobil uygulamalar,...
+***Public keyle şifrelenen veriler, yalnızca private key kullanılarak çözülüp okunabilir.

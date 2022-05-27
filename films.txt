@@ -1,0 +1,864 @@
+Film_Name = The Northman
+Film_Rate = 8
+My_Notes = Sağlam film. Orta CGI; derin senaryo ve derin hikaye bağlantıları. Vikingleri, inançlarını, savaş güdülerini, hayvanlarla ve doğayla olan inanç bağlarını çok iyi yansıtmış. İnsan bedenine bürünmüş kurt gibi ayin yapmaları vs harikaydı.
+Description = 10. yüzyılda İzlanda’da yaşayan Viking prensi Amleth’in babasının öldürülmesini ve suikastçılarından kaçmasını konu ediniyor. Büyümüş ve intikam için aç olan Amleth, ailesinin ölümünden sorumlu adamları öldürmek için kanla dolu bir yolculuğa koyuluyor.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Uncharted
+Film_Rate = 4
+My_Notes = Kötü film. Orta CGI; sığ senaryo ve sığ hikaye bağlantıları. Senaryo çok çocukca ve mantıksızdı. Kaçışlar, hırsızlıklar, planlamalar çok yavan ve her sahnede "oha bu nasıl olur" dedirtti. Düşük zeka seviyeli aksiyonlar vardı. Basit düşünülmüş bir film.BİTİREMEDİM!
+Description = Yetenekli genç hırsız Nathan Drake, 500 yıl önce Ferdinand Magellan’ın kaybettiği bir serveti kurtarmak için deneyimli hazine avcısı Victor “Sully” Sullivan tarafından işe alınır. İkili için bir soygun olarak başlayan iş, kendisinin ve ailesinin gerçek varisler olduğuna inanan acımasız Moncada’dan önce ödüle ulaşmak için dünya çapında bir yarışa dönüşür. Nate ve Sully ipuçlarını deşifre edip dünyanın en eski gizemlerinden birini çözebilirlerse, 5 milyar dolarlık hazineyi ve hatta Nate’in uzun süredir kayıp kardeşini de bulabilirler. Ancak birlikte çalışmayı öğrenebilirlerse...
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = The Batman[2022]
+Film_Rate = 8
+My_Notes = Sağlam film.  Bol CGI; derin senaryo ve derin hikaye bağlantıları. Batman artık daha psikopat, daha insanlardan uzak ve karanlıklaşmış. Normal insanlardan farklı yaşadığı için psikolojik olarak da ayrışmış. Filmde ciddiyet ve sertlik üst düzeyde. Batman, güçlü bir karater ve sert olarak yansıtılmış. Ayrıca supernaturallikten uzaklaşmış ve zırhı rahatça zarar görebiliyor, yara alabiliyor. Abartıdan uzak ve karanlıklara sarılan bir Batman.
+Description = Suçluların kalplerine korku salan Batman olarak iki yıl boyunca sokaklarda dolaşmak, Bruce Wayne'i Gotham City'nin gölgelerine sürükledi. Şehrin yozlaşmış memurlar ağı ve yüksek profilli şahsiyetleri arasında yalnızca birkaç güvenilir müttefiki olan -Alfred Pennyworth, Teğmen James Gordon- yalnız kanunsuz, hemşehrileri arasında intikamın yegâne örneği olarak kendini kanıtlamıştır. Bir katil, bir dizi sadist entrikayla Gotham'ın seçkinlerini hedef aldığında, şifreli ipuçları Dünyanın En Büyük Dedektifi'ni yeraltı dünyasına bir soruşturmaya sürükler ve burada Selina Kyle / Catwoman, Oswald Cobblepot / Penguen, Carmine Falcone ve Edward Nashton / Riddler gibi karakterlerle karşılaşır. Kanıtlar eve yaklaşmaya başladıkça ve failin planlarının ölçeği netleşirken, Batman yeni ilişkiler kurmalı, suçlunun maskesini düşürmeli ve Gotham City'i uzun süredir rahatsız eden gücün ve yolsuzluğun kötüye kullanılmasına adalet getirmelidir.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Sonic The Hedgehog
+Film_Rate = 6
+My_Notes = Fena değil. Bol CGI; sığ senaryo ve orta hikaye bağlantıları. Sahneler çocukca, eğlenceli ve tatlıydı. Fakat çocuk komedisi yani filmin kurgusu vs basitçe geçilmiş, mantık aramadan eğlenceye odaklanmalısınız.
+Description = Sonic the Hedgehog, peşine düşen yetkililerden kurtulup, şeytani doktorun elinde bulunan yüzükleri geri almaya çalışan Sonic'in hikayesini konu ediyor. Hükümet, insan biçiminde bir kirpi olan Sonic’i yakalamak için peşine düşer. Devlet görevlileri her yerde Sonic’i aramaya başlar. Sonic ise bu sırada şeytani doktor Eggman’ın ele geçirdiği yüzükleri geri almaya çalışmaktadır. Küçük bir kasaba olan Green Hills’in şerifi Tom Wachowski, Sonic’in peşine düşen hükümet yetkililerinden kaçmayı başarıp, doktordan yüzükleri geri alabilmesi için yardım etmeye karar verir. Ancak bu sandığı kadar kolay olmayacaktır.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Sonic the Hedgehog 2
+Film_Rate = 7
+My_Notes = Sağlam film. Bol CGI; orta senaryo ve orta hikaye bağlantıları. İlk serisinden çok daha iyi. Biraz çocukça, tatlı ve esprili sahneler. Ama çok güzel maceralar, yeni eklenen karakterler ve bu karakterlerin daha tehlikeli ve saldırgan olması güzeldi.
+Description = Sonic the Hedgehog 2, yaşananlardan sonra Tom'un yanında kalan Sonic'in, bu kez yanında daha güçlü bir silahla karşısına çıkan Dr. Robotnik ile yeni mücadelesini anlatıyor. Sonic, Green Hills’e yerleştikten sonra gerçek bir kahraman olmak için gereken özelliklere sahip olduğunu kanıtlamak için sabırsızlanır. Dr. Robotnik, bu kez yeni ortağı Knuckles ile birlikte medeniyetleri yok etme gücüne sahip olan bir zümrüdün arayışıyla geri döndüğünde sınavı başlar. Sonic, yardımcısı Tails’le ekip olur ve birlikte zümrüdü yanlış ellere düşmeden bulmak üzere dünya çapında bir yolculuğa çıkarlar.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Spider-Man: No Way Home
+Film_Rate = 5
+My_Notes = Kötü film. Bol CGI; sığ senaryo ve sığ hikaye bağlantıları. Çocukça sahneler ve esprilerle süslenmeye çalışılmış. Ciddiyetten, kaostan ve sertlikten uzak bir filmdi. Sahneleri izlerken anlamlı, bağlantılı geçişler ve derin senaryolar beklemeyi çünkü sığ bir film. Mesela Dr Strange dünya üzerinde unutma büyüsü yaparken Spider-man, sadece bazı insanların hatırlaması için rica ediyor ve bir anda evrenin ayarlarıyla oynamış oluyorlar. Lan bundan nasıl evrenin ayarını değiştirmeye bağladınız aq. Eski spider-man filmlerini karakterlerini birleştirmişler fakat bana göre çok anlamsız sahneler, gereksiz dialoglar oluşmuş.
+Description = Kimliği açığa çıkan Örümcek-Adam'ın, bu konuda Doctor Strange'den yardım istemesiyle gelişen çetrefilli olayları konu ediniyor. Örümcek-Adam’ın sinematik tarihinde ilk kez, mahallemizin sevimli kahramanı maskesiz ve normal hayatı ile Süper Kahraman olmanın yüksek risklerini birbirinden ayıramayacak durumda. Doktor Strange’den kendisine yardım etmesini istediğinde bu riskler daha da tehlikeli bir hal alır ve onu gerçekten Örümcek-Adam olmanın ne anlama geldiğini keşfetmeye zorlar.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Eternals 
+Film_Rate = 8
+My_Notes = Sağlam film. Bol CGI, orta senaryo ve derin hikaye bağlantıları. Çocukça ve yumuşak mizaçta esprililerle işlenen senaryo. Kahramanlar normal insan hayatına karışıyor ve günlük yaşantının parçası haline gelmeye çalışıyor ve hikaye gereği bu insanları tek tek kahramanlığa geri döndürmek için ikna etmesi falan gereksiz senaryoydu. Ve bu geçiş senaryolarında çok espri malzemesi olarak kullanılmış. Ciddiyetten ve sertlikten uzak çok sahnesi vardı.
+Description = Kozmik varlıklar olan Celestials, insanlar üzerinde deneyler yaparlar. Genetikleri değiştirilen insanlar yaratan Celestials'ı konu edinen çizgi romanlarda bu insanlar hem süper güçlere sahiplerdir, hem de yarı ölümsüzlerdir. Ayrıca vahşi bir ırk olan Deviants'ı da yaratmış bulunan Celestials, insanlık tarihinin arka planında yer alan iki ırk yaratmış olur. Eternals ve Deviants, tarih boyunca birbirleriyle çatışma içinde olacaklardır...
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Dune: Part One
+Film_Rate = 8
+My_Notes = Sağlam film. Bol CGI, derin senaryo ve derin hikaye bağlantıları. Vıcık vıcık esprilerden uzak olması ve belli bir ciddiyet taşımaları, kasvetli ve sert sahneleri harikaydı. Çok geniş bir hikayesi ve evreni var ve diğer serilerde beklentimiz çok yüksek.
+Description = Uzak bir gelecekte geçen Dune, ailesi çöl gezegeni Arrakis’in kontrolüne sahip olan Paul Atreides’in hikayesini anlatıyor. Galaksinin farklı noktalarındaki gezegenler, rakip feodal aileler tarafından yönetilmektedir. Çok değerli bir kaynağın tek üreticisi olan çöl gezegeni Arrakis'in kontrolü asil aileler arasında son derece talep görmektedir. "Baharat" adı verilen bu kaynak, yüksek bilinç ve uzun bir yaşam süresi sunarken, beraberinde çok ciddi yan etkileri de getirmektedir. Ayrıca yıldızlararası yollarda gezinmeye yardımcı olan kaynak da bu baharattır. Bu kaynağı elde etmek isteyen feodal rakiplerden Harkonen ailesi tarafından Paul ve ailesine tuzak kurulur. Bu tuzağın sonucunda Paul'un ailesi darmadağın olarak firari hale gelir. Paul, ailesinin Arrakis kontrolünü yeniden kazanması için bir isyan başlatırken, tüm evrenin seyrini değiştirebilme ihtimalini yakalayacaktır.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Ghostbusters: Afterlife
+Film_Rate = 6
+My_Notes = Orta film. Orta CGI, sığ senaryo ve orta hikaye bağlantıları. Çocukça fakat eğlenceli bir film olmuş. Zaten filmin ana karakterleri bile çocuk ve hatta bu çocuklar, gezegeni büyük felaketten kurtarıyorlar. Çok sığ sahneleri ve "oha bu nasıl olur" diyeceğiniz mantıkta plan sahneleri var.
+Description = Bekar bir anne olan Callie, mali zorluklarla mücadele etmektedir. Geçimlerini sağlamakta zorlanan Callie, çocukları Trevor ve Phoebe ile birlikte ölen babasından kalan eski eve taşınmak zorunda kalır. Yeni hayatlarından pek memnun olmayan Trevor, çok geçmeden evde büyükbabasının mirasıyla ilgili büyük bir sırrı keşfeder. Büyükbabasının eşyalarının arasında onun Hayalet Avcıları’nın üyesi olduğunu gösteren ekipmanlar bulan Trevor, Phobe ve yeni arkadaşları ile birlikte bulduklarını kurcalarken kasabanın altında uyuyan bir tehlikenin ortaya çıkmasına neden olur.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = The King's Man
+Film_Rate = 7
+My_Notes = Sağlam film. Az CGI, orta senaryo ve iyi hikaye bağlantıları. Hem aksiyon, hem bazı düşünülmüş senaryolar, hem de komedik barındırması hoşuma gitti. Tarihsel içerik de ekstra cabası oldu. Filmde ince düşünülmüş çok plan sahneleri olmasına rağmen bazı sahnelerinin mantıksızlığı göze çok batıyor ve çocuklara yutturmaya çalışılan eğlence sahnelerine dönüşüyor.
+Description = Tarihin en kötücül tiranları ve suçlularından oluşan bir grup, milyonlarca insanı yok etmek için bir savaş çıkarmak üzere güçlerini birleştiriyor. Onları durdurabilecek yegane kişi ise zamana karşı amansız bir yarışa girmek zorunda. The King's Man: Başlangıç filmiyle tarihin ilk bağımsız istihbarat teşkilatının kökenlerini keşfetmeye hazır olun.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = The Matrix Resurrections
+Film_Rate = 6
+My_Notes = Fena değil. Bol CGI, orta senaryo ve orta hikaye bağlantıları. Diğer serilerine göre vasat. Espri eklenmeye çalışılmış dialoglarla mahvedilen o ciddi ve tüyleri ürperten sahneler ve karakterler yok olmuş. Normalde Mr Smith'in meşhur gülerek "Mr Anderson" derken psikopat ruh hali ve psikopata bağlanması bile bu filmde iyice sönmüş. İyi kurgulanmamış. Dijital evrenin film boyunca çok güçlü olan karakterlerinin çok basitçe avlanması ve düşmesi gibi saçmalıklar mevcut ve bu da akışı bozuyor ve mantıksızlaştırıyor.
+Description = İki gerçekliğin (gündelik hayat ve ardında yatan şey) dünyasında Thomas Anderson bir kez daha beyaz tavşanı izlemeyi seçmek zorunda kalacak. Seçim, bir yanılsama olsa da her zamankinden daha güçlü, daha güvenli ve daha tehlikeli olan Matrix'e girip çıkmanın tek yoludur.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Zack Snyder's Justice League
+Film_Rate = 9
+My_Notes = Sağlam film. Bol CGI, derin senaryo ve derin hikaye bağlantıları. Diğer "Justice League" serisinden 10 kat daha iyi. Hem görsel efektler hem de işleniş bakımından karakterler daha güçlü ve daha kaotik yansıtılmış. Bu filmde yıkımlar daha fazla ve karakterle daha şiddetli.
+Description = Superman’ın büyük fedarkarlığının boşa gitmesi kararlılığında olan Bruce Wayne, Diana Prince ile güçlerini birleştirerek Dünya’yı yaklaşmakta olan yok edici felaketten korumak için bir metainsan ekibi oluşturmayı planlar. Ekip üyelerinin kendi geçmişlerindeki kötülükler ile yüzleşmek zorunda olmaları, görevin, Bruce’un önceden düşündüğünden daha zor olmasına neden olur. Ancak, ekip üyeleri bunları aşarak bir araya gelip, eşi olmayan bir kahramanlar grubu oluştururlar. Şimdi birleşmiş olan Batman, Wonder Woman, Aquaman, Cyborg ve Flash’ın Dünya yı Steppenwolf, DeSaad, ile Darkseid ve onların korkutucu niyetlerinden korumakta geç kalıp kalmadıkları belli olacaktır.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Black Widow 
+Film_Rate = 5
+My_Notes = Kötü film. Orta CGI, sığ senaryo ve orta hikaye bağlantıları. Sıkıcı ilerleyiş ve kötü aksiyon sahneleri. Gereğinden fazla abartılmış bir karakter ve karşısında 2 metre ötesini bile nişan alamayan özel kuvvetler ekipleri vs. Mantıksız ve sığ hikaye yüzünden sahnelerde "oha bunu nasıl yaptı" dediğin çok oluyor.
+Description = Film, Black Widow'un gizemli geçmişine ve KGB ile olan ilişkilerine ışık tutacak. Merakla beklenen filmde Black Widow'un Kırmızı Oda'dan başka casuslarla karşılaşmasını ve Marvel Comics'in en sevilen kötü adamlarından biri olan Taskmaster ile savaşmasını göreceğiz. Ayrıca Red Guardian ile Black Widow'un ilişkisine de ışık tutulacak. Red Guardian çizgi romanlarda, Rusya'nın Captain America'sı olarak tanınıyor.
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = Mortal Kombat
+Film_Rate = 7
+My_Notes = Sağlam film. Orta CGI, sığ senaryo ve orta hikaye bağlantıları. Mantıktan uzak bir film ve resmen ailesini kurtarmaya çalışan bir kişinin zoraki kahramana dönüşme hikayesi gibi birşey olmuş. Filmin hikayesini ilerleyişi çok basit ve az düşünülmüş. Fakat bunca kötü şeye rağmen aksiyon sahnelerini oldukça beğendim.
+Description = Mortal Kombat’da para karşılığı dövüşmeye alışkın MMA dövüşçüsü Cole Young, mirasından ve Outworld’ün İmparatoru, Shan Tsung’un en iyi savaşçısıdır. Outworld’de yaşayan buz ustası Sub-Zero’nun onu avlaması için neden gönderdiğinden habersizdir. Ailesinin güvenliğinden endişe duyan, Cole kendisiyle aynı olan ilginç ejderha doğum lekesine sahip Özel Kuvvetler’de Binbaşı Jax’ın yönündeki Sonya’yı aramaya çıkar. Yakında, kendini Yüce Tanrı ve Dünya Diyarı'nın koruyucusu, doğum lekesini taşıyanlara sığınak veren Lord Raiden tapınağında bulur. Burada tecrübeli dövüşçüler Liu Kang, Kung Lao ve hilekar paralı asker Kano tarafından yetiştirilen Cole, bir yandan da Dünya Diyarı'nın en büyük şampiyonlarının, Dış Dünya'nın en büyük şampiyonlarına karşı, savaşacağı ölümcül dövüşe hazırlanır. Bakalım Cole ruhunun derinliklerinde saklı olan gizemli ve muazzam güçleri çok geç olmadan keşfedip, sadece ailesini değil, tüm evreni Dış Dünya'nın saldırısından kurtarabilecek mi?
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =
+------------------------------------------------------------------------------------------------------------------------------
+Film_Name = 
+Film_Rate = 
+My_Notes = 
+Description =

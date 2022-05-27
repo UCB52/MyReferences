@@ -1,0 +1,187 @@
+***Nx Workspace oluşturmak için: Eğer "npm" kullanıyorsak "npx create-nx-workspace@latest"; eğer "yarn" kullanıyorsak da "npx create-nx-workspace yourNamespace --packageManager=yarn" kullanırız.Çıkan listede "next.js" seç.Style için de "css" seç çünkü tailwind ile pure CSS ve PostCSS yazarak server-side hazırlığı yapacağız.
+***"Next.js" dev serverı launch etmek için "npm start" yazarız.Böylece oluşturulmuş olan applikasyonumuzu, "http://localhost:4200" adresinden live reload olarak görüntüleriz.Eğer birkaç aplikasyonumuz varsa ve spesifik olanı launch edeceksek de "npx nx serve appName" yazarız.
+***Appliasyonumuzu "build" edebilmek için : "npx nx run applicationName:build --configuration=production" yaz.
+***Applikasyonumuzu "test" edebilmek için : "npx nx appName:test" yazarız.
+***Monorepomuza yeni bir applikasyon eklemek için : "nx g @nrwl/next:app appName" yazarız.Böylece aynı repoya birden fazla applikasyon ekleriz.
+***Monorepodaki bir applikasyonumuza page eklemek için: "npx nx g @nrwl/next:page --name=pageName --style=css" yazarız.Böylece artık "/pageName" pathı ile erişim sağlarız.
+***getStaticProps : (Static Generation) Build edilirken datayı fetch etmek için kullanılır."async" olarak export eder ve fonksiyonu tarafından return edilen bilgilerle beraber prerender edilir.Ayrıca kullandığı "params" propertysi, dinamik routelar renderlandığı esnadaki route parametrelerini içerir.Tüm datalar, "getStaticPaths" fonksiyonundan geçirilir.Kısacası sayfa içeriğiniz, external datalara bağlıdır.
+***getStaticPaths : (Static Generation) Build edilirken prerender edilen dinamik routeları belirtmek için kullanılır.Dinamik bir "next.js" routeumuz olduğunda, ilgili markdown dosyasını bulmak için de bu routeun pathını elde etmemiz gerekir.Kısacası build esnasında HTML'ye render edilmesi gereken pathların bir listesini return etmesi gerekir.Kısacası sayfa pathlarınız, external datalara bağlıdır.
+***getServerSideProps : (Server-side Rendering) Her requestte datayı fetch etmek için kullanılır.Kısacası her requestte, sayfaları dinamik olarak oluşturacaksak bunu kullanırız.Bu fonksiyondan return edilen "props"lar, doğrudan React componentine aktarılır.Fakat Next.js applikasyonumuzu, çalışan bir "Node Server" destekleyen bir ortama deploy etmemiz gerekir!Eğer sitemizi statik olarak bazı CDN'lere dağıtmak istiyorsak, bu fonksiyonu kullanamayız.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Componenti manuel oluşturmak:
+1-"about" componentine şöyle yaz:
+"import './index.module.css';
+export function About() {
+  return (<div><h1>Welcome to About!</h1></div>)}
+export default About;"
+----------------------------------------------------------------------------------------------------------------------
+*****API'den datayı ve statik datayı templatee eklemek:
+****Bu senaryoda bir API endpointinden objectleri çekerek dataları template içerisinde fetch edeceğiz.
+1-Önce "about" isminde bir pagei "npx nx g @nrwl/next:page --name=about --style=css" yazarak oluştur ve indexine gir.Şöyle yaz:
+"export default function About({ object1,object2 }) {
+  return (
+    <ul>
+      {object1.map((x) => (
+        <li>Name : {x.name}</li>
+      ))}
+      {Object.values(object2).map((x)=>(
+        <li>{x}</li>
+      ))}
+    </ul>)}
+export async function getStaticProps() {
+  const object1 = await fetch('https://last-airbender-api.herokuapp.com/api/v1/characters/avatar').then(res => res.json());
+  return {
+    props: {
+      object1,object2:{name:'Uğur',lastName:'Can',age:18}},
+  }}".
+2-Böylece API endpoitten object1'i ve statik data olan object2yi çektik ve kullandık.
+-------------------------------------------------------------------------------------------------------------
+*****API'den dinamik datayı "ServerSideProps" ile renderlamak:
+1-Önce "about" isminde bir pagei "npx nx g @nrwl/next:page --name=about --style=css" yazarak oluştur ve indexine gir.Şöyle yaz:
+"export function About(props) {
+  return {
+    <div>
+    <ol>
+        {props.countries.map((x)=>(
+          <li key={x.name.common}>{x.name.common}</li>
+        ))}
+      </ol>
+    </div>}
+  export const getServerSideProps = async () => {
+    const countries = await fetch('https://restcountries.com/v3.1/all').then(res => res.json());
+    return {
+      props : {
+        countries
+      }}
+}}
+export default About;"
+2-Böylece "/about" pathında API'den gelen ülke isimlerini yazdırdık.
+-------------------------------------------------------------------------------------------------------------
+*****Statik datayı dinamik routerlara eklemek:
+****Bu senaryoda "/pages" pathının içerisine "/posts/[id]" şeklinde dinamik routelar atayacağız.
+1-Önce dinamik bir pagei dinamik route ile "npx nx generate @nrwl/next:page --name=[slug] --style=css --directory=articles" yazarak oluştur.
+2-"[slug]"ın indexine gir ve şunları yaz:
+"import { GetStaticPaths, GetStaticProps } from 'next';
+import { ParsedUrlQuery } from 'querystring';
+interface SlugProps extends ParsedUrlQuery {
+  slug: string;}
+export function Slug(props: SlugProps) {
+  return (
+    <div>
+      <h1>Welcome to the {props.slug}!</h1>
+    </div>
+  );}
+export const getStaticPaths: GetStaticPaths<SlugProps> = async () => {
+  return {
+    paths: [1, 2, 3].map((idx) => {
+      return {
+        params: {
+          slug: `page${idx}`,
+        },};
+    }),
+    fallback: false,
+  };};
+export const getStaticProps: GetStaticProps<SlugProps> = async ({
+  params,
+}: {
+  params: SlugProps;
+}) => {
+  return {
+    props: {
+      slug: params.slug,},
+  };};
+export default Slug;".
+3-Böylece artık kullanıcı, "articles/page${id}" urlsindeki gibi pathler girdiğinde, dinamik templateler görecektir.
+----------------------------------------------------------------------------------------------------------
+*****"a" elementine router vermek için:
+1-Componente gir ve "import Link from 'next/link'" import et.
+2-Template içerisine şunu yaz:
+"<Link href='articles/1'><a>Path1</a></Link>".
+----------------------------------------------------------------------------------------------------------
+*****Herhangi bir elemente router atamak için
+1-Componente gir ve "import { useRouter } from 'next/router';" import et.
+2-Template içerisine "const router = useRouter()" tanımla ve elementi şöyle yaz:
+"<button onClick={()=>{
+  router.push('articles/1')
+}}>1</button>".
+----------------------------------------------------------------------------------------------------------
+*****Pagei bir koşula bağlı kalmaksızın "redirect" etmek için:
+1-Componente gir ve "import { useEffect } from 'react';import { useRouter } from 'next/router';" import et.
+2-Componentin içerisinde boş bir scopeta şunu yaz:
+"function Redirect({to}){
+  const router = useRouter();
+  useEffect(()=>{
+    router.push(to);
+  },[to]);
+  return null;}".
+3-Template içeerisine gir ve şunu yaz:
+"return <Redirect to='/home'/>;".
+4-Böylece kullanıcı, bu sayfaya her girişinde otomatik olarak "/home" pathına yönlendirilecek.
+----------------------------------------------------------------------------------------------------------
+*****Pagei belirli koşullara göre "redirect" etmek için:
+1-Componente gir ve "import { useEffect } from 'react';" import et.
+2-Componentin içerisinde boş bir scopeta şunu yaz:
+"function Redirect({to}){
+  const router = useRouter();
+  useEffect(()=>{
+    router.push(to);
+  },[to]);
+  return null;}".
+3-Template içerisine gir ve şunu yaz:
+"const router = useRouter();
+const [shouldRedirect,setShouldRedirect] = useState(false);
+if(shouldRedirect){
+ return <Redirect to='/articles/1'/>;}
+ return(
+   <div>
+   <button onClick={()=>{
+    setShouldRedirect(true);
+  }}>
+    Redirect
+  </button>
+   </div>)".
+-----------------------------------------------------------------------------------------------------------
+*****"useRouter()" objectinin önemli propertileri:
+1-"asPath" : Mevcut bulunan pathı gösterir.Meela "/about".
+2-"push()" : Mevcut pathı değiştirir.
+3-"reload()" : Mevcut sayfaya refresh yapar.
+4-"query()" : Mevcut url'deki aldığı parametreleri array halinde string olarak döndürür.
+5-"back()" : Sayfada geri gider.
+-----------------------------------------------------------------------------------------------------------
+*****Girilen pathtaki parametreyi çekmek için:
+1-Önce "npx nx generate @nrwl/next:page --name=[slug] --style=css --directory=post" yaz.
+2-"[slug]"ın indexine gir "import { useRouter } from 'next/router';" import et ve template içerisine şunları ekle:
+"const router = useRouter();
+return (
+  <div>
+    <p>Current Parameter : {router.query.slug}</p>
+  </div>);"
+3-Kullanıcının sayfaya erişirken "/post/" ardından girdiği tüm parametreleri görüntüleriz.
+-----------------------------------------------------------------------------------------------------------
+*****Path içerisinde birden fazla nested parametre için:
+1-"npx nx generate @nrwl/next:page --name=[...slug] --style=css --directory=post" yaz.Böylece "post" folderı altında birden fazla parametre oluşturabiliriz.Kullanıcı artık urlden "post/xxx/xxx/xxx" dilediği şekilde girebilir.
+2-Eğer kullanıcı, sadece "post" yazdığında da mevcut "[slug]" içeriğini görüntülemek istiyorsak en baştan şöyle yaz: "npx nx generate @nrwl/next:page --name=[[slug]] --style=css --directory=post".Böylece kullanıcı, folder olan "post" pathına girdiğinde de "[slug]" contentini görecektir.
+3-Eğer "post" yazdıldığında ayrı bir içerik görüntülemek istiyorsak da, en baştan şöyle yaz: "npx nx generate @nrwl/next:page --name=[slug] --style=css --directory=post".Ardından "post" folderına sağ tıkla ve "index.tsx" adında file ekle.Buraya eklediğin içeriğe kullanıcı, "/post" pathıyla erişecektir.
+-----------------------------------------------------------------------------------------------------------
+*****Event binding[One Way]:
+1-HTML elementi için mesela:
+"<button onClick={() => {
+  router.push('/about');
+}}>"
+-------------------------------------------------------------------------------------------------------------
+*****auth0 applikasyonu yapmak için:
+1-Websitesinde "applications" gir ve "create application" tıkla.React seçerek oluştur.Settings'e gir ve "Allowed Callback URLs", "Allowed Logout URLs" ve "Allowed Web Origins" alanlarına "http://localhost:4200" yaz çünkü bu adreste sitemizi çalıştıracağız ve kaydet.
+2-Sonrasında ise react applikasyonuna gel.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****NEXT-JS & REACT:
+****Starter Template:
+1-"npx create-next-app app1" yaz.
+2-Tailwind library için "npm install -D tailwindcss postcss autoprefixer" ve ardından tailwind config dosyaları için "npx tailwindcss init -p" yaz.
+3-Projeyi çalıştırmak için "npm run dev" yaz.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+****FontAwesome için:
+1-"npm install --save @fortawesome/react-fontawesome", "npm install --save @fortawesome/free-brands-svg-icons", "npm install --save @fortawesome/free-solid-svg-icons" yaz.
+2-Eğer hala çalışmıyorsa da "npm i --save @fortawesome/fontawesome-svg-core" ekle ve tekrar dene.

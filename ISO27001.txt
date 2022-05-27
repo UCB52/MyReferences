@@ -1,0 +1,71 @@
+*****ISO 27001:2013 : Bilgi Güvenliği Yönetim Sistemi[ISMS].Tüm dünyada kabul edilen bir bilgi güvenliği standardıdır.Bir firmada bilginin denetimini, yürütülmesi, güvenliğini ve tehditlere karşı önlemler alınmasını kapsar.Bilgi güvenliği sisteminin planlanmasını, planların uygulanmasını, bunların denetimini ve önlemler alınmasından sorumludurlar[PUKO]:
+1-Kurum Politikaları : Kurumun kültürüne ve disiplinine uygun güvenlik politikaları geliştirilmesidir.
+2-Planlama : BGYS'nin tasarımı yapılır.Firmanın genel politikaları ve açıklamalarına göre dağıtmak için, izleme, ölçme, analiz ve değerlendirme, risklerin yönetimi ve bilgi güvenliği politikası, amaçlar, hedefler, prosesler ve prosedürlerin tasarımları bu aşamada gerçekleşir.Ayrıca mesela bu sistemi kaç kişiyle izlemem gerektiği, bu sistemi kaç kişinin kullanacağının analizi, hangi tür paydaşlarla çalıştığı, kısıtlamalarının ne olacağı, kullanılacak olan teknolojileri, hangi tür seviyede risklerle karşılaşılabileceği vs de planlamalara dahildir.
+3-Uygulama : Özellikle çalışanlarımızda bilinç oluşturma, eğitim ve farkındalığı üst düzeylere çıkarmaktır.İnsanlara sorumluluk ve yetki dağılımları yapılır.
+4-Kontrol Etmek : BGYS politikası, amaçlar ve kullanım deneyimlerine göre süreç performansının testlerle veya analizlerle değerlendirilmesi ve ölçülmesi ve sonuçların gözden geçirilmek üzere yönetime rapor verilmesi bu aşamada gerçekleşir.
+5-Önlem Almak : Eğer kabul edilebilir sınırların ve ölçülerin dışında mevcut riskler varsa, bunların önlemleri alınır.
+6-Sürekli İyileştirmek[düzeltici faaliyet, sürekli geliştirme]
+***Bu aslında bir döngüdür ve şöyle özetlenebilir: PLAN->DO->CHECK->ACT->PLAN...
+-----------------------------------------------------------------------------------------------------------
+****Bilgi sistemlerini koruyabilmek için:
+-Kurum dışına bilgi sızmasını engellemek[confidentiality]
+-Bilginin içeriğinin yetkisiz kişilerce değiştirilmesini engellemek[integrity]
+-Bilgiye erişimin kesintiye uğramasını engellemek[availability]
+-Yasal uyumluluk
+-Risk-maliyet dengelenmesi
+
+***General Data Protection Regulation[GDPR]
+-----------------------------------------------------------------------------------------------------------
+*****BGYS Uygulamalarının Etkilediği Fonksiyonlar:
+1-Firmanın iş gereksinimleri
+2-Firmanın ihtiyaç ve hedefleri
+3-Güvenlik gereksinimleri : Bu tespitlerin sonucunda ise gerek insan, gerek idari gerekse de teknolojik adımlarımıza karar verebiliriz.Kaynakları:
+-Firmanın risk değerlendirmesi[hem varlıkları hem de süreçleri de katarak] : Eğer mevcut riskler, kabul edilebilir sınırların dışında ise bunlar için gerekli önlemler alınması gerekmektedir.Mesela: Erişim yönetimi önlemi, kullanıcı hesap yönetimi kısıtlaması, para yönetimi kısıtlaması,vs..
+-Yasal ve düzenleyici gereksinimler
+-Prensipler, hedefler ve iş gereksinimleri seti
+4-Organizasyonel süreçler
+5-Firmanın büyüklüğü ve yapısı
+---------------------------------------------------------------------------------------------------------------
+***Varlık Envanteri: Kurum için önem taşıyan ve bu nedenle en iyi şekilde korunması gereken herhangi bir şey olabilir.
+***Bilgi Valığı : Kuruluş için değer ifade eden herhangi değerli bilgi veya veridir.Bu bilginin türleri şöyledir:
+-Kağıt üzerine basılmış, yazılmış bilgiler
+-Elektronik olarak saklanan bilgiler
+-Kurumsal videolarda gösterilen bilgiler
+-Söyleşiler sırasında sözlü olarak aktarılan bilgiler
+-Kurum çalışanlarının özlük bilgisi
+---------------------------------------------------------------------------------------------------------------
+*****BGYS için Kritik Başarı Faktörleri:
+1-İş hedeflerini yansıtan bir güvenlik politikası
+2-Uygulama yaklaşımının kurum kültürü ile tutarlı olması
+3-Yönetimin açık desteği ve kararlılığı
+4-Güvenlik gereksinimleri, risk değerlendirme ve risk yönetimi konularının iyi anlaşılması
+5-Tüm yönetici ve çalışanlara güvenlik kavramının iyi tanıtılması
+***Risk Değerlendirme: Risk analizi ve risk derecelendirmesini kapsayan tüm processlerdir.Adımları:
+1-Önce sağlam bir varlık envanter çalışması gerekir[anketler, yüzyüze görüşmeler, dökümantasyon incelemesi,vs].
+2-Bu varlıklara "integrity", "confidentiality" ve "availability" puanları vermek gerekir.
+3-Bu varlıklara varlık sahibi atamaları gerçekleştirilir.
+4-Tehditleri belirlemek gerekir[açıklığın kullanılması ile varlıklara zarar verme potansiyeli].Tehdit tipleri:
+-Doğal tehditler[deprem, sel, fırtına, vs..]
+-Çevresel tehditler[güç kesintisi, elektrik kesintisi, vs..]
+-İnsan kaynaklı[bilerek, kazara,]
+-Yazılım hataları, parolaların çalınması, hırsızlık, yetkisiz ağa erişim, vs..
+5-Bu tehdit ve olasılıkların varlık üzerindeki oluşma durumuna göre etkisi ve olasılığı hesaplanır.
+***Risk Derecelendirme: Riskin önemini tayin etmek amacıyla tahmin edilen riskin verilen risk kriterleri ile karşılaştırılma processidir.
+***Risk Yönetimi: Bir kuruluşu risk ile ilgili olarak kontrol etmek ve yönlendirmek amacıyla kullanılan koordineli faaliyetlerdir.
+***Risk İşleme: Riski değiştirmek için alınması gerekli önlemlerin seçilmesi ve uygulanması prosessidir.Adımları:
+1-Riskin kabulü[kabul edilebilir seviyenin üzerindeki tüm riskler için önlemler tasarlanır]
+2-Riskten kaçınma[yazılımın bir parçasının kullanılmaması gibi]
+3-Riskin azaltılması[tedbirler/kontroller]
+4-Riskin transferi[sigorta,vs]
+***Uygulanabilirlik Bildirgesi: Kuruluşun BGYS ile ilgili ve uygulanabilir kontrol amaçlarını ve kontrolleri açıklayan dökümante edilmiş bildirgedir.
+----------------------------------------------------------------------------------------------------------------
+*****Teknik Güvenlik Kontrolleri:
+1-Kimlik tanımlama[erişim kontrol listeleri]
+2-Kriptografik anahtar yönetimi[anahtar üretimi, saklanması, dağıtımı ve bakımı]
+3-Güvenlik yönetimi[bir veritabanındaki bilgileri kimin okuyacağı, kimin oluşturacağı ve kimin güncelleyebileceğinin ayarlanabilmesi]
+4-Sistem koruma kontrolleri[bilmesi gereken prensibi, süreçlerin ayrımı, objelerin tekrar kullanılması, katmanlı yapılarda çalışma, güvenilecek nesne sayısının en aza indirgenmesi]
+
+----------------------------------------------------------------------------------------------------------------
+ISO22301
+***RTO[Recovery Time Objective] : Kesintiye uğrayan bir prosessin ne kadar süre sonra çalışır hale getirileceğine dair hedef süredir.
+***RPO[Recovery Point Objective] : Bir iş prosessi veya BT bileşeni için kurumun kabul edebileceği maksimum veri kaybının süresini ifade eder.

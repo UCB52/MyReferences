@@ -1,0 +1,116 @@
+*****Keeping our online indetity safe : Some usefil tips while generating a new username for an account:
+1-Don't use your full name or parts of your adress or phone number
+2-Don't use your email username.
+3-Don't use the same username amd password combination, especially on financial accounts.
+4-Don't choose a super-odd username and then reuse it again and again because it makes you easier to track.
+5-Don't choose the username that gives clues to your passwords such as a series of numbers/letters or the first part of a two-part phrase, such as knock-knock or starlight, or the department in which you works, such as "IT".
+6-Choose a username that appropriate for the type of account, i.e., business, social or personal.
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Who can easily access my data?
+1-Internet Service Provider : In some countries, it is required to share your data with government surveillance agencies or authorities.
+2-Advertisers : They monitor and track your online activities such as shopping habits and personel preferences and send targeted ads your way.
+3-Search engines and social media platforms : These platform gathers information about your gender, geolocation, phone number and political and religious ideologies based on your search histories and online identity.This information is then sold to advertisers for a profit.
+4-Website you visit : Websites uses cookies to track your activities in order to provide a more personalized experience.But this leaves a data trail that is linked to your online identity that can often end up in the hands of advertisers!
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Types of Organizational Data :
+****Traditional Data : It is typically generated and maintained by all big or small organizations.It includes:
+1-Transactional data : Such as details relating to buying and selling, production activities and basic organizational operations such as any information used to make employment decisions.
+2-Intellectual property : Such as patents, trademarks and new product plans which allows an organization to gain economic advantage over its components.This information is often considered a trade secret and losing it could prove disastrous for the future of a company.
+3-Financial data : Such as income statements, balance sheets and cash flow statements, which provide insight into the health of a company.
+*****Internet of Things[IoT] and Big Data : Iot is a large network of physical objects such as sensors, software and other equipment.All of these are connected to internet, with the ability to collect and share data.And given that storage expanding through the cloud and virtualization.
+-----------------------------------------------------------------------------------------------------------------------------------
+*****The Cube : It is a model framework to help organizations establish and evaulate information security initiatives by considering all of the related factors that impact them.This security model has 3 dimensions:
+****The foundational principles for protecting information systems :
+1-Confidentiality : It is a set of rules that prevents sensitive information from being disclosed to unauthorized people, resources and processes.Methods to ensure confidentiality include data encryption, identity proofing and two factor authentication.
+2-Integrity : It ensures that system information and processes are protected from intentional or accidental modification.One way to ensure integrity is to use a "hash function" or "checksum".
+3-Availability : It means that authorized users are able to access systems and data when and where needed and those that do not meet established conditions, are not.This can be achieved by maintaining equipment, performing hardware repairs, keeping operating systems and software up to date, and creating backups.
+****The protection of information in each of its possible states : 
+1-Processing : It refers to data that is being used to perform an operation such as updating a database record[data in process].
+2-Storage : It refers to data stored in memory or on a permanent storage device such as hard drive, solid-state drive or USB drive [data at rest].
+3-Transmission : It refers to data travelling between information systems[data in transit].
+****The security measures used to protect data :
+1-Awareness, training and education : They are the measures put in place by an organization to ensure that users are knowledgeable about potential security threats and the actions they can take to protect information systems.
+2-Technology : It refers to the software-based and hardware-based solutions designed to protect information systems such as firewalls, which continuously monitor your network in search of possible malicious incidents.
+3-Policy and Procedure : It refers to the administrative controls that provide a foundation for how an organization implements information assurance, such as incident response plans and best practice guidelines.
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Result of a Security Branch : 
+1-Reputational Damage
+2-Vandalism
+3-Theft
+4-Loss of reveneu
+5-Damaged intellectual property
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Type of Attackers :
+1-White Hat
+2-Gray Hat
+3-Black Hat
+***Stuxnet : It reportedly destroyed Iran's Natans uranium enrichment facility by causing them to burn themselves out.Over time, other groups modified the Stuxnet virus to target facilities including water treatment plants, power plants and gas lines.Stuxnet was a multi-part worm that travelled on USB sticks and spread through Microsoft Windows computers.The virus searched each infected PC for signs on Siemens Step 7 software, which industrial computers serving as PLCs use for automating and monitoring electro-mechanical equipment.After finding a PLC computer, the malware attack updated its code over the internet and began sending damage-incuding instructions to the electro-mechanical equipment the PC controlled.At the same time, the virus sent false feedback to the main controller.Anyone monitoring equipment would have had no indication of a problem until the equipment began to self-destruct.
+***Programmable Logic Controller[PLC] : Otomasyonun temel taşıdır.Fabrikalardaki üretim bölümlerinde veya makinaların kontrolü gibi işlemlerin denetiminde kullanılan otomasyon cihazıdır.Belirli bir süreci, işlemi, makine işlevini ve hatta tüm üretim hattını otomatikleştirir.Normal bilgisayarların aksine PLClerde birçok I/O mevcuttur.Elektriksel gürültülere, sıcaklık farklarına ve mekanik darbelere karşı dayanıklıdırlar.Farklı markanın PLCleri kendilerine göre bir OS yüklerler.Bu denetleyici sistem, input bilgilerini yüksek hızlarda tarar ve buna uygun output bilgilerini gerçek zamana yakın response verecek şekilde çalışır.4 ana bölümden oluşur:
+1-CPU
+2-RAM, ROM, PROM, vs
+3-INPUT
+4-OUTPUT
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Types of Malware :
+1-Spyware
+2-Adware
+3-Backdoor
+4-Ransomware
+5-Scareware
+6-Rootkit
+7-Virus
+8-Trojan horse
+9-Worms
+***Core Red Computer Worm : 2001de gözlemlenen ilk büyük çaplı bilgisayar virüsüdür.Microsoftun IIS Web Serverlarında çalışan makinelere bulaşmıştır ve bulaştığı host sayısı 360 bin civarıdır.Bulaştığı hostların tarayıcılarındaki web sayfalarında "Hacked by Chinese!" yazısını görüntüler.Aynı zamanda tamamen bellekte çalışabilen ve hard diskte ve diğer kalıcı depolamalarda hiçbir dosya izi bırakmadan çalışabilen birkaç solucandan birisidir.
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Symptoms of Malware : Different kind of malwares can cause different kind of symptoms:
+1-An increase in center processing unit[CPU] usage which slows down your device
+2-Your computer freezing or crashing often
+3-A decrease in your web browsing speed
+4-Unexplainable problems with your network connections
+5-The presence of unknown files, programs or desktop icons
+6-Unknown processing running
+7-Programs turning off or reconfiguring themselves
+8-Emails being sent without your knowledge or consent.
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Methods of Infiltration :
+1-Social Engineering
+2-Denial of Service[DDOS]
+***Botnet : Bir dağıtılmış DDOS saldırısı sistemidir.DDOS saldırısına benzer ancak birden çok ve koordineli kaynaktan yapılmaktadır.İşleyişi şöyledir:
+-Saldırgan, işlem yapılan sistemler tarafından kontrol edilen ve "zombi" adı verilen virüslü ana bilgisayarlardan oluşan bir network[botnet] oluşturur.
+-Zombi bilgisayarlar sürekli olarak daha fazla ana bilgisayarı scan edecek ve bulaştıracak ve daha fazla zombi yaratacaktır.
+-Saldırgan hazır olduğunda, işlem yapılan sistemlere zombi botnetin bir DDOS saldırısı gerçekleştirmesini emredecektir.Kısaca saldırgan, datayı zombi hostlara iletiyor.Zombi hostlar bu datayı işleyip, hedefteki web serverlara data iletiyor.Böylece hedef server zarar görüyor.
+***Botnet için host bilgisayarlar nasıl infect olarak zombileşir? : Bir bot bilgisayarı tipik olarak güvenilir olmayan bir siteyi ziyaret ederek, virüslü bir email eki açarak veya virüslü bir medya dosyası açarak infect olur.Botnet, kötü niyetli bir kişi veya grup tarafından kontrol edilebilen, internete bağlı botlardan oluşan bir gruptur.Bir komut ve "Control Server" aracılığıyla yüz binlerce bota sahip olabilir.
+***Botnetten nasıl kaçınılabilir? : Büyük firmalar, botnet lokasyonlarını belirlemek için network aktivitelerini botnet trafic filtrelerinden geçirmektedir.Böylece bu filtreler, internet ve firma host bilgisayarları arasında duvar görevi görecektir, trafiği denetleyecek ve botları geri çevirecektir.Firewall configurasyonları çok kritiktir.Devamlı güncellenmeleri ve yeni botnetleri firewalla bildirmelidir.
+3-On-Path Attacks : The attackers intercept or modify communications between two devices, such as web browser and a web server, either to collect information from or to impersonate one of the devices.This type of attack is also referred to as a man-in-the-middle[MitM] or man-in-the-mobile[MitMo] attack.
+***Man-in-the-Middle[MitM] nedir? : Saldırgan, birbiri ile doğrudan iletişim kuran iki taraf arasındaki iletişimi gizlice ilettiği veya değiştirdiği saldırı türüdür.İletişim ağı üzerinde veri paketleri serbestçe dolaşır.Özellikle broadcast olarak salınan paketler, aynı ağa bağlı tüm cihazlar arasında görülebilir. İlkesel olarak hedefinde kendi IP'si olmayan bir paketi alan makinelerin, bu paketlerle ilgili herhangi bir işlem yapmamaları gerekir. Ancak istenirse bu paketlere müdahale edebilir ya da içeriğini öğrenebilirler.MITM saldırısı, ağ üzerindeki paketleri yakalayarak manipüle etmek olarak özetlenebilir.
+***ZeuS nedir? : MitMo özelliklerine sahip bir malware paketidir.İnfect olduğu hosta gönderilen çift adımlı doğrulama SMS mesajlarını sessiz bir şekilde izleyip dinleyebilir.
+4-SEO Poisoning
+5-Wi-Fi Password Cracking
+6-Password Attacks : Entering a username and password is one of the most popular forms of authenticating to a web site.There are some typical of password security attacks :
+-Password spraying
+-Dictionary attacks
+-Brute-force attacks
+-Rainbow attacks
+-Traffic interception
+7-Cracking Times
+8-Advamced Persistance Threats[APTs]
+-----------------------------------------------------------------------------------------------------------------------------------
+*****Security Vulnerability and Exploits : 
+****Hardware Vulnerabilities : They are most often the result of hardware design flows.For example, the type of memorty called RAM basically consists of lots of capasitors[a component which can hold an electrical charge] installed very close to one another.However, it was soon discovered that, due to their close proximity, changes applied to one of these capacitors could influence neighbor capacitors.Based on this design flaw, an exploid called "Rowhammer" was created.
+***How "Rowhammer" works? : By repeatedly accessing[hammering] a row of memory, the Rowhammer exploit triggers electrical interferences that eventually corrupt the data stored inside the RAM.
+***Meltdown and Spectre : Two hardware vulnerabilities that can affect almost all central processing units[CPUs] since 1995 within desktops, laptops, servers, smartphones, smart devices and cloud services.Attackers exploiting these vulnerabilities can read all memory from a given system[Meltdown], as wekk as data handled by other applications[Spectre].They are also referred to as side-channel-attacks[information is gained from the implementation of a computer system].
+****Software Vulnerabilities : They are usually introduced by errors in the operating system[OS] or application code.There are some categories:
+1-Buffer overflow
+2-Non-validated input
+3-Race conditions
+4-Weakness in security practices
+5-Access control problems
+***SYNful Knock : It allowed attackers to gain control of enterprise-grade routers, such as the legacy Cisco ISR routers, from which they could monitor all network communication and infect other network devices.This vulnerability was introduced into the system when an altered IOS version was intalled on the routers.To avoid this, you should always verify the integrity of the downloaded IOS image and limit the physical access of such equipment to authorized personel only.
+****Software Updates
+---------------------------------------------------------------------------------------------------------------------------------
+*****Cryptocurrency : It is a digital money that can be used to buy goods and service, using strong encryption techniques to secure these online transactions.
+***Cryptocurrency owners keep their money in encrypted, "virtual wallets".When a transaction takes place between owners of two digital wallets, the details are recorded in a decentralized, electronic ledger or blockchain system.That means it carried out with a degree of anonymity and is self-managed, with no interference from third parties such as central banks or government entities.
+Approximately every 10 minutes, special computers collect data about the lates cryptocurrency transactions, turning them into mathematical puzzles to maintain confidentiality.These transactions are then verified through a technical and highly complex process known as "mining".This step typically involves an army of "miners" working on high-end PCs to solve mathematical puzzles and authenticate transactions.
+Once verified, the ledger is updated and electronically copied and disseminated worldwide to anyone belonging to the blockchain network, effectively completing a transaction.
+****Cryptojacking : It is an emerging threat that hides on a user's computer, mobile phone, tablet, laptop or server, using that machine's resources to "mine" cryptocurrencies without the user's consent or knowledge.Many victims of cryptojacking didn't even know they had been hacked until it was too late!

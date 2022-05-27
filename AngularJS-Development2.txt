@@ -1,3 +1,78 @@
+*****Angular NX :
+****For create a workspace : "npx create-nx-workspace@latest".
+****Local olarak nx workspacedeki bir applicationu run etmek için : "npx nx serve applicationName".
+****Local olarak nx workspacedeki bir applicationu build etmek için : "npx nx build applicationName".
+-------------------------------------------------------------------------------------------------------------------------------------------
+*****Github repoya eklemek için:
+1-Projenine terminaline gel ve "git init" yaz.
+2-"git add ." yaz.
+3-"git commit -m 'first commit'" yaz.
+4-"git remote -v" yazarak uzaktan bağlantıyı kontrol et.Eğer response vermiyorsa veya farklı repoya response veriyorsa, bağlantıyı kurmak için "git remote add origin https://github.com/UCB52/homepage_replication_1.git" yaz.
+6-"git push -u origin main" yaz.Eğer mastera ekleyeceksek de "git push origin master" yaz.
+-------------------------------------------------------------------------------------------------------------------------------------------
+*****JSON-serverlı projeyi herokuda kurmak:
+1-Eğer yüklü değilse, bilgisayarına herokuyu "npm install -g heroku" yazarak yükle.
+2-Heroku websitesine gir ve login ol.
+3-Projeninin terminaline "heroku login" yaz ve login ol.Eğer auth başarılı olursa, terminalde belirtecektir.
+4-Projenin ana dizinine gel ve "Procfile" dosyası oluşturarak içine şunu yaz: "web: node server.js".
+5-Ana dizinde "server.js" dosyası oluştur ve içerisine şöyle yaz:
+"const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('./data.json');  !WARNING
+const middlewares = jsonServer.defaults({
+  static: './build'
+});
+const PORT = process.env.PORT || 8000;  !WARNING
+server.use(middlewares);
+server.use(jsonServer.rewriter({
+  '/api/*': '/$1',
+}))
+server.use(router);
+server.listen(PORT, () => {
+  console.log('Server is running');
+});"
+6-Bu nodejs dosyasındaki json-server configinde json dosyasının adına ve api portuna dikkat et.
+7-Heroku websitesine gir ve "create new app" butonuna tıkla.Appin ismini gir ve regionunu seçerek oluştur.
+5-Açılan ekranda "Deployment method" kısmındayız."heroku cli" ile yükleyeceğiz.Proje dizinine gel ve "heroku git:remote -a angular-replika1" yaz.Başarılı olursa response gelecek.
+6-"git add ." yaz.
+7-"git commit -m 'first commit'" yaz.Eğer olmazsa da "git commit -am 'make it better'" yaz.
+8-Eğer master repo ise "git push heroku master" yazarak pushla; eğer main repo ise de "git push heroku main" yazarak pushla.
+-------------------------------------------------------------------------------------------------------------------------------------------
+*****HEROKU:
+1-Herokuda app oluştur.Mesela "herokuApp1" olsun.
+1-"heroku login" yaz.
+2-"git init" yaz.
+3-"heroku git:remote -a herokuApp1" yaz.
+4-"git add ." yaz.
+5-"git commit -am 'first commit'" yaz.
+6-"git push heroku master" yaz.
+-------------------------------------------------------------------------------------------------------------------------------------------
+****E2E testler eklemek için :
+***Bu senaryoda, "angular1" applikasyonu için test queryleri yazıcaz:
+1-"apps/angular1-e2e/src/support/app.po.ts." dosyasını aç.Burada pagei sorgulamak[querying] için helperları içeren test metodlarını yazarız.Mesela şöyle yazalım:
+"export const getGreeting = () => cy.get('h1');
+export const getLiNumber1 = () => cy.get('li.li1');
+export const getAddButton = () => cy.get('button#button1');"
+2-Ardından "apps/angular1-e2e/src/integration/app.spec.ts." dosyasını aç.Yazdığımız query metodlarını burada "it" metodu içerisinde şöyle çağırırız:
+"import { getAddButton, getGreeting, getLiNumber1 } from '../support/app.po';
+describe('angular1', () => {
+  beforeEach(() => cy.visit('/'));
+  it('should display welcome message', () => {
+    cy.login('my-email@something.com', 'myPassword');
+    getGreeting().contains('Welcome angular1');
+    getLiNumber1().should((t) => expect(t.length).equal(2));
+    getAddButton().click();
+    getLiNumber1().should((t) => expect(t.length).equal(3));
+  });
+});"
+3-Ardından sayfa htmline gel ve testlerde belirttiklerimizi şöyle yaz : 
+"<h1>Welcome angular1</h1>
+<ol>
+  <li *ngFor='let x of object1' class='li1'>{{x.title}}</li>
+</ol>
+<button (click)='addElementLi()' id='button1'>Add new Li</button>"
+4-Böylece yazdığımız testteki queryler sırayla çalışacak ve testten başarıyla geçecek.
+-------------------------------------------------------------------------------------------------------------------------------------------
 *****MAİN SCHEMA: Modules-Components-Services>>>Guards-Directives-Pipes
 *Install Angular: npm install -g @angular/cli
 *Angular Version Check: ng --version
@@ -5,7 +80,7 @@
 *Live compile: ng serve -o
 *Material UI: ng add @angular/material (yes-yes)
 *New child component: ng g c componentName
-*Child component for spesifik "module": ng g c componentName --module=app.module.ts
+*Child component for spesifik "module": ng g c componentName --module ../app.module.ts
 *New routing module: ng g m routingName --flat --module=app
 *Generate custom pipes: ng g p pipes/pipeName
 *New directives: ng g directive directiveName
@@ -50,6 +125,12 @@ import {FormGroup,FormControl} from '@angular/forms';
 *****Servicelere "decorator" eklemek için:
 1-Service içerisine "@Injectable({})" yaz.
 2-Süslü parantez içerisine de "providedIn: 'root'" ekleriz.Buradaki "root" ifadesi, bu servicein "global" olduğunu belirtir.Bunun alternatifi ise, "appModule"e girip, "providers[]" arrayinin içerisine oluşturduğumuz servicein ismini ekleriz.Eğer bir servisi lokal kullanmak istersek, süslü parantez içerisinde silerek; kullanacağımız componentin içerisine gireriz ve oraya ekleriz.
+------------------------------------------------------------------------------------------
+*****Standalone componentler eklemek için[only Angular14+]:
+1-Terminale gel ve mesela şöyle yaz:
+"ng g c home --standalone --flat".
+2-Böylece artık generate edilen componentler, "app.module" componentinde toplanmayacaklar.Dolayısıyla artık ekstra bir module ihtiyacımız varsa, standalone componentimizin kendisine import edeceğiz.
+------------------------------------------------------------------------------------------
 *****Jquery eklemek için:
 1-"npm install jquery --save" kodunu cmdden yaz.
 2-"angular.json" dosyasındaki "scripts" arrayinin içerisine "node_modules/jquery/dist/jquery.min.js" yaz.
@@ -81,13 +162,13 @@ import {FormGroup,FormControl} from '@angular/forms';
 -------------------------------------------------------------------------------------------------------------
 *****HttpClient "service"te "get" kullanmak için:
 1-"appModule" içerisine girerek import için "import {HttpClientModule} from '@angular/common/http'" ekle.
-2-Ardından da "imports[]" arrayine "HttpClientModule" ekle.
+2-Ardından da "imports[]" arrayine "HttpClientModule" ekle.Ve "providers[]" arrayını şöyle yap: "providers: [{ provide: 'apiUrl', useValue: 'http://localhost:3000/' }]".Böylece api urlsini, servislerde dinamik olarak kullanabiliriz.
 3-içerisinde kullanacağın bir "product1" isimli service oluştur ve service içerisine de import için "import { HttpClient } from '@angular/common/http'" ekle.
 4-Servicein decorator içerisindeki "providedIn:'root'" sil çünkü servicei, global olarak değil de lokal olarak kullanacağız.
-4-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(private http1:HttpClient){}" vermeliyiz.
-5-Ardından service içerisinde metod oluşturarak observable objectini çağırırız.Çünkü biz istediğimiz zaman subscribe olabilmek istiyoruz.Mesela:
+5-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(@Inject('apiUrl') private apiUrl:string,private http1:HttpClient){}" vermeliyiz.
+6-Ardından service içerisinde metod oluşturarak observable objectini çağırırız.Çünkü biz istediğimiz zaman subscribe olabilmek istiyoruz.Mesela:
 "getProducts():Observable<Product[]>{
-    return this.http1.get<Product[]>(http://localhost:3000/products).pipe(
+    return this.http1.get<Product[]>(this.apiUrl + 'products').pipe(
       catchError(this.handleError)
     );
 }
@@ -101,20 +182,20 @@ handleError(err: HttpErrorResponse) {
       }
   return throwError(errorMessage);
 }"
-6-Daha sonra kullanacağımız componente gelerek "@Component" dekorasyonuna "providers[]" arrayi ekleriz ve içerisine de oluşturduğumuz servicei yazarız.Ayrıca componente bu servicei import da ederiz.
-7-Ardından "constructor" metoduna parametre olarak şöyle veririz: "private productService: ProductService".
-8-HTMLden çekebilmek ve bu dataları depolamak için, componentte bir object oluşturmamız lazım: "products:Product[]=[]".Böylece service ile çektiğimiz dataları, bunun içerisine yükleyeceğiz.
-9-Son olaraksa "ngOnInit" içerisine servisi çağırarak şunu yazarız ve dataları, objecte aktarırız:
+7-Daha sonra kullanacağımız componente gelerek "@Component" dekorasyonuna "providers[]" arrayi ekleriz ve içerisine de oluşturduğumuz servicei yazarız.Ayrıca componente bu servicei import da ederiz.
+8-Ardından "constructor" metoduna parametre olarak şöyle veririz: "private productService: ProductService".
+9-HTMLden çekebilmek ve bu dataları depolamak için, componentte bir object oluşturmamız lazım: "products:Product[]=[]".Böylece service ile çektiğimiz dataları, bunun içerisine yükleyeceğiz.
+10-Son olaraksa "ngOnInit" içerisine servisi çağırarak şunu yazarız ve dataları, objecte aktarırız:
 "this.productService.getProducts().subscribe((data) => {
   this.products = data;
 });"
 -------------------------------------------------------------------------------------------------------------
 *****HttpClient "service"te "post" kullanmak için:
 1-"appModule" içerisine girerek import için "import {HttpClientModule} from '@angular/common/http'" ekle.
-2-Ardından da "imports[]" arrayine "HttpClientModule" ekle.
+2-Ardından da "imports[]" arrayine "HttpClientModule" ekle.Ve "providers[]" arrayını şöyle yap: "providers: [{ provide: 'apiUrl', useValue: 'http://localhost:3000/' }]".Böylece api urlsini, servislerde dinamik olarak kullanabiliriz.
 3-içerisinde kullanacağın bir "product1" isimli service oluştur ve service içerisine de import için "import { HttpClient } from '@angular/common/http'" ekle.
 4-Servicein decorator içerisindeki "providedIn:'root'" sil çünkü servicei, global olarak değil de lokal olarak kullanacağız.
-4-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(private http1:HttpClient){}" vermeliyiz.
+4-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(@Inject('apiUrl') private apiUrl:string,private http1:HttpClient){}" vermeliyiz.
 5-Ardından service içerisinde metod oluşturarak observable objectini çağırırız.Çünkü biz istediğimiz zaman subscribe olabilmek istiyoruz.Mesela:
 "postProduct(postData:Product):Observable<Product>{
   const httpOptions = {
@@ -123,7 +204,7 @@ handleError(err: HttpErrorResponse) {
       'Authorization' : 'Token'
     })
   }
-  return this.http.post<Product>('http://localhost:3000/products',postData,httpOptions).pipe(
+  return this.http.post<Product>(this.apiUrl + 'products',postData,httpOptions).pipe(
     catchError(this.handleError)
   )
 }
@@ -164,10 +245,14 @@ secondFormGroup = this.fb.group({
 -------------------------------------------------------------------------------------------------------------
 *****Activated Route ile "dinamik" parametreyle object çekmek:
 1-Bu senaryoda, "cityComponent"te kişiler bulunacak.Biz buradaki şehre tıkladığımızda, "cityDetailComponent" gideceğiz ve kişinin idsini çekeceğiz.
-2-Önce "routingModule" git ve path olarak "{path:'cityDetail/:cityId', component:CityDetailComponent}" ekle.Buradaki "cityId", bir değişkendir ve urldeki "id" değerlerini belirtecektir ve herhangi bir "cityDetail/x" urlsine girdiğimizde bizi, "cityDetailComponent"e yönlendirecektir.
-3-Ardından servis yazacağız."city" service oluştur.Bulunduğumuz urldeki "id" parametresini almak için şunu yaz:
+2-Önce "routingModule" git ve path olarak "{path:'city/cityDetail/:cityId', component:CityDetailComponent}" ekle.Buradaki "cityId", bir değişkendir ve urldeki "id" değerlerini belirtecektir ve herhangi bir "cityDetail/x" urlsine girdiğimizde bizi, "cityDetailComponent"e yönlendirecektir.
+3-"appModule" içerisine girerek import için "import {HttpClientModule} from '@angular/common/http'" ekle.
+4-Ardından da "imports[]" arrayine "HttpClientModule" ekle.Ve "providers[]" arrayını şöyle yap: "providers: [{ provide: 'apiUrl', useValue: 'http://localhost:3000/' }]".Böylece api urlsini, servislerde dinamik olarak kullanabiliriz.
+5-Ardından servis yazacağız."city" service oluştur.
+6-"HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(@Inject('apiUrl') private apiUrl:string,private http1:HttpClient){}" vermeliyiz.
+7-Bulunduğumuz urldeki "id" parametresini almak için şunu yaz:
 "getCity(cityId:number):Observable<City>{
-  return this.http.get<City>('http://localhost:3000/cities' + '/' + cityId).pipe(
+  return this.http.get<City>(this.apiUrl + 'cities/' + cityId).pipe(
     catchError(this.handleError)
   )
 }
@@ -192,28 +277,38 @@ handleError(err: HttpErrorResponse) {
     this.city = data;
   })
 })".
-7-Böylece "cityId", bulunduğumuz urlnin "cityDetail/:cityId" kısmındaki yeri çekecektir ve ona göre object döndürerek "city" değişkenine atayacaktır.Artık personı, htmlde çağırıp yazabiliriz.
+7-Böylece "cityId", bulunduğumuz urlnin "cityDetail/:cityId" kısmındaki yeri çekecektir ve ona göre object döndürerek "city" değişkenine atayacaktır.Artık personı, htmlde şöyle çağırıp yazabiliriz:
+""
 -------------------------------------------------------------------------------------------------------------
-*****CanActivate ile guard yapmak ve LocalStorage ile depolayarak login olmak:
-****Bu senaryoda "LoginComponent","HomeComponent" ve "AddProductComponent" componentlerimiz olacak."AddProductComponent"e izinsiz erişim olmayacak ve aksi durumlarda otomatik olarak "LoginComponent"e yönlendirilecek:
+*****CanActivate ile guard yapmak ve LocalStorage ile depolayarak login[auth] olmak:
+****Bu senaryoda "NavComponent", "LoginComponent","HomeComponent" ve "AddProductComponent" componentlerimiz olacak."AddProductComponent"e izinsiz erişim olmayacak ve aksi durumlarda otomatik olarak "LoginComponent"e yönlendirilecek:
 1-Userları "get" ile çekeceğimiz için öncelikle model oluşturacağız."Models" folderı içerisine "user.ts" şeklinde şöyle oluştur:
 "export class User{
   id:number=0;
   username:string="";
   password:string="";
 }".
-2-Ardından bunları servis edecek "account" servisi şöyle oluştur:
-"constructor(private http:HttpClient) { }
-loggedIn:boolean=false;
+2-"appModule" içerisine girerek import için "import {HttpClientModule} from '@angular/common/http'" ekle.
+3-Ardından da "imports[]" arrayine "HttpClientModule" ekle.Ve "providers[]" arrayını şöyle yap: "providers: [{ provide: 'apiUrl', useValue: 'http://localhost:3000/' }]".Böylece api urlsini, servislerde dinamik olarak kullanabiliriz.
+4-Ardından bunları servis edecek "account" servisi oluştur."HttpClient" de aslında bir servicedir.Bu yüzden service içerisindeki "constructor" metoduna parametre olarak "constructor(@Inject('apiUrl') private apiUrl:string,private http1:HttpClient){}" vermeliyiz.
+5-Serviste userları çekerek, parametre olarak aldığımız userın eşit olup olmadığını şöyle denetle:
+"loggedIn:boolean=false;
 login(user:User):boolean{
-  this.http.get<User[]>('http://localhost:3000/accounts').pipe(
+  this.http.get<User[]>(this.apiUrl + 'accounts').pipe(
     catchError(this.handleError)
   ).subscribe((data:User[])=>{
     for(let i=0;i<data.length;i++){
       if(data[i].username==user.username&&data[i].password==user.password){
         this.loggedIn=true;
-        localStorage.setItem('isLogged',user.username);
+        localStorage.setItem('isLogged',user.username);                     
       }
+    }
+    if(this.loggedIn==true){
+      this.toastService.showSuccess('Succesfully logged in', 'Congrats!');
+      this.router.navigate(['home']);  
+    }
+    else{
+      this.toastService.showError('Login failed', 'Error!');      
     }
   });
   return this.loggedIn;
@@ -235,7 +330,7 @@ handleError(err: HttpErrorResponse) {
       }
   return throwError(errorMessage);
 }".
-3-Şimdi guard yazacağız."Login" componentin dizinine gel ve "login" adında guard oluştur.Bu, aslında bir servistir.İçerisine şöyle yaz:
+3-Böylece, servisteki auth işlemi doğrulanır ve "loggedIn" "true" olursa "SuccessToast" çalışır ve ardından "home" componente yönlendirir; aksi takdirde "ErrorToast" çalışır.Şimdi guard yazacağız."Login" componentin dizinine gel ve "login" adında guard oluştur.Bu, aslında bir servistir.İçerisine şöyle yaz:
 "@Injectable({
   providedIn: 'root',
 })
@@ -299,21 +394,135 @@ onSubmit(){
   this.spinner=true;
   this.model.username=this.form1.get('name1')?.value;
   this.model.password=this.form1.get('password1')?.value;
-  this.accountService.login(this.model);
-  setTimeout(()=>{
-    this.spinner=false;
-    if(this.accountService.login(this.model)){
-      alert('Tebrikler!');
-    }
-    else{
-      alert('Malesef !')
-    }
-  },1000);
+  this.authService.login(this.model);
+  this.spinner=false;
 }".
-8-Böylece tıklandığı zaman form ögelerini "User" tipindeki "model" objectine atadık ve "model" objectini servise gönderdik.Servis kontrol edecek ve boolean döndürecek.Eğer "true" dönerse "Tebrikler"; "false" dönerse "Malesef" yazacak.
-9-Artık istediğimiz komponentten servisi çekerek, servisteki "isLoggedIn()" boolean fonksiyonunu çağırarak kullanıcının login olup olmadığını kontrol ederiz.Hatta servisin "logOut()" fonksiyonuyla da LocalStoragedaki kaydı silerek logout yaparız.
---------------------------------------------------------------------------------------------------------------
-***"router" modülü ile statei kaybetmeden sayfa yönlendirmesi yapmak:
+8-Böylece tıklandığı zaman form ögelerini "User" tipindeki "model" objectine atadık ve "model" objectini servise gönderdik.Servis kontrol edecek ve boolean döndürecek.
+9-Artık istediğimiz componentten servisi çekerek, servisteki "isLoggedIn()" boolean fonksiyonunu çağırarak kullanıcının login olup olmadığını kontrol ederiz.Hatta servisin 
+"logOut()" fonksiyonuyla da LocalStoragedaki kaydı silerek logout yaparız.Biz bunları navda kullanacağımızdan dolayı "NavComponent" gel.
+10-"Nav" componentin Htmline şöyle ekle:
+"<li><a *ngIf='isLoggedIn()==false' routerLink='login' routerLinkActive='active1'>Login</a></li>
+<li><a (click)='logOut()' *ngIf='isLoggedIn()==true' routerLink='city'>Logout</a></li>".
+11-Ardından componentine gel ve contructorda servisi şöyle injekt et :"constructor(private authService:AuthService) { }".
+12-Şimdi ise htmlde tanımlanan fonksiyonları, componentte şöyle çağır:
+"isLoggedIn(){
+  return this.authService.isLoggedIn();
+}
+logOut(){
+  return this.authService.logOut();
+}".
+13-Böylece login olunca bu değer "true" olacak ve "logOut" elementi çalışacak.Aksi takdirde "login" elementi çalışacak.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Auth0 ve OpenId ile SSO login yapmak ve guard yaparak da kullanıcı, login olmadığında componentlere erişmek isterse; anasayfaya yönlendirmek:
+****Bu senaryoda elimizde "NavComponent","AboutComponent" "HomeComponent" bulunacak ve SSO ile bu navın ve homeun bazı bölümlerini korumaya alacağız ve aboutı homea yönlendireceğiz.
+1-Öncelikle "npm i angular-oauth2-oidc --save" azarak OAuth yükle."npm i angular-oauth2-oidc-jwks --save" yazarak da "jwk" yükle.
+2-"app.module" gel ve "import { OAuthModule } from 'angular-oauth2-oidc';import {HttpClientModule} from '@angular/common/http';" import et ve 
+"imports[OAuthModule.forRoot(),HttpClientModule]" şeklinde de ekle.
+3-Ardından "AppComponent" dizinine gel ve "sso.config.ts" oluştur.İçerisine şu configurationu ekle:
+"import { AuthConfig } from 'angular-oauth2-oidc';
+export const authCodeFlowConfig: AuthConfig = {
+  // Url of the Identity Provider
+  issuer: 'https://idsvr4.azurewebsites.net',
+  // URL of the SPA to redirect the user to after login
+  redirectUri: window.location.origin + '/city',
+  // The SPA's id. The SPA is registerd with this id at the auth-server
+  // clientId: 'server.code',
+  clientId: 'spa',
+  // Just needed if your auth server demands a secret. In general, this
+  // is a sign that the auth server is not configured with SPAs in mind
+  // and it might not enforce further best practices vital for security
+  // such applications.
+  // dummyClientSecret: 'secret',
+  responseType: 'code',
+  // set the scope for the permissions the client should request
+  // The first four are defined by OIDC.
+  // Important: Request offline_access to get a refresh token
+  // The api scope is a usecase specific one
+  scope: 'openid profile email offline_access api',
+  showDebugInformation: true,
+}".
+4-Artık configurasyonunu yaptığımız bu servisi istediğimiz zaman "authCodeFlowConfig" olarak çağırabiliriz.Şimdi ise "Nav" htmline gel ve şöyle yaz:
+"<ul *ngIf='token' style='display: inline-block;'>
+<li><a routerLink='city' routerLinkActive='active1'>Home</a></li>
+<li><a routerLink='about' routerLinkActive='active1'>About</a></li>
+<li><a routerLink='cityadd' routerLinkActive='active1'>Add City</a></li>
+<li><a routerLink='cityremove' routerLinkActive='active1'>Remove City</a></li>
+</ul>
+<ul style='display: inline-block;'>
+<li><button *ngIf='!token' (click)='ssoLogin()' routerLinkActive='active1'>SSO Login</button></li>
+<li><button *ngIf='token' (click)='ssoLogout()' routerLinkActive='active1'>SSO Logout</button></li>
+</ul>".
+5-Böylece navın üst kısmı, sadece "token" mevcutken görünecektir."token" yokken "login"; varken de "logout" görünecektir.Şimdi "Nav" componente gel ve servisi 
+"import {OAuthService} from 'angular-oauth2-oidc'" şeklinde import et.
+6-"Nav" componenti şöyle yaz:
+"constructor(private oauthService:OAuthService) {
+  this.configureSingleSignOn();
+ }
+configureSingleSignOn(){
+  this.oauthService.configure(authCodeFlowConfig);
+  this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+  this.oauthService.loadDiscoveryDocumentAndTryLogin();
+}
+ssoLogin(){
+  this.oauthService.initImplicitFlow();
+}
+ssoLogout(){
+  this.oauthService.logOut();
+}
+get token(){
+  let claims:any = this.oauthService.getIdentityClaims();
+  return claims ? claims : null;
+}".
+7-Böylece kullanıcı, sayfadaki "login" butonuna basarak login olmadan, içeriklere erişemez.Eğer başka componentlerde de tokenı elde edip ona göre içerik gizlemek istiyorsak, mesela "HomeComponent"e geçelim.
+8-"contrusctor" içerisinde "private oauthService:OAuthService" çağır ve componenti şöyle yaz:
+"get token(){
+  let claims = this.oauthService.getIdentityClaims();
+  return claims ? claims : null;
+}".
+9-Böylece tokenı "home" içerisinde tespit edebileceğiz."home" componenti komple saklamak için htmlini şöyle yaz:
+"<div *ngIf='token; else #loginError'>
+<p>Welcome Home Component!</p>
+</div>
+<ng-template #loginError>You must login to see content!</ng-template>".
+10-Böylece artık token yoksa, error mesajı görebilecektir.Şimdi ise guard yaparak kullanıcı, urlden "about" componentini yazdığında eğer token yoksa "home" componentine yönlendireceğiz.
+11-"guards" folderı içerisine "login.guard" ekle ve şöyle yaz:
+"constructor(private router: Router,private oauthService:OAuthService) {}
+canActivate(
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    let claims = this.oauthService.getIdentityClaims();
+    if (claims) {
+      return true;
+    }
+    this.router.navigate(['city']);
+    return false;
+}".
+12-Ardından "app.routing.module" gel ve "about" componentini korumak için şöyle yaz:
+"{path:'about',component:AboutComponent,canActivate:[LoginGuard]}".
+13-Böylece about componentine tokensız erişmek isteyen kullanıcılar, otomatik olarak "city" componentine yönlendirilecek ve "city" componentinde de error mesajı görecektir.
+14-Eğer kullanıcıyı doğrudan SSO loginine yönlendirmek istiyorsak, Nav component gel ve şöyle yap:
+"<ul *ngIf='token' style='display: inline-block;'>
+<li><a routerLink='city' routerLinkActive='active1'>Home</a></li>
+<li><a routerLink='about' routerLinkActive='active1'>About</a></li>
+<li><a routerLink='cityadd' routerLinkActive='active1'>Add City</a></li>
+<li><a routerLink='cityremove' routerLinkActive='active1'>Remove City</a></li>
+</ul>".
+15-Ardından da "Nav" componenti şöyle düzenle:
+"constructor(private oauthService:OAuthService) {
+  this.configureSingleSignOn();
+ }
+configureSingleSignOn(){
+  this.oauthService.configure(authCodeFlowConfig);
+  this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+  this.oauthService.loadDiscoveryDocumentAndLogin();
+}
+get token(){
+  let claims:any = this.oauthService.getIdentityClaims();
+  return claims ? claims : null;
+}".
+16-Böylece kullanıcı, doğrudan SSO sayfasına gidecek ve giriş işleminin ardından siteye dönecek."token" ise, cache temizlenene kadar kullanıcının browserında tutulacaktır.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****"router" modülü ile statei kaybetmeden sayfa yönlendirmesi yapmak:
 1-Mesela html kısmında şöyle bir button olsun "<button (click)='router1()'></button>".
 2-Componente gel."contructor(private router:Router){}" şeklinde inject et ve şöyle yaz:
 "router1(){
@@ -321,6 +530,78 @@ onSubmit(){
 }"
 3-Böylece path olarak "/home" olarak yönlendirmiş olduk.
 --------------------------------------------------------------------------------------------------------------
+*****Urlyi string olarak çekmek için:
+1-Componente gelerek "constructor(private router:Router){}" ekle ve şöyle yaz:
+"console.log(this.router.url)".
+--------------------------------------------------------------------------------------------------------------
+*****Routelarda hiyerarşik navigasyonlar:
+1-Absolute routea geçiş için:
+"<button [routerLink]="['/home']">Go DOWN</button>".
+2-Parent routea geçiş için, mesela bulunduğumuz mevcut url 'localhost:4200/home/login' olsun:
+"<button [routerLink]="['../../home']">Go UP</button>".
+3-Sibling routea geçiş için, mesela bulunduğumuz mevcut url 'localhost:4200/home/login' olsun:
+"<button [routerLink]="['../register']">Go SIBLING</button>".
+4-Child routea geçiş için, mesela bulunduğumuz mevcut url 'localhost:4200/home' olsun:
+"<button [routerLink]="['./login']">Go DOWN</button>".
+5-Eğer üstteki işe yaramazsa, child routea geçiş için, mesela bulunduğumuz mevcut url 'localhost:4200/home' olsun:
+"<button [routerLink]="['login']">Go DOWN</button>".
+----------------------------------------------------------------------------------------------------------------
+*****Nested routelar tanımlamak için:
+1-Mesela 'localhost:4200/home' routeu için bir component ve bu routeun childları için de birer component atayalım."app-routing-module" gel:
+"const routes: Routes = [
+  {path:'home', children:[
+    {path:'', component:HomepageComponent},           /home
+    {path:'login', component:LoginComponent},         /home/login
+    {path:'register', component:RegisterComponent}    /home/register
+  ]},
+  {path:'', redirectTo:'home',pathMatch:'full'},
+  {path:'**',component:NotfoundComponent}];".
+----------------------------------------------------------------------------------------------------------------
+*****Routerlara "name" vererek aynı path içerisinde farklı outlerler aktif etmek için:
+1-Htmle gel ve şöyle yaz:
+"<router-outlet></router-outlet>
+<router-outlet name='test1'></router-outlet>".
+2-"app-routing.module" gel ve şöyle belirt:
+"{path:'home', children:[
+  {path:'', component:HomepageComponent},
+  {path:'', component:SidePageComponent, outlet:'test1'},
+]},
+{path:'', redirectTo:'home',pathMatch:'full'},
+{path:'**',component:NotfoundComponent}".
+3-Böylece "localhost:4200/home" pathında iki component birden aktif olacaktır.
+----------------------------------------------------------------------------------------------------------------
+*****Farklı routeları aynı componentlere atamak için:
+1-Htmle gel ve şöyle yaz:
+"<router-outlet name='main_outlet1'></router-outlet>
+<router-outlet name='test_outlet1'></router-outlet>".
+2-"app-routing.module" gel ve şöyle belirt:
+"const routes: Routes = [
+  {path:'home', children:[
+    {path:'', component:HomepageComponent, outlet:'main_outlet1'},
+    {path:'', component:ModalComponent, outlet:'test_outlet1'},
+  ]},
+  {path:'login', children:[
+    {path:'', component:HomepageComponent, outlet:'main_outlet1'},
+    {path:'', component:ModalComponent, outlet:'test_outlet1'},
+  ]},
+  {path:'', redirectTo:'home',pathMatch:'full'},
+  {path:'**',component:NotfoundComponent}];".
+3-Böylece bu iki component de "localhost:4200/home" ve "localhost:4200/login" routelarında aktif olacaktır.
+----------------------------------------------------------------------------------------------------------------
+*****Lazy loading routelar yapmak için:
+1-"app.routing.module" gel ve şöyle yap:
+"const routes : Routes[
+  { path:'home', loadComponent: () => import('./components/home.component').then((c)=>c.HomeComponent) }
+  { path:'login', title : 'Login', component:LoginComponent }
+]".
+----------------------------------------------------------------------------------------------------------------
+*****Spesifik routelar için spesifik "title"lar belirlemek:
+1-"app.routing.module" gel ve şöyle yap:
+"const routes : Routes[
+  { path:'home', title : 'Homepage', loadComponent: () => import('./components/home.component').then((c)=>c.HomeComponent) }
+  { path:'login', title : 'Login', component:LoginComponent }
+]".
+----------------------------------------------------------------------------------------------------------------
 *****Sıfırdan, en baştan "rout" yapmak için:
 1-"app" içerisine bir "app-routing-module.ts" classı oluştur.Fakat içerisini şöyle editleriz:
 "const routes:Routes = [
@@ -334,15 +615,10 @@ onSubmit(){
   ],
   exports:[RouterModule]
 })
-export class AppRoutingModule { }
-".
+export class AppRoutingModule { }".
 2-"appModule" git ve "imports[]" arrayi içerisine, oluşturduğumuz "AppRoutingModule" ekle.
 5-HTML içerisinde kullanmak için de "<router-outlet>" tagını kullanırız.
 --------------------------------------------------------------------------------------------------------------
-*****custom pipe eklemek için:
-1-Önce terminal ile, pipeı eklemek istediğin componentin dizinine gel.Mesela "product" componentindeyiz.
-2-"ng g p pipes/pipeName" şeklinde yaz.
--------------------------------------------------------------------------------------------------------------
 *****Reactive Formlar için:
 1-Componente gir ve "import{FormControl,FormGroup} from '@angular/forms'" modüllerini import et.
 2-Tekli binding[componentten çekerek] için önce bir değişkene "FormControl" objecti tanımla.Mesela: 
@@ -376,7 +652,7 @@ export class AppRoutingModule { }
 -status= Formu, submit edilirken "valid" veya "invalid" döndürür."console.log(this.form1.status)".
 -get= Form içerisinde belirtilen kontrol elemanlarını döndürür.Mesela:
 "console.log(return this.form1.get('firstName'))"
--get[nestedGrup] = FOrm içerisindeki nested grup kontrol elemanlarını döndürür.Mesela:
+-get[nestedGrup] = Form içerisindeki nested grup kontrol elemanlarını döndürür.Mesela:
 "console.log(return this.form1.get('skills')?.get('skillName'))"
 -push = Form grubundaki "FormArray" arrayindeki aliaslara eleman ekler.Öncesinde "get getAlias()" ile isimsiz alias grubunu çekeriz.Bu metod, aliasları Array olarak döndürecek ve biz de bu metodu çağırırız.Mesela:
 "addAlias(){this.getAliases.push(this.fb.control(''))}"
@@ -409,7 +685,7 @@ export class AppRoutingModule { }
   password2 : ['',Validators.required]},
   {Validator:this.passwordMatcher1})
 passwordMatcher1(g:FormGroup):boolean{
-  return g.get('password')?.value === g.get('password2')?.value?null:{mismatch:true};
+  return g.get('password1')?.value === g.get('password2')?.value?null:{mismatch:true};
 }".
 15-"FormBuilder" kullanarak da grup form değişkenleri tanımlarken her defasında "FormControl" veya "FormGroup" kullanmaktan kurtuluruz."constructor(private fb1:FormBuilder)" ekle ve import et.
 16-Ardından çok daha sade bir biçimde yazabileceğiz.Mesela 4. adımdaki nested grupları tekrar yazalım:
@@ -455,7 +731,10 @@ passwordMatcher1(g:FormGroup):boolean{
 </div>
 </form1>"
 22-Form elemanlarını oluştururken, bütün hepsine "get" metodu atarız ki submit edildikten sonra valueleri çekebilelim.Nested grupları çekerken de hiyerarşik olarak sırayla "get" ile art arda çekeriz.Mesela:
-"get getFirstname(){
+"get getForm1(){
+  return this.form1.value;
+}
+get getFirstname(){
     return this.form1.get('firstName');
 }
   get getLastname(){
@@ -470,7 +749,7 @@ passwordMatcher1(g:FormGroup):boolean{
     return this.form1.get('aliases')?.value as FormArray;
 }"
 23-Daha sonra form elementine "<form (ngSubmit)='function1()'>" atarız ve get metodlarını çağırırken "value()" metoduyla konsolda şöyle görüntüleriz:
-"console.log(this.form1?.value);
+"console.log(this.getForm1);
 console.log(this.getAliases?.value);
 console.log(this.getFirstname?.value);
 console.log(this.getLastname?.value);
@@ -547,12 +826,14 @@ console.log(this.getExperience?.value);"
 *****Style normal ve conditional kullanımı:
 1-Birden fazla css aynı anda uygulamak için mesela:
 "<div [ngStyle]='{'backgroundColor':'red','fontSize':'10px','fontSize':'700'}'></div>"
-2-Conditional olara uygulamak için:
-"<div [ngStyle]='{'fontWeight': (i%2 ? '600':'900'),'fontSize': (i==2 ? '12px':'24px')}'></div>"
+2-Conditional ternary olara uygulamak için:
+"<div [ngStyle]='{'fontWeight': (i%2 ? '600':'900'),'fontSize': (i==2 ? '12px':'24px')}'></div>".
 3-Eğer üstteki condition çalışmıyorsa bunu dene:
-"<div [style.color]='boolean1?'black':'white''></div>"
-4-Bu kullanım türünü normal olarak da kullanabiliriz:
-"<div [style.fontSize]='22px'></div>"
+"<div [style.color]='boolean1?'black':'white''></div>".
+4-Multiple conditional ternary için:
+"<button [ngStyle]='{'backgroundColor':(buttonColor=='mavi'?'blue':buttonColor=='kirmizi'?'red':'initial')}'>Colorful Button</button>"
+5-Bu kullanım türünü normal olarak da kullanabiliriz:
+"<div [style.fontSize]='22px'></div>".
 -------------------------------------------------------------------------------------------------------------
 *****Class normal ve conditional kullanımı:
 1-Birden fazla class aynı anda uygulamak için:
@@ -564,7 +845,11 @@ console.log(this.getExperience?.value);"
 4-Spesifik olarak classlar ekleyebiliriz:
 "<div [class.text-danger]='boolean1'>123</div>"
 5-Ternary içinse:
-"<div [ngClass]='boolean1?'text-danger':'bg-dark''>123</div>"
+"<div [ngClass]='boolean1?'text-danger':'bg-dark''>123</div>".
+6-Multiple ternary içinse:
+"<p [ngClass]="type=='mavi'?'bg-blue-900':type=='kirmizi'?'bg-red-900':'initial'" *ngFor='let type of buttonTypes'>Color: {{type}}</p>".
+7-Multiple class ve multiple ternary örneği:
+"<p [ngClass]="odd?['bg-blue-900', 'text-white']:even?['bg-red-900', 'text-white']:'initial'" *ngFor='let type of buttonTypes; odd as odd; even as even'>Color: {{type}}</p>"
 -------------------------------------------------------------------------------------------------------------
 *****Attribute normal ve conditional kullanımı:
 1-Tekli attribute değişimi:
@@ -585,11 +870,22 @@ console.log(this.getExperience?.value);"
 "<a [routerLink]='x=='Home'?'/home':x=='About'?'/about':x=='HOW TO'?'/howto':null'></a>"
 -------------------------------------------------------------------------------------------------------------
 *****Server-side rendering:
-1-Normalde browserda request atınca, browser html, css ve js dosyalarını çeker ve renderlar.Bulunduğun sayfada, kullanılan html içeriğini "view page source" ile görebiliriz.Fakat burada, serverda tüm site datalarını tutacağız.Request gelince, tüm hepsini yükleyecek.İlk sayfa yüklemede zorlanabilir fakat ardından siteyi dolaşırken çok rahat edecektir.Proje dizinindeyken terminali aç ve "ng add @nguniversal/express-engine" tıkla.
-2-Test için "npm run dev:ssr" yaz.Browserda "http://localhost:4200/" aç.Böylece live reload sağlar.Fakat server-side rendering olabilmesi için, "app-routing-module" içerisindeki "initialNavigation" ifadesinin valuesi "enabled" olmalıdır.Kontrol et.
-3-"ng build && ng run appName:server" komutundaki "appName", bizim aplikasyonumuzun ismidir.Bu komut, projeyi deploy etmek için build eder.Böylece hem server scriptini hem de aplikasyonu "production mode"da çalıştırır.
-4-"npm run serve:ssr" komutu aplikasyonu, server-side renderingle lokal olarak servis etmek için server scriptini başlatır.Ayrıca "ng run build:ssr" komutu tarafından oluşturulan build artifactlerini kullandığından dolayı bu komutu da kullanmalıyız."serve:ssr" komutu aplikasyonu, sadece local olarak test etmek için kullanılır.
-5-"npm run prerender" komutu, bir aplikasyonun sayfalarını "prerender" etmek için kullanılır.Dinamik sayfaların "build" sırasında işlendiği ve statik HTML olarak oluşturulduğu süreçtir.Dinamik routelar da renderlanacaktır.Bu komutun çalıştığı esnada ek olarak routelar eklemek için şunu kullan: 
+1-Normalde browserda request atınca, browser html, css ve js dosyalarını çeker ve renderlar.Bulunduğun sayfada, kullanılan html içeriğini "view page source" ile görebiliriz.Fakat burada, serverda tüm site datalarını tutacağız.Request gelince, tüm hepsini yükleyecek.İlk sayfa yüklemede zorlanabilir fakat ardından siteyi dolaşırken çok rahat edecektir.Proje dizinindeyken terminali aç ve "ng add @nguniversal/express-engine" yaz.
+2-"npm run dev:ssr" koduyla applikasyonumuzu server side renderlayacak ve live reload şeklinde browserda görüntüleyebileceğiz.Eğer işleme olmazsa, önce "npm run build:ssr" yap ve ardından "npm run dev:ssr" yap.
+3-Kullanırken dikkat et!Herhangi DOM manipülasyonu yapılamaz.Dom manipülasyonu içeren library[mesela jquery] veya framework kullanılamaz!Componentlerimizde "window, document, navigator, location,.." gibi objectleri kullanamayız.Browsera bağlı olarak çalışan bazı özellik ve yapılara da izin yoktur: "setTimeOut, setInterval, localStorage, sessionStorage,..".
+4-Hangi kodun serverda çalışıp hangisinin browserda çalışacağının ayrımını component içerisinde şöyle yaparız:
+"constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+ngOnInit() {
+  if (isPlatformBrowser(this.platformId)) {
+    //Tarayıcıda çalışacak kodlar...
+  }
+  if (isPlatformServer(this.platformId)) {
+    //Sunucuda çalışacak kodlar...
+  }
+}".
+5-"ng build && ng run appName:server" komutundaki "appName", bizim aplikasyonumuzun ismidir.Bu komut, projeyi deploy etmek için build eder.Böylece hem server scriptini hem de aplikasyonu "production mode"da çalıştırır.
+6-"npm run serve:ssr" komutu aplikasyonu, server-side renderingle lokal olarak servis etmek için server scriptini başlatır.Ayrıca "ng run build:ssr" komutu tarafından oluşturulan build artifactlerini kullandığından dolayı bu komutu da kullanmalıyız."serve:ssr" komutu aplikasyonu, sadece local olarak test etmek için kullanılır.
+7-"npm run prerender" komutu, bir aplikasyonun sayfalarını "prerender" etmek için kullanılır.Dinamik sayfaların "build" sırasında işlendiği ve statik HTML olarak oluşturulduğu süreçtir.Dinamik routelar da renderlanacaktır.Bu komutun çalıştığı esnada ek olarak routelar eklemek için şunu kullan: 
 "ng run <app-name>:prerender" veya "ng run <app-name>:prerender --routes /product/1 /product/2".Burada "product" componentine statik routelar verdik.
 -------------------------------------------------------------------------------------------------------------
 *****Dynamic Meta Title için:
@@ -597,6 +893,12 @@ console.log(this.getExperience?.value);"
 2-Sonra her component için ayrı ayrı title belirleyebiliriz.Mesela sitenin "home" componentine gel."constructor" içerisine de "private title:Title" şeklinde servisi inject et.
 3-Ardından "ngOnInit" içerisine gel ve bu servisi çekerek titleı şöyle editle: 
 "this.title.setTitle('Here is the İstanbul!')".Artık kullanıcı, her "home" componente geldiğinde titleı dinamik olarak değişecek.
+-------------------------------------------------------------------------------------------------------------
+*****Dynamic Meta Description için:
+1-"index.html" içerisine default bir meta description ekle.Mesela: "<meta name='description' content='You can search any discover many famouse people from our website!'>"
+2-Sonra her component için ayrı ayrı description belirleyebiliriz.Mesela sitenin "home" componentine gel."constructor" içerisine de "private meta:Meta" şeklinde servisi inject et.
+3-Ardından "ngOnInit" içerisine gel ve bu servisi çekerek titleı şöyle editle: 
+"this.title.UpdateTag({'description','Lets change our topic!'})".Artık kullanıcı, her "home" componente geldiğinde titleı dinamik olarak değişecek.
 -------------------------------------------------------------------------------------------------------------
 *****Compodoc:
 1-Local yükleme için "npm install --save-dev @compodoc/compodoc" yaz.
@@ -624,7 +926,7 @@ jasmine.getEnv().addReporter({
 })".
 4-BUNU ANLAMADIM!
 -------------------------------------------------------------------------------------------------------------
-**Nx:
+*****Nx:
 1-"npm install -g @angular/cli" yazarak CLI güncelle."npm install -g @nrwl/schematics" yazarak da chematics yükle.
 2-"npx create-nx-workspace@latest --preset angular appName" yaz.Böylece aynı CLI ile workspace oluşturmuşuz gibi Nx workspacei oluşturduk.Çalışırken soracak adımlara yes de.Eğer projede hala eksik varsa VSCode'dan çıkış yapıp tekrar gir."npm install" yaz ve eksikler yüklenecek.Tekrar çıkıp gir.Eğer yine olmazsa 
 CTRL+SHİFT+P ile extension paneli açıp, "restart ESlink" veya "restart TS server" çek.
@@ -638,6 +940,12 @@ CTRL+SHİFT+P ile extension paneli açıp, "restart ESlink" veya "restart TS ser
 10-"header" componentinin storybookunu generate içinse "npx ng run header:storybook" yaz.
 11-Nx coluda projeyi eklemek için "npx ng add @nrwl/nx-cloud" yaz.Ardından "git add ." yaz.
 "git commit -m 'First Commit'" yaz."git push" yaz.
+-------------------------------------------------------------------------------------------------------------
+*****Bir "json" dosyasını import edebilmek için:
+1-"tsconfig.json" gir ve "compilerOptions" objecti içerisine şu ayarları ekle:
+"'resolveJsonModule': true,
+'esModuleInterop': true,
+'allowSyntheticDefaultImports': true"
 -------------------------------------------------------------------------------------------------------------
 *****FELAKET SENARYOLARI:
 1-"npm install".
@@ -683,17 +991,103 @@ CTRL+SHİFT+P ile extension paneli açıp, "restart ESlink" veya "restart TS ser
     this.navbarfixed=false;
   }
 }".
+------------------------------------------------------------------------------------------------------------
+*****Smooth scroll to top için:
+1-Bir html butonuna "function1()" atadık diyelim.Componente şunu yaz:
+"function1(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}"
+--------------------------------------------------------------------------------------------------------------
+*****Klavyeden basılan tuşları dinlemek:
+1-Mesela "ESC" tuşu için ascii numarasıyla beraber:
+"ESCAPE_KEYCODE = 27;
+@HostListener('document:keydown',['$event']) onEscHandler(event: KeyboardEvent){    
+  if(event.which === this.ESCAPE_KEYCODE && this.modal==true){
+    this.modal=false;}
+  if(event.which === this.ESCAPE_KEYCODE && this.failToast==true){
+    this.failToast=false;}
+  if(event.which === this.ESCAPE_KEYCODE && this.successToast==true){
+    this.successToast=false;
+  }}".
 -------------------------------------------------------------------------------------------------------------
 *****Arraydeki duplicate[veya daha fazla tekrar eden] itemleri filtreleme:
 1-"array.filter(function (value, index, array) {
   return array.indexOf(value) === index;
 })".
 -------------------------------------------------------------------------------------------------------------
-*****Smooth scroll to top için:
-1-Bir html butonuna "function1()" atadık diyelim.Componente şunu yaz:
-"function1(){
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}"
+*****Apiden çekilen objectin propertilerini rxjs ile filtreleme:
+1-Apiden "httpclient" ile çağırırken şöyle subscribe ol:
+"getAvatars() {
+  this.http.get<[]>(
+    'https://last-airbender-api.herokuapp.com/api/v1/characters/avatar'
+  ).pipe(map( x => x.filter( y => y['name'] == 'Aang') )).subscribe(x=>{
+    console.log(x);
+    this.object1 = x;
+  })}"
+2-Böylece sadece adı "Aang" olan objectleri çektik.Artık html içerisinde "object1"i yazdırırsak, tek bir object alacaktır.
+-------------------------------------------------------------------------------------------------------------
+*****Apiden çekilen nested objectin sadece belirli spesifik propertilerini çekmek[1.Yol]:
+1-Objectimiz şudur:
+"'date_periods':[
+  {
+    'id':1,
+    'name':'bugün',
+    'films':[
+      {
+        'id':1,
+        'name':'Star Wars'
+      },
+      {...},
+      {...}
+    ]
+  },
+  {...},
+  {...}
+]".
+2-Apiden "httpclient" ile şöyle bütün objecti çekeriz:
+"get_all_data():Observable<any[]> {
+  return this.http
+    .get<any[]>('http://localhost:3000/date_periods');}".
+3-Şimdi componente servicei inject et ve içerisine gelerek şöyle yaz:
+"ngOnInit():void{
+  this.dateService.get_all_data().subscribe((response:any)=>{
+    response.map((value:any)=>{
+      value['films'].map((x:any)=>{
+        console.log(x['name'])
+      })
+    })
+  })}".
+4-Böylece arrayın içerisindeki objectlerin 'films' propertileri altındaki arraylerin bütün 'name' propertlierinin valuelerini yazdırdık.
+-------------------------------------------------------------------------------------------------------------
+*****Apiden çekilen nested objectin sadece belirli spesifik propertilerini çekmek[2.Yol]:
+1-Objectimiz şudur:
+"'actors':[
+  {
+    'id':1,
+    'actor_name':'John',
+    'film':'Terminator'
+  },
+  {
+    'id':2,
+    'actor_name':'Ronny',
+    'film':'Matrix'
+  },
+  {...}
+]".
+2-Apiden "httpclient" ile şöyle bütün objecti çekeriz:
+"get_actors():Observable<any[]> {
+  return this.http
+    .get<any[]>('http://localhost:3000/actors');}".
+2-Şimdi componente servicei inject et ve içerisine gelerek şöyle yaz:
+"ngOnInit(): void {
+  this.actorService.get_actors().pipe(
+    map((response:any[])=>{
+      for(let i=0;i<response.length;i++){
+        this.actor_films.push(response[i]['film'])
+      }
+    })).subscribe()}
+let actor_films:any[]=[]".
+3-Böylece arrayın içerisindeki objectlerin bütün "film" propertilerinin valuelerini bir array değişkenine pushladık.
 -------------------------------------------------------------------------------------------------------------
 *****İframedeki Safe url için DOMSanitizer kullanımı:
 1-Önce pipe oluşturacağız.Mesela "safepipe" oluştur ve "appModule" içerisinde "declarations[]" arrayine ekle.
@@ -917,7 +1311,8 @@ Burada "productFilter", üreteceğimiz custom pipeın ismidir."data1" ise, compo
 -Z[zone] : Zaman dilimi[-0800,GMT-8:00,-08:00..].
 -O[zone] : Zaman dilimi[GMT-8,GMT-08:00..].
 2-"uppercase" pipe: Büyük harfe dönüştürür.Mesela: "{{string1 | uppercase}}".
-2-"lowercase" pipe: Küyük harfe dönüştürür.Mesela: "{{string1 | lowercase}}".
+3-"lowercase" pipe: Küyük harfe dönüştürür.Mesela: "{{string1 | lowercase}}".
+4-"titlecase" pipe: Sadace baş harfleri dönüştürür.Mesela: "{{string1 | titlecase}}".
 3-"currency" pipe: Sayısal verilere, para birimi ekler.
 ****Currency Pipe OPTİONS: Bazı optionlar, bazı parametreler alabilir:
 --currencyCode : Ülkenin para birimlerinin kodlarıdır."İSO 4217"de tüm ülke para birimleri mevcuttur.
@@ -929,8 +1324,15 @@ Burada "productFilter", üreteceğimiz custom pipeın ismidir."data1" ise, compo
 --Digitsİnfo : 3 farklı birimden oluşur.Mesela : "4.2-3".İnteger kısmı minimum 4, decimal kısmı minimum 2 ve maksimum 3 olacağını söyler.Eğer sayı, minimum değerlerden küçükse; display edilirken sol tarafına otomatik olarak sıfır[0] eklenir.
 4-"decimal" pipe: Aynı "currency"de kullandığımız gibi sayının decimal ve integer kısmını düzenler.3 birimden oluşur.Mesela : "{{number1 | number: '4.2-3'}}".Eğer sayıyı sadece integer olarak göstereceksek "x.0-0" şeklinde kullan.
 5-"percent" pipe: Sayıyı, yüzdelik dilimlere dönüştürür.Genelde 0 ile 1 arasındaki ondalık datalarda kullanılır.Mesela: "{{number1 | percent}}".Ayrıca bunda da sayının decimal ve integer kısmını düzenleyebiliriz.Mesela: "{{number1 | percent : '4.2-3'}}".
-6-JSON pipe: Bir valueyi JSON formatındaki bir stringe dönüştürür.Genelde nested objectleri debugging içindir.Mesela elimizde bir "object1 = {name:'ali',lastname:'koç',skills:{skillname:'javascript',certificates:[1,2,3,4,5]}}" objecti olsun.Buna html içerisinde "{{object1|json}}" uygularsak, yine aynı şekilde HTMLde de görüntüleriz.
-7-"async" pipe: BUNU ANLAMADIM!
+6-"JSON" pipe: Bir valueyi JSON formatındaki bir stringe dönüştürür.Genelde nested objectleri debugging içindir.Mesela elimizde bir "object1 = {name:'ali',lastname:'koç',skills:{skillname:'javascript',certificates:[1,2,3,4,5]}}" objecti olsun.Buna html içerisinde "{{object1|json}}" uygularsak, yine aynı şekilde HTMLde de görüntüleriz.
+7-"Slice" pipe: Bir arrayın hangi item aralığını slice ederek döndüreceğini belirtiriz.Başlangıç ve bitiş indexlerini belirtiriz.Mesela: "<div *ngFor='let city of cities | slice: 2:16'></div>".
+8-"async" pipe: BUNU ANLAMADIM!
+------------------------------------------------------------------------------------------------------------
+*****Locale Date formatını "tr" olarak ayarlamak için:
+1-"app.module" gel ve "import { registerLocaleData } from '@angular/common';import localeTr from '@angular/common/locales/tr';" import et.
+2-İçerisinde araya "registerLocaleData(localeTr, 'tr')" ekle.
+3-"providers[]" arrayına da şunu ekle: "{provide:LOCALE_ID, useValue:'tr'}".
+4-Artık dateler, default olarak tr formatında görüntülenecektir.
 ------------------------------------------------------------------------------------------------------------
 *****Observable object kullanmak için:
 1-"OnInit" ve "Observable" modüllerini componente ekleriz.Eğer birden fazla "observer" kullanacaksak, "Subject" modulünü de ekleriz.Subjecte birden fazla "observer" tarafından "subscribe" olunabilir.Sıradan bir "subject" kullanırken "observer"ı, tüm iletilen datalardan önce kullanırsak; sonrasındaki tüm dataları alır.Fakat belirli datalardan sonra "observer" kullanırsak, öncesinde kalan dataları "subscribe" edemeyecektir.Üç farklı "subject" vardır:
@@ -1250,12 +1652,255 @@ Sadece bir adet 9 döndürecek."
 -Http1, her bir statik dosya için[.css,.js,.jpg,.png..] ayrı request gönderir.Bu durum, yük ve maaliyeti artırır.Metinsel tabanlıdır.Her requestinde "header"ları sıkıştırılmamış halde gönderir.Bir request olduğunda yalnızca bir response döner.
 -Http2 ise dosyaları için tüm requestleri tek seferde toplu olarak yapabilmektedir.Böylece açılış hızı artmakta ve süresi düşmektedir.Buna "Multiplexing" denir.Teknik olarak tek bir "TCP"  bağlantısı üzerinden yapılan request ve responsetur.Client ile server arasındaki iletişimi "binary" formattaki küçük framelere ayırmaktadır.Bu duruma "Binary Protocol" denir.Her requestinde "header"ları "HPACK" ile sıkıştırarak gönderir.Bu duruma ise "Header Compression" denir.Bir reques olduğunda birden fazla response ile karşılık verebilir.Buna da "Server Push" denir.
 --------------------------------------------------------------------------------------------------------------
-*OnInıt : Bir component başlatılmak üzereyken, başlatılmadan önce triggerlanan bir yapıdır.İnitialize görevi görür.
-*AfterViewInıt : Component başlatıldıktan sonra triggerlanacak olan yapıdır.
---------------------------------------------------------------------------------------------------------------
 *****ANGULAR PLAYGROUND:
 ***Bir componentin sanboxını oluşturmak için:
 1-Mesela "nav" folderı içerisinde "NavComponent" bulunsun.CLI ile bu foldera gel.
 "ng g angular-playground:sandbox nav --flat" yaz.Böylece aynı dizine, sandboxını ekleyecektir.
 2-Sanboxın içerisine otomatik olarak şu ikisi import edilecektir: "import { sandboxOf } from 'angular-playground'" ve "import { NavComponent } from './nav.component'".Yani "nav" componentimize de erişimi var.
 3-"npm run playground" ile run ederiz.Eğer serve ederken error alıyorsan, "angular-playground" içerisine gir."sandboxes.ts" gir ve import edilen componentlerin urllerini kontrol et.İmport pathlarında folderlar arasında ikişer tane "\\" bulunmalıdır.
+--------------------------------------------------------------------------------------------------------------
+*****TEMPLATES:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****ngbootstrap carousel indicator styling:
+1-Indicatorun rengini, boyutunu, aktif durumdaki stillerini şunlarla değiştiririz:
+".carousel-indicators li {
+  display: flex;
+  color: black !important;
+  background-color: white !important;
+  justify-content: center;
+  overflow: hidden;
+  list-style-type: none;
+  text-align: center;
+  padding: 3px;
+  margin: 0;
+  width: 15px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  margin:5px;
+  transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+  border-radius: 10px !important;
+  opacity: 1 !important;
+}
+.carousel-indicators li.active{  
+  background-color: black!important;
+  border-radius: 0px !important;
+}
+a.carousel-control-prev:hover,
+a.carousel-control-next:hover{	
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+a.carousel-control-prev span,
+a.carousel-control-next span{      
+  transform: scale(1.5,1.5)!important;
+}
+.carousel-item{
+ overflow: hidden;
+}
+.carousel-item.active{  
+  //Şimdilik burası None
+}"
+--------------------------------------------------------------------------------------------------------------
+*****ngbootstrap toast service and customize:
+1-Elimizde bir adet "CityaddComponent" ve bir adet "ToastService" var.Toast service gir ve şunları ekle:
+"toasts: any[] = [];
+showSuccess(textOrTpl: string | TemplateRef<any>,header:string | TemplateRef<any>):void {
+  if(this.toasts.length>3){
+    this.toasts.shift();
+  }
+  this.toasts.push({ textOrTpl, 
+    classname: 'bg-success toast1 text-light',
+    delay: 5000 ,
+    animation:true,
+    autohide: true,
+    headertext: header
+  });
+}
+showError(textOrTpl: string | TemplateRef<any>,header:string | TemplateRef<any>):void {
+  if(this.toasts.length>3){
+    this.toasts.shift();
+  }
+  this.toasts.push({ textOrTpl, 
+    classname: 'bg-danger toast1 text-light',
+    delay: 5000 ,
+    animation:true,
+    autohide: true,
+    headertext: header
+  });
+}
+remove(toast:any):void {
+  this.toasts = this.toasts.filter(t => t !== toast);
+}".
+2-Böylece service ile çağırabileceğimiz toastları customize ettik.İçerisine 2 adet bootstrap classı ve "toast1" classı ekledik.Bu classı, root style olan "style.css" gir ve şöyle ekle:
+".toast1{
+  transition: all .3s ease-in-out !important;
+  -moz-transition: all .3s ease-in-out!important;
+  -webkit-transition: all .3s ease-in-out!important;
+  -ms-transition: all .3s ease-in-out!important;
+  -o-transition: all .3s ease-in-out!important;
+  animation-name: toast1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+}
+.toast1:hover{
+  border-bottom-left-radius: 35px;
+  border-top-right-radius: 35px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+@keyframes toast1{
+  0% {transform: translateX(-100px);opacity:0}
+  90% {transform: translateX(10px);opacity:1}
+  100% {transform: translateX(0);}
+}".
+3-Artık efekt ve görsel olarak tostlar hazır.Şimdi ise proje içerisine bir adet "toast" component oluştur.Componenti şu şekilde düzenle:
+"@Component({
+  selector: 'app-toast',
+  template: `
+  <ngb-toast
+  style='cursor:pointer;min-width:170px'
+    *ngFor='let toast of toastService.toasts'
+    [header]='toast.headertext'
+    [class]='toast.classname'
+    [autohide]='toast.autohide'
+    [delay]='toast.delay || 5000'
+    (hide)='toastService.remove(toast)'
+    (click)='toastService.remove(toast)'
+  >
+    <ng-template [ngIf]='isTemplate(toast)' [ngIfElse]='text'>
+      <ng-template [ngTemplateOutlet]='toast.textOrTpl'></ng-template>
+    </ng-template>
+
+    <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+  </ngb-toast>
+`,
+host: {'[class.ngb-toasts]': 'true'},
+styleUrls:['./toast.component.css']
+})
+export class ToastComponent {
+
+  constructor(public toastService:ToastService) { }
+  isTemplate(toast:any) { return toast.textOrTpl instanceof TemplateRef; }
+}".
+4-Şimdi ise toastın pozisyonunu css ile değiştireceğiz.Toastın cssine şunu ekle:
+":host {
+  position: fixed;
+  top: auto!important;
+  bottom: 0!important;
+  right: auto!important;
+  right: 0!important;
+  margin: 0.5em;
+  z-index: 1200;
+}".
+5-Toast componentini yerleştirme vakti."app.component.html" gel ve burada "<app-toast></app-toast>" şeklinde ekle.Yapının en dışına ekle böylece router açıkken de görüntüleyebileceğiz.
+6-Şimdi ise toastı kullanacağımız "cityadd" component gel.Toast servisi çağır ve consturctor içerisine ekle.Html kısmına şöyle bir buton ekle:
+"<button (click)='test1()'>tıhh</button>".
+7-Şimdi ise "cityadd" componente gel ve şunu ekle:
+"this.toastService.showSuccess('Succesfully added','Congrats!')".
+8-Artık çağırabiliyoruz ve hem header hem body kısmını her componente özgü olarak editleyebiliyoruz.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*****Reactive formlarda dinamik olarak array grup eklemek:
+****Bu senaryoda form ögesine object olarak itemler ekleyip post ediyoruz:
+1-Öncelikle göndereceğimiz itemin modelini oluşturacağız."city" model oluştur ve şöyle yaz:
+"export class City {
+  id:number=0;
+  name:string="";
+  description:string="";
+  images:{id:number,url:string,imageHeader:string,imageText:string}[]=[];
+}".
+2-"cityadd" componentine gel ve "cityForm!: FormGroup;" tanımla.
+2-Ardından formu şöyle oluştur:
+"createForm1() {
+  this.cityForm = this.fb.group({
+    name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
+    description: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(250)])],
+    images: this.fb.array([])
+  })
+}".
+3-Ardından "ngOnInit" içerisinde şöyle çağır:
+"this.createForm1()".
+4-Ardından "getter" metodları şöyle çağır:
+"get name() {
+  return this.cityForm.get('name');
+}
+get description() {
+  return this.cityForm.get('description');
+}
+get images() {
+  return this.cityForm.get('images') as FormArray;
+}".
+5-Htmle gel ve formu şöyle oluştur:
+"<form (ngSubmit)='onSubmit()' [formGroup]='cityForm' fxLayout='column wrap' fxLayoutGap='5px' fxLayoutAlign='center center'>
+<div style='width:200px;'>
+    <mat-form-field style='width: 100%' appearance='outline'>
+        <mat-label>City name:</mat-label>
+        <input formControlName='name' matInput placeholder='Placeholder'>
+        <mat-icon style='color: green;' *ngIf='name?.valid&&(name?.dirty||name?.touched)' matSuffix>tag_faces</mat-icon>
+        <mat-icon style='color: red;' *ngIf='name?.invalid&&(name?.dirty||name?.touched)' matSuffix>close</mat-icon>            
+      </mat-form-field>
+</div>
+<div style='width:400px'>
+    <mat-form-field style='width: 100%;' appearance='fill'>
+        <mat-label>City description:</mat-label>
+        <textarea formControlName='description' style='width: 100% !important;' matInput></textarea>
+        <mat-hint style='color: red;' *ngIf='description?.invalid&&(description?.dirty||description?.touched)'>Min. 10 and Max. 250 character!</mat-hint>
+      </mat-form-field>
+</div>        
+<div style='width: 400px;margin-top: 15px;' formArrayName='images'>
+    <button type='button' (click)='addImages()'>Add City Images</button>
+    <div style='width:100%' *ngFor='let x of images.controls; index as i'>
+        <div style='width: 100%;' [formGroupName]='i'>                
+            <mat-form-field style='width: 33.3%' appearance='outline'>
+                <mat-label>Image URL:</mat-label>
+                <input formControlName='url' matInput placeholder='URL'>
+                <mat-icon style='color: green;' *ngIf='cityForm?.valid&&(cityForm?.dirty||cityForm?.touched)' matSuffix>tag_faces</mat-icon>
+                <mat-icon style='color: red;' *ngIf='cityForm?.invalid&&(cityForm?.dirty||cityForm?.touched)' matSuffix>close</mat-icon>            
+              </mat-form-field>            
+              <mat-form-field style='width: 33.3%' appearance='outline'>
+                <mat-label>Image Header:</mat-label>
+                <input formControlName='imageHeader' matInput placeholder='Header'>
+                <mat-icon style='color: green;' *ngIf='cityForm?.valid&&(cityForm?.dirty||cityForm?.touched)' matSuffix>tag_faces</mat-icon>
+                <mat-icon style='color: red;' *ngIf='cityForm?.invalid&&(cityForm?.dirty||cityForm?.touched)' matSuffix>close</mat-icon>            
+              </mat-form-field>            
+              <mat-form-field style='width: 33.3%' appearance='outline'>
+                <mat-label>Image Text:</mat-label>
+                <input formControlName='imageText' matInput placeholder='Text'>
+                <mat-icon style='color: green;' *ngIf='cityForm?.valid&&(cityForm?.dirty||cityForm?.touched)' matSuffix>tag_faces</mat-icon>
+                <mat-icon style='color: red;' *ngIf='cityForm?.invalid&&(cityForm?.dirty||cityForm?.touched)' matSuffix>close</mat-icon>            
+              </mat-form-field>            
+        </div>
+    </div>       
+</div>    
+<button type='submit' mat-raised-button color='primary'>Primary</button>    
+</form>".
+6-Şimdi ise butona eklediğimiz "addImages" fonksiyonunu componentte şöyle oluştururuz:
+"addImages(){
+  return this.images.push(this.fb.group({
+    url:['',Validators.required],
+    imageText:['',Validators.required],
+    imageHeader:['',Validators.required]
+  }))
+}".
+7-Böylece artık butona her tıkladığımızda, "images" içerisinde belirttiğimiz üzere 3 adet control inputu[url,imageText,imageHeader] eklenmiş olacaktır.
+8-Şimdi ise post etmek için bir form kalıbını component içerisinde şöyle oluştur:
+"sendForm: City = new City()"
+9-Ardından forma atadığımız "onSubmit" fonksiyonunu şöyle çağır:
+"onSubmit() {
+  if (this.cityForm.valid) {
+    this.sendForm = Object.assign({}, this.cityForm.value)
+    this.cityService.addCity(this.sendForm).subscribe(data => {
+      console.log(data)
+    });
+    this.cityForm.patchValue({
+      name: "",
+      description: ""
+    }),
+      alert('Success')
+    this.router.navigate(['city']);
+  }
+  else {
+    alert('Wrong!')
+  }
+}".

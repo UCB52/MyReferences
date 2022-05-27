@@ -1,57 +1,350 @@
+*****WORDS
 *abbreviation = Kısaltma.
+*accountmant = muhasebeci
+*achieve = 1-başarmak veya ulaşmak veya elde etmek
+-I've achieved my ambition.[1]
+-I've been working all day but I feel I have achieved nothing.[1]
+-A good robotic design achieves high efficiency of this motion transformation.[1]
+*achievement = 1-başarı
+-You get such a sense of achievement when you finish the course.[1]
+-This film is his greatest achievement to date.[1]
+-All this, at one level, makes the book a magnificent achievement.[1]
 *adverb = zarf
 *adjective = sıfat
 *advisor = danışman
+*air = 1-hava, 2-havalandırmak
+-Forests have high quality air.[1]
+-You should air your room every morning by your own.[2]
 *annual = yıllık, senelik
+*apply = 1-uygulamak, 2-başvurmak
+-Do you want to apply the latest changes of the contract?[1]
+-The policy will apply equally to everyone.[1]
+-The developers applied for planning permission to build over 200 houses.[1]
+-I've almost applied every job since i am fired.[2]
+*arrange = ayarlamak
 *authentication = Doğrulama.
 *badge = Rozet, nişan.
+*balance sheet = 1-bilanço[noun]
+-The issue might have seemed arcane - would they be allowed to borrow off balance sheet?[1]
 *benchmark = kalite testi
 *benefit = fayda, yarar
+*booklet = 1-broşür veya kitapçık
+-I had to refer to the instruction booklet.[1]
+-a booklet of tickets/vouchers/coupons.[1]
 *brand = Marka.
 *carousel = Atlı karınca, slider menü.
 *clarify = açıklamak
 *cluster = küme
 *collapse = Daraltmak.
 *conjuction = bağlaç
+*consider = 1-birşeyi dikkate almak, dikkatlice düşünmek
+-I'd like some time to consider.[1]
+-We are considering various possibilities.[1]
+*considered = 1-dikkate alınan, iyice düşünülmüş
+-It is considered that the proposed development would create much-needed jobs.[1]
+*courage = 1-cesaret[noun]
+-He showed great courage and determination.[1]
+-They had the courage to stand up and fight for what they believed in.[1]
+*crisis = 1-kriz veya buhran
+-An economic or a financial crisis occurred this year.[1]
+-The government is facing a political crisis.[1]
+*diligence = 1-Çalışkanlık veya çaba.
+-She shows great diligence in her schoolwork.[1]
+-With planning and diligence, his business would be on its feet in a few years.[1]
 *district = İlçe, semt.
 *disburse = ödeme, harcama yapmak
 *dismiss = Sonlandırmak, kovmak.
-*ensure = Emin olmak.
+*domestic = 1-yerel, 2-ev ve aile ilişkileriyle ilgili olan, 3-pet olarak tutulan evcil hayvan
+-Maintenance costs, excluding domestics, would be £27 per head.[1]
+-The total number of domestics employed, male and female, is 2,400, and 460 additional are required.[1]
+-My aunt is air hostess so she has a domestic flight tomorrow.[1]
+-She had domestic violence when she was young.[2]
+-Can a crocodile be domestic?[3]
+*drill = 1-matkap[1]
+-The drill has a strong torque.[1]
+*eclipse = 1-güneş ve ay tutulması[verb]
+-The moon eclipsed the sun.[1]
+-He also observed the eclipse of the sun on May 4, 1818.[1]
+*encounter = 1-hoş olmayan birşeyle karşılaşmak veya deneyimlemek[verb]
+-We encountered a number of difficulties in the first week.[1]
+-The report details the problems encountered by families in this situation.[1]
+*ensure = 1-birşeyi sağlamak, sağlama almak[verb]
+-Integrity ensures that system information or processes are protected from unauthorized people.[1]
 *environment = ortam
 *examine = kontrol etmek
+*except = 1-hariç
+-We work every day except Sunday.[1]
+-They all came to the dinner except Matt.[1]
+*fault = 1-hata[noun]
+-Don't dare to say it was her fault.
+-It's all your fault, you know.
 *fewer = daha az
 *figure = şekil, rakam
 *firm = firma
 *gutter = Kolonların arasındaki pay veya alan.
+*grateful = 1-minnetkar
+-I am eternally grateful.[1]
+-I am grateful for these encouraging comments.[1]
+*impression = 1-izlenim
+-She gives the impression of being very busy.[1]
+-I had the impression that it was all done in a hurry.[1]
+-My first impression of him was favourable.[1]
+*impressive = 1-etkileyici
+-He has an impressive record of 63 wins from 71 fights.[1]
+-She was very impressive in the interview.[1]
 *indicate = Belirtmek, göstermek, bildirmek.
+*integrity = 1-entegrasyon, bütünlük
+-Integrity ensures that system information or processes are protected from danger.[1]
+*intense = Very great; very strong[adjective]
+-They watched with intense interest.
+-We were all suffering in the intense heat.
+*intensity = The state or quality of being intense[noun]
+-He was watching her with an intensity that was unnerving.
+-The storm resumed with even greater intensity.
+*land = 1-toprak, 2-iniş yapmak
+-It is cheaper to drill for oil on land than at sea.[1]
+-The military commanders won't deploy their land forces until tonight.[1]
+-We should land in Madrid at 7 a.m.[2]
+-You can land a plane on water in an emergency.[2]
 *latency = gecikme
 *lottery = piyango
 *luxury = lüks
+*maintance = 1-birşeyin aynı seviye ve standartlarda olmasını sağlamak, korumak[verb]
+1-He was trying to maintain a balance between taking care of business and her happiness.[1]
+*maintained = 1-korumuş
+1-She has always maintained her innocence.[1]
+1-ANU has maintained its position as Australia's top university.[1]
+*measure = 1-ölçüm yapmak[verb]
+-Blood pressure and heart rate should be measured before treatment.[1]
+-A ship's speed is measured in knots.[1]
+-Body temperatures were measured with a digital thermometer.[1]
+*measurement = 1-ölçüm[noun]
+-Succesfull measurement is very important in science.[1]
+-The research is based on the measurement of body fat in schoolchildren.
+-Engineers took direct measurements of water flow in the harbour.
 *miscellaneous = Çeşitler
 *neutral = Tarafsız, bağımsız.
 *noun = isim
+*obtain = 1-çaba sarfederek elde etmek
+-I finally managed to obtain a copy of the report.[1]
+-I've been trying to obtain permission to publish this material.[1]
+*obvious = 1-bariz, apaçık
+-But it is obvious to me that we can end war.[1]
+-The answer was as obvious as it was embarrassing.[1]
+*occur = 1-meydana gelmek
+-The same issue is occurring again.[1]
+-Silver, gold, lead and copper ores occur in many localities.[1]
+*ore = 1-cevher veya maden
+-The value of the ore annually is about $10,000,000.[1]
+-Niriz was formerly known for its manufacture of steel from iron ore brought from Africa, 40 m.[1]
+*pear = armut
+*pickle = 1-turşu[noun]
+-The first person to recognize the hidden pickle receives an extra gift.[1]
+-Increase the amount of garlic to deepen the sour taste of the pickle.[1]
+*pick up = bir şeyi yerden toplamak, birisini bir yerden almak
+-My parents will pick me up at the airport.
+-You should pick up your own toys, they look so messy.
 *plain = sade, yalın
 *pop over = üzerine gelmek
 *pop up = çıkagelmek, belirmek
+*preference = 1-bir şeye başka bir şeyden daha fazla ilgi veya istek, 2-choice
+-It's a matter of personal preference.[1]
+-I can't say that I have any specific preference.[1]
 *prepend = Başa eklemek.
 *preposition = edat
+*priority = 1-diğerlerinden daha önemli ve önceliğe sahip olan şey, 2-yapılması gereken işler arasında veya bir grup insan arasında en önemli yer, öncelik, ayrıcalık
+-Education is a top priority.[1]
+-Our first priority is to improve standards.[1]
+-Financial security was high on his list of priorities.[1]
+-Club members will be given priority.[2]
+-A clean ocean must have priority over the profits of polluting industries.[2]
+-Priority cases, such as homeless families, get dealt with first.[2]
 *procedure = prosedür
 *pronoun = zamir
+*promotion = reklam veya tanıtım amacıyla satılan promosyon[ürün], yükselme veya terfi[iş]
+-They're giving away free T-shirts as a special promotion.
+-She was given a promotion in her first month with the company.
+-I do not think that he does any actual promotions; he has other things to do.
+-In other words, the smaller promotions are being driven out of existence. 
+*pulp = posa[yiyecek], püre haline getirmek[yiyecek].
+*pupil = 1-öğrenci, 2-gözün siyah kısmı veya gözbebeği
+-The school has 1,100 pupils aged 11 to 18.[1]
+-As the project progresses it is the pupils that take on the responsibility for the entire process, not the teachers or leaders.[1]
+-Taken together they would give the pupils a unique connection with their locality.[1]
 *recipe = tarif
 *review = gözden geçirmek
+*ripe = yeterince olgunlanmış ve yenmeye hazır olan[yiyecek], yeterince olgunlanmış ve bir şey için artık hazır olan[insan,obje...].
 *sack = çuval, kovulmak
 *save = kaydetmek, tasarruf etmek
-*shrink = Küçültmek, sığdırmak için küçültmek.
+*scarcity = 1-kıtlık[substantiv]
+-The scarcity of water is a big problem in this region.[1]
+*search = 1-aramak[verb], 2-birşeyi veya birisini arama girişimi[noun]
+-I was searching for you all around the world.[1]
+-She began a search for new adventures in Africa.[2]
+-She went into the kitchen in search of a drink.[2]
+*sense = 1-hissetmek veya algılamak[verb], 2-algı veya his[noun]
+-I can sense it and I'm never wrong.[1]
+-I want you to sense my magic without touch.[1]
+-He also had a sense of responsibility about it.[2]
+-Her sense of smell is wonderful.[2]
+*shrink = Küçültmek, sığdırmak için küçültmek
 *signature = imza
+*sober = 1-sarhoş olmayan veya ayık olan[kişi], 2-ciddi ve mantıklı[davranış]
+-I promised him that I will stay sober tonight.[1]
+-He did a sober assessment of the bad situation.[2]
+-He is honest, sober and hard-working.[2]
 *specialist = uzman
 *split = Bölmek, ayırmak.
-*separate = Ayırmak.
+*spice = 1-baharat, 2-sentetik bir uyuşturucu
+-Save room for dessert and enjoy the pumpkin spice cheesecake.[1]
+-The herbs and spice section here is small but exotic.[1]
+-Six men overdosed on the synthetic drug known as spice.[2]
+-Spice, known as the ‘zombie’ drug.[2]
+*spicy = 1-baharatlı, 2-heyecan verici ve kısmen şok edici
+-It smelled of Africa, that pungent spicy smell from the sage bushes.[1]
+-They have a spicy flavor which I find refreshing.[1]
+-I've heard spicy stories about Amsterdam nights from my colleagues.[2]
+*succeed = 1-başarmak veya başarılı olmak[verb]
+-Our plan succeeded.[1]
+-No company can hope to succeed at everything.[1]
 *temporary = geçici
 *till = kasa
 *toggle = Geçiş
 *trace = iz
+*tray = 
 *treat = Davranmak
+*threat = 1-tehdit
+*threaten = 1-tehdit etmek
+*trademark = 1-ticari marka[noun]
+-Motif is a registered trademark of The Sabancı Group.
+*wagon = 1-vagon, tren vagonu[noun]
+-He climbed onto the wagon and sat on its edge.[1]
 *whose = kimin
+*whom = kimi
 *wrapper = Örtü, saran şey
 *whom = kimi, kime
 *verb = fiil
+*****Patterns
+*In other words : başka bir deyişle
+-An international award cannot be enforced directly; in other words it has no legal sanction behind it.
+*Pass over : atlamak veya es geçmek
+*from scratch : sıfırdan veya başlangıçtan itibaren
+*is called, are called : denilen veya çağrılan
+-We are called Avengers who saved the world.
+*to date : bugüne kadar ki
+-This film is his greatest achievement to date.
+*give preference : tercih etmek
+-I gave preference to learn maths at my school.
+-in preference to something/someone : birisine veya bir şeye tercih etmek
+-They bought French planes in preference to British ones.
+*make choice : seçim yapmak veya tercih yapmak
+-At that moment there was a choice to make.
+-I had to make a choice without knowing what would happen.
+*take part : yer almak
+-How can i take part in the conversation tonight?
+*take note : not almak
+-She took note of whole lesson.
+*make laugh : güldürmek
+-He is the man who was on TV show last night and made people laugh.
+*take measurement = ölçüm almak
+-I have to take your height measurement every year so we can follow your development.
+*used for : için kullanılmak
+-Alarms are generally used for security of offices.
+*known as : diye bilinmek
+-Six men overdosed on the synthetic drug known as spice.
+*save room : mideye yer ayırmak[fazla yemekten kaçınarak midede boş yer bırakmak]
+-Save room for dessert and enjoy the pumpkin spice cheesecake.
+-You can have a light snack, but make sure you save room for dinner tonight.
+*make sure : emin olmak
+-I have to make sure our wallets are safe.
+-In fact, that was a good way to make sure that he didn't do it.
+-As they walked to the bar, he decided to make sure that the night they met wasn't just a fluke.
+*thought that : sandım ki
+-I thought that you were talking about the huge stick.
+*no longer : artık, daha fazla
+-These accounts are no longer valid.
+-I could no longer hide my fear.
+*in search of : arayışı içerisinde olmak
+-Man is always in search of peace and happiness.
+-I went from place to place in search of you.
+-Editors are in search of good writers.
+*can be found : bulunabilir
+-This information can also be found on the website.
+*plug in : fişi takmak
+-Please plug your USB device in to another port.
+*plug out : fişi çıkarmak
+-Before you clean the kitchen, plug the fridge's cable out.
+*as xxx as : xxx kadar
+-One day i will talk English as good as you.
+-She's as perfect as she can be.
+*none of xxx business : seni ilgilendirmez
+-It is none of your business so walk away.
+-I don't interested in which are none of my business.
+*make an effort : çaba sarfetmek
+-I made a lot of effort to graduate from my university.
+-I can be done but you'll have to make an effort.
+*bring out : 1-dışarı çıkarmak, 2-ortaya çıkarmak
+-I will bring out trash in the kitchen.[1]
+-You have to bring out your best in you.[2]
+*on the other hand : diğer taraftan veya diğer açıdan
+-I want to go to the party, but on the other hand I have to study.
+-I'd like to eat out, but on the other hand I should try to save money.
+*sense of xxx : duygusu, hissi
+-He also had a sense of responsibility about it.
+-But Bordeaux had a sense of humor that sought and found her own.
+*dare you / don't dare to : cüret etmek, cüret etme
+-Don't dare to say it was her fault.
+-Don't you dare, Peter!
+-How dare you say that to your mother?
+*think so / don't think so : öyle olduğunu sanıyorum / öyle olduğunu sanmıyorum
+-You can try it if you believe yourself but i don't think so.
+-Shades of color depend on your personality - at least I think so.
+*take a bath : duş almak
+-I took a bath before meeting with my girlfriend.
+*mother tongue : anadil
+-Turkish is my mother tongue.
+*make a speech : konuşma yapmak
+-When I had made speech my own, I could not wait to go home.
+*a number of : bir takım
+-We encountered a number of difficulties in the first week.
+-There are still a number of problems about my car.
+*depend on : birşeye bağlı olmak[koşul]
+-It might depend on the circumstances.
+-I suppose it depends on the driver.
+*on purpose : bilerek, kasıtlı olarak
+-If you win or lose, let it be on purpose.
+-This is why she tells you she did not do this on purpose.
+*make a impression : izlenim bırakmak
+-You should make a good impression during the meeting.
+*can't stand : tahammül edememek veya dayanamamak
+-He can't stand to sit around and do nothing.
+-His ego just can't stand the fact that it was Edith who took the hike and not him.
+*how : 1-Nasıl+[subject], 2-Nasıl+[adjective+subject], 3-Nasıl+['to'+verb]
+-First of all, dear friend, tell me how you are.[1]
+-Actually, it was how my family always celebrated Christmas.[1]
+-I know how lucky you are.[2]
+-I'm sure if he sees how important this is to you, he'll relent.[2]
+-He knew how to work with his hands.[3]
+-Damian was thinking how to help Sofia.[3]
+-Tell me how should i talk.[4]
+*which : 1-Hangi+[subject], 2-Hangi+[adjective+subject], 3-Hangi+[verb]
+-It isn't a matter of which I love more.[1]
+-I'd like to know which version is true.[1]
+-I have to choose which beautiful girl will come with me to the party tonight.[2]
+-I have to do a test to find which smart pupil will win the prize.[2]
+-The shutters were all closed, except at one window which was open.[3]
+-Rhyn knows you're here, which means he can call you anytime..[3]
+*who : 1-kim+[subject], 2-kim+[adjective+subject], 3-kim+[verb]
+-I don't know who he is.[1]
+-She didn't know who I was when I visited her at the hospital.[1]
+-Lisa looked at Yancey, who silently walking up the stairs.[2]
+-Cops couldn't find the guys who fastly drives on the road.[2]
+-It was my supervisor who created and developed the application.[3]
+-She knows who are the best.[3]
+*what
+*whose = 1-Kimin+[subject], 2-Kimin+[adjective+subject], 3-Kimin+[verb]
+-In grammar he followed Hayyuj, whose pupil he was.[1]
+-I buy my eggs from a farmer whose chickens roam free.[1]
+-Marta looked at her with eyes whose strange expression she did not understand.[2]
+-She looked at Mansr, whose sharp gaze took in her features.[2]
+-Those whose fishing poles don't score dinner can enjoy a variety of restaurants in town.[3]

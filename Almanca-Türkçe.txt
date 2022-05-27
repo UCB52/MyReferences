@@ -1,94 +1,348 @@
 *adjektiv = adjective
 *adverb = adverb
 *alle = all[pronomen]
+*alleine = 1-alone[adjektiv], 2-alone[adverb]
+-Zusammen erreichen wir mehr als alleine.[1]
+-Ich bin glücklich, ob allein oder in Gesellschaft.[2]
+-Der Gedanke, alleine durch den Wald zu gehen, war abschreckend.[2]
+*alles = 2-all ,1-everything
+*alphabet[n] = alphabet[substantiv]
+-Türkisch alphabet hat 29 Lettern.
+-Die Nachricht wurde in fetten Lettern in der Zeitung bekanntgegeben.
+-Oder der Lehrer weist die Plätze etwa nach dem Alphabet an.
 *anrufen = call[verb]
 *antwort = answer[verb]
+*apfel[m] = apple[substantiv]
+-Unsere Äpfel und Birnen sind reif.
+-Ich mag weder Äpfel noch Weintrauben.
 *arbeiten = work[verb]
 *arbeit = job[substantiv]
+*arbeitslos = 1-unemployed or jobless
+-Ich bin arbeitslos und auf der Suche nach einer neuen Stelle.
 *arzt = doctor[substantiv]
+*athlet[m] = 1-athlete who competes at sport, 2-Person with a muscular physique
+-Die Jury beurteilt die Leistung der Athleten.[1]
+-Der Athlet wollte seine Spitzenposition nicht aufgeben.[1]
+-Mit 90,98 m übertraf der Rekordmann als erster Athlet die 90‑m‑Marke nach Einführung des neuen Speeres.[1]
+*attraktiv = 1-attractive[akjektiv]
+-Ihr neuer Freund ist schlau, lustig, und attraktiv.[1]
+-Die Firma ist ein attraktiver Arbeitgeber in der Region.[1]
+*aufgebracht = 2-upset[adjektive]
+-Ich war nicht mehr aufgebracht, sondern ruhig.[2]
 *aufstehen = stand up[verb]
 *aus = -den,-dan
-*auto = car[substantiv]
+*auto[n] = car[substantiv]
+-Ich komme schneller zur Arbeit, wenn ich das Auto nehme.
+-Mein Auto hat neue Reifen.
+*autobauer[m] = 1-car manufacturer[substantiv]
+-Ab 2019 wird der Autobauer [VW] das neue Modell des kleinen Geländewagens Mokka in Thüringen produzieren.[1]
+-Westeuropa wird 1964 wahrscheinlich die USA als größten Autobauer der Welt überrunden.[1]
+*bad[n] = 1-bath[substantiv]
+-Ich nahm ein Bad.[1]
+-Willst du mir sagen, dass du ein Bad nahmst?[1]
+*badezimmer[n] = 1-bathroom[substantiv]
+-In unserem Badezimmer gibt es eine Wanne und eine Dusche.[1]
+-Mein Wasserhahn im Badezimmer tropft.[1]
 *bank = bank[substantiv]
+*banane[n] = banana[substantiv]
+-Ich zerdrückte eine Banane für mein Baby.
+*bedeuten = 1-mean[verb]
+-Ein rotes Signal bedeutet, dass ich warten muss.[1]
+-Großzügig zu sein bedeutet, mit anderen teilen zu können.[1]
 *beginnen = begin[verb]
 *bei = yanında, yakınında
+*beispiel[n] = 1-example[substantiv]
+-Ein Beispiel verdeutlicht, was ich bedeute.[1]
+-Dieser Roman ist ein gutes Beispiel für Kinderliteratur.[1]
 *beklären = explain[verb]
-*bekommen = get[verb]
+*bekommen = 1-get[verb], 2-indicates a change of state[verb]
+-Sie bekam Blumen zu ihrem Geburtstag.[1]
+-Jeder Junge bekommt ein Stück Kuchen.[1]
+-Eine Krankheit bekommen.[2]
+-Den Gefangenen frei bekommen.[2]
 *bestätigen = confirm[verb]
+*bestellen = order[verb]
+-Wir bestellten Vanilleeis zum Dessert.
+-Haben Sie schon bestellt?
+-ich habe mir ein Schnitzel bestellt.
 *bezahlen = pay[verb]
 *bezählen = tell[verb]
 *besuchen = visit[verb]
+*birne[f] = 1-pear[substantiv]
+-Unsere Äpfel und Birnen sind reif.[1]
+-Die reife Birne war sehr süß.[1]
+*bis = 1-until[praposition]
+-Er blieb bis Montag, den vierten April, in Berlin.[1]
+-Er hat bis fünf Uhr gearbeitet.[1]
+-Ich begleite dich bis dorthin.[1]
+-Von hier bis dort sind es 100 Meter.[1]
+*bleiben = 1-stay[verb]
+-Der Gastgeber bat seine Gäste, länger zu bleiben.[1]
+-Er bat sie zu bleiben, doch sie ging.[1]
 *blume = flower[substantiv]
+*bleistift = pencil[substantiv]
+-Sie können entweder mit Kugelschreiber oder mit Bleistift schreiben.
+-Alle Kinder in der Klasse brauchen einen Bleistift und Radiergummi.
 *boss = boss[substantiv]
 *brauchen = need[verb]
 *bruder = brother[s]
+*bus[m] = 1-bus
+-Dieser Bus bringt dich zum Strand.[1]
+-Der Bus fährt jede Stunde.[1]
+*daten[plural] = 1-data[substantiv]
+-Ich sammle Daten über die Nutzung von sozialen Medien.[1]
+-Ich tippte die Daten in den Computer.[1]
+*doch = 1-but[verbindung]
+-Er bat sie zu bleiben, doch sie ging.[1]
+-Ich war aufgebracht, doch ich konnte mich beherrschen.[1]
 *dokument = document[s]
 *doof = stupid[adjektiv]
 *dunkel = dark[adjektiv]
 *ei = egg[substantiv]
+*eindruck[m] = 1-impression[substantiv]
+-Er machte einen sehr guten Eindruck beim Vorstellungsgespräch.[1]
+-Ein erster Eindruck kann für lange Zeit bleiben.[1]
+*einfach = 1-easy[adjektiv]
+-Die erste Stufe des Kurses ist sehr einfach.[1]
+-Die Prüfung war relativ einfach.[1]
+*einladen = invite[verb]
+-Ich habe alle meine Freunde zu meiner Geburtstagsfeier eingeladen.
+-Ich fühlte mich verpflichtet, alle zum Essen einzuladen.
 *entshuldigen = apology[verb]
 *entscheiden = decide[v]
 *erfahren = experience[verb]
+*erfolg[m] = 1-success[substantiv]
+-Ein toller Erfolg.[1]
+-Sein erstes Buch war ein großer Erfolg, alle liebten es.[1]
+-Das Buch war ein riesiger Erfolg.[1]
 *erfolgreiche = succesfull[adjektiv]
 *ermöglichen = enable
-*fahren = drive[verb]
+*erreichen = 1-reach
+-Wir versuchten, das Dorf zu Fuß zu erreichen.[1]
+-Das Schiff erreichte den Hafen.[1]
+*esszimmer[n] = 1-dining room[substantiv]
+-Wir haben ein Wohnzimmer zwischen unserer Küche und unserem Esszimmer.[1]
+*fahren = 1-drive[verb]
+-Ich fahre nur, wenn ich nüchtern bin.[1]
+-Das Auto hat eine gute Straßenlage.[1]
+-Er ist unter das Auto gekommen.[1]
+-Männer sind oft mehr in ihr Auto verliebt als in ihre Frau.[1]
 *falsch = false[adjektiv]
 *fehler = mistake[substantiv]
 *feminin = feminine[adjectiv]
-*fernsehen = television[s]
+*fernsehen = television[substantiv]
 *film = movie[substantiv]
 *finden = find[verb]
 *firma = firm[substantiv]
+*fühlen = 1-feel[verb], 2-sense[verb]
+-Ich fühle die warme Sonne auf meiner Haut.[1]
+-Er fühlte, wie die Spritze in seine Haut eindrang.[1]
+-Ich fühlte seine Liebe zu mir, obwohl er kein Wort sagte.[2]
+-Sie fühlte eine leise Verstimmung.[2]
+*führen = 1-leading or guiding somone[verb], 2-bring someone to a certain place or escort[verb]
+-Ich führte heute einen Blinden über die Straße.[1]
+-Ein Kind an der Hand führen.[1]
+-Die Reiterin stieg ab und führte ihr Pferd in den Stall.[1]
+-Diese Straße führt zur Fabrik.[1]
+-Nach dem Tanz die Dame zu ihrem Tisch führen.[2]
+*führer[m] = 1-male leader[substantiv], 2-Adolf Hitler[substantiv]
+-Der Führer der politischen Partei ist sehr beliebt.[1]
+-Der Führer einer Bewegung, Partei.[1]
+*führerin[f] = 1-female leader[substantiv]
 *für = for[preposition]
 *fußball = football[substantiv]
 *fragen = ask[verb]
 *frau = Mrs[substantiv],Ms[substantiv]
 *frucht = fruit[substantiv]
+*frühling[n] = 1-spring[substantiv]
+-Der Winter ist vorbei, der Frühling kommt.[1]
+-Tarō und Hanako wollen im kommenden Frühling heiraten.[1]
+*gebäude[n] = 1-building[substantiv]
+-Dieses Gebäude steht unter Denkmalschutz.[1]
+-Praktisch jedes einzelne Gebaeude wurde mit Waloel beleuchtet.[1]
 *geburtstag = birthday[substantiv]
 *gegenteil = opposite[substantiv]
 *gehen = go[verb]
 *geld = money[substantiv]
+*gelingen = 1-to succeed or to be successful[verb]
+-Was, wenn der Plan nicht gelingt?
+-Der Firma gelang es, den Aufwand zu reduzieren und den Nutzen zu erhöhen.[1]
 *gemüse = vegetable[substantiv]
-*geschäft = business[substantiv]
+*geschäft = 1-shop[substantiv]
+-Das Geschäft hat den ganzen Tag geöffnet.[1]
+-Ich stelle immer sicher, dass die hintere Tür des Geschäfts verschlossen ist.[1]
 *geschenk = gift[substantiv]
 *gesundheit = health[substantiv]
 *geschlossen = closed[adjektive]
-*gesellschaft = company[substantiv]
+*gesellschaft[f] = 1-company[substantiv]
+-Wenn ich abends keine Gesellschaft habe, fühle ich mich einsam.[1]
+-Die Gesellschaft ist an der Börse notiert.[1]
+*gestern = 1-yesterday[adverb]
+-Gestern habe ich mir Sorgen gemacht, aber heute geht es mir viel besser.[1]
+-Ich habe die neue Software gestern heruntergeladen.
 *gewinnen = win[verb]
-*glücklich = happy[adjektiv]
-*groß = large[adjektiv]
+*glücklich = 1-happy[adjektiv]
+-Ein Brief von einem alten Freund machte ihn sehr glücklich.[1]
+-Jeder will glücklich sein.[1]
+*groß = 1-big[adjektiv], 2-total area of somewhere[adjektiv], 3-height[adjektiv]
+-Ich wohne in einer großer Stadt.[1]
+-Er hat große Muskeln.[1]
+-Das Grundstück ist 500 Quadratmeter, 5 Ar, 2 Hektar groß.[2]
+-Unser Garten ist noch 50 Quadratmeter größer, ist doppelt so groß.[2]
+-Ihr bruder ist 1,70 Meter groß.[3]
+-Ich bin noch zwei Zentimeter größer als er.[3]
 *großfather = grandfather[substantiv]
 *gruppe = group[substantiv]
 *haben = have[verb]
 *hass = hate[verb]
-*haus = house[substantiv]
+*haßlich = 1-ugly someone or something[adjektiv]
+-Verschlissene Schuhe sind hässlich.[1]
+-Und wir wissen, es ist unglaublich häßlich.[1]
+*haus[n] = 1-house[substantiv]
+-Mein Haus hat drei Schlafzimmer und eine große Küche.[1]
+-Hinter dem Haus ist ein Hof.[1]
 *heer = Mr[substantiv]
-*heissen = mean[verb]
+*heißen = 1-to have name or to be called[verb], 2-mean something[verb]
+-Der Junge heißt Peter Müller.[1]
+-Der Wirkstoff im Kaffee heißt Koffein.[1]
+-Ein gutes Gehalt heißt oft harte Arbeit.[2]
+-Sie haben das Kind Wilhelm geheißen.[1]
+-Das muss man eine großartige Leistung heißen.[1]
 *helfen = help[verb]
-*heute = today[a]
+*herbst[m] = 1-autumn[substantiv]
+-Der Herbst ist die Jahreszeit zwischen Sommer und Winter.[1]
+-Wir werden diese Vorschläge im Herbst diskutieren.[1]
+*herunterladen = 1-download[verb]
+-Wir haben eine Testversion heruntergeladen, um die Nutzbarkeit der Software zu testen.[1]
+-Laden Sie per Klick das französische oder das englische Schreiben herunter.[1]
+*heute = 1-today[adverb]
+-
+-
 *hier = here[adverb]
+*hobby[n] = 1-hobby[substantiv]
+-Meine Hobbys sind Fotografieren und Lesen.[1]
+*hören = 1-hear[verb], 
+-Schwer hören.[1]
+-Ich kann nicht dich hören.[1]
+-Schritte hören.[1]
+-Ich hörte seinen Ruf jetzt.[1]
+*hübsch = 1-pretty[adjektiv], 2-nice[adjektiv]
+-Sie scheint hübsch und gescheit.[1]
+-Sie ist eine hübsche Frau.[1]
+-Es war ein hübscher Abend.[2]
+-Es ist hübsch von dir, dass du mir helfen willst.[2]
+*hühnchen[n] = 1-chicken[]
+-Der Kellner empfahl das gabratene Hühnchen.[1]
+-Ich hab nur kaltes Hühnchen und Essiggurken da.[1]
 *in = in[präposition]
-*jederzeit = anytime[adverb]
+*information[f] = 1-information[substantiv]
+-Können Sie etwas information geben?[1]
+-Die Broschüre bietet weitere Informationen.[1]
+*ingenieur[m] = 1-engineer
+-Ingenieure arbeiten üblicherweise in der Industrie.[1]
+-Der Ingenieur fand einen Fehler in der Konstruktion.[1]
+*intelligent = 1-smart[adjektiv]
+-Sehr intelligent und freiheitsliebend, oft stur.[1]
+-Noten klassifizieren Schüler als erfolglos oder intelligent.[1]
+*jeder|jede|jedes = 1-every something or someone[pronomen], 2-each[pronomen]
+-Er kommt jeden Monat, jedes Jahr mehrere Male zu uns.[1]
+-Heute Morgen hatte jeder Zug Verspätung.[1]
+-Jeder Mann, jede Frau, jedes Kind.[1]
+-Auf jeden Fall, um jeden Preis...[1]
+-Jede Stadt hat ihren eigenen Charakter.[2]
+-Jede Übung baut auf den vorhergehenden Lektionen auf.[2]
+*jederzeit = 1-anytime[adverb]
+-Du kannst mich jederzeit anrufen.[1]
 *jetzt = now[adverb]
 *junge = boy[substantiv]
+*kaffee[m] = coffee[substantiv]
+*kartoffel[n] = 1-potato[substantiv]
+-Kartoffeln enthalten viel Kalium.[1]
+-Die besten Pommes werden aus frischen Kartoffeln gemacht.[1]
 *kaufen = buy[verb]
-*kaffee = coffee[substantiv]
+*katze = 1-cat[substantiv]
+-Bring die Katze raus.[1]
+-Ihre Katze will mehr Essen.[1]
+*kennen = 1-know something about someone or to be familiar with someone[verb], 2-know someone in a certain way
+-Ich kenne sie, ihre Vorzüge und Schwächen, genau.[1]
+-Von diesem Schriftsteller kenne ich nichts.[1]
+-Er kennt die Schönheiten seiner Heimat.[1]
+-Kennst du das Land, wo die Zitronen blühn?[1]
+-Wie ich sie kenne, tut sie genau das Gegenteil.[2]
+-Von dieser Seite kannten wir dich noch nicht.[2]
+-Wir kennen sie nur als zuverlässige Person.[2]
+*kino[n] = cinema[substantiv]
+-Okay, du hast gewonnen, gehen wir ins Kino.
+-Im Sommer bietet das Kino Filmvorführungen im Freien an.
+-Das Kino war leer.
+-Dieser Film kommt jetzt in die Kinos, läuft morgen in den Kinos an.
+-was wird heute im Kino gespielt, gegeben?
+-Jemanden ins Kino einladen.
+-sie geht gern, oft ins Kino
 *klären = clarify[verb]
+*knappheit[f] = 1-scarcity[substantiv]
+-Die Knappheit von Wasser ist ein großes Problem in dieser Gegend.[1]
 *kommen = come[verb]
 *kochen = cook[verb]
 *kosten = cost[verb]
 *küssen = kiss[verb]
+*kuchen[m] = 1-cake[substantiv]
+-Der Kuchen ist nicht durchgebacken.[1]
+-Dieser Kuchen war köstlich.[1]
+*küche[f] = 1-kitchen
+-Das Haus verfügt über eine separate Küche.[1]
+-Du musst die Küche putzen.[1]
 *laden = load[verb]
+*lage[f] = 1-situation[substantiv]
+-Wir müssen jetzt handeln, die Lage ist ernst.[1]
+-Inzwischen hat sich die Lage geändert.[1]
+*lager[n] = 1-camp, 2-warehouse[substantiv]
+-Die Soldaten kehrten zu ihrem Lager zurück.[1]
+-Der Hersteller bringt die fertigen Produkte in einem Lager unter.[2]
+-Kisten aus dem Lager holen.[2]
+*lagerhaus[n] = 1-warehouse[substantiv]
+*land[n] = 1-country[substantiv], 2-land[substantiv]
+-Sie wuchs auf dem Land auf, studierte aber in der Stadt.[1]
+-Stadt und Land arbeiten Hand in Hand.[1]
+-Das Land umgraben und Kartoffeln stecken.[2]
+-Ein Stück Land erwerben.[2]
+*landen = 1-land[verb]
+-Das Flugzeug ist gerade am Flughafen gelandet.[1]
+-Wir landen um 8 Uhr in Tegel.[1]
 *laufen = walk[verb]
-*leben = live[verb]
+*leben[n] = 1-life[substantiv], 2-live[verb]
+-Es ist wichtig, das Leben zu genießen.[1]
+-Dir verdanke ich mein Leben.[1]
+-Er lebt im Ausland.[2]
 *lehrer = teacher[substantiv]
-*leicht = easy[adjectiv]
+*leicht = 1-easy[adjectiv], 2-weak or not strong[adjektiv], 3-light[food]
+-Er trug den leichten Körper des Kindes ins Haus.[1]
+-Meine tasche ist leicht.[1]
+-Ein leichter Wind, Regen, Schauer, Luftzug, Seegang, Frost,...[2]
+-Er gab sich einen leichten Ruck.[2]
+-Ich möchte etwas Leichtes essen.[3]
+*leistung[f] = 1-phsycal and mental effort or performance
+-Der Schüler wurde für seine gute Leistung in der Schule gelobt.[1]
+-Die Leistung eines jeden Mitarbeiters wird regelmäßig bewertet.[1]
+-Der Schüler beeindruckte den Lehrer mit seiner hervorragenden Leistung.[1]
+-Der Schüler beeindruckte den Lehrer mit seiner hervorragenden Leistung.[1]
+*lektion[n] = 1-lesson[substantiv]
+-Das Schulbuch besteht aus zwölf Lektionen. [1]
+-Jede Übung baut auf den vorhergehenden Lektionen auf.[1]
 *lernen = learn[verb]
 *lesen = read[verb]
+*letter[f] = letter[substantiv]
+-Sie schreiben weiße Lettern auf schwarzem Grund.
 *liebe = love[substantiv]
 *lieben = love[verb]
+*link[m] = 1-left[adjektiv], 2-Anchor link[substantiv]
+-Ich sah ihn auf der linken Straßenseite kommen.[1]
+-Die Fahrkarte steckte in der linken Manteltasche.[1]
+-Folgen Sie bitte zum Ausfüllen diesem Link.[2]
+-Beim Mausklick auf einen Link lädt der Browser die entsprechende Web‑Seite.[2]
 *liste = list[substantiv]
 *lotterie = lottery[substantiv]
+*lösen = 1-solve[verb]
 *machen = do[verb]
 *mädchen(feminin) = girl[substantiv]
 *mann = man[substantiv]
@@ -96,11 +350,41 @@
 *markt = market[substantiv]
 *maskulin = masculine[adjektiv]
 *mathematik = math[substantiv]
-*mehr = more[pronomen]
+*melden = 1-report[verb]
+-Der Spähtrupp meldet Truppenbewegungen des Gegners.[1]
+-Nur der Inhaber der Kreditkarte kann sie als gestohlen melden.[1]
+*mehr = 1-more[pronomen]
+-Wenn ich noch mehr esse, werde ich noch dicker.[1]
+-Er verlangt immer mehr.[1]
+*meter[m] = 1-meter[substantiv]
+-Die Wand ist drei Meter hoch.[1]
+-Sie kaufte vier Meter Stoff.[1]
+*mitkommen = come with[verb]
+-Er bat seine Freunde mitzukommen, um das Spiel zusammen zu sehen.
+-Seine Freundin ist zu der Party mitgekommen.
+-Kommst du mit ins Kino?
+-Ich komme noch mit bis zur Haustür.
+*mond[m] = 1-moon[substantiv]
+-Nur der Mond durchdrang die Finsternis der Nacht.[1]
+-Der Mond verfinsterte die Sonne.[1]
+*morgen = 1-starting of the day, morning, 2-tomorrow, next day of today
+-Ich lüfte mein Zimmer jeden Morgen.[1]
+-Einen schönen guten Morgen allerseits![1]
+-Ich habe morgen Abend eine Verabredung.[2]
+-Ich werde morgen eine neue Diät beginnen.[2]
 *mögen = like[verb]
 *museum = museum[substantiv]
+*mut[m] = 1-courage or bravery[substantiv]
+-Sein Beispiel gab mir ein bisschen Mut.[1]
+-Es gehört schon Mut dazu, ihm zu widersprechen.[1]
 *mutter = mother[s]
+*muttersprache = 1-mother tongue
+-Turkisch ist meine Muttersprache.[1]
+-Der Autor übersetzte das Märchen in unsere Muttersprache.[1]
 *nach = after[preposition]
+*nacht = 1-night[substantiv]
+-Die Computer sollten über Nacht ausgeschaltet sein.[1]
+-Ich wachte mitten in der Nacht auf.[1]
 *nehmen = have,take[verb]
 *neutral = neutral[adjektiv]
 *normal = normal[adjektiv]
@@ -109,92 +393,309 @@
 *oder = or[verbindung]
 *onkel[maskulin] = uncle[substantiv]
 *opa[maskulin] = grandpa[substantiv]
-*öffnen = open[verb]
+*offen = 1-something that open[adjektiv]
+-Das Fenster war offen, aber ich schließe es jetzt.[1]
+-Ich lege einen Keil unter die Tür, damit sie offen bleibt.[1]
+*öffnen = 1-opening something[verb]
+-Er öffnete seine Auge.[1]
+-Es ist sehr leicht, das neue Fenster zu öffnen.[1]
 *panik = panic[verb]
-*perfekt = perfect[adjektiv]
+*perfekt[n] = 1-perfect[substantiv], 2-perfect[adjektiv]
+-Er war doch mit seinem Vater hier, da wurde der Kauf perfekt.[1]
+-Sie wird sich nichts vormachen lassen, selbst aber perfekt schauspielern.[1]
+-Wir brauchen hier perfekte Kräfte.[2]
+-das Abkommen zwischen beiden Staaten war perfekt.[2]
 *person = person[substantiv]
+*Polen = 1-Poland[substantiv]
+-Polen teilt sich eine Grenze mit Deutschland.[1]
+*posten = 1-post[verb]
+-Zu diesem Thema haben schon zahlreiche User gepostet.[1]
+-Wer hat denn diesen Unsinn gepostet?[1]
 *präposition = preposition
-*präteritum = past tense
+*präteritum = past tense[substantiv]
+*preis[m] = 1-price[substantiv]
+-Ich vergleiche Preise bevor ich den Hamburger bestelle.[1]
+-Er hat den Preis genannt und ich habe gezahlt.[1]
+*problem[n] = 1-problem[substantiv], 2-difficult question to answer or complicated question[substantiv]
+-Das ist kein Problem für mich.[1]
+-Sie hat Probleme mit ihrer Haut.[1]
+-Mit deinem Problem musst du allein fertigwerden.[1]
+-Soziale Probleme.[2]
+-Ein Problem lösen.[2]
 *pronomen = pronoun
+*prozent[n] = 1-percent
+-Der Verkäufer erhob einen Aufschlag von zehn Prozent.[1]
+-Die Bank verlangte eine Hinterlegung von zehn Prozent. [1]
+*prozentrechnung = 1-percentage calculation
+-Wie man Aufgaben der Prozentrechnung mit dem Dreisatz berechnet, lernt ihr hier.[1]
 *prüfen = examine[verb]
-*prüfung = exam[substantiv]
+*prüfung[f] = exam[substantiv]
+-Am Ende dieses Semesters muss ich viele Prüfungen schreiben.
+-Die Prüfung war relativ einfach.
+-Wann sind deine Prüfungen?
 *putzen = clean[verb]
-*racuhen = smoke[verb],smoking[substantiv]
+*rauchen[n] = 1-smoke[verb],smoking[substantiv]
+-Ich habe noch nie einen Joint geraucht.[1]
+-Das Rauchen wurde an öffentlichen Plätzen verboten.[2]
+-Das rauchen ist verboten auf dem Grundstück.[2]
 *rechtsanwalt = lawyer[substantiv]
+*rede[n] = 1-speech[substantiv]
+-Frank-Walter Steinmeier hält seine bisher beste Rede.[1]
+-Er hielt die Rede ohne Vorbereitung.
+*reden = 1-talking[verb]
+-Ich muss mit meinem Lehrer reden, ich habe eine Frage.[1]
+-Sie ist nett, aber sie redet so viel.[1]
 *rezept = recipe[substantiv]
 *richtig = true[adjectiv]
+*reif = ripe[adjective]
+-Reife Äpfel, Kirschen, Erdbeeren, Bananen.
+-Die Pflaumen sind noch nicht, erst halb reif.
+-Er musst nur die reifen Früchte pflücken.
+-ihre Kinder sind inzwischen reifer geworden.
+-Er ist für diese Aufgabe, zu diesem Amt noch nicht reif [genug].
+*reporter[m] = 1-reporter[substantiv]
+-Der Reporter interviewte den Schauspieler.[1]
+-Der Reporter kommentierte die aktuellen Ereignisse.[1]
+*russland[n] = 1-russia[substantiv]
+-Belarus grenzt an Polen und Russland.[1]
+-Ich habe Länder wie Kanada und Russland besucht.[1]
 *sagen = say[verb]
+*satz[m] = 1-sentence[substantiv]
+-Ich habe einen kurzen Satz geschrieben, nur fünf Wörter.[1]
+-Der Lehrer schrieb einige Sätze an die Tafel.[1]
 *schauen = look[verb]
+*schauspieler[m] = 1-actor[substantiv]
+-Die Auswahl der Schauspieler für diesen Film war großartig.[1]
+-Der Reporter interviewte den Schauspieler.[1]
+*schiff[n] = 1-ship[substantiv]
+-Das Schiff verlässt den Hafen.[1]
+-Das Schiff verließ den Hafen am frühen Morgen.[1]
 *schlafen = sleep[verb]
+*schlafzimmer[n] = 1-bedroom
+-Die Schlafzimmer in meinem Haus sind sehr geräumig.[1]
+-3 Schlafzimmer mit zwei Bädern,Klimaanlage und Sschwimmbad.[1]
 *schließen = close[verb]
+*schloss[n] = 1-castle or palace, 2-lock
+-Großer Umbruch im Schloss Bellevue.[1]
+-Im Hintergrund des Bildes ist ein Schloss.[1]
+-Ins Schloss stecken den Schlüssel.[2]
+-Der Schlüssel passt in alle Schlösser dieses Hauses.[2]
+*schlüssel[m] = key[substantiv]
+-Es gibt nur einen Schlüssel für den Eingang und das Zimmer.
+-Verdammt!Ich habe meine Schlüssel verloren!
+*schön = 1-beautiful woman or girl[adjektiv], 2-very nice something or someone[adjektiv]
+-sie ist sehr schön.[1]
+-Von meinem Fenster aus habe ich eine schöne Aussicht.[2]
+-Die Sängerin hat eine schöne Stimme.[2]
+*schule[f] = 1-school[substantiv]
+-Unser Sohn kommt nächstes Jahr in die Schule.[1]
+-Die Wirkung der Grünen Schule- wir wissen nicht, was sie ist.[1]
+*schüler[m] = 1-male pupil[substantiv]
+-Alle Schüler hatten ihre Hausaufgaben gemacht.[1]
+-Der Lehrer beurteilt die Leistung der Schüler.[1]
+*schülerin[f] = 1-female pupil[substantiv]
 *schrecken = horror[substantiv]
 *schreiben = write[verb]
+*schwarz = black[adjektive]
+-Die schwarzen Schuhe passten sehr gut zu seinem Anzug.
+-Das Trikot des Teams ist schwarz-weiß.
 *schwester = sister[s]
 *schwein = pig[substantiv]
 *schwierig = difficult[adjektiv]
 *schwimmen = swim[verb]
 *sehen = see[verb]
 *sein = be[verb]
+*selbstandig = 1-serbest meslek[adjektiv]
+-Ich bin selbstandig.
 *sieg = win[substantiv]
+*soldat[m] = 1-soldier[substantiv]
+-Die Soldaten exerzierten dreimal am Tag.[1]
+-Die Soldaten marschierten in gleichmäßigem Tempo.[1]
+*sommer[m] = 1-summer[substantiv]
+-Der Sommer wird dieses Jahr sehr heiß.[1]
+-Wir baden im See im Sommer.[1]
+*sonne[f] = 1-sun[substantiv]
+-Die Sonne wird bald aufgehen.[1]
+-Der Mond verfinsterte die Sonne.[1]
 *sparen = save[verb]
-*sprache = language[s]
+*sprache = 1-language[s]
+-Welche sprache sprechst du?
+*sprechen = 1-speaking[verb]
+-Ich spreche Französisch und Englisch.
+-Er sprach offen über seine Vergangenheit.
+-Unser Kind kann noch nicht sprechen.
+*spiel[n] = 1-game[substantiv]
+-Die Kinder spielten Spiele den ganzen Tag.[1]
+-Er ist unschlagbar, also spiel nicht.[1]
 *spielen = play[verb]
-*stadt = city[substantiv]
+*stadt = 1-city[substantiv]
+-Madrid und London sind große Städte.[1]
+-Ich wohne in einer großen Stadt[1]
+*star[m] = 1-star[substantiv]
+-Sie war ein großer Star im Fernsehen.[1]
+-Viele Stars und Prominente waren auf der Veranstaltung.[1]
+*stark = 1-strong and muscled[adjektiv], 2-such power or influence[adjektiv]
+-Mein Freund ist stark genug, um den Sack mühelos anzuheben.[1]
+-Er ist stark wie ein Bär.[1]
+-Sie hat einen starken Charakter.[2]
+-Sie war stark genug, dieses Leid, diese Belastung zu tragen.[2]
 *starten = start[verb]
 *steigen = increase[verb]
+*stift = pen[substantiv]
+*student[m] = 1-male pupil[substantiv]
+-Studenten an der Universität müssen viel lesen.[1]
+-Die Richtlinien gelten für alle Studenten.[1]
+*studentin[f] = 1-female pupil[substantiv]
 *substantiv = noun
-*suchen = search[verb]
+*suche[f] = 1-attemp to find something or somebody[substantiv]
+-Die Suche nach einem Zimmer, Hotel, einer Unterkunft.[1]
+-Ich bin auf der suche nach liebe.[1]
+-Wir sind auf der Suche nach dem Fehler und prüfen die Lage vor Ort.[1]
+*suchen = 1-search[verb]
+-Die Kinder spielten Piraten und suchten nach verborgenen Schätzen.
+-Viele Menschen suchen nach dem Sinn des Lebens.
+*süß = 1-sweet someone or something[adjektiv], 2-containing a lot of sugar[adjektiv]
+-Der Kuchen war sehr süß.[1]
+-Wie süß du bist![1]
+-Ein süßer Klang.[1]
+-Er trinkt gern süßen Kaffee.[2]
 *tag = day[substantiv]
 *tasse = cup[substantiv]
+*tasche[f] = 1-bag[substantiv], 2-pocket[substantiv]
+-Ich verreise am liebsten mit nur einer Tasche.[1]
+-Eine lederne Tasche.
+-Eine Münze fiel aus seiner Tasche heraus.[2]
+-Letztendlich fand er seine Schlüssel in seiner Tasche.[2]
 *tee = tea[substantiv]
+*teilzeit[f] = 1-part time
+-Wählen Sie die Vertragskategorie, Teilzeit oder Vollzeit.[1]
+-Sie arbeiten Teilzeit und nur zu den Stoßzeiten.[1]
 *telefon = phone[substantiv]
 *temperatur = temperature[substantiv]
+*testen = test[verb]
+-Wir sollten das neue Modell testen, um herauszufinden, ob es besser ist als das alte.
+-Du kannst selbst testen (ausprobieren), ob diese Stühle geeignet sind.
 *textprüfung = text review[s]
 *tier = animal[substantiv]
 *theater = theatre[substantiv]
+*tomate[f] = 1-tomato
+-Ich teste die Nitratwerte einer hiesigen Tomate.[1]
+-Wir brauchen einige apfel und tomaten.[1]
 *traurig = sad[adjektiv]
 *treffen = meet[verb]
-*tür = door[substantiv]
+*tür[f] = 1-door[substantiv]
+-Ich öffnete die Tür und trat nach draußen.[1]
+-Zwei Scharniere halten die Tür.[1]
 *typ = guy[substantiv]
+*wagen[m] = 1-car[substantiv], 2-wagon[substantiv]
+-Das Handling des Wagens ist sehr angenehm.[1]
+-Er hat ein neues Wagen.[1]
+*wal[m] = whale[substantiv]
+-Wir konnten einige Wale vom Boot aus sichten.[1]
+-Dieser Wal hier könnte älter als 250 Jahre sein.[1]
 *wann = when[adverb]
-*warten = wait[verb]
+*warten = 1-wait[verb]
+-Er musste lange warten, bis er an der Reihe war.[1]
+-Ich werde warten, bis du zurückkommst.[1]
 *warum = why[adverb]
 *was = what[pronomen]
 *waschen = wash[verb]
 *weg = way[substantiv]
 *weil = because[verbindung]
+*weiß = white[adjektive]
+-Zebras sehen aus wie Pferde mit schwarzen und weißen Streifen.
+-Ihr weißes Kleid war schön.
+-Milch ist weiß wie Schnee.
 *welche = which[pronomen]
+*welt[f] = 1-earth[substantiv]
+-Ich möchte eine Reise um die Welt unternehmen.[1]
+-Idealisten wollen die Welt verändern.[1]
 *wen = whom[pronoun]
 *wem = whom[pronoun]
 *wer = who[pronoun]
 *werden = become[verb]
+-Meine Tochter will Ärztin werden.
+-Im Laufe der Zeit wurden wir gute Freunde.
 *wie = as[verbindung]
 *wie = how[adverb]
 *wie lange = how long
 *wie viel = how much
 *wie viele = how many
-*wissen = know[v] [weiß,weißt,weiß,wissen,wisst,wissen]
+*winter[m] = 1-winter
+-Der Winter dieses Jahr war mild.[1]
+-Der Winter ist die kalteste Jahreszeit.[1]
+*wissen = know[v]
 *wo = where[adverb]
 *woher = from where[adverb]
 *wohin = to where[adverb]
 *wohnen = live[verb]
+*wohnzimmer[n] = 1-living room[substantiv]
+-Ich werde den neuen Teppich ins Wohnzimmer legen.[1]
+-Wir möchten unser Wohnzimmer umgestalten.[1]
+*wolke[f] = cloud[substantiv]
+-Die Wolken werden Regen bringen.
+-Die Sonne verschwand hinter einer Wolke.
+-Die Sonne bricht durch die Wolken.
+-Der Himmel war mit/von Wolken bedeckt.
+-Das Flugzeug fliegt über den Wolken.
 *wort = word[substantiv]
-*vater = father[substantiv]
+*wörterbuch[n] = dictionary[substantiv]
+-Dieses Wörterbuch hat dreißig Bände.
+-Linguee ist ein Online-Wörterbuch mit Beispielsätzen.
+*vater[m] = father[substantiv]
+-Er ist Vater von drei Kindern.
+-Mein Vater bestellte eine Flasche Bier.
 *verb = verb
 *verbindung = conjunction
+*verboten = 1-forbidden[adjektiv]
+-Trading with ivory is forbidden in many places to protect elephants.[1]
+-Es ist verboten, im Naturschutzgebiet Schmetterlinge zu fangen.[1]
 *verfahren = procedure[substantiv]
 *vergessen = forget[verb]
 *vermissen = miss[verb]
 *verstehen = understand[verb]
-*vor = before[preposition]
+*verweigern = 1-refuse[verb]
+-Vor seinem Treffen mit Kremlchef Putin verweigerte der Kanzler einen Coronatest.[1]
+-Der Verkäufer verweigert die Rücknahme beschädigter Produkte.[1]
+*vollzeit[f] = 1-full time
+-In Deutschland gibt es ein Recht auf Teilzeit, aber kein Rückkehrrecht in Vollzeit.[1]
+-Mehr als 118.000 Angestellte, Beamte und Freiberufler (Vollzeit und Teilzeit) haben für den Gehaltsreport 2013 ihre Bezüge offengelegt.[1]
+*vogel[m] = 1-bird[substantiv]
+-Ich hob den kleinen Vogel behutsam auf.[1]
+-Ich beobachtete die Vögel in meinem Garten.[1]
 *von = from,of[preposition]
+*vor = before[preposition]
+*vorstellen = introduce[verb], present something for first time[verb], picture something in mind or imagine[verb]
+-Der Moderator stellte die Gäste gleich zu Beginn der Show vor.
+-Er stellte mir seinen Bekannten vor.
+-Darf ich Ihnen Herrn Mehmet vorstellen?
+-Wir stellen nächste Woche unser neues Produkt vor.
+-Der Professor hat seine Ergebnisse im Einzelnen vorgestellt.
+-Es ist schwer, sich diese Vorgänge vorzustellen.
+-Unter diesem Begriff konnte er sich nichts vorstellen.
+*vorzug[m] = 1-preference[substantiv], 2-priority given to someone or something[substantiv]
+-Ich gab dem Anbieter mit dem niedrigsten Preis den Vorzug.[1]
+-Er gibt einem Glas Wein den Vorzug, räumt moderner Musik den Vorzug ein.[1]
+-Ich soll meinen Vorzug veränderung.[1]
+-Diese Methode verdient gegenüber anderen den Vorzug.[2]
+-Diese erste Übersetzung verdient gegenüber späteren den Vorzug.[2]
 *zahlen = pay[verb]
 *zahl = number[substantiv]
 *zählen = count[verb]
 *zeige = show[verb]
 *zeit = time[substantiv]
 *zeitung = newspaper[substantiv]
-*zimmer = room[substantiv]
+*zerstören = 1-destroy[verb]
+-Zum Glück hat das Erdbeben unser Haus nicht zerstört.[1]
+*zerstörte = 1-destroyed[adjektiv]
+-Zerstörte Häuser müssen möglichst schnell repariert oder wieder aufgebaut werden.[1]
+-Die Natur erschuf den Menschen und zerstörte die Form.[1]
+*zertifikat[n] = 1-certificate[substantiv]
+-ein Zertifikat bekommen, erwerben.[1]
+-Ich bekam ein neues Zertifikat nach meinem Abschluss.
+*zimmer[n] = 1-room[substantiv]
+-Er schläft sehr gerne in seinem neuen Zimmer.[1]
+-Ich lüfte mein Zimmer jeden Morgen.[1]
 ***Eklenildikleri fiillere yeni anlam kazandıran ve ayrılabilen ekler:
 *ein
 *an
@@ -289,3 +790,61 @@
 80-achtzig
 90-neunzig
 100-hundert
+***Patterns
+*Ohne Fleiß kein Price : no pain no gain
+*geben vorzug : give preference
+-Ich gab dem Anbieter mit dem niedrigsten Preis den Vorzug.
+*bitteschön / gern geschehen : you are welcome
+-Oh bitte schön Mariam!Es ist gut, dir zu helfen.
+*auf der/die suche nach : in search of
+-Wir sind auf der Suche nach dem Fehler und prüfen die Lage vor Ort.
+-Sie ist auf der suche nach für Glück.
+*es gibt / gibt es : 1-there is/are, 2-is/are there
+-Denn es gibt den Terrorismus, den Fanatismus und das Unrecht.[1]
+-Es gibt nicht mögliche Zukunft, sondern es gibt nur diese![1]
+-Welche studenten gibt es?[2]
+-Gibt es weitere Bemerkungen?[2]
+*schön, dich[Sie] kennenzulernen / freut mich, dich[Sie] kennenzulernen /  Es war nett, dich[Sie] kennenzulernen : nice to meet you
+*sehr erfreut : very pleased[when meeting someone]
+-Redmond und Riley, sehr erfreut.
+-Ich war sehr erfreut, als die Trauung meines Cousins stattfand.
+*danke sehr / vielen dank / danke schön : thank you very much
+*ein bisschen : a little bit
+-Und dann werden wir ein bißchen schneller.
+-Sie sind jetzt ein bisschen vorsichtiger.
+-Ich kann ein bisschen Deutsch sprechen.
+*ein wenig : a little
+-Ich kann ein wenig English sprechen.
+-Ich mag ein wenig mehr Sahne in meinem Kaffee.
+*es tut mir leid : i am sorry
+-Zooey, es tut mir leid für dieser Frage.
+*das tut mir leid : sorry for that
+-Dein Vater ist gestorben, das tut mir leid.
+*entschuldigung / entschuldigen Sie : excuse me
+-Entschuldigung, kann ich etwas fragen?
+*gern / gerne : like to
+-Ich gerne alle sport.
+-Spielst du gern Tennis?
+-Ich gehe gerne schwimmen.
+-Sie isst gerne Tomaten.
+*hatte gern : would like
+-Ich hatte gern etwas tee.
+*zahlen, bitte : check, please[hesap, lütfen]
+*na klar : of course
+*ich glaube schon : i think so
+-Du kannst es versuchen, aber ich glaube schon.
+*ein Bad nehmen : take a bath
+-Ich werde jetzt als Erstes ein heißes Bad nehmen.
+*Was machst du von Beruf : what is your job / what do you do
+*arbeiten bei : work at
+-Ich bin Ingenieur und arbeite bei BMW in München.
+*eine Rede halten : make a speech
+-Jeder Preisträger durfte eine Rede halten. 
+-Ich hielt eine Rede an meiner Schule.
+*lass uns gehen! : let's go!
+*sorge für : to supply what is needed and taking care
+-Eltern sorgen für ihre Kinder.
+*ein Eindruck machen : make an impressive
+-Du musst während diesem Treffen einen Eindruck machen.
+14:26- 314 kitap
+14:26- 944 8ball

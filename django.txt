@@ -1,0 +1,1675 @@
+*****Terminal codes :
+***Python version öğrenmek için: "python --version".
+***Django version öğrenmek için: "python -m django --version".
+***Bilgisayarımıza kurulu olan global python packagelarını görmek için: "pip freeze".
+***Bilgisayarımıza kurulu olan global python packagelarını görmek için: "pip list".
+***Djangoyu global olarak kurmak için: "pip install django==x.x.x".
+***Django içerisinde kullanabileceğimiz scriptleri görüntülemek için: "django-admin".
+***V.environmentta oluşturulan projenin içerisinde kullanabileceğimiz scriptleri görüntülemek için: "python manage.py".
+***V.environment oluşturmak için: "python -m venv environmentName".
+***V.environemtı aktif etmek için: "environmentName\Scripts\active".
+***V.environment içerisine "django" yüklemek için: "pip install django".
+***V.environment içerisine "rest" yüklemek için: "pip install djangorestframework".
+***V.environment içerisine proje yüklemek için: "django-admin startproject projectName".
+***V.environmentta oluşturulan projenin içerisine applikasyon yüklemek için: "django-admin startapp applicationName"[Eğer işe yaramazsa 'python manage.py startapp applicationName' dene].
+***V.environmentta oluşturulan projenin içindeki applikasyonu run etmek için: "python manage.py runserver".
+***V.environmentta oluşturulan modelleri projeye kaydetmek için: "python manage.py makemigrations".
+***V.environmentta oluşturulan projeye kayıtlı modelleri databaseimize migrate etmek için: "pyhton manage.py migrate".Eğer model mevcutsa, bunun öncesinde her zaman "makemigrations" kullan.
+***V.environment içerisine tüm haklara sahip bir user yüklemek için: "python manage.py createsuperuser".Fakat bu işlemin öncesinde modelleri databaseimize migrate etmek zorundasınız.
+***Oluşturulan applikasyonların "name"ini öğrenmek için: "applicationName/apps" dosyasına gir.Fonksiyon içerisindeki "name" değişkeninin değeridir.
+*****Django project starter pack:
+1-"folder1" klasörü oluştur ve "folder1/" dizinine gel.
+2-"folder1/" dizininde "python -m venv venv1" yaz.
+3-"folder1/" dizininde "venv1\Scripts\activate" yaz.Böylece (venv1) içerisindeyiz.
+4-(venv1) aktifken "folder1/" dizininde "pip install django" yaz[Eğer Rest projesi ise, ardından 'pip install djangorestframework', 'pip install django_extensions', 'pip install ipython', 'pip install pillow', 'pip install requests', 'pip install dj-rest-auth', 'pip install Tree', 'pip install django-allauth' ve 'pip freeze > requirements.txt' ekle].
+5-(venv1) aktifken "folder1/" dizininde "django-admin startproject project1" yaz.
+6-(venv1) aktifken "folder1/project1" dizininde "django-admin startapp app1" yaz.
+7-(venv1) aktifken "folder1/project1" dizinine gel ve "code." yaz.
+8-Oluşturulan "app1" applikasyonunu, projeye tanımak için "app1/settings" gel ve "INSTALLED_APPS" arrayı içerisine "app1.apps.App1Config", "rest_framework", 'rest_framework.authtoken', 'dj_rest_auth', 'allauth', 'allauth.account', 'allauth.socialaccount', 'dj_rest_auth.registration', 'django.contrib.sites' ve 'django_extensions'  ekle.Buradaki "app1.apps.App1Config", oluşturulan applikasyonumuzun pathı; diğerleri ise yüklenen librarylerdir.
+9-"app1/settings" dosyası içerisine şunları ekle:
+"STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'uploads'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+]}
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_REQUIRED = (True,)".
+10-"project1/urls" gel ve şunları ekle:
+"urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api-auth/',include('rest_framework.urls')),
+    path('api/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),]
+from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG == True:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)".
+11-Databasede değişiklikler yaptığımız için de "makemigrations" ve "migrate" yap.
+9-Sonra projeye HER girişinde "folder1" dizinine gelerek "venv1\Scripts\activate" yaz. Ardından "folder1/project1" dizininde "python manage.py runserver" ile çalıştır.
+*****"Faker" library eklemek için:
+1-"project1" dizinine gel ve "pip install Faker" yazarak library yükle.
+2-"project1" dizininin yanına "scripts" folderı oluştur ve içerisine "__init__.py" ve "fake_data.py" dosyaları oluştur.
+3-"fake_data" dosyasına şöyle yaz:
+"import os
+import random
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
+import django
+django.setup()
+### SIRALAMA ÇOK ÖNEMLİ
+from django.contrib.auth.models import User
+from faker import Faker
+def set_user():
+    fake = Faker(['en_US'])
+    f_name = fake.first_name()
+    l_name = fake.last_name()
+    u_name = f'{f_name.lower()}_{l_name.lower()}'
+    email = f'{u_name}@{fake.domain_name()}'
+    print(f_name," *** ",l_name," *** ",u_name," *** ",email)
+    user_check = User.objects.filter(username=u_name)
+    while user_check.exists():
+        u_name = u_name + str(random.randrange(1,99))
+        user_check = User.objects.filter(username=u_name)
+    user = User(
+        username = u_name,
+        first_name = f_name,
+        last_name = l_name,
+        email = email,
+        is_staff = True)
+    user.set_password('testing321..')    
+    user.save()
+    print(f'Kullanıcı kaydedildi: {u_name}')".
+4-Artık shell plus ile "set_user"ı çalıştırarak yeni userlar ekleyebiliriz."shell plus"a terminalden gir.
+5-"from django.contrib.auth.models import User" ve "from scripts.fake_data import set_user" ekle.
+6-"set_user"ı istediğimiz kadar çalıştırarak userlar ekleriz.Mesela:
+"for i in range(1,10)
+        set_user()".
+*****"requests" library eklemek için:
+1-"project1" dizinine gel ve "pip install requests" yaz.
+2-"import requests" ekle.
+3-"response = requests.get('http://openlibrary.org/search.json?q=love')" ekle.
+4-
+5-
+*****"TokenAuthentication" ve "SessionAuthentication" eklemek için:
+1-"project1/settings" gel ve "INSTALLED_APPS" arrayi içerisine 'rest_framework.authtoken','dj_rest_auth' ekle ve dosyaya şöyle ekle:
+"REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]}".
+2-Ekledikten sonra "makemigrations" ve "migrate" yapmalıyız çünkü databasede değişiklikler yaptık.
+3-"pip install dj-rest-auth" ve "pip install requests" yaparak library yükle.
+4-"project1/urls" gel ve şöyle ekle:
+"urlpatterns = [
+    path('api-auth/',include('rest_framework.urls')),
+    path('api/dj-rest-auth/', include('dj_rest_auth.urls'))]".
+5-"project1" dizininin yanına bir "clients" folderı oluştur ve içerisine de "token_auth_test1.py" dosyası oluştur.Bu dosyanın içerisine şunları yaz:
+"def client():
+    credentials = {
+        'username' : 'testuser1',
+        'password' : 'adminadmin'
+    }
+    response = requests.post(
+        url = 'http://127.0.0.1:8000/api/dj-rest-auth/login/',
+        data = credentials
+    )
+    print('Status Code:', response.status_code)
+    response_data = response.json()
+    pprint(response_data)
+    if __name__ == '__main__':
+        client()".
+*****"allauth" eklemek için:
+1-Terminale "pip install django-allauth" ve ardından "pip freeze > requirements.txt" yaz.
+2-"project1/settings" gel ve "INSTALLED_APPS" arrayına şunları ekle:
+"'allauth',
+'allauth.account',
+'allauth.socialaccount',
+'dj_rest_auth.registration',
+'django.contrib.sites',".
+3-Ayarlama işlemleri için "project1/settings" içerisine şunları ekle:
+"SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_REQUIRED = (True,)".
+4-Databasede değişiklikler olduğu için "makemigrations" ve "migrate" yap.
+5-
+*****URL Shortener projesi başlatma örneği:
+1-Proje folderına gel ve "python -m venv venv1" yaz.Böylece virtual environment oluşacak.
+2-Şimdi ise "venv1\Scripts\activate" yazarak bu environmentı aktif et.
+3-"venv1" environmentı içerisindeyken "pip install django" yazarak djangoyu yükle.
+4-Ardından "django-admin startproject project1" yazarak projeni bulunduğun foldera yükle.
+5-Şimdi "cd project1" ile dizine gel."django-admin startapp app1" yazarak applikasyonumuzu oluştururuz.Artık "code ." ile workspacei açabiliriz.
+6-Project dizine "templates" adında folder oluştur ve içerisine "index.html" dosyası oluştur.İçerisine de basic HTML5 starter kodları yaz.
+7-"'project1'/'settings.py'" dizinindeki dosyaya gel ve "INSTALLED_APPS" arrayının içerisine 'app1' ekle çünkü applikasyonu oluşturmuştuk.Ve "TEMPLATES" arrayının içerisindeki "DIRS" arrayine "BASE_DIR/'templates'" şeklinde ekle çünkü template folderımızı oluşturmuştuk.
+8-"app1" içerisine gel ve "urls.py" dosyası oluştur.İçerisine de şöyle yaz:
+"from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.index, name='index')]"
+9-"app1/views.py" dizinindeki dosyaya gel.Burada viewlarımızı şöyle yazacağız:
+"from django.shortcuts import render
+def index(request):
+    return render(request, 'index.html')".
+10-Böylece "index.html" dosyasını, homepageimiz olarak ayarlamış olduk.Şimdi ise "project1/urls.py" dosyasına gel.Burada applikasyonumuzun urllerini şöyle import edicez:
+"from django.contrib import admin
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('shortner.urls'))]"
+11-Artık sitemizi "python manage.py runserver" yazarak "localhost:8080"de run edebiliriz.
+12-Şimdi Htmle gel ve bir input ile bir buton yaz.Kullanıcı url girecek ve buton ile shorten edicez.
+13-"app1/models.py" gir ve alacağın "Url" için bir class oluştur:
+"from django.db import models
+class Url(models.Model):
+    link = models.CharField(max_length=10000)
+    uuid = models.CharField(max_length=10)"
+14-Bu modelleri projeye kaydetmek içinse terminale "python manage.py makemigrations" yaz.Ardından da "pyhton manage.py migrate" yazarak herşeyi databaseimize migrate edecektir.
+15-Ardından databasei rahatça görebilmek için admin interfacei oluşturmak içinse terminale "python manage.py createsuperuser" yaz.Projeler için genellikle "admin-admin" user-pass oluştur.Artık bu bilgilerle "localhost:8080/admin" urlsinden admin panelimize giriş yapabiliriz!
+16-Şimdi "app1/admin.py" dosyasına gir ve "from .models import Url" şeklinde modeli import ederek; "admin.site.register(Url)" şeklinde ekle.Şimdi "/admin" girerek databaseimize yeni bir model eklendiğini görürüz.Böylece kullanıcı "url" girdiğinde, biz bunu alıp databasede "url" içerisinde tutarız.
+17-"templates/index.html" dosyasındaki form elemanlarını düzenle[{% csrf_token %} vs eklemeyi unutma!].
+18-"app1/urls.py" dosyasına gel ve "urlpatterns" arrayine "path('create', views.create, name='create')" pathını ekle.
+19-Ardından javascript ile "document.on" ile "submit" eventi ekle ve içerisine "ajax" kodlarını vs yaz.
+20-"app1/views.py" dosyasına gir."import uuid", "from .models import Url", "from django.http import HttpResponse" import et ve "post" requesti için method oluştur.
+21-Artık kullanıcı url girdiğinde databaseimize kaydedecek.Oluşturduğumuz classta 2 property vardı.Classın "link" propertisinde verilen linki, "Uuid" propertisinde ise verilen linkin shortened halini tutacaktır.
+22-Şimdi htmle gel ve shortened link için bir "<h2>" tagı belirt.Burada "ajax" metodundaki "success" metodundan çektiğimiz datayı, "h2" tagının içerisine yazdır.
+23-"app1/urls.py" dosyasına gelerek yeni bir "path('<str:pk>', views.go, name='go')" pathı ekle.
+24-Şimdi de bu pathı "app1/views.py" içerisinde belirticez."from django.shortcuts import render, redirect" import et ve "go" metodunu yaz.
+25-Artık kullanıcıların urllerini shorthened ederiz.Ve kullanıcı, kısa linki kopyalayıp adres çubuğuna yapıştırdığında, mevcut siteye gidecektir.
+---------------------------------------------------------------------------------------------------------------------------------
+*****Angular-Django projesi başlatma örneği:
+1-Proje folderına gel ve "python -m venv myenv" yaz.
+2-"myenv\Scripts\activate" yazarak bu environmentı aktif et.
+3-"myenv" environmentı içerisindeyken "pip install django" yazarak djangoyu; "pip install djangorestframework" yazarak da django restini yükle.
+4-Ardından "django-admin startproject DjangoAPI" yazarak projeni bulunduğun foldera yükle.Şimdi "python manage.py runserver" diyerek "localhost"ta test edebiliriz.
+5-Şimdi SQlite gir ve projenin databaseini ekle.
+6-Env içerisindeki projeye gel ve "pip install django-cors-headers" yazarak cors aktif et.
+7-"DjangoAPI/settings" gelerek "INSTALLED_APPS" arrayına 'corsheaders' ve "MIDDLEWARE" arrayına 'corsheaders.middleware.CorsMiddleware' ekle.Ardından buraya boş biryere "CORS_ORIGIN_ALLOW_ALL = True" ekle.
+***Eğer cors için sadece spesifik domainlere "whitelist" atamak istiyorsak; "DjangoAPI/settings" gel ve boş biryere "CORS_ORIGIN_WHITELIST = ('https://xxx.com')" yaz.Bu değişkene whitelist olarak ekleyeceğimiz tüm domainleri yazabiliriz.
+8-Projemizde app oluşturmak için "python manage.py startapp EmployeeApp" yaz.
+9-Appi projeye bağlamak için "DjangoAPI/settings" gel ve "INSTALLED_APPS" arrayına 'EmployeeApp.apps.EmployeeappConfig' ve 'rest_framework' ekle.
+10-'EmployeeApp/models' gel ve 2 tane classı şöyle oluştur:
+"class Departments(models.Model):
+DepartmentId = models.AutoField(primary_key=True)
+DepartmentName = models.CharField(max_length=100)
+class Employees(models.Model):
+EmployeeId = models.AutoField(primary_key=True)
+EmployeeName = models.CharField(max_length=100)
+Department = models.CharField(max_length=100)
+DateOfJoining = models.DateField()
+PhotoFileName = models.CharField(max_length=100)".
+11-Oluşturulan classların databasede tablelarını oluşturmak için terminale "python manage.py makemigrations EmployeeApp" yaz.Böylece "migrations" içerisinde database için tableları tanımlayan dosya oluştu.
+12-"EmployeeApp/migrations" içerisindeki yeni dosyada tanımlanan tableları databaseimize tanımlamak için terminale "python manage.py migrate EmployeeApp" yaz.
+13-"EmployeeApp" içerisine "serializers.py" dosyası oluştur ve şöyle yap:
+"from rest_framework import serializers
+from EmployeeApp.models import Departments,Employees
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Departments
+        fields = ('DepartmentId',
+                  'DepartmentName')
+class EmployeeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Employees
+        fields = ('EmployeeId',
+                  'EmployeeName',
+                  'Department',
+                  'DateOfJoining',
+                  'PhotoFileName')".
+14-API "department" ve "employee" methodları için "EmployeeApp/views" gir ve şöyle yap:
+"from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.parsers import JSONParser
+from django.http.response import JsonResponse
+from EmployeeApp.models import Departments, Employees
+from EmployeeApp.serializers import DepartmentSerializer, EmployeeSerializer
+@csrf_exempt
+def departmentApi(request, id=0):
+    if request.method == 'GET':
+        return JsonResponse(DepartmentSerializer(Departments.objects.all(), many=True).data, safe=False)
+    elif request.method == 'POST':
+        department_serializer = DepartmentSerializer(
+            data=JSONParser().parse(request))
+        if department_serializer.is_valid():
+            department_serializer.save()
+            return JsonResponse('Added Successfully!', safe=False)
+        return JsonResponse('Failed to Add!', safe=False)
+    elif request.method == 'PUT':
+        department_data = JSONParser().parse(request)
+        department = Departments.objects.get(
+            DepartmentId=department_data['DepartmentId'])
+        department_serializer = DepartmentSerializer(
+            department, data=department_data)
+        if department_serializer.is_valid():
+            department_serializer.save()
+            return JsonResponse('Updated Successfully!!', safe=False)
+        return JsonResponse('Failed to Update.', safe=False)
+    elif request.method == 'DELETE':
+        Departments.objects.get(DepartmentId=id).delete()
+        return JsonResponse('Deleted Succeffully!!', safe=False)
+@csrf_exempt
+def employeeApi(request, id=0):
+    if request.method == 'GET':
+        return JsonResponse(EmployeeSerializer(Employees.objects.all(), many=True).data, safe=False)
+    elif request.method == 'POST':
+        employee_serializer = EmployeeSerializer(
+            data=JSONParser().parse(request))
+        if employee_serializer.is_valid():
+            employee_serializer.save()
+            return JsonResponse('Added Successfully!', safe=False)
+        return JsonResponse('Failed to Add!', safe=False)
+    elif request.method == 'PUT':
+        employee_data = JSONParser().parse(request)
+        employee = Employees.objects.get(
+            EmployeeId=employee_data['EmployeeId'])
+        employee_serializer = EmployeeSerializer(employee, data=employee_data)
+        if employee_serializer.is_valid():
+            employee_serializer.save()
+            return JsonResponse('Updated Successfully!!', safe=False)
+        return JsonResponse('Failed to Update.', safe=False)
+    elif request.method == 'DELETE':
+        Employees.objects.get(EmployeeId=id).delete()
+        return JsonResponse('Deleted Succeffully!!', safe=False)".
+15-"EmployeeApp" içerisine "urls.py" dosyası oluştur ve "department" ve "employee" pathleri için şöyle yap:
+"from django.urls import re_path
+from EmployeeApp import views
+urlpatterns = [
+    re_path(r'^department/$', views.departmentApi),
+    re_path(r'^department/([0-9]+)$', views.departmentApi),
+    re_path(r'^employee/$', views.employeeApi),
+    re_path(r'^employee/([0-9]+)$', views.employeeApi)]".
+16-"DjangoAPI/urls" gir ve applikasyonumuzdaki urleri projeye şöyle ekle:
+"from django.contrib import admin
+from django.urls import path,include,re_path
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    re_path(r'^', include('EmployeeApp.urls'))]"
+17-Görseller için proje folderı içerisine "media" folderı oluştur.
+18-"DjangoAPI/settings" gel ve media için şöyle ekle ve düzenle:
+"from pathlib import Path
+import os
+BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')".
+19-Şimdi "EmployeeApp/views" gel ve "from django.core.files.storage import default_storage" import et."media" için metodları şöyle ekle:
+"@csrf_exempt
+def SaveFile(request):
+    file = request.FILES['uploadedFile']
+    file_name = default_storage.save(file.name,file)
+    return JsonResponse(file_name, safe=False)".
+20-"EmployeeApp.urls" gel ve "from django.conf.urls.static import static" ve "from django.conf import settings" import et.Medya dosyalarına url ile ulaşabilmek için applikasyonumuza static urller eklemeliyiz.Şöyle ekle ve düzenle:
+"urlpatterns = [
+    re_path(r'^department/$', views.departmentApi),
+    re_path(r'^department/([0-9]+)$', views.departmentApi),
+    re_path(r'^employee/$', views.employeeApi),
+    re_path(r'^employee/([0-9]+)$', views.employeeApi),
+    re_path(r'^SaveFile$', views.SaveFile)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)".
+21-Artık "SaveFile" pathı ile file post edebiliriz.Artık Angular'a geçebiliriz.Bir "frontend" folderı oluştur ve içerisine gir.Buraya "ng new angular13" applikasyonu oluştur.
+------------------------------------------------------------------------------------------------------------------------
+*****Static "url" oluşturup projeye tanıtmak:
+1-"project1/urls" dosyasını aç ve şöyle yap:
+"from django.contrib import admin
+from django.urls import include, path
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('app1.urls'))]"
+2-"app1/views" dosyasını aç ve şöyle yap:
+"from django.http import HttpResponse
+from django.shortcuts import render
+def index(request):
+    return HttpResponse('homepage')
+def blogs(request):
+    return HttpResponse('blogs')"
+3-"app1/urls" dosyasını aç ve şöyle yap:
+"from . import views
+from django.urls import path
+urlpatterns = [
+    path('',views.index),   
+    path('index',views.index),
+    path('blogs',views.blogs)]"
+4-Artık '', 'index/' ve 'blogs/' pathlerini sağladık.
+------------------------------------------------------------------------------------------------------------------------
+*****Dinamik "url" oluşturup projeye tanıtmak:
+1-"project1/urls" dosyasını aç ve şöyle yap:
+"from django.contrib import admin
+from django.urls import include, path
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('app1.urls'))]"
+2-"app1/views" dosyasını aç ve şöyle yap:
+"from django.http import HttpResponse
+from django.shortcuts import render
+def index(request):
+    return HttpResponse('homepage')
+def blog_details(request,id):
+    return HttpResponse('blog-details:' + str(id))"
+3-"app1/urls" dosyasını aç ve şöyle yap:
+"from . import views
+from django.urls import path
+urlpatterns = [
+    path('',views.index),       
+    path('blogs/<int:id>',views.blog_details)]"
+4-Artık '' ve 'blogs/{id}' pathlerini sağladık.
+------------------------------------------------------------------------------------------------------------------------
+*****Model oluşturup projeye tanıtmak:
+1-"app1/models" dosyasını aç ve şöyle yaz:
+"from django.db import models
+class Makale(models.Model):
+    yazar = models.CharField(max_length=150)
+    baslik = models.CharField(max_length=120)
+    aciklama = models.CharField(max_length=200)
+    metin = models.TextField()
+    sehir = models.CharField(max_length=120)
+    yayımlanma_tarihi = models.DateField()
+    aktif = models.BooleanField(default=True)
+    yaratilma_tarihi = models.DateTimeField(auto_now_add=True)
+    güncelleme_tarihi = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.baslik"
+2-"app1/admin" dosyasını aç ve şöyle yaz:
+"from app1.models import Makale
+admin.site.register(Makale)"
+3-"project1/" dizinine gel ve "pthon manage.py makemigrations" yaz.
+4-"project1/" dizinine gel ve "pthon manage.py migrate" yaz.
+5-Eğer buraya kadar hatasızsa, "project1/" dizinine gel ve "pthon manage.py createsuperuser" yaz[Test projelerinde admin-admin yap].Böylece artık "admin/" pathı ile admin panelinden classımıza erişip işlemler yapabiliriz.Artık modelimizi serialize edebiliriz.
+--------------------------------------------------------------------------------------------------------------------------
+*****Oluşturulan modelleri serialize etmek:
+1-Elimizde "Makale" classı var ve "admin/" pathından bu class ile bir adet object oluşturduk.Tabi databate "makemigrations" ve "migrate" de yapıldı.
+2-"app1" içerisine "api" folderı oluştur ve "app1/" içerisine de "serializers.py" dosyası oluşturup şöyle yaz:
+"from rest_framework import serializers
+from haberler.models import Makale
+class MakaleSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    yazar = serializers.CharField()
+    baslik = serializers.CharField()
+    aciklama = serializers.CharField()
+    metin = serializers.CharField()
+    sehir = serializers.CharField()
+    yayımlanma_tarihi = serializers.DateField()
+    aktif = serializers.BooleanField()
+    yaratilma_tarihi = serializers.DateTimeField(read_only=True)
+    güncelleme_tarihi  = serializers.DateTimeField(read_only=True)
+    def create(self, validated_data):
+        print(validated_data)
+        return Makale.objects.create(**validated_data)
+    def update(self, instance, validated_data):
+        instance.yazar = validated_data.get('yazar', instance.yazar)
+        instance.baslik = validated_data.get('baslik', instance.baslik)
+        instance.aciklama = validated_data.get('aciklama', instance.aciklama)
+        instance.metin = validated_data.get('metin', instance.metin)
+        instance.sehir = validated_data.get('sehir', instance.sehir)
+        instance.yayımlanma_tarihi = validated_data.get('yayımlanma_tarihi', instance.yayımlanma_tarihi)
+        instance.aktif = validated_data.get('aktif', instance.aktif)
+        instance.save()
+        return instance
+    def validate(self, data): # object level
+        if data['baslik'] == data['aciklama']:
+            raise serializers.ValidationError('Baslik ve açıklama alanları aynı olamaz. Lütfen farklı bir açıklama giriniz.')
+        return data
+    def validate_baslik(self, value):
+        if len(value) < 20:
+            raise serializers.ValidationError(f'Baslik alani minimum 20 karakter olmalı. siz {len(value)} karakter girdiniz.')
+        return value".
+3-Böylece requestler için hazırladık.Ayrıca belirli valitaionlar ekledik.Artık serialize ettiğimiz modelimize requestler gönderebiliriz.
+------------------------------------------------------------------------------------------------------------------------
+*****Serialize edilen modeller için viewsler oluşturmak:
+1-"app1/api/" folderı içerisine "views.py" dosyası oluştur ve şöyle yaz:
+"from rest_framework import status
+from rest_framework.response import Response
+from app1.models import Makale
+from app1.api.serializers import MakaleSerializer
+from rest_framework.views import APIView
+from rest_framework.generics import get_object_or_404
+class MakaleListCreateApiView(APIView):
+    def get(self, request):
+        makaleler = Makale.objects.filter(aktif = True)
+        serializer = MakaleSerializer(makaleler, many = True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = MakaleSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+class MakaleDetailAPIView(APIView):
+    def get_object(self, pk):
+        makale_instance = get_object_or_404(Makale,pk=pk)
+        return makale_instance
+    def get(self, request, pk):
+        makale = self.get_object(pk=pk)
+        serializer = MakaleSerializer(makale)
+        return Response(serializer.data)
+    def put(self, request, pk):
+        makale = self.get_object(pk=pk)
+        serializer = MakaleSerializer(makale, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def delete(self, request, pk):
+        makale = self.get_object(pk=pk)
+        makale.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)"
+2-Artık request alabiliriz fakat path belirlememiz gerekir.Önce applikasyonumuz pathları için "app1/api/urls" gir ve şöyle düzenle:
+"from django.urls import path
+from app1.api import views as api_views
+urlpatterns = [
+    path('makaleler/',api_views.MakaleListCreateApiView.as_view(), name='makale-listesi'),
+    path('makaleler/<int:pk>', api_views.MakaleDetailAPIView.as_view(), name='makale-detay')]".
+3-Şimdi applikasyonumuzun urllerini projeye tanıtmak için "project1/urls" gir ve şöyle düzenle:
+"from django.contrib import admin
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('haberler.api.urls'))]"
+4-Artık api base urlsi "api/" şeklindedir.Makalelere ulaşmak için "api/makaleler/"; tek makaleye "get", "put" ve "delete" içinse "api/makaleler/{pk}" şeklinde ulaşabiliriz.
+------------------------------------------------------------------------------------------------------------------------
+*****"rest_framework.permissions.AllowAny" built-in kullanımı:
+1-Default olarak mevcuttur.Erişimi açar."settings" içerisine şöyle yaz:
+"REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]}".
+------------------------------------------------------------------------------------------------------------------------
+*****"rest_framework.permissions.IsAuthenticated" built-in kullanımı:
+1-Erişimi, sadece authenticationı doğrulanmış userlara açar."settings" içerisine şöyle yaz:
+"REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]}".
+------------------------------------------------------------------------------------------------------------------------
+*****"rest_framework.permissions.IsAdminUser" built-in kullanımı:
+1-Erişimi, sadece "user.is_staff"ı "true" dönen userlara açar."settings" içerisine şöyle yaz:
+"REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ]}".
+------------------------------------------------------------------------------------------------------------------------
+*****"rest_framework.permissions.IsAuthenticatedOrReadOnly" built-in kullanımı:
+1-Erişimi sadece admin veya stafflara açar fakat diğer kimliksiz userlara sadece "read_only" işlemlere izin verir ve herhangi yazdırma[delete, put, post,..] işlemlere izin vermez."settings" içerisine şöyle yaz:
+"REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]}".
+------------------------------------------------------------------------------------------------------------------------
+*****"permissions.IsAdminUser" kullanımı:
+1-Viewe gel ve şöyle yaz:
+"class KitapListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Kitap.objects.all()
+    serializer_class = KitapSerializer
+    permission_classes = [permissions.IsAdminUser]".
+2-"project1/urls" gel ve şöyle ekle:
+"path('api-auth/',include('rest_framework.urls'))".
+------------------------------------------------------------------------------------------------------------------------
+*****"permissions.IsAuthenticated" kullanımı:
+1-Viewe gel ve şöyle yaz:
+"class KitapListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Kitap.objects.all()
+    serializer_class = KitapSerializer
+    permission_classes = [permissions.IsAuthenticated]".
+2-"project1/urls" gel ve şöyle ekle:
+"path('api-auth/',include('rest_framework.urls'))".
+------------------------------------------------------------------------------------------------------------------------
+*****"permissions.IsAuthenticatedOrReadOnly" kullanımı:
+1-Viewe gel ve şöyle yaz:
+"class KitapListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Kitap.objects.all()
+    serializer_class = KitapSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]".
+2-"project1/urls" gel ve şöyle ekle:
+"path('api-auth/',include('rest_framework.urls'))".
+------------------------------------------------------------------------------------------------------------------------
+*****"IsAdminUser" ve "read_only" spesific bir permission tanımlamak:
+1-"app1/api" içerisine "permissions.py" dosyası oluştur ve şöyle yaz:
+"from rest_framework import permissions
+    class IsAdminUserOrReadOnly(permissions.IsAdminUser):
+        def has_permission(self, request, view):
+            is_admin = super().has_permission(request,view)
+            return request.method in permissions.SAFE_METHODS or is_admin".
+2-Artık viewse gelip "from app1.api.permissions import IsAdminUserOrReadOnly" import ederek, istediğimiz viewsin içerisine "permission_classes = [IsAdminUserOrReadOnly]" şeklinde ekleyebiliriz.
+------------------------------------------------------------------------------------------------------------------------
+*****"ModelSerializer" kullanımı:
+1-Modeli şöyle tanımla:
+"class MakaleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Makale".
+------------------------------------------------------------------------------------------------------------------------
+*****"fields" : Modelin sadece belirtilen propertilerini çekmek için kullanılan bir attributedur.
+1-Modelin sadece belirtilen propertilerini çekmek için serializerlarda kullanımı:
+"fields = ['yazar','baslik','aciklama']".
+2-Modelin tüm propertilerini çekmek için serializerlarda kullanımı:
+"fields = '__all__'".
+------------------------------------------------------------------------------------------------------------------------
+*****"exclude" : Modelin belirtilen propertilen haricinde sadece kalan propertilerini çekmek için kullanılan bir attributedur.
+1-Serializerlarda kullanımı:
+"exclude = ['yazar','baslik','aciklama']".
+------------------------------------------------------------------------------------------------------------------------
+*****"read_only_fields" : Modelin "read_only" propertilerini belirtmek için kullanılan bir attributedur[id propertisi için daima geçerlidir].
+1-Serializerlarda kullanımı:
+"read_only_fields = ['id','yaratilma_tarihi','güncelleme_tarihi']".
+----------------------------------------------------------------------------------------------------------------------
+*****"SerializerMethodField()" kullanımı:
+1-Classın içerisine gel ve şöyle bir değişkene tanımlayarak; class için yeni bir property elde et:
+"class MakaleSerializer(serializers.ModelSerializer):
+    newProperty1 = serializers.SerializerMethodField()
+    class Meta:
+        model = Makale
+    def get_newProperty1(self, object):"
+------------------------------------------------------------------------------------------------------------------------
+*****İki propertinin[baslik,aciklama] aynı olmaması koşulu:
+1-Serializersa şöyle ekle:
+"def validate(self, data):
+if data['baslik'] == data['aciklama']:
+    raise serializers.ValidationError('Baslik ve açıklama alanları aynı olamaz. Lütfen farklı bir açıklama giriniz.')
+return data".
+2-"views" içerisinde "put" ve "post" metodlarının error responselarını şöyle yaz:
+"return Response(serializer.errors ,status = status.xXx)".
+-------------------------------------------------------------------------------------------------------------------------------
+*****Propertinin[baslik] min ve max length limiti için:
+1-Serializersa şöyle ekle:
+"def validate_baslik(self, value):
+if len(value) < 20 or len(value) > 80:
+    raise serializers.ValidationError(f'Baslik alani minimum 20 karakter olmalı. siz {len(value)} karakter girdiniz.')
+return value".
+2-"views" içerisinde "put" ve "post" metodlarının error responselarını şöyle yaz:
+"return Response(serializer.errors ,status = status.xXx)".
+---------------------------------------------------------------------------------------------------------------------------------------
+*****Bir propertinin[yayımlanma_tarihi], object oluşurken şuanın tarihinden ileride olmaması için:
+1-Serializersa şöyle ekle:
+"def validate_yayımlanma_tarihi(self, tarihdegeri):
+    today = date.today()
+    if(tarihdegeri > today):
+        raise serializers.ValidationError(
+            'Yayımlanma tarihi, ileri bir tarih olamaz!')
+    return tarihdegeri".
+2-"views" içerisinde "put" ve "post" metodlarının error responselarını şöyle yaz:
+"return Response(serializer.errors ,status = status.xXx)".
+-------------------------------------------------------------------------------------------------------------------------------------------
+*****İki adet date propertisi arasındaki zaman farkını bularak, objectte yeni bir propertiye atanması için:
+1-"Makale" classının oluşturulma tarihi ve [yayımlanma_tarihi] propertisi arasındaki farkı bulacağız ve bu farkı, objectte oluşturduğumuz "time_since_pub" propertisine atayacağız."aktif" propertisi "false" ise "time_since_pub", error mesajı içerecektir."Makale" serializeına şöyle ekle:
+"class MakaleSerializer(serializers.ModelSerializer):
+    time_since_pub = serializers.SerializerMethodField()
+    def get_time_since_pub(self, object):
+        now = datetime.now()
+        pub_date = object.yayımlanma_tarihi
+        if object.aktif == True:
+            time_delta = timesince(pub_date, now)
+            return time_delta
+        return 'Aktif Değildir!'".
+2-Böylece "Makale" modelinin "yayımlanma_tarihi" propertisi ile oluşturulan şuanın tarih farkını görüntüleyen bir properti ekledik.Validation da tanımladık.Objecti post ederken bu propertiyi de "read_only" gibi düşünerek yazmıyoruz.
+3-"views" içerisinde "put" ve "post" metodlarının error responselarını şöyle yaz:
+"return Response(serializer.errors ,status = status.HTTP_400_BAD_REQUEST)".
+------------------------------------------------------------------------------------------------------------------------
+*****"models.Model" kullanımı:
+1-Model oluşturmak için şöyle yaz:
+"class Gazeteci(models.Model):".
+------------------------------------------------------------------------------------------------------------------------
+*****"max_length" kullanımı:
+1-Modele gel ve şöyle yaz:
+"baslik = models.CharField(max_length=120)".
+------------------------------------------------------------------------------------------------------------------------
+*****"IntegerField(**options)" : -2147483648 ile 2147483647 arasındaki sayılardır."MinValueValidator" ve "MaxValueValidator" validatorlarını kullanabilir.
+1-Mesela modele şöyle yaz:
+"users1 = models.IntegerField(
+    validators = [MinValueValidator(500), MaxValueValidator(9999)])".
+------------------------------------------------------------------------------------------------------------------------
+*****"PositiveBigIntegerField(**options)" : 0 ve 9223372036854775807 arasındaki sayılardır."MinValueValidator" ve "MaxValueValidator" validatorlarını kullanabilir.
+1-Mesela modele şöyle yaz:
+"users1 = models.PositiveBigIntegerField(
+    validators = [MinValueValidator(500), MaxValueValidator(9999)])".
+------------------------------------------------------------------------------------------------------------------------
+*****"PositiveIntegerField(**options)" : 0 ve 2147483647 arasındaki sayılardır[0 dahil]."MinValueValidator" ve "MaxValueValidator" validatorlarını kullanabilir.
+1-Mesela modele şöyle yaz:
+"users1 = models.PositiveIntegerField(
+    validators = [MinValueValidator(500), MaxValueValidator(9999)])".
+------------------------------------------------------------------------------------------------------------------------
+*****"PositiveSmallIntegerField(**options)" : 0 ve 32767 arasındaki sayılardır."MinValueValidator" ve "MaxValueValidator" validatorlarını kullanabilir.
+1-Mesela modele şöyle yaz:
+"users1 = models.PositiveSmallIntegerField(
+    validators = [MinValueValidator(500), MaxValueValidator(9999)])".
+------------------------------------------------------------------------------------------------------------------------
+*****"SmallIntegerField(**options)" : -32768 ve 32767 arasındaki sayılardır.
+1-Mesela modele şöyle yaz:
+"users1 = models.SmallIntegerField(
+    validators = [MinValueValidator(-1500), MaxValueValidator(9999)])".
+------------------------------------------------------------------------------------------------------------------------
+*****"BigIntegerField(**options)" : IntegerField gibidir fakat -9223372036854775808 ve 9223372036854775807 sayıları arasında 64 bitlik bir tamsayıdır.
+1-Mesela modele gel ve şöyle yaz:
+"points = models.BigIntegerField(
+    validators = [MinValueValidator(100), MaxValueValidator(50000)])".
+------------------------------------------------------------------------------------------------------------------------
+*****"BinaryField(max_length=None, **options)" : Raw binary data depolamak için kullanılır."bytes", "bytearray" veya "memoryview" içindir.Default olarak "editable = False" ve bu yüzden "ModelForm"lara dahil edilemez ve kullanılamaz.
+1-"max_length" bayt cinsinden max lengthi belirtir.Modele şöyle yaz:
+"code = models.BinaryField(max_length = 16)".
+------------------------------------------------------------------------------------------------------------------------
+*****"SlugField(max_length=50, **options)" : Birşeyi labellamak için kullanılır.Sadece harf, sayı, "_" ve "-" içerebilir.Genellikle URLlerde kullanılır.
+1-"validate_slug", validation için kullanılır fakat farklı Field tiplerinde de kullanılabilir.Modele şöyle yaz:
+"slug = models.SlugField(
+    validators=[validate_slug])"
+2-"validate_unicode_slug", validation için kullanılır fakat farklı Field tiplerinde de kullanılabilir.Modele şöyle yaz:
+"slug = models.SlugField(
+    validators=[validate_unicode_slug])"
+3-"allow_unicode = True" ise fieldda, ASCII harflerine ek olarak Unicode harflerini de kabul eder fakat default olarak "False"tur.Modele gel ve şöyle yaz:
+"slug = models.SlugField(allow_unicode=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"URLField(max_length=200, **options)" : URLler için bir "CharField" gibidir ve "URLValidator" ile validation sağlar.
+1-"max_length", maksimum karakter uzunluğudur.Modele şöyle yaz:
+"url1 = models.URLField(max_length = 120)".
+------------------------------------------------------------------------------------------------------------------------
+*****"BooleanField(**options)" : "True" veya "False" belirtir."default" valuesi tanımlanmadığı sürece "None" valuesini alacaktır.
+1-"default" belirtmek zorunludur.Modele gel ve şöyle yaz:
+"aktif = models.BooleanField(default=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"CharField(max_length=None, **options)" : Small ve Medium ölçekli stringler için kullanılır.
+1-"max_length" max lengthi belirtmek için modele şöyle yaz:
+"sehir = models.CharField(max_length=120)".
+2-"db_collation" ???
+------------------------------------------------------------------------------------------------------------------------
+*****"TextField(**options)" : Geniş textler içindir.Eğer "max_length" kullanırsak, otomatik oluşturulan text fieldın "Textarea" widgetına yansıtılacaktır ancak model veya database seviyesinde uygulanmaz.
+1-"db_collation" ???
+------------------------------------------------------------------------------------------------------------------------
+*****"TimeField(auto_now=False, auto_now_add=False, **options)" : Pythonda "datetime.time" instanceı ile sunulan bir "time"dır.
+1-"auto_now_add", instanceın sadece ilk oluşturulduğunda otomatik olarak çalışmasını sağlar.Aslında "modelName.save()" metodu çağrıldığında otomatik olarak çalışacaktır.Mesela  "QuerySetName.update()" metodu gibi field updatelerinde ÇALIŞMAZ!Modele şöyle yaz:
+"yaratilma_zamani = models.TimeField(auto_now_add = True)".
+2-"auto_now", instanceın ilk oluşturulduğunda otomatik olarak çalıştırır fakat bu instanceın bir veya birden fazla valuesi her set edildiğinde bu field, otomatik olarak yine çalışacaktır.Modele şöyle yaz:
+"guncellenme_zamani1 = models.TimeField(auto_now = True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"DateField(auto_now=False, auto_now_add=False, **options)" : Pythonda "datetime.date" instanceı ile sunulan bir "date" türüdür.
+1-"auto_now_add", instanceın sadece ilk oluşturulduğunda otomatik olarak çalışmasını sağlar.Aslında "modelName.save()" metodu çağrıldığında otomatik olarak çalışacaktır.Mesela  "QuerySetName.update()" metodu gibi field updatelerinde ÇALIŞMAZ!Modele şöyle yaz:
+"yaratilma_zamani = models.DateField(auto_now_add = True)".
+2-"auto_now", instanceın ilk oluşturulduğunda otomatik olarak çalıştırır fakat bu instanceın bir veya birden fazla valuesi her set edildiğinde bu field, otomatik olarak yine çalışacaktır.Bu field için bir value set etsek bile ignore edilecektir; ancak default değerler belirleyebiliriz.Modele şöyle yaz:
+"guncellenme_zamani1 = models.DateField(auto_now = True)
+guncellenme_zamani2 = models.DateField(default = date.today)     #from datetime.date.today()".
+------------------------------------------------------------------------------------------------------------------------
+*****"DateTimeField(auto_now=False, auto_now_add=False, **options)" : Pythonda "datetime.datetime" instanceı ile sunulan bir "date+time" türüdür.
+1-"auto_now_add", instanceın sadece ilk oluşturulduğunda otomatik olarak çalışmasını sağlar.Aslında "modelName.save()" metodu ilk çağrıldığında otomatik olarak çalışacaktır.Mesela  "QuerySetName.update()" metodu gibi field updatelerinde ÇALIŞMAZ!Modele şöyle yaz:
+"yaratilma_zamani = models.DateTimeField(auto_now_add = True)".
+2-"auto_now", instanceın ilk oluşturulduğunda otomatik olarak çalıştırır fakat bu instanceın bir veya birden fazla valuesi her set edildiğinde bu field, otomatik olarak yine çalışacaktır.Bu field için bir value set etsek bile ignore edilecektir; ancak default değerler belirleyebiliriz.Modele şöyle yaz:
+"guncellenme_zamani1 = models.DateTimeField(auto_now = True)
+guncellenme_zamani2 = models.DateTimeField(default = timezone.now)     #from django.utils.timezone.now()".
+------------------------------------------------------------------------------------------------------------------------
+*****"DurationField(**options)" : Pythonda "timedelta" ile modellenen zaman periyodlarını depolamak içindir.PostgreSQL ile kullanılırsa, kullanılan data typeı bir "interval"; Oracle ile kullanılırsa da kullanılan data typeı bir "INTERVAL DAY(9) TO SECOND(6)"; aksi takdirlerde ise "bigint" şeklindedir.
+1-???
+------------------------------------------------------------------------------------------------------------------------
+*****"DecimalField(max_digits=None, decimal_places=None, **options)" : "Decimal" instancı ile sunulan bir bir sabit ondalıklı bir ondalıklı sayı türüdür.
+1-"max_digits", sayının tamlık kısmındaki maksimum basamak sayısıdır.Bu propertynin valuesi, "decimal_places"in valuesinden daima BÜYÜK olmalıdır.Mesela şöyle yaz:
+"age1 = DecimalField(max_digits=4, decimal_places=2)    #9999.99".
+2-"decimal_places", sayının ondalık kısmındaki maksimum basamak sayısıdır.Mesela şöyle yaz:
+"age1 = DecimalField(max_digits=2, decimal_places=1)    #99.9".
+------------------------------------------------------------------------------------------------------------------------
+*****"FloatField(**options)" : Pythonda "float" instanceı ile sunulan bir ondalıklı sayıdır.
+1-Modele şöyle yaz:
+"age1 = FloatField()".
+***"FloatField" ile "DecimalField" farkı şudur: Her ikisi de gerçel sayıları temsil eder fakat "decimal", mevcut sayının tam sayı ve ondalık sayı basamaklarını sınırlayabilir; float ise olduğu gibi sayıyı aktarır.
+------------------------------------------------------------------------------------------------------------------------
+*****"GenericIPAddressField(protocol='both', unpack_ipv4=False, **options)" : String formatta bir IPv4 veya IPv6 adresidir[Örnek: 192.0.2.30 VEYA 2a02:42fe::4].Ayrıca adreslerin normalizasyonlarını da sağlar ve tüm karakterleri lowercase yapar.
+1-"protocol", valid olan inputları, belirtilen protokolle sınırlar.Kabul edilen valueler "both", "IPv4" ve "IPv6"dır.Default olarak "both"dur.Eşleştirme case sensitive DEĞİLDİR.Mesela şöyle yaz:
+"url1 = GenericIPAdressField(protocol='IPv4')".
+2-"unpack_ipv4", IPv4 olarak eşlenmiş adresleri unpack eder.Eğer bu property "True" ise mesela: "::ffff:192.0.2.1" adresini "192.0.2.1" olarak unpack edecektir.Sadece "protocol='both'" iken KULLANILABİLİR.Eğer "blank" valuelere izin veriyorsak, "blank" valueler "null" olarak depolandıkları için "null" valuelere izin vermemiz gerekir.Mesela şöyle yaz:
+"url1 = GenericIPAdressField(protocol='both', unpack_ipv4=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"JSONField(encoder=None, decoder=None, **options)" : JSON halinde encoded edilmiş datayı depolamak içindir.
+1-"encoder", ???
+2-"decoder", ???
+------------------------------------------------------------------------------------------------------------------------
+*****"EmailField(max_length=254, **options)" : Bir "EmailValidator" kullanılarak mevcut valuenin, geçerli bir email olup olmadığını kontrol eden bir "CharField"dır.
+1-"max_length", maximum karakterdir.Modele şöyle yaz:
+"email1 = EmailField(max_length = 254)".
+------------------------------------------------------------------------------------------------------------------------
+*****"FileField(upload_to='', storage=None, max_length=100, **options)" : Dosya upload içindir.
+1-"upload_to", uploadın yapılacağı dizini ve upload dosyasının adını ayarlar ve ardından "Storage.save()" metoduna iletilir.Nested dizinler oluşturulabilir.Modele şöyle yaz:
+"upload1 = models.FileField(upload_to = 'uploads/')   #all files will be uploaded to MEDIA_ROOT/uploads
+upload2 = models.FileField(upload_to = 'uploads/%Y/%m/%d/')   #file will be saved to MEDIA_ROOT/uploads/2015/01/30
+upload3 = models.FileField(upload_to = 'uploads/home/media')    #all files will be uploaded to MEDIA_ROOT/uploads/home/media".
+2-"upload_to" ile dinamik path için:
+"def user_directory_path(instance, filename):
+    return f'user_{instance.user.id}/{filename}'    #file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+class MyModel(models.Model):
+    upload = models.FileField(upload_to=user_directory_path)"
+***Bunları uygulamadan önce "project1/settings" girerek "MEDIA_URL = '/media/'" ve "MEDIA_ROOT = 'uploads'" eklememiz gerekiyor.
+3-"max_length", file isimlerinin maksimum uzunluğudur.Mesela şöyle yaz:
+"upload2 = models.FileField(upload_to = 'uploads/%Y/%m/%d/', max_length=100)".
+------------------------------------------------------------------------------------------------------------------------
+*****"FieldFile" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"FilePathField" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)" : "FileField" fieldının bütün attribute ve methodlarını inherit eder ve ayrıca upload edilen dosyanın image olup olmadığının kontrolünü sağlar.Ayrıca ek olarak "length" ve "witdh" attributelerine de sahiptir.
+1-"upload_to", uploadın yapılacağı dizini ve upload dosyasının adını ayarlar ve ardından "Storage.save()" metoduna iletilir.Nested dizinler oluşturulabilir.Modele şöyle yaz:
+"upload1 = models.ImageField(upload_to = 'uploads/')   #all files will be uploaded to MEDIA_ROOT/uploads
+upload2 = models.ImageField(upload_to = 'uploads/%Y/%m/%d/')   #file will be saved to MEDIA_ROOT/uploads/2015/01/30
+upload3 = models.ImageField(upload_to = 'uploads/home/media')    #all files will be uploaded to MEDIA_ROOT/uploads/home/media".
+2-"upload_to" ile dinamik path için:
+"def user_directory_path(instance, filename):
+    return f'user_{instance.user.id}/{filename}'    #file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+class MyModel(models.Model):
+    upload = models.ImageField(upload_to=user_directory_path)"
+3-"height_field", model istanceı her kaydedildiğinde imagein yükseklik valuesini otomatik olarak ayarlar.Fakat alınan imagein heightını resize etmez; alınan imagein hangi heightte save edileceğini belirtir.Bu yüzden hatalar verebilir.Mesela şöyle yaz:
+"upload2 = models.ImageField(upload_to = 'uploads/%Y/%m/%d/', height_field='100')".
+4-"width_field", model istanceı her kaydedildiğinde imagein genişlik valuesini otomatik olarak ayarlar.Fakat alınan imagein widthini resize etmez; alınan imagein hangi widthte save edileceğini belirtir.Bu yüzden hatalar verebilir.Mesela şöyle yaz:
+"upload2 = models.ImageField(upload_to = 'uploads/%Y/%m/%d/', width_field='100')".
+5-"max_length", file isimlerinin maksimum uzunluğudur.Mesela şöyle yaz:
+"upload2 = models.ImageField(upload_to = 'uploads/%Y/%m/%d/', max_length=100)".
+6-Alınan görselleri spesifik bir height ve widthe resize ederek kaydetmek için modele şöyle yaz:
+"foto = models.ImageField(upload_to='profil_fotolari/%Y/%m/')
+def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.foto:
+            img = Image.open(self.foto.path)
+            if img.height > 600 or img.width > 600:
+                output_size = (600,600)     #böylece imageleri kaydederken 600,600 boyutlarına fixledik
+                img.thumbnail(output_size)
+                img.save(self.foto.path)".
+***"ImageField" kullanırken "Pillow" libraryisi YÜKLEMELİYİZ!
+------------------------------------------------------------------------------------------------------------------------
+*****"UUIDField(**options)" : Evrensel olarak unique idler depolamak içindir.Pythonın "UUID" classını kullanır.PostgreSQL kullanılırsa "uuid" data tipinde; aksi takdirde "char(32)" data tipinde depolanır.Genellikle 
+"primary_key = True" olan fieldlar için kullanılır.
+1-"primary_key = True", mevcut fieldın bulunduğu model için "id" gibi unique olacağını belirtir.Modele şöyle yaz:
+"id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)"
+2-Sıradan bir field için kullanımı:
+"employee_number = models.UUIDField(primary_key = False, default=uuid.uuid4, editable=False)"
+------------------------------------------------------------------------------------------------------------------------
+**********FIELD OPTIONS :
+*****"blank" : Form gönderirken mevcut alanın zorunlu olup olmadığını belirtir yani formu submit ederken boş bırakabilirler.Eğer "True" valuesini alırsa alan, zorunlu olmayacaktır.
+1-Modele gel ve şöyle yaz:
+"biyografi = models.TextField(blank=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"null" : Object instanceını yaratırken mevcut propertisine herhangi bir değer girilmesine rağmen databasede null olacak depolayacağını belirtir.
+1-Modele gel ve şöyle yaz:
+"biyografi = models.TextField(null=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"choices" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"db_column" : Bu field için kullanılacak database columnunun adıdır.Eğer belirtilmezse DJango, fielda bizim verdiğimiz adı kullanır.
+"unused_name = CharField(db_column='name', max_length=200)".
+------------------------------------------------------------------------------------------------------------------------
+*****"index" : Eğer "True" valuesi alırsa, bu field için bir database indexi oluşturacaktır.
+1-???
+------------------------------------------------------------------------------------------------------------------------
+*****"db_tablespace" : Eğer bu field indexlenmişse, bu fieldın indexi için kullanılacak database tablosunun adıdır.Default değeri projenin "DEFAULT_INDEX_TABLESPACE" ayarı; eğer ayarlamışsak da "db_tablespace" ayarıdır.
+1-???
+------------------------------------------------------------------------------------------------------------------------
+*****"default" : Fieldın default valuesidir.Bir value veya herhangi bir callable object de olabilir.Eğer callable bir objectse, her yeni object instance oluşturulduğunda çağrılacaktır.
+1-Bir objecti default value olarak ayarlayacaksak:
+"contact_info = JSONField('ContactInfo', default=contact_default)
+def contact_default():
+    return {'email': 'to1@example.com'}".
+2-Normal kullanımı:
+"aktif = models.BooleanField(default=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"editable" : Eğer "False" alırsa mevcut field, admin veya başka bir "ModelForm"da görüntülenmez.Ayrıca model validation esnasında da es geçilirler.Default valuesi "True"dur.
+1-"biyografi = models.CharField(max_length = 120, editable = True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"error_messages" : Field "raise" edildiğinde alınacak default mesajları etkisiz hale getirir. ???
+------------------------------------------------------------------------------------------------------------------------
+*****"help_text" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"primary_key" : Eğer "True" alırsa, model için bir primary key olacaktır.Eğer bir field için primary key atamazsak, Django bizim için bir "id" primary keyi oluşturacaktır.Fakat bu propertyi kullanarak override ederek kendimiz de oluşturabiliriz.Otomatik oluşturulan primary key fieldlarını spesifik applerde editlemek için "AppConfig.default_auto_field" ayarından; global olarak içinse "DEFAULT_AUTO_FIELD" ayarından yaparız.
+***"primary_key", bulunduğu fielda aynı zamanda "read_only=True", "null=False" ve "unique=True" propertylerini de implement eder.Bir objectte sadece bir adet primary key bulunabilir.
+------------------------------------------------------------------------------------------------------------------------
+*****"unique" : Eğer "True" alıyorsa bu field, bulunduğu tablo boyunca unique olmalıdır.Eğer bir unique field, bir tablo içerisinde duplicate value alırsa, "IntegrityError" raise olacak.
+1-Modele şöyle yaz:
+"id = models.PositiveIntegerField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)"
+------------------------------------------------------------------------------------------------------------------------
+*****"unique_for_date" : Eğer bir "DateField" veya "DateTimeField" fieldı "True" alıyorsa, sadece belirteceğimiz Date türündeki property için unique olacaktır.
+1-Mesela modele şöyle yaz:
+"date1 = models.DateField()     #'name1' fieldı, 'date1' fieldı için unique olacaktır.
+date2 = models.DateTimeField()  #'name2' fieldı, 'date2' fieldı için unique olacaktır.
+name1 = models.CharField(unique_for_date='date1')
+name2 = models.CharField(unique_for_date='date2')".
+------------------------------------------------------------------------------------------------------------------------
+*****"unique_for_month" : Eğer bir "DateField" veya "DateTimeField" fieldı "True" alıyorsa, sadece belirteceğimiz Date türündeki propertinin sadece "month" kısmı için unique olacaktır.
+1-Mesela modele şöyle yaz:
+"date1 = models.DateField()     #'name1' fieldı, 'date1' fieldı için unique olacaktır.
+date2 = models.DateTimeField()  #'name2' fieldı, 'date2' fieldı için unique olacaktır.
+name1 = models.CharField(unique_for_date='date1')
+name2 = models.CharField(unique_for_date='date2')".
+------------------------------------------------------------------------------------------------------------------------
+*****"unique_for_year" : Eğer bir "DateField" veya "DateTimeField" fieldı "True" alıyorsa, sadece belirteceğimiz Date türündeki propertinin sadece "year" kısmı için unique olacaktır.
+1-Mesela modele şöyle yaz:
+"date1 = models.DateField()     #'name1' fieldı, 'date1' fieldı için unique olacaktır.
+date2 = models.DateTimeField()  #'name2' fieldı, 'date2' fieldı için unique olacaktır.
+name1 = models.CharField(unique_for_date='date1')
+name2 = models.CharField(unique_for_date='date2')".
+------------------------------------------------------------------------------------------------------------------------
+*****"validators" : Mevcut field için validation sağlarlar.
+1-"MinValueValidator(limit_value, message=None)" için modele şöyle yaz:
+"from django.core.validators import MinValueValidator
+degerlendirme = models.PositiveIntegerField(
+    validators=[MinValueValidator(1)])".
+2-"MaxValueValidator(limit_value, message=None)" için modele şöyle yaz:
+"from django.core.validators import MaxValueValidator
+degerlendirme = models.PositiveIntegerField(
+    validators=[MaxValueValidator(5)])".
+3-"validate_slug", valuenin sadece harflerden, sayılardan, alt çizgiden veya kısa çizgiden oluştuğunu kontrol eder.Modele şöyle yaz:
+"slug1 = models.SlugField(
+    validators=[validate_slug])".
+4-"validate_slug", valuenin sadece UNICODE harflerden, sayılardan, alt çizgiden veya kısa çizgiden oluştuğunu kontrol eder.Modele şöyle yaz:
+"slug1 = models.SlugField(
+    validators = [validate_slug])".
+5-"validate_ipv4_adress", valuenin bir IPv4 adresi olduğunu kontrol eder.Modele şöyle yaz:
+"url1 = GenericIPAdressField(
+    protocol='IPv4',
+    validators = [validate_ipv4_adress])".
+6-"validate_ipv6_adress", valuenin bir IPv4 adresi olduğunu kontrol eder.Modele şöyle yaz:
+"url1 = GenericIPAdressField(
+    protocol='IPv6',
+    validators = [validate_ipv6_adress])".
+7-"validate_ipv46_adress", valuenin bir IPv4 veya IPv6 adresi olduğunu kontrol eder.Modele şöyle yaz:
+"url1 = GenericIPAdressField(
+    protocol='both',
+    validators = [validate_ipv46_adress])".
+8-"validate_comma_separated_integer_list", virgülle ayrılmış bir integer "list"i olduğunu kontrol eder.Modele şöyle yaz:
+"choices_field = models.CharField(validators=[validate_comma_separated_integer_list],max_length=200)".
+9-"int_list_validator(sep=',', message=None, code='invalid', allow_negative=False)" : Bir stringin, verdiğimiz "sep" parametresiyle ayrılmış olan integerlardan oluşmasını sağlayan bir "RegexValidator" instanceı döndürür."allow_negative = True" ise negatif tamsayılara da izin verir.Modele şöyle yaz:
+???
+10-"MaxLengthValidator(limit_value, message=None)", valuenin uzunluğunu kontrol eder.Eğer limiti aşarsa da "max_length" koduyla bir "ValidationError" raise edebilir.Modele şöyle yaz:
+"description1 = models.TextField(
+    validators=[MaxLengthValidator(100)])"
+11-"MinLengthValidator(limit_value, message=None)", valuenin uzunluğunu kontrol eder.Eğer limiti aşarsa da "min_length" koduyla bir "ValidationError" raise edebilir.Modele şöyle yaz:
+"description1 = models.TextField(
+    validators=[MinLengthValidator(100)])"
+12-"DecimalValidator(max_digits, decimal_places)", ondalıklı valueleri kontrol eder.Eğer valuenin tamsayı kısmının basamak sayısı aşarsa[max_digits] veya ondalık kısmının basamak sayısı aşarsa[decimal_places] veya valuenin toplam basamak sayısını aşarsa[max_whole_digits] bir "ValidationError" raise edebilir.Modele şöyle yaz:
+???
+13-"FileExtensionValidator(allowed_extensions, message, code)", dosyaların uzantısını kontrol eder.Eğer "filename.extension" için düşünürsek; dosyanın uzantısı "allowed_extensions" içerisinde bulunmazsa bir "ValidationError" raise edebilir.Extension, kıyaslama yaparken case-sensitive DEĞİLDİR.Modele şöyle yaz:
+???
+14-"ProhibitNullCharactersValidator(message=None, code=None)", null karakterleri kontrol eder.Eğer value, bir veya daha fazla null karakter içeriyorsa bir "ValidationError" oluşturur.Modele şöyle yaz:
+???
+------------------------------------------------------------------------------------------------------------------------
+1-"auto_now_add", Modele şöyle yaz:
+"yaratilma_zamani = models.DateTimeField(auto_now_add = True)".
+2-"auto_now", Modele şöyle yaz:
+-----------------------------------------------------------------------------------------------
+*****"auto_now_add" : instanceın sadece ilk oluşturulduğunda otomatik olarak çalışmasını sağlar.Aslında "modelName.save()" metodu ilk çağrıldığında otomatik olarak çalışacaktır.Mesela  "QuerySetName.update()" metodu gibi field updatelerinde ÇALIŞMAZ!Sadece bir kere atama yapar.
+1-Modele gel ve şöyle yaz:
+"yaratilma_tarihi = models.DateTimeField(auto_now_add=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"auto_now" kullanımı : İnstanceın ilk oluşturulduğunda otomatik olarak çalıştırır fakat bu instanceın bir veya birden fazla valuesi her set edildiğinde bu field, otomatik olarak yine çalışacaktır.Bu field için bir value set etsek bile ignore edilecektir; ancak default değerler belirleyebiliriz.Sonrasında objectte her işlem yapıldığında[put,vs] yine değer atayacaktır.
+1-Modele gel ve şöyle yaz:
+"güncelleme_tarihi = models.DateTimeField(auto_now=True)".
+------------------------------------------------------------------------------------------------------------------------
+*****"upload_to" : Oluşturulan modellerin file uploadlarında upload edilecek olan dosyaların pathını belirtir.Nested pathlar yapabiliriz.
+1-"upload_to", uploadın yapılacağı dizini ve upload dosyasının adını ayarlar ve ardından "Storage.save()" metoduna iletilir.Nested dizinler oluşturulabilir.Modele şöyle yaz:
+"upload1 = models.ImageField(upload_to = 'uploads/')   #all files will be uploaded to MEDIA_ROOT/uploads
+upload2 = models.ImageField(upload_to = 'uploads/%Y/%m/%d/')   #file will be saved to MEDIA_ROOT/uploads/2015/01/30
+upload3 = models.ImageField(upload_to = 'uploads/home/media')    #all files will be uploaded to MEDIA_ROOT/uploads/home/media".
+2-"upload_to" ile dinamik path için:
+"def user_directory_path(instance, filename):
+    return f'user_{instance.user.id}/{filename}'    #file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+class MyModel(models.Model):
+    upload = models.ImageField(upload_to=user_directory_path)".
+------------------------------------------------------------------------------------------------------------------------
+*****"on_delete" kullanımı : İlişkilendirilmiş modellerde mevcut property silindiğinde oluşacak aksiyonu belirler."models.CASCADE" valuesi alırsa, silinen modelle ilişiği olan tüm objectleri siler.
+1-"CASCADE", ilişkisi olan object silindiğinde, ForeignKey ile bağlı olduğu modelin propertilerini de siler.Mesela "Gazeteci" ve "Makale" modelimiz için şöyle yaz:
+"class Makale(models.Model):    #artık bir 'Gazeteci' objecti silinirse; yazarı, silinen objectle ForeignKey ilişkisi olan tüm 'Makale' propertilerini de silinecek.
+    yazar = models.ForeignKey(Gazeteci,on_delete=models.CASCADE)".
+***"Model.delete()", ilişkili modellerde çağrılmaz ancak silinen tüm objectler için "pre_delete" ve "post_delete" singalleri gönderilir.
+2-"PROTECT", "IntegrityError"un subclassı olan "ProtectedError"u raise ederek ilişkili objectin silinmesini ENGELLER.
+3-"RESTRICT", "IntegrityError"un subclassı olan "ProtectedError"u raise ederek ilişkili objectin silinmesini ENGELLER.
+***"PROTECT" ile "RESTRICT" arasındaki fark şudur: "RESTRICT", objectin silinmesine tek şartta izin verir: Aynı operasyonda, ancak bir "CASCADE" ilişkisi aracılığıyla silinmekte olan farklı bir objecte de referans oluyorsa, referans olan objectin silinmesine izin verir.Şu örnepş incele:
+"class Artist(models.Model):
+    name = models.CharField(max_length=10)
+class Album(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+class Song(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)    #bir 'Song' tarafından referans verilen bir 'Album' silinmesi gerekse bile 'Artist' silinebilir çünkü 'Song',
+    album = models.ForeignKey(Album, on_delete=models.RESTRICT)".
+4-"SET_NULL", ForeignKeyi "null" olarak set eder fakat sadece "null", "True" ise işe yarayacaktır.Modele şöyle yaz:
+???
+5-"SET_DEFAULT", ForeignKeyi default valuesine ayarlar fakat ForeignKey için bir "default" ayarlanmak zorundadır.Modele şöyle yaz:
+???
+6-"SET()", ForeignKeyi bir valueye veya eğer callable bir objectse de bu objectin çağrıldıktan sonraki sonucuna ayarlar.Modele callable için şöyle yaz:
+"def get_sentinel_user():
+    return get_user_model().objects.get_or_create(username='deleted')[0]
+class MyModel(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET(get_sentinel_user),
+    )".
+7-"DO_NOTHİNG", herhangi bir aksiyon almaz.Fakat "IntegrityError"lara sebebiyet verebilmektedir.Modele şöyle yaz:
+???
+------------------------------------------------------------------------------------------------------------------------
+*****"related_name" kullanımı:
+1-İlişkilendirilmiş modellerde mevcut propertyde kullanılırsa, ilişkilendirilen modelin serializerında çağrılabilir ve bulunduğu propertyi referens alır.Mesela "Makale" classına şöyle ekle:
+"class Makale(models.Model):
+    yazar = models.ForeignKey(Gazeteci, related_name='makaleler1')".
+2-"Gazeteci" serializera şöyle ekle:
+"class GazeteciSerializer(serializers.ModelSerializer):
+    makaleler1 = MakaleSerializer(many=True, read_only=True)
+    class Meta:
+        model = Gazeteci
+        fields = '__all__'".
+3-Ayrıca oluşturulan "Gazeteci" instanceını "get" ile çekip "Gazeteci.makaleler1" diyerek, mevcut "Gazeteci"ye bağlı olan tüm "Makale" propertilerini çekeriz.
+------------------------------------------------------------------------------------------------------------------------
+**********META OPTIONS :
+*****"verbose_name" : Oluşturduğumuz modelin, insan tarafından okunabilen "name"ini belirten bir attributedur.
+1-Modelimizin içerisine gel ve şöyle ekle:
+"class Profil(models.Model):
+    class Meta:
+    verbose_name = 'Profil'".
+------------------------------------------------------------------------------------------------------------------------
+*****"verbose_name_plural" : Oluşturduğumuz modelin, insan tarafından okunabilen "name"inin plural halini belirten bir attributedur.
+1-Modelimizin içerisine gel ve şöyle ekle:
+"class Profil(models.Model):
+    class Meta:
+    verbose_name_plural = 'Profiller'".
+------------------------------------------------------------------------------------------------------------------------
+*****"ordey_by" : Viewlerin query setlerini belirli bir propertisini baz alarak sıralar.
+1-Mesela "app1/api/views" gel ve şöyle yaz:
+"class KitapListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Kitap.objects.all().order_by('-id')
+    serializer_class = KitapSerializer
+    pagination_class = SmallPagination".
+2-Böylece oluşan objectlerin "id"lerine göre BÜYÜKten küçüğe sıraladık[Çünkü '-id' şeklinde yazdık].
+------------------------------------------------------------------------------------------------------------------------
+*****"ordering" : Object listlerini alırken sıralama sağlar.Kullanılan "-" argümanı azalış; kullanılmazsa da artışı temsil eder.
+1-Ascending[artış] için şöyle yaz:
+"class Profil(models.Model):
+    name = models.CharField(malength = 120)
+    class Meta:
+    ordering = ['name']".
+2-Descending[azalış] için şöyle yaz:
+"class Profil(models.Model):
+    name = models.CharField(malength = 120)
+    class Meta:
+    ordering = ['-name']".
+3-Ascending ve Descending beraber kullanmak için şöyle yaz:
+"class Profil(models.Model):
+    name = models.CharField(malength = 120)
+    lastname = models.CharField(malength = 120)     #'name' için objectleri azalan olarak sıralayıp, ikinci order olarak da 'lastname' için artan olarak sıralar
+    class Meta:
+    ordering = ['-name', 'lastname']".
+4-Ayrıca expressionlar kullanarak da yazabiliriz:
+???
+------------------------------------------------------------------------------------------------------------------------
+*****"indexes" : Modelin üzerinde tanımlamak istediğimiz indexlerin listesidir.???
+1-Modele şöyle yaz:
+"class Customer(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+class Meta:
+    indexes = [
+        models.Index(fields=['last_name', 'first_name']),
+        models.Index(fields=['first_name'], name='first_name_idx'),
+    ]".
+------------------------------------------------------------------------------------------------------------------------
+*****"order_with_respect_to" : Bu objecti, verilen fielda göre sıralanabilir yapar.Genellikle ForeignKey fieldlar için kullanılır.
+1-Mesela bir "Answer", bir "Question" objectiyle ilişkiliyse ve bir "Question"ın birden fazla "Answerı" varsa[one-to-many] ve "Answer"ların sırası önemliyse, şöyle yaparız:
+"class Question(models.Model):
+    text = models.TextField()
+class Answer(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    class Meta:
+        order_with_respect_to = 'question'".
+------------------------------------------------------------------------------------------------------------------------
+*****"constraints" : Modelde tanımlamak istediğimiz kısıtlamaları belirtir.
+1-Modele gel ve şöyle yaz:
+"class Customer(models.Model):
+    age = models.IntegerField()     #'age' propertysi için koşul sağladık
+class Meta:
+    constraints = [
+        models.CheckConstraint(check=models.Q(age__gte=18), name='age_gte_18'),
+    ]".
+------------------------------------------------------------------------------------------------------------------------
+*****"abstract" : Eğer "True" alıyorsa, modeli abstract bir "base class" yapacaktır.
+1-Modele şöyle yaz:
+"class AbstractCar(models.Model):
+    manufacturer = models.ForeignKey('Manufacturer', on_delete=models.CASCADE)
+class Meta:
+    abstract = True
+class Manufacturer(models.Model):
+    pass
+class Car(AbstractCar):
+    pass".
+*****"proxy" : Eğer "True" ise, başka bir modeli subclasslayan bir model, proxy[vekil] model olarak kabul edilecektir.
+1-Modele şöyle yaz:
+???
+------------------------------------------------------------------------------------------------------------------------
+*****"label" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"label_lower" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"unique_together" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"index_together" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"permissions" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"default_permissions" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"required_db_features" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"required_db_vendor" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"select_on_save" : ???
+------------------------------------------------------------------------------------------------------------------------
+*****"ForeignKey(to, on_delete, **options)" : Modellerdeki "many to one" ilişkileri içindir.İki adet argümanı zorunludur: Modelin ilişkilendirildiği class ve "on_delete" propertisidir.
+1-Mesela bir "Gazeteci", birden fazla "Makale" modeline sahip oluyorsa şöyle yaz:
+"class Makale(models.Model):
+    yazar = models.ForeignKey(Gazeteci, on_delete=models.CASCADE)".
+2-Eğer ilişkilendireceğimiz modelin classı henüz oluşmamışsa, classın adını string halde şöyle yazabiliriz:
+"class Makale(models.Model):
+    yazar = models.ForeignKey('ClassName1', on_delete=models.CASCADE)
+class ClassName1(models.Model):
+    name = models.CharField(max_length=100)".
+***Recursive ilişki[kendini yineleyen] oluşturmak içinse "models.ForeignKey('self', on_delete=models.CASCADE)" trickini kullanabiliriz.
+------------------------------------------------------------------------------------------------------------------------
+*****"OneToOneField(to, on_delete, parent_link=False, **options)" kullanımı : Modellerdeki "one to one" ilişkileri içindir.
+1-Mesela bir "User", sadece bir adet "Profil"e sahip olabilir ve bir "Profil", sadece bir "User"a sahip oluyorsa şöyle yaz:
+"class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=CASCADE, related_name='profil')".
+------------------------------------------------------------------------------------------------------------------------
+*****"ManyToManyField(to, **options)" : Modellerdeki "many to many" ilişkileri içindir.Sadece tek argümanı zorunludur.
+1-???
+------------------------------------------------------------------------------------------------------------------------
+*****"StringRelatedField()" kullanımı:
+1-"ForeignKey" veya "OneToOneField" ile ilişkilendirilmiş modelin propertisin aldığı valueyi, ilişkilendirildiği modelin "__str__" metodunun valuesine dönüştürür.Mesela "Makale" classına şöyle "ForeignKey" ata:
+"class Makale(models.Model):
+yazar = models.ForeignKey(Gazeteci)".
+2-Serializer gel ve yeni propertiyi şöyle yaz:
+"class MakaleSerializer(serializers.ModelSerializer):
+    yazar = serializers.StringRelatedField()".
+3-Şimdi ise ilişkilendirilmiş olan "Gazeteci" modeline gel ve şöyle yap:
+"class Gazeteci(models.Model):
+isim = models.CharField(max_length=120)
+soyisim = models.CharField(max_length=120)
+def __str__(self):
+    return f'{self.isim} __ {self.soyisim}'".
+4-Böylece databasede foreign key olan columnlar, "__str__" metodunun valuesini alacaktır.Fakat object post ederken "yazar" propertisi hata verecektir!O yüzden post işlemi varsa, bu metodu kullanmaktan kaçın.
+------------------------------------------------------------------------------------------------------------------------
+*****"HyperlinkedRelatedField()" kullanımı:
+1-İlişkilendirilmiş modellerde mevcut propertye karşılık gelen valuelerin viewlerini, link olarak getirecektir.Mesela "Makale" classına şöyle ekle:
+"class Makale(models.Model):
+yazar = models.ForeignKey(Gazeteci, related_name='makaleler1')".
+2-"urls" gel ve şöyle ekle:
+"path('makaleler/<int:pk>', api_views.MakaleDetailAPIView.as_view(), name='makale-detay1')".
+2-Yukarıdan "name"i al ve  "Gazeteci" serializera şöyle ekle:
+"class GazeteciSerializer(serializers.ModelSerializer):
+makaleler1 = serializers.HyperlinkedRelatedField(
+    many=True,
+    read_only=True,
+    view_name='makale-detay1')
+class Meta:
+    model = Gazeteci
+    fields = '__all__'"
+3-"many=True" yaptık çünkü bir "Gazeteci"nin, birden fazla makalesi olacaktır ve query set olarak döndürecektir."read_only=True" yaptık çünkü yeni bir "Yazar" eklendiğinde "makaleler1" propertisini post etmemeliyiz.Şimdi "Gazeteci" viewine gel ve şöyle yap:
+"class GazeteciListCreateApiView(APIView):
+def get(self, request):
+    yazarlar = Gazeteci.objects.all()
+    serializer = GazeteciSerializer(yazarlar, many = True, context={'request':request})
+    return Response(serializer.data)".
+4-Artık "Gazeteci" objectleri get ettiğimizde, sahip oldukları makaleleri urller şeklinde göreceğiz.
+------------------------------------------------------------------------------------------------------------------------
+*****"__init__()" kullanımı:
+1-Objectin constructor metodudur.Mesela "Personel" classına şöyle yaz:
+"class Personel:
+    def __init__(self, isim1, soyisim1, yas1):
+        self.isim = isim1
+        self.soyisim = soyisim1        
+        self.info = f'{isim1} __ {soyisim1}'
+personel1 = Personel('Ahmed', 'Kavak', 33)
+print(personel1.info)".  //Output: Ahmed __ Kavak __ 33
+------------------------------------------------------------------------------------------------------------------------
+*****"__str__()" kullanımı:
+1-Mevcut classın veya bu classtan oluşan object instanceların text ifadelerini belirtir.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim,maas):
+        self.isim=isim
+        self.soyisim=soyisim
+        self.maas = maas
+    def eposta(self):
+        return f'{self.isim}.{self.soyisim}@hotmail'
+    def tam_isim(self):
+        return f'{self.isim} {self.soyisim}'
+    def __str__(self):
+        return f'{self.tam_isim()} - {self.eposta()}'
+personel_1 = Personel('Mehmet','Aydın',3000)
+print(personel_1)
+print(personel_1.__str__())
+print(str(per_1))".  //Output: Mehmet Aydın - Mehmet.Aydın@hotmail
+2-Üç farklı şekilde çağırabiliriz ve aynı çıktıyı verecektir.
+------------------------------------------------------------------------------------------------------------------------
+*****"__repr__()" kullanımı:
+1-Mevcut classı veya bu classtan oluşan objecti temsil eder.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim,maas):
+        self.isim=isim
+        self.soyisim=soyisim
+        self.maas = maas
+    def __repr__(self):
+        return f"Personel('{self.isim}', '{self.soyisim}', {self.maas})"
+personel_1 = Personel('Mehmet','Aydın',3000)
+print(repr(personel_1))
+print(personel_1.__repr__())".  //Output: Personel('Mehmet', 'Aydın', 3000)
+2-İki farklı şekilde çağırabiliriz ve aynı çıktıyı verecektir.
+------------------------------------------------------------------------------------------------------------------------
+*****"help()" kullanımı:
+1-Çağırdığı object ile ilgili yardımcı olacak bilgileri bize verir[İçerisine eklediğimiz commentler de dahil].En önemlisi de "Method resolution order"ı bize sunar ve böylece bir classın, hangi classlardan türediğini görebiliriz ve rootuna kadar gösterir.Mesela:
+"class Yazilimci(Personel):
+    def __init__(self, isim1, soyisim1):
+        self.isim = isim1
+        self.soyisim = soyisim1
+yazilimci_1 = Yazilimci('Mahmud', 'Paksoy')
+print(help(Yazilimci))
+print(help(yazilimci_1))".
+------------------------------------------------------------------------------------------------------------------------
+*****"__add__()" kullanımı:
+1-Birden fazla ifadeyi toplamak içindir.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim,maas):
+        self.isim=isim
+        self.soyisim=soyisim
+        self.maas = maas
+    def __add__(self, otherObject):
+        return self.maas + otherObject.maas
+personel_1 = Personel('Ali','Kavak',3000)
+personel_2 = Personel('Salih','Bedet',4000)
+print(mudur_1 + mudur_2)
+print(mudur_1.__add__(mudur_2))
+print(Mudur.__add__(mudur_1,mudur_2))".  //Output: 7000
+2-Üç farklı şekilde çağırabiliriz ve aynı çıktıyı verecektir.Başka türden değişkenlerde de kullanabiliriz.Mesela:
+"print(int.__add__(3,5))".
+------------------------------------------------------------------------------------------------------------------------
+*****"__len__()" kullanımı:
+1-İfadenin uzunluğunu belirtir.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim):
+        self.isim=isim
+        self.soyisim=soyisim
+    def fullname(self):
+        return f'{self.isim} {self.soyisim}'
+    def __len__(self):
+        return len(self.fullname)
+personel_1 = Personel('Ali','Kavak')
+print(personel_1.__len__())
+print(len(personel_1))".  //Output: 9
+2-Basit değişkenlerde de kullanabiliriz.Mesela:
+"string1 = 'Kemal'
+print(len(string1))
+print(string1.__len__())".  //Output: 5
+------------------------------------------------------------------------------------------------------------------------
+*****Classta metod kullanma:
+1-Metodları iki farklı şekilde çağırabiliriz.Classa şöyle yaz:
+"class Personel:
+    def __init__(self, isim1, soyisim1):
+        self.isim = isim1
+        self.soyisim = soyisim1
+    def full_name(self):
+        return f'{self.isim} __ {self.soyisim}'
+personel_1 = Personel('Ahmed', 'Kavak')
+print(personel_1.full_name())
+print(Personel.full_name(personel_1))".
+------------------------------------------------------------------------------------------------------------------------
+*****Class variable kullanımı:
+1-Classa şöyle yaz:
+"class Personel:
+    zam_orani1=1.05
+    def __init__(self, isim1, maas1):
+        self.isim = isim1
+        self.maas = maas1
+    def zam_uygula(self):
+        self.maas = int(self.maas*self.zam_orani1)
+personel_1 = Personel('Ahmed', 3500)
+personel_1.zam_uygula()
+print(personel_1.maas)".  //Output: 3675
+------------------------------------------------------------------------------------------------------------------------
+*****"__dict__" kullanımı:
+1-Mevcut classın namespacini yani barındırdığı tüm metod, property, vs görüntüler.Mesela:
+"class Personel:
+zam_orani = 1.05
+def __init__(self, isim1, soyisim1):
+    self.isim = isim1
+    self.soyisim = soyisim1
+def full_name(self):
+    return f'{self.isim} __ {self.soyisim}'
+personel_1 = Personel('Ahmed', 'Kavak')
+pprint(personel_1.__dict__)
+pprint(Personel.__dict__)".
+2-Outputlar arasında fark olacaktır.Bunu incele!
+------------------------------------------------------------------------------------------------------------------------
+*****Class ve bu classtan türetilen object instance farkları:
+1-Classa mesela şöyle yaz:
+"class Personel:
+zam_orani = 1.05
+def __init__(self, isim1, soyisim1):
+    self.isim = isim1
+    self.soyisim = soyisim1
+def full_name(self):
+    return f'{self.isim} __ {self.soyisim}'
+personel_1 = Personel('Ahmed', 'Kavak')
+pprint(personel_1.zam_orani)
+pprint(Personel.zam_orani)
+personel_1.zam_orani = 1.5
+Personel.zam_orani = 2
+pprint(personel_1.zam_orani)
+pprint(Personel.zam_orani)".
+2-Outputlar arasında fark olacaktır.Çünkü "personel_1" object instanceı oluşturulurken sadece "isim", "soyisim" propertileri kullanıldı ve "zam_orani" propertisini "Personel" classından çekiyordu.Fakat "personel_1" objectinin "zam_orani" propertisini çekip değer atadığımızda, bu objecte kendine ait bir "zam_orani" propertisi atamış olduk ve artık "Personel" classının "zam_orani" propertisini kullanmayacaktır.Bunu incele!
+------------------------------------------------------------------------------------------------------------------------
+***3 tip method vardır:
+1-Regular Method : [self] parametresi alarak bir classtan üretilen object instancelarını ilgilendiren ve etkileyen metodlardır.
+2-@classmethod : [cls] parametresi alarak direk bulunduğu classı ilgilendiren ve etkileyen metodlardır.
+3-@staticmethod : Ne classı ne de oluşan object instancelarını ilgilendirn metodlardır.
+------------------------------------------------------------------------------------------------------------------------
+*****"@classmethod" kullanımı:
+1-Direk classın kendisini etkiler; bu class ile oluşan object instancelerını etkilemez.Mesela:
+"class Personel:
+personel_sayisi = 0
+zam_orani = 1.05
+def __init__(self, isim1, soyisim1):
+    self.isim = isim1
+    self.soyisim = soyisim1    
+@classmethod
+def zam_oranini_belirle(cls, oran):
+    eski_oran = cls.zam_orani
+    cls.zam_orani = oran
+    print(f'Eski zam oranı: ({eski_oran}) güncellendi. Yeni zam oranı: {cls.zam_orani}')
+personel_1 = Personel('Ahmed', 'Kocak')
+personel_1.zam_oranini_belirle(2)
+Personel.zam_oranini_belirle(2.5)
+print(Personel.zam_orani)
+print(personel_1.zam_orani)".
+2-Artık 2 output da aynı olacaktır çünkü "cls" parametresi, classın kendisini referans alacaktır.Bu classtan oluşturulan object instancelar ise bu classın propertisini çekeceği için aynısı olacaktır.Çünkü yeni object instancelarına "zam_orani" propertisi tanımlanmadığı için, bu propertiyi classtan çekeceklerdir.
+------------------------------------------------------------------------------------------------------------------------
+*****"@staticmethod" kullanımı:
+1-Class ile veya object instancelarıyla ilişkili değilse kullanmalıyız.Mesela:
+"class Personel:
+    personel_sayisi = 0
+    zam_orani = 1.05
+    def __init__(self, isim1, soyisim1):
+        self.isim = isim1
+        self.soyisim = soyisim1
+    @staticmethod
+    def mesai_gunu(gun):
+        if gun.weekday() == 5 or gun.weekday() == 6:
+            return 'Hafta Sonu'
+        else:
+            return 'Hafta İçi'
+import datetime
+tarih = datetime.date(2020,3,27)
+print(tarih.day)
+print(Personel.mesai_gunu(tarih))"
+2-Aldığı parametreye göre bir değer döndürecek.Bulunduğu class ile veya object instancelarıyla hiçbir ilgisi yok; bu yüzden "static" metoddur.
+------------------------------------------------------------------------------------------------------------------------
+*****"@property" kullanımı:
+1-Mevcut class metodunu bir metod olarak değil de; classın bir "attribute"u olarak tanımlanmasını ve çağrılmasını sağlar.Genellikle "getter" için kullanılır.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim):
+        self.isim=isim
+        self.soyisim=soyisim
+    @property
+    def eposta(self):
+        return f'{self.isim.lower()}.{self.soyisim.lower()}@hotmail'
+    @property
+    def tam_isim(self):
+        return f'{self.isim} {self.soyisim}'
+personel_1 = Personel('Ali','Koçak',5000)
+print(personel_1.eposta, '+' , personel_1.tam_isim)".  //Output: haydar.güven@hotmail + Ali Güven
+------------------------------------------------------------------------------------------------------------------------
+*****"setter" kullanımı:
+1-Bir class attributeunu set etmek için kullanılır.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim):
+        self.isim=isim
+        self.soyisim=soyisim
+    @property    
+    def tam_isim(self):
+        return f'{self.isim} {self.soyisim}'
+    @tam_isim.setter
+    tam_isim(self, text1):
+        isim, soyisim = text1.split(' ')
+        self.isim = isim
+        self.soyisim = soyisim
+personel_1 = Personel('Ali','Dümen',5000)
+personel_1.tam_isim = 'Cenk Kocak'
+print(personel_1.tam_isim)". //Output: Cenk Kocak
+------------------------------------------------------------------------------------------------------------------------
+*****"deleter" kullanımı:
+1-Bir class attributeunu silmek için kullanılır.Mesela:
+"class Personel:
+    def __init__(self,isim,soyisim):
+        self.isim=isim
+        self.soyisim=soyisim
+    @property    
+    def tam_isim(self):
+        return f'{self.isim} {self.soyisim}'
+    @tam_isim.setter
+    tam_isim(self, text1):
+        isim, soyisim = text1.split(' ')
+        self.isim = isim
+        self.soyisim = soyisim
+    @tam_isim.deleter
+    def tam_isim(self):
+        print('Değişkenler Silindi!')
+        self.isim = None
+        self.soyisim = None
+personel_1 = Personel('Ali','Koçak',5000)
+del personel_1.tam_isim".
+------------------------------------------------------------------------------------------------------------------------
+*****"inheritance":
+1-Referans olarak üretildiği classın bütün properti ve metodlarını kendisinde barındırır.Bu properti ve metodlar, mevcut class içerisinde çağrılarak override edilebilirler.Ayrıca mevcut classa yeni property ve metodlar atanabilir.Mesela:
+"class Personel:
+    zam_orani = 1.05
+    def __init__(self, isim1, soyisim1):
+        self.isim = isim1
+        self.soyisim = soyisim1
+    def tam_isim(self):
+        return f'{self.isim} __ {self.soyisim}'
+class Yazilimci(Personel):
+pass
+yazilimci_1 = Yazilimci('Ahmed','Arslan')
+print(Yazilimci.zam_orani)
+print(yazilimci_1.tam_isim())
+print(Yazilimci.tam_isim(yazilimci_1))
+print(Personel.tam_isim(yazilimci_1))".
+2-"Yazilimci" classını "Personel" classından türettik ve böylece "Personel" classına ait tüm porperti ve metodlara sahip oldu.Fakat "Yazilimci" classında "zam_orani" propertisini override etmedik.Böylece "zam_orani" propertisini print edince, referansı olan "Personel" classının değerini çekti.Ayrıca "yazilimci_1" object instanceının "tam_isim" metodunu 3 farklı şekilde çektik.
+3-"zam_orani" propertisini şöyle override edebilirdik:
+"class Yazilimci(Personel):
+    zam_orani=3".
+------------------------------------------------------------------------------------------------------------------------
+*****"title()" kullanımı:
+1-String ifadenin içerisindeki kelimelerin baş harflerini büyük yapar.Mesela:
+"isim1 = 'ali mehmet efendi'
+print(isim1.title())".  //Output: Ali Mehmet Efendi
+------------------------------------------------------------------------------------------------------------------------
+*****"upper()" kullanımı:
+1-String ifadenin içerisindeki tüm karakterleri büyük harf yapar.Mesela:
+"isim1 = 'ali mehmet efendi'
+print(isim1.upper())".  //Output: ALI MEHMET EFENDI
+------------------------------------------------------------------------------------------------------------------------
+*****"lower()" kullanımı:
+1-String ifadenin içerisindeki tüm karakterleri küçük harf yapar.Mesela:
+"isim1 = 'ALi meHMet eFEndi'
+print(isim1.upper())".  //Output: ali mehmet efendi
+------------------------------------------------------------------------------------------------------------------------
+*****"super()" kullanımı:
+1-Bir sub class, bir parent classına erişmek istediğinde kullanılır.Mesela:
+"class Personel:
+    def __init__(self, isim1, soyisim1):
+        self.isim = isim1
+        self.soyisim = soyisim1
+class Yazilimci(Personel):
+    def __init__(self, isim1, soyisim1, progDili1):
+        super().__init__(isim1,soyisim1)        
+        self.progDili=progDili1
+        self.eposta = f'{self.isim}.{self.soyisim}@gmail.com'
+yazilimci_1 = Yazilimci('Ahmed', 'Koşan', 'Python')
+print(yazilimci_1.progDili)
+print(yazilimci_1.eposta)".
+2-Eğer "super" ile referans objectin "init"ini çekmeseydik, hata verecektir çünkü yeni "eposta" propertisi içerisinde belirtilen "isim" ve "soyisim" propertilerini, object instanceta bulamayacaktı.
+------------------------------------------------------------------------------------------------------------------------
+*****"append()" kullanımı:
+1-Array listlere yeni bir eleman ekler.Mesela:
+"fruits = []
+fruit1 = 'banana'
+fruit2 = 'apple'
+fruits.append(fruit1,fruit2)".
+------------------------------------------------------------------------------------------------------------------------
+*****"remove()" kullanımı:
+1-Array listlerden bir eleman çıkartır.Mesela:
+"fruit1 = 'banana'
+fruit2 = 'apple'
+fruits = [fruit1, fruit2]
+fruits.remove(fruit1)".
+------------------------------------------------------------------------------------------------------------------------
+*****"enumerate()" kullanımı:
+1-Array listinnin elemanlarını indexleyerek görüntüler.Mesela:
+"personeller = ['ahmed','mehmed','cenk']
+for i, personel in enumerate(personeller):
+    i+=1
+    print(i, personel)".
+------------------------------------------------------------------------------------------------------------------------
+*****"isinstance()" kullanımı:
+1-Belirtilen objectin, bir classtan türetilen bir object instance olup olmadığını belirten bool döndürür.Mesela:
+"class Personel:
+    def __init__(self, isim, soyisim):
+        self.isim=isim
+        self.soyisim=soyisim
+class Mudur(Personel):
+    def __init__(self,isim,soyisim):
+        super().__init__(isim,soyisim)
+mudur_1 = Mudur('Ali','Kocabey')
+print(isinstance(mudur_1,Mudur), isinstance(mudur_1,Personel))".  //Output: True, True
+2-İkisi de true dönecektir çünkü "mudur_1" object instanceını "Mudur" classından türettik ve "Mudur" classının parent classı da "Personel" classıdır buyüzden inheritance vardır.
+------------------------------------------------------------------------------------------------------------------------
+*****"issubclass()" kullanımı:
+1-Belirtilen classın, bir classın alt classı olup olmadığını belirten bool döndürür.Mesela:
+"class Personel:
+def __init__(self, isim, soyisim):
+    self.isim=isim
+    self.soyisim=soyisim
+class Mudur(Personel):
+def __init__(self,isim,soyisim):
+    super().__init__(isim,soyisim)
+print(issubclass(Mudur, Personel))".  //Output: True
+------------------------------------------------------------------------------------------------------------------------
+*****"PageNumberPagination" kullanımı:
+1-"app1/api" içerisine "pagination.py" dosyası oluştur ve şöyle yaz:
+"from rest_framework.pagination import PageNumberPagination
+class SmallPagination(PageNumberPagination):
+    page_size = 5
+    page_query_param = 'page'
+class LargePagination(PageNumberPagination):
+    page_size = 25
+    page_query_param = 'page'".
+2-Artık bu paginationları viewslerde istediğimiz gibi kullanabiliriz."app1/api/views" gelerek "from app1.api.pagination import SmallPagination,LargePagination" import ederek viewin içerisine şöyle ekle:
+"class KitapListCreateAPIView(generics.ListCreateAPIView):
+queryset = Kitap.objects.all()
+serializer_class = KitapSerializer
+pagination_class = LargePagination".
+------------------------------------------------------------------------------------------------------------------------
+*****"LimitOffsetPagination" kullanımı:
+1-"app1/api" içerisine "pagination.py" dosyası oluştur ve şöyle yaz:
+"from rest_framework.pagination import LimitOffsetPagination
+class SmallPagination(LimitOffsetPagination):
+    page_size = 5
+    page_query_param = 'page'
+class LargePagination(LimitOffsetPagination):
+    page_size = 25
+    page_query_param = 'page'".
+2-Artık bu paginationları viewslerde istediğimiz gibi kullanabiliriz."app1/api/views" gelerek "from app1.api.pagination import SmallPagination,LargePagination" import ederek viewin içerisine şöyle ekle:
+"class KitapListCreateAPIView(generics.ListCreateAPIView):
+queryset = Kitap.objects.all()
+serializer_class = KitapSerializer
+pagination_class = LargePagination".
+------------------------------------------------------------------------------------------------------------------------
+*****"MEDIA_URL" ve "MEDIA_ROOT" kullanımı:
+1-File yüklemek ve yüklenen fileları görüntülemek için gereklidir."project1/settings" gel ve şöyle ekle:
+"STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'uploads'"
+2-"project1/urls" gir ve şöyle ekle:
+"from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG == True:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)".
+------------------------------------------------------------------------------------------------------------------------
+*****"admin" : Oluşturduğumuz modelleri, admin panelinde erişmemizi sağlar.
+1-"admin.site.register" : Modellerimizi, admin paneline entegre eder.Kullanımı:
+"from app1.models import Profil, ProfilDurum    #Oluşturulan modeller
+admin.site.register(Profil)
+admin.site.register(ProfilDurum)".
+------------------------------------------------------------------------------------------------------------------------
+*****"first()" : Databasedeki QuerySet ile eşleşen ilk objecti döndürür.Eğer eşleşme olmazsa "None" döndürür.
+1-Mesela oluşturulan "User" object instanceları için:
+"from django.contrib.auth.models import User
+    User.objects.first()".
+------------------------------------------------------------------------------------------------------------------------
+*****"last()" : Databasedeki QuerySet ile eşleşen son objecti döndürür.Eğer eşleşme olmazsa "None" döndürür.
+1-Mesela oluşturulan "User" object instanceları için:
+"from django.contrib.auth.models import User
+    User.objects.last()".
+------------------------------------------------------------------------------------------------------------------------
+*****"count()" : Databasedeki QuerySet ile eşleşen object instanceların sayısını döndürür.
+1-Mesela oluşturulan "User" object instanceları için:
+"from django.contrib.auth.models import User
+    User.objects.count()".
+------------------------------------------------------------------------------------------------------------------------
+*****"filter(*args, **kwargs)" : Verilen parametrelerle EŞLEŞEN object instanceları içeren yeni bir QuerySet döndürür.
+1-Mesela oluşturulan "User" object instanceları için:
+"from django.contrib.auth.models import User
+user_check = User.objects.filter(username='admin')".
+------------------------------------------------------------------------------------------------------------------------
+*****"exclude(*args, **kwargs)" : Verilen parametrelerle EŞLEŞMEYEN object instanceları içeren yeni bir QuerySet döndürür.
+1-Mesela oluşturulan "User" object instanceları için:
+"from django.contrib.auth.models import User
+    user_check = User.objects.exclude(age=33)".
+------------------------------------------------------------------------------------------------------------------------
+*****"exists()" : Databasedeki QuerySet için herhangi bir sonuç içeriyorsa "True" döndürür.Eğer eşleşme olmazsa "False" döndürür.Genellikle filtrelenen objectler için kullanılır.
+1-Mesela oluşturulan "User" object instanceları için:
+"from django.contrib.auth.models import User
+    user_check = User.objects.filter(username='admin')
+    if user_check.exists():
+        print('This user already exists!')".
+------------------------------------------------------------------------------------------------------------------------
+*****"contains(obj)" : Eğer databasedeki QuerySet verilen, verilen parametreyi içeriyorsa "True"; içermiyorsa "False" döndürür.
+1-Mesela oluşturulan "User" object instanceları için:
+"???"
+------------------------------------------------------------------------------------------------------------------------
+*****"create(**kwargs)" : Bir object instance oluşturmak ve hepsini tek adımda kaydetmek için kullanılır.Genellikle singallarda kullanılır.
+1-"User" instanceı her oluştuğunda, "Profil" instanceı da oluşturmak için:
+"@receiver(post_save, sender=User)
+    def create_profil(sender, instance, created, **kwargs):        
+        if created:
+            Profil.objects.create(user1=instance)".
+------------------------------------------------------------------------------------------------------------------------
+*****"@receiver(sender, **kwargs)" : Signaller için bir callback fonksiyonu tanımlayan dekoratördür.Signalin alıcısını belirtir.
+1-"User" modeli için kullanımı:
+"@receiver(post_save, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"sender" : Signal vericiyi belirtir.Böylece signal receiver, kimden alacağını bilir.
+1-"User" modeli için kullanımı:
+"@receiver(post_save, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"post_save" : Signallerin, bir modelin "save()" edildikten sonra çağrılmasını sağlar.
+1-"User" modeli için kullanımı:
+"@receiver(post_save, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"pre_save" : Signallerin, bir modelin "save()" edilmeden önce çağrılmasını sağlar.
+1-"User" modeli için kullanımı:
+"@receiver(pre_save, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"pre_delete" : Signallerin, bir modelin veya bir QuerySetin "delete()" edilmeden önce çağrılmasını sağlar.
+1-"User" modeli için kullanımı:
+"@receiver(pre_delete, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"post_delete" : Signallerin, bir modelin veya bir QuerySetin "delete()" edildikten sonra çağrılmasını sağlar.
+1-"User" modeli için kullanımı:
+"@receiver(post_delete, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"m2m_changed" : Signallerin, bir modeldeki "ManyToManyField" değiştirildiğinde çağrılmasını sağlar.
+1-"User" modeli için kullanımı:
+"@receiver(m2m_changed, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"request_started" : Signallerin, Django'nun bir HTTP requesti başlattığında çağrılmasını sağlar.
+"User" modeli için kullanımı:
+"@receiver(request_started, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"request_finished" : Signallerin, Django'nun bir HTTP requestini bitirdiğinde çağrılmasını sağlar.
+"User" modeli için kullanımı:
+"@receiver(request_finished, sender=User)
+def create_profil(sender, instance, created, **kwargs):
+    if created:
+        print(instance.username, '___Created : ', created)".
+------------------------------------------------------------------------------------------------------------------------
+*****"ready()" : Çalıştırılması için registrynin dolmasını bekler. Genellikle signallerin kaydedilmesi gibi initializing işlemler için kullanılır ve override edilebilir.
+1-"app1.apps" gir ve şöyle ekle:
+"def ready(self):
+import profiller.signals"
+------------------------------------------------------------------------------------------------------------------------
+*****Modelde veri tipleri:
+****String:
+**Kısa string değerler için mesela "class Makale(models.Model)" classı içerisine:
+"yazar = models.CharField(max_length=150)".
+**Uzun string değerler için mesela "class Makale(models.Model)" classı içerisine:
+"metin = models.TextField()".
+***"TextField()" uzun textler için, "CharField()" ise kısa textler için kullanılır.Mesela isim-soy isim, doğum yeri, vs "CharField" şeklindedir.Paragraflar, kompozisyonlar, vs ise "TextField" şeklindedir.
+****Integer:
+**Sadece pozitif değerler için mesela "class Makale(models.Model)" classı içerisine:
+"degerlendirme = models.PositiveIntegerField(
+    validators=[MinValueValidator(1),MaxValueValidator(5)])".
+****Date:
+**Kesin bir date belirtmek için mesela "class Makale(models.Model)" classı içerisine:
+"yayımlanma_tarihi = models.DateField()".
+**Object yaratıldığı anda otomatik eklenen ve bir daha değişmeyecek olan date belirtmek için:
+1-Mesela "class Makale(models.Model)" classı içerisine şöyle yaz:
+"yaratilma_tarihi = models.DateTimeField(auto_now_add=True)".
+2-Serialize ederken 'read_only=True' parametresiyle şöyle kullan:
+"yaratilma_tarihi = serializers.DateTimeField(read_only=True)"
+3-Http requestleri için "def update(self, instance, validated_data)" metodunda kullanma! Çünkü zaten model içerisinde kendisi halledecektir.
+**Yaratılan objectle alakalı her yeni işlem yapıldığında, o yapılan yeni işlemin tarihini alan bir date belirtmek için:
+1-Mesela "class Makale(models.Model)" classı içerisine şöyle yaz:
+"güncelleme_tarihi = models.DateTimeField(auto_now=True)".
+2-Serialize ederken 'read_only=True' parametresiyle şöyle kullan:
+"güncelleme_tarihi = serializers.DateTimeField(read_only=True)".
+3-Http requestleri için "def update(self, instance, validated_data)" metodunda kullanma! Çünkü zaten model içerisinde kendisi halledecektir.
+****Booleans:
+**Boolean bir durum belirtmek için mesela "class Makale(models.Model)" classı içerisine:
+"aktif = models.BooleanField()"
+**Boolean duruma ise default bir atamayı şöyle yaparız[böylece object oluşturulduğu an bu değeri beraberinde alır]:
+"aktif = models.BooleanField(default=True)"
+------------------------------------------------------------------------------------------------------------------------
+*****İmports:
+-from rest_framework import serializers
+-from datetime import datetime
+-from datetime import date
+-from django.utils.timesince import timesince
+-from django.urls import path
+-from rest_framework import status
+-from rest_framework.response import Response
+-from rest_framework.views import APIView
+-from rest_framework.generics import get_object_or_404
+------------------------------------------------------------------------------------------------------------------------
+*****"Shell Plus" kullanımı:
+1-Öncesinde modelleri oluştur ve serialize et.Mesela elimizde "Makale" classı var."admin/" paneline gir ve bu class ile yeni bir object oluştur.Artık databaseimizde yeni bir objectimiz var.
+2-"project1/" dizinine gel ve "python manage.py shell_plus" yaz.
+3-Shellde "from app1.models import Makale" yazarak "Makale" modelimizi import et.
+4-Shellde "from app1.api.serializers import MakaleSerializer" yazarak "Makale" modeli için oluşturduğumuz serializeı import et.
+5-Artık objecti çekebiliriz.Shellde şöyle bir variable tanımla: "instance1 = Makale.objects.first()".
+6-"instance1" değişkenine, oluşturduğumuz ilk "Makale" objectini atadık.Bu objectin propertilerini şöyle görüntüleriz: "instance1.yazar", "instance1.baslik", "instance1.aciklama",vs..
+7-Eğer bu "instance1" objectini JSONa benzer formatta görüntüleyeceksek, "serializer1 = MakaleSerializer(instance1)" yaz.Artık bu objecti serialize ettik ve değişkene atadık.
+8-"serializer1.data" yazarsak, objectin tüm propertilerini JSONa benzer formatta görüntüleriz.
+9-Eğer JSONa benzer formattaki görüntüyü daha güzelleştirmek istersek, "from pprint import pprint" yaz.
+10-"pprint(serializer1.data)" yazarsak objectin propertileri, çok daha anlaşılır görüntülenecektir.
+11-Eğer objecti JSON'a çevireceksek de "from rest_framework.renderers import JSONRenderer" yaz.
+12-Mevcut objecti, bir değişkene şöyle ata: "data1 = JSONRenderer().render(serializer1.data)".
+13-Artık "pprint(data1)" yazarsak, objecti bayta çevirdiğini görürüz.Artık bu object, elimizde JSON formatındadır."type(data1)" yazarak da test edebilirsiniz türünü.
+14-Json formatındaki datayı databasee artık kaydedebiliriz.Bunun için önce "import io" ve "from rest_framework.parsers import JSONParser" yaz.
+15-Önce bizim "byte" formatındaki datamızı "stream1 = io.BytesIO(data1)" yazarak "stream"e çeviririz.
+16-Şimdi "data1 = JSONParser().parse(stream1)" yazarak artık datamızı, pythonın okuyabileceği bir formata dönüştürdük.
+17-"serializer1 = MakaleSerializer(data=data1)" yazarak datayı serialize ederiz.Görüntülersek de artık data, açıklamalarıyla beraber görüntülenecektir.
+18-Artık serializeımıza "serializer1.is_valid()" yazarak kontrol sağlayabiliriz.
+19-Hatta "serializer1.validated_data" yazarak da objectin datalarını bir python veri datası kümesi olarak görüntüleriz.
+------------------------------------------------------------------------------------------------------------------------
+***Eğer "could not resolved" gibi import hataları alırsan:
+1-Projenin klasörüne gir.
+2-"Venv" klasörüne gir.
+3-"Scripts" klasörüne gir.
+4-"python.exe" sağ tıkla ve full pathı kopyala.
+5-VScode ile projeyi aç ve "CTRL + SHIFT + P" ile "python interpreter" tıkla.
+6-"add path" tıkla ve az önceki patha, "python.exe" dosyasını da dahil ederek ekle.Mesela: "C:\Users\abico\Desktop\Projects\django3\myenv\Scripts\python.exe".

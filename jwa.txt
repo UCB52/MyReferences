@@ -1,0 +1,330 @@
+*****Manual Kurulum:
+1-Github "angular-university" git ve search repo kısmında "angular-pwa-course" aratıp bul ve indirip, vscode ile aç.
+2-Terminalde "npm install" yazarak projenin dependencleri falan yükle.Sonra da "npm i --legacy-peer-deps @angular/cli"
+3-Terminale gelerek "npm install --save @angular/service-worker" yaz.Eğer dependency hatası verirse, "npm install --legacy-peer-deps @angular/service-worker" yaz.
+4-"angular.json" gir ve "configurations:{}" objecti içerisine "'serviceWorker':true, 'ngswConfigPath':'src/ngsw-config.json'" propertilerini ekle.
+5-"app.module" gel ve "import {ServiceWorkerModule} from '@angular/service-worker'" import ederek; "imports[]" arrayına da şunu ekle: "ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })"
+6-Terminale gel ve "ng build --prod" yaz.Eğer "ngcc" hatası verirse, "node_modules/@angular/compiler-cli/ngcc/__ngcc_lock_file__" pathındaki bu dosyayı silerek tekrar dene.
+7-Terminale gel ve "npm install -g http-server" yaz.
+8-Terminale şöyle yaz: "http-server -p 8080 -c-1 dist/<project-name>".Böylece "dist"teki dosyaları servis eden serverı çalıştıracak.Arkadan da dataları çekmek için aynı anda "npm run server" yazarak backend serverı çalıştır.
+9-Bundan sonra eğer projede bir değişiklik, yenilik, ekleme veya çıkarma yaptığımız zaman önce tekrar "ng build --prod" yazmamız gerek.Çünkü distteki filelar, kullanıcı cacheinde depolandığı için onları update etmemiz gerek.Ardından frontend ve backend serverları "http-server -p 8080 -c-1 dist/<project-name>" ve "npm run server" ile çalıştırmalıyız.
+***Üsttekini yapmak yerine, build edip frontenddeki serverı tek kodla halledebiliriz : "npm run start:prod".
+****"npm run server": Serveri run etmek içindir.
+****"npm start": Anguları run etmek içindir.
+****"npm run start:prod": Projede değişiklik sonrası build edip ardından frontend serverı çalıştırmak içindir.
+****"npm install --legacy-peer-deps --save @angular/cli": Projemizi direkt olarak PWA applikasyonuna çevirecektir.
+----------------------------------------------------------------------------------------------------------------------------
+*****Otomatik Kurulum:
+1-"npm install -g http-server" yazarak http-server librarysini kur.
+2-"ng new app1" şeklinde angular applikasyonunu kur.
+3-Proje dizininde "ng add @angular/pwa --project app1" yazarak pwayı, projeye entegre et.
+4-Artık build ettikten sonra[ng build --prod] run edebiliriz[http-server -p 8080 -c-1 dist/app1] fakat bunun kısayolunu kullan."package.json" içerisindeki "scripts{}" içerisine şunu ekle:
+"'start-pwa': 'ng build --prod && http-server -p 8080 -c-1 dist/app1'".
+5-Artık projede her değişiklik yaptığımızda, proje dizinine "npm run start-pwa" yazarak hem yapılan değişikliği "dist" içerisine build ederiz hem de serverı run ederiz.
+----------------------------------------------------------------------------------------------------------------------------
+*****PWA ve App Shell Kurulum:
+1-"ng new app1" şeklinde angular applikasyonunu kur.
+2-"npm install -g http-server" yazarak http-server librarysini kur.
+3-Proje dizininde "ng add @angular/pwa --project app1" yazarak pwayı, projeye entegre et.
+4-"package.json" içerisindeki "scripts{}" içerisine şunu ekle: "'start-pwa': 'ng build --prod && http-server -p 8080 -c-1 dist/app1'".Terminale de "npm run start-pwa" yazarak app1'i önce build edip sonra da servis ederiz.
+5-
+6-
+7-
+8-
+9-
+10-
+----------------------------------------------------------------------------------------------------------------------------
+*****Yeni versiyonlarda oluşan bugları önleyebilmek için, Service Workerı acilen kapatmamız lazım.Böylece kullanıcı, requestleri Service Workera değil de yine servera göndererek responseları alacak ve applikasyonumuz, normal web applikasyonu gibi davranacak.
+1-"angular.json" gir ve içerisindeki "serviceWorker" propertisini şöyle düzenle: "'serviceWorker':true".
+-----------------------------------------------------------------------------------------------------------------------------
+*****Projede yapılan updateleri, Service Worker bizim için yönetir."Default" davranışı şudur: değişiklikten sonra biz projeyi tekrar build ederiz.Kullanıcı mevcut sayfayı yenilediğinde Service Worker triggerlanır ve değişen dataları dist folderına günceller fakat kullanıcının ekranında cahceinde kayıtlı hali hala duruyordur.Kullanıcı tekrar sayfayı yenilediğinde güncellenmiş olan halini alır.Fakat farklı davranışlar da mevcuttur:
+1-Projemizdeki main application componente[app.component.ts] gel ve contructor içerisine "private swUpdate:SwUpdate" ekle.Ardından "ngOnInıt" içerisinde şöyle farklı davranışlar atayabiliriz:
+-"versionUpdates": Bir observable objectidir.Applikasyonun yeni bir versiyonu mevcut olduğunda emit edilir.Şöyle yaz:
+"constructor(private updateService: SwUpdate, private pushService: SwPush) {}
+ngOnInit(): void {
+  if (!this.updateService.isEnabled) {
+    console.log('AppComponent.ngOnInit: Service Worker is not enabled');
+    return;}
+  console.log('AppComponent.ngOnInit: Service Worker is enabled');
+  this.#handleUpdates();
+}
+unsubscribe() {
+  this.pushService.unsubscribe().then(() => {
+    console.log('Unsubscribed');
+  });
+}
+#handleUpdates() {
+  this.updateService.versionUpdates.subscribe((event: VersionEvent) => {
+    console.log(event);
+    alert(event.type);
+    if (
+      event.type === 'VERSION_READY' &&
+      confirm(
+        `New version ${
+          (event as VersionReadyEvent).latestVersion.hash
+        } available. Load New Version?`)
+    ) {
+      window.location.reload()}
+  });
+  this.updateService.unrecoverable.subscribe(
+    (event: UnrecoverableStateEvent) => {
+      alert('Error reason : ' + event.reason)}
+  )}".
+-"checkForUpdate()": Bir promisedir.Server tarafında "ngsw.json" dosyamızın yeni bir versiyonu olup olmadığını manuel olarak görmek için bir API güncelleme kontrolü yapar.Bu method, applikasyonumuz eğer uzun süredir açıksa, saatlerdir çalışıyorsa ve serverdaki updatein kontrolü için kullanıcının, sayfayı refresh etmesini beklemek istemiyorsak kullanışlıdır.
+-"activated": Bir observable objectidir.Applikasyonun yeni bir versiyonu aktif edildiğinde emit edilir.
+-"activateUpdate()": Bir promisedir.
+----------------------------------------------------------------------------------------------------------------------------
+*****Projedeki dinamik dataları da cachede depolamak için:
+****"ngsw-config.json" dosyasına eklemeler yapmamız lazım fakat önce ekleyeceğimiz propertileri tanı:
+1-"dataGroups": Bu alan içerisine farklı api endpointleri tanımlayabiliriz.Eklenen endpointlerin her biri için ayrı ayrı caching configler tanımlayabiliriz.
+1-"name": Cache edilecek endpointe bizim tarafımızdan bir isim verilir.
+2-"urls": Belirlenecek olan caching configlerinin hangi url endpointlere uygulanacağını belirtir.
+3-"cacheConfig": Belirtilen urlere uygulanacak olan caching configleri içerir.
+3-"strategy": Caching stratejisini belirtir.Alabileceği valueler:
+-"performance": Önce cache başvurur ve en son networke geçer.
+-"freshness" : Önce networke başvurur ve datayı networkten almaya çalışır; sadece eğer networkten başarısız bir dönüş alırsa cachee başvurur.Başarısız dönüş için "timeout" seçmek şarttır.
+4-"timeout" : Networke datayı çekmek için başvurduğunda bekleyeceği max süresi belirtir.Eğer response, bu süreyi geçerse başarısız sayılır.Yani kullanıcı, servere request yapacak ve response için bekleyeceği süreyi belirtir.
+4-"maxAge": Networkten yeni bir value fetch etmeden Service Worker ile cachede tutulan datanın, ne kadar süre valid ve served olarak tutulacağını belirtir.
+5-"maxSize": Cache edilecek datanın maksimum sizeını belirtir.
+****Önce cacheye başvuran dinamik data caching örneği:
+1-"ngsw-config" gel ve içerisine şöyle ekle:
+",
+'dataGroups':[
+  {
+    'name' : 'lessons-api',
+    'urls' : [
+      '/api/lessons'
+    ],
+    'cacheConfig' : {
+      'strategy': 'performance',
+      'maxAge': '1d',
+      'maxSize': 100
+    }
+  }
+]".
+2-Böylece "/api/lessons" endpointindeki dataları da fetch ederek cachee depoladık ve kullanıcı, bir request ettiğinde önce bu cachedeki dataya başvuracak.
+****Önce networke[servera] başvuran dinamik data caching örneği:
+1-"ngsw-config" gel ve içerisine şöyle ekle:
+",
+'dataGroups':[
+  {
+    'name' : 'lessons-api',
+    'urls' : [
+      '/api/lessons'
+    ],
+    'cacheConfig' : {
+      'strategy': 'freshness',
+      'timeout': '10s',
+      'maxAge': '1d',
+      'maxSize': 100
+    }
+  }
+]".
+2-Böylece "/api/lessons" endpointindeki dataları da fetch ederek cachee depoladık ve kullanıcı, bir request ettiğinde önce networke yani servera başvuracak.Eğer 10 saniye içerisinde serverdan datalar gelmezse, cachelenen datayı çekecek.
+-----------------------------------------------------------------------------------------------------------------------------
+*****"isEnabled" : Browserın Service Workerı destekleyip desteklemediğini, Service Workerın ayakta ve çalışıyor olduğunu belirtmek için kullanılır.Böylece olası crashleri önleyecektir ve eğer "False" dönerse, içerisindeki Service Worker için yazdığımız kodları çalıştırmaz.Mesela:
+"constructor(private swUpdate:SwUpdate){}
+ngOnInit() {
+  if(this.swUpdate.isEnabled){
+    console.log('AppComponent.ngOnInit: Service Worker is enabled')
+    if(this.swUpdate.versionUpdates){
+      this.swUpdate.versionUpdates.subscribe(() => {
+        if(confirm('New version available. Load New Version?')) {
+            window.location.reload()}
+    })
+    }}
+  else{
+    console.log('AppComponent.ngOnInit: Service Worker is NOT enabled')}
+}".
+----------------------------------------------------------------------------------------------------------------------------
+*****"@HostBinding()" : Mevcut componente classlar veya stiller atamamızı sağlar.
+1-Componente tek lineda multiple class ataması:
+"@HostBinding('class') hostClass = 'bg-blue-900 p-4 block';".
+2-Componente fonksiyon olarak multiple class ataması:
+"@HostBinding('class') get hostClass(){
+  return 'bg-blue-900 p-4 block';}".
+----------------------------------------------------------------------------------------------------------------------------
+*****"@apply" : Mevcut componente classlar veya stiller atamamızı sağlar.
+1-Componentin cssine gir ve şöyle yaz:
+":host{
+  @apply bg-blue-900;
+  @apply p-4;
+  @apply block;}".
+-----------------------------------------------------------------------------------------------------------------------------
+*****Applikasyonumuzu "One-Click" installable yapabilmek için:
+1-Oluşturulan "manifest" dosyası, otomatik olarak zaten "angular.json" içerisindeki "assets" içerisine aktarıldı.Ayrıca "index.html" içerisine de import edildi.Böylece artık kullanıcı telefondan girerken, applikasyon olarak cacheli dosyayı Service Worker sayesinde applikasyon olarak yükleyebilecek.Applikasyonun iconu, bizim "favicon"umuz olacak.Tıklandığında ise adress bar kısmı olmadan çalışacaktır.
+***Fakat kullanıcı için bir "add to Homescreen" butonunu javascript ile ekleyemeyiz!Browser buna kara verir[site yoğunluğu, trafiği, vs].
+-------------------------------------------------------------------------------------------------------------------------------
+*****Universal için:
+1-Terminale "ng add @nguniversal/express-engine" yaz ve yüklendikten sonra "npm install" yaz.Artık "npm run start-pwa" ile projeyi run edebiliriz.Projede her değişiklikte "npm run prerender" yaparız.
+2-
+3-
+*****App-shell için:
+1-Terminale "ng generate app-shell" yaz ve yüklendikten sonra "npm install" yaz.
+2-"ng run app1:app-shell:production" yazarak da değişen dosyaları build ederiz ve artık "npm run start-pwa" ile projeyi run edebiliriz.Projede her değişiklikten sonra "ng run app1:app-shell:production" yazarak build ederiz.
+-------------------------------------------------------------------------------------------------------------------------------
+*****Tailwind CSS için:
+1-Terminale önce "npm install -D tailwindcss postcss autoprefixer" ve sonra da "npx tailwindcss init" yaz.
+2-Terminale "npm install" yaz.
+3-Oluşturulan "tailwind.config.js" dosyasına gir ve "content:[]" arrayına şunu ekle: "'./src/**/*.{html,ts}'".
+4-Şimdi global olan "styles.css" gir ve şunları ekle: "@tailwind base;@tailwind components;@tailwind utilities;".Artık applikasyonu run edebiliriz.
+----------------------------------------------------------------------------------------------------------------------------------
+*****Tailwindde 24lük columnlar için config:
+"gridTemplateColumns: {
+  '12': 'repeat(12, minmax(0, 1fr))',
+  '24': 'repeat(24, minmax(0, 1fr))'
+},
+gridColumn: {
+  'span-12': 'span 12 / span 12',
+  'span-13': 'span 13 / span 13',
+  'span-14': 'span 14 / span 14',
+  'span-15': 'span 15 / span 15',
+  'span-16': 'span 16 / span 16',
+  'span-17': 'span 17 / span 17',
+  'span-18': 'span 18 / span 18',
+  'span-19': 'span 19 / span 19',
+  'span-20': 'span 20 / span 20',
+  'span-21': 'span 21 / span 21',
+  'span-22': 'span 22 / span 22',
+  'span-23': 'span 23 / span 23',
+  'span-24': 'span 24 / span 24'
+},
+gridColumnStart: {
+  '12': '12',
+  '13': '13',
+  '14': '14',
+  '15': '15',
+  '16': '16',
+  '17': '17',
+  '18': '18',
+  '19': '19',
+  '20': '20',
+  '21': '21',
+  '22': '22',
+  '23': '23',
+  '24': '24',
+  '25': '25'
+},
+gridColumnEnd: {
+  '12': '12',
+  '13': '13',
+  '14': '14',
+  '15': '15',
+  '16': '16',
+  '17': '17',
+  '18': '18',
+  '19': '19',
+  '20': '20',
+  '21': '21',
+  '22': '22',
+  '23': '23',
+  '24': '24',
+  '25': '25'
+}".
+---------------------------------------------------------------------------------------------------------------
+*****Tailwind classes:
+***Responsives:
+-sm[640+]
+-md[768+]
+-lg[1024+]
+-xl[1280+]
+-2xl[1536+]
+***container[100%]
+***display:
+-block
+-inline-block
+-inline
+-flex
+-inline-flex
+-table
+-inline-table
+-grid
+-inline-grid
+-hidden
+***text-left
+*text-center
+*text-right
+*text-justify
+*
+***Visibilities:
+-visible
+-invisible
+***Positions:
+-static
+-fixed
+-absolute
+-relative
+-sticky
+***Overflows:
+-overflow-auto
+-overflow-hidden
+-overflow-clip
+-overflow-visible
+-overflow-scroll
+-overflow-x-auto
+-overflow-y-auto
+-overflow-x-hidden
+-overflow-y-hidden
+-overflow-x-clip
+-overflow-y-clip
+-overflow-x-visible
+-overflow-y-visible
+-overflow-x-scroll
+-overflow-y-scroll
+***Z-Indexes:
+-z-0
+-z-10
+-z-20
+-z-30
+-z-40
+-z-50
+-z-auto
+***Aspects:
+-aspect-auto[auto]
+-aspect-square[1/1]
+-aspect-video[16/9]
+***Floats:
+-float-none
+-float-left
+-float-right
+***Clears:
+-clear-none
+-clear-left
+-clear-right
+-clear-both
+***Object Fits:
+-object-contain
+-object-cover
+-object-fill
+-object-none
+-object-scale-down
+***Object Position:
+-object-bottom
+-object-center
+-object-left
+-object-left-bottom
+-object-left-top
+-object-right
+-object-right-bottom
+-object-right-top
+-object-top
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*

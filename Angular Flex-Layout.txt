@@ -1,0 +1,135 @@
+*****Directives for Flexbox Containers:
+****fxLayout = Bir flexbox container içerisindeki childların flow yönüdür.Flexbox containera uygulanır.2 adet değer alır[direction,wrap].Ekstra bir 3. value olarak "inline" da ekleyebiliriz.Alabileceği valueler:
+**Direction:
+-row [default]
+-column
+-row-reverse
+-column-reverse
+**Wrap:
+-wrap
+-nowrap
+****fxLayoutGap = Bir flexbox container içerisindeki childlar arasındaki gapi tanımlar.Flexbox containera uygulanır.Alabileceği değerlerin birimleri:
+-%
+-px
+-vw
+-vh
+****fxLayoutAlign = Bir flexbox container içerisindeki childların vertical veya horizantal olarak hizalanmasıdır.Flexbox containera uygulanır.2 adet değeri[main-axis,cross-axis] aynı anda mesela şöyle alabilir: "fxLayoutAlign='center space-between'".2 adet axisin alabileceği valueler:
+**main-axis[vertical]:
+-start
+-center
+-end
+-space-around
+-space-between
+-space-evenly
+**cross-axis[horizontal]:
+-start
+-center
+-end
+-stretch
+-space-between
+-space-around
+-baseline
+****fxFlex = Flexbox iteminin, flex lengthini belirtir.3 farklı formatta kullanılır.Mesela "flex-grow,flex-shrink,flex-basis" formatı: "<div fxFlex='1 2 35px'></div>".Mesela value formatı: 
+"<div fxFlex='25%'></div>".Attribute formatında eğer sadece "fxFlex" yazarsak, bulunduğu flexboxı taşırmadan dolduracaktır.Eğer tüm itemlere yazarsak da flexboxa eşit olarak dağılırlar:
+"<div class='child-2' fxFlex>Two</div>".Aslında attribute gösteriminin değeri "1 1 0" şeklindedir.Alabileceği valueler:
+-px
+-%
+-vw
+-vh
+-<grow>, <shrink>, <basis>[default:0 1 auto]
+****fxFlexOrder = Flexbox iteminin sırasını belirtir.Mesela: "<div fxFlexOrder='2'></div>".
+****fxFlexOffset = Flexbox itemine, itemin parentını baz alarak offset alanı verir.Böylece itemin yanındaki elemana göre kendisine kaydırma yapar.Mesela: "<div fxFlexOffset='20px'></div>".Alabileceği birimler:
+-%
+-px
+-vw
+-vh
+****fxFlexAlign = Aynı "fxLayoutAlign" gibi çalışır fakat container yerine flex iteme uygulanır.Mesela: 
+"<div fxFlexAlign='center'></div>".Alabileceği değerler:
+-start
+-baseline
+-center
+-end
+****fxFlexFill = Flex itemin, container içerisindeki width ve height değerlerini max yapar[container taşmayacak şekilde].Mesela: "<div fxFlexFill></div>".
+---------------------------------------------------------------------------------------------------------------
+*****Directives for Grid Containers:
+****gdAlignColumns = Main-axis ve cross-axis olmak üzere 2 adet value alır.Bunları alabileceği valueler:
+**main-axis[vertical]:
+-start
+-center
+-end
+-space-around
+-space-between
+-space-evenly
+-stretch
+**cross-axis[horizontal]:
+-start
+-center
+-end
+-stretch
+****gdAlignRows = Main-axis ve cross-axis olmak üzere 2 adet value alır.Bunları alabileceği valueler:
+**main-axis[vertical]:
+-start
+-center
+-end
+-space-around
+-space-between
+-space-evenly
+-stretch
+**cross-axis[horizontal]:
+-start
+-center
+-end
+-stretch
+****gdAreas = İçerisine yazacağımız itemlerin idlerini "|" ile ayırırız.Grid alanının itemlerini belirleriz.
+"|" ifadesinin arasında kullanılan item sayısı, her bölmede eşit sayıda olmalıdır!Grid containerına yazılır.
+****gdAuto = Alabileceği valueler:
+-row
+-column
+-dense
+-row dense
+-column dense
+****gdColumns = Grid yapısındaki oluşturulan columnların sizeını belirtir.Kaç adet column varsa, o miktarda belirlenmelidir.Grid containerına yazılır.
+****gdRows = Grid yapısındaki oluşturulan rowların sizeını belirtir.Kaç adet row varsa, o miktarda belirlenmelidir.Eğer mevcut row sayısından fazla yazılırsa, containerı daha da uzatacaktır.Grid containerına yazılır.
+****gdGap = Inline gridin gapini belirtir.2 değer alır[row,column].Alabileceği değerlerin birimleri:
+-%
+-px
+-vw
+-vh
+***Genel bir Grid örneği:
+"<div style='background-color: gray;'
+gdAreas='header header header | side side content | footer footer footer'
+gdGap='16px'
+gdRows='25px 50px auto' gdColumns='25px 150px 50px'
+gdAreas.xs='header | side | content | footer'
+gdRows.xs='25px 50px auto 50px'
+gdColumns.xs='125px' gdAlignRows='center stretch'
+gdAlignColumns='center stretch'
+>
+<div style='background-color: red;' gdArea='header'>
+  Header
+ </div>
+<div style='background-color: blue;' gdArea='side'>
+  Side
+ </div>
+<div style='background-color: yellow;' gdArea='content'>
+  Content
+</div>
+<div style='background-color: green;' gdArea='footer'>
+  Footer
+</div>
+</div>".
+****Responsive API: Tüm Breakpointler:
+        Breakpoint	                            MediaQuery
+xs: extra small	                    ‘screen and (max-width: 599px)’
+sm: small medium	                ‘screen and (min-width: 600px) and (max-width: 959px)’
+md: medium	                        ‘screen and (min-width: 960px) and (max-width: 1279px)’
+lg: large	                        ‘screen and (min-width: 1280px) and (max-width: 1919px)’
+xl: extra large	                    ‘screen and (min-width: 1920px) and (max-width: 5000px)’
+lt-sm: less than small medium	    ‘screen and (max-width: 599px)’
+lt-md: less than medium	            ‘screen and (max-width: 959px)’
+lt-lg: less than large	            ‘screen and (max-width: 1279px)’
+lt-xl: less than extra large	    ‘screen and (max-width: 1919px)’
+gt-xs: greater than extra large	    ‘screen and (min-width: 600px)’
+gt-sm: greater than small medium	‘screen and (min-width: 960px)’
+gt-md: greater than medium	        ‘screen and (min-width: 1280px)’
+gt-lg: greater than large	        ‘screen and (min-width: 1920px)’

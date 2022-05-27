@@ -1,0 +1,46 @@
+***Dijital İkiz, bir ürünün dijital ortama aktarılarak performasının daha yüksek ve daha verimli olmasını sağlayan bir kavramdır.Örneğin: bir bisiklet üretmeden önce bisiklet bilgilerini bilgisayar ortamına aktarırız.Burada machine-learning, yapay zeka, derin öğrenme gibi yöntemlerle sanal ortamda bisikleti hazırlarız.
+***Bilişim Hukuku Mevzuatları : Her geçen gün ihtiyaçlar artmakta ve yeni hukuksal düzenlemeler getirilmektedir.
+1-Türk Medeni Kanunu
+2-Türk Borçlar Kanunu
+3-Tüketicinin Korunması Hakkında Kanunu
+4-Kişisel Verilerin Korunması Kanunu[KVKK]
+5-Türk Ticaret Kanunu
+6-İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun
+7-Elektronik Haberleşme Kanunu
+8-Elektronik İmza Kanunu
+9-Elektronik Ticaretin Düzenlenmesi Kanunu
+*****Bilişim Suçları : Bilişim, artık her sektörde, alanda ve hayatımızın her anında olduğu için; bilişim suçları, çok geniş kapsamlara yayılabilmektedir.Bir bilişim sistemine[hedef] yapılan veya bir bilişim sistemi kullanılarak[araç] yapılan eylemlerin tümüne denir.
+****TCK 243, 244 ve 245 Sisteme Girilmesi : Kısa özeti bir bilişim sistemine girmektir.En basitleri instagram hesabı çalma, eposta hesabına çalma, bilgisayara virüs bulaştırma, vs...1 yıla kadar hapis cezası vardır.Eğer saldırgan, sisteme girdikten sonra oradaki verilere zarar verir, değiştirir ya da yok ederse, 2 yıla kadar hapis cezası vardır.Ransomware[fidye yazılım], kredi kartı dolandırıcılığı, atm dolandırıcılığı, kart kopyalama vs bu maddeye dahildir.
+****TCK 124 Haberleşmenin Engellenmesi : Kişiler veya cihazlar arasındaki haberleşmenin engellenmesi 2 yıla kadar hapis cezası vardır.Kamu kurumları arasındaki haberleşmeyi engellemekte ise 5 yıla kadar hapistir.Telefon kablolarının kesilmesi, trafik kazası esnasında kişinin telefonla hastaneyi aramasının engellenmesi, vs...
+****TCK 125 Hakaret : Bir kimseye onur, şeref ve saygınlığı rencide edecek nitelikte somut bir fiil veya sövmek amacıyla bir kişinin onur, şeref ve saygınlığına saldıran kişi, 2 yıla kadar hapsi vardır.Hakaret eğer alenen işleniyorsa[yani doğrudan herhangi bir sosyal mecrada apaçık olarak], cezanın boyutu 6da 1 oranında artırılır.Bu eyleme herhangi bir yazılı, sesli veya görüntülü iletiler de dahildir.
+****TCK 132 Haberleşmenin Gizliliği İhlali : Kişiler arasındaki haberleşmenin gizliliğini ihlal eden kişiler, 3 yıla kadar hapis cezası vardır.Eğer bu eylemde kişiler arası iletişim kayıt edilir ve bu ifşa edilirse de 5 yıla kadar hapsi vardır.Ayrıca kişiler arası haberleşme esnasında taraflardan birisinin, bu haberleşmenin içeriğini karşı tarafın rızası olmadan alenen ifşa etmesi sonucunda da 3 yıla kadar hapis ile cezalandırılır.İfşa edilen bu içerik eğer basın ve yayın yoluyla yayınlanırsa da 3 yıla kadar hapis vardır.
+****TCK 133 Kişiler Arasındaki Konuşmaların Dinlenmesi ve Kayda Alınması : Kişiler arasındaki aleni olmayan konuşmaları, taraflardan birinin karşı tarafın rızası olmadan bir cihazla veya uygulamayla dinleyen veya bu konuşma içeriklerini bir cihazla veya uygulamayla kaydeden kişi, 5 yıla kadar hapsi istenir.Ayrıca katıldığı aleni olmayan bir söyleşiyi, diğer konuşanların rızası olmadan ses alma cihazıyla kaydeden kişinin ise 2 yıla kadar hapsi istenir.
+****TCK 141 Hırsızlık : Sahibinin rızası olmadan başkasına ait taşınır bir malı, kendisine veya başkasına bir yarar sağlamak maksadıyla bulunduğu yerden alan kişiye 3 yıla kadar hapis istenir.Kişinin malını koruyamayacak durumda olmasından veya ölmesinden faydalanarak, bilişim sistemlerinin kullanılması suretiyle bu suçun işlenmesi halinde, 10 yıla kadar hapsi istenir[Nitelikli Hırsızlık].Eğer suçu işlediği kişi, ruh veya beden bakımından kendisini savunamayacak durumsa ise ceza, 3te 1 oranında artırılır.
+****TCK 157 Dolandırıcılık : Hileli davranışlarla bir kimseyi aldatıp, onun veya başkasının zararına olarak, kendisine veya başkasına bir yarar sağlayan kişiye 5 yıla kadar hapis istenir.Bilişim sistemlerinin, banka veya kredi kurumlarının araç olarak kullanılması suretiyle veya basın ve yayın araçlarının sağladığı kolaylıklardan yararlanmak suretiyle bu cezanın işlenmesi halinde, 10 yıla kadar hapis istenir[Nitelikli Dolandırıcılık].
+****TCK 228 Kumar Oynanması İçin Yer ve İmkan Sağlama : Kumar oynanması için yer ve imkan sağlayan kişiye 3 yıla kadar hapsi istenir.Suçun bilişim sistemleri kullanılarak işlenmesi halinde ise ceza, 5 yıla kadar çıkacaktır.
+***Sosyal medya hesaplarının kopyalanması suçu, TCK'da tam olarak tanımlanmamış durumdadır.Bir kişinin sosyal medyasında paylaştığı bir bilgiyi veya fotoğrafı, kişinin izni olmadan alıp kullanan veya başka bir hesap açan kişi, "Verileri Hukuka Aykırı Olarak Verme ve Ele Geçirme" suçunu işlemiş olur.Buradaki eylemin karşılığında oluşabilecek suç tipleri şunlardır:
+-Başkasına ait kimlik bilgilerinin kullanılması
+-Özel hayatın gizliliğini ihlal
+-Verileri hukuka aykırı olarak verme veya ele geçirme
+-Kişisel verilerin kaydedilmesi
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****SURFACE/DEEPWEB/DARKWEB ve HUKUKİ SORUMLULUK : 
+****Surface Web : Geleneksel olarak arama motorları[google,yandex,..] ile birlikte kullanılabilen "www"[World Wide Web] olarak tanımlanan platformun herkese açık olan kısmı olarak tanımlanır.
+****Deep Web : Arama motorlarının indexleyemediği gizli web siteleri olarak tanımlanır.2FA, şifreli koruma vs yöntemler ile web sayfasının sahibinin almış olduğu bazı önlemler sayesinde arama motorları, bu sayfaları indexleyemez ve surface web haricinde yer alır.
+****Dark Web : Sadece özel yazılımlar kullanılması suretiyle erişim sağlanabilen ve tamamen şifreli koruma sağlanan alan olarak tanımlanır.Bu alan içerisinde bulunan sayfaların hiçbirisi indexlenmediği için, bu alanda bulunan web sayfaları tamamen "DARK" alanda bulunur.
+***Kısaca olarak "Deep Web" ve "Dark Web" kapsamında içeriklere girmek, erişmek suç değildir.Fakat bunlara erişim sağlarken eğer farkında olmadan bir suçun ortağı olursak sıkıntı olur.En basiti, girdiğimiz sitenin veya uygulamanın bizim bilgisayarımızın cpusunu tüketerek illegal işlemlerde kullanması.Bu tür olaylar, deep web ve dark web dışında da başımıza gelebilir.O yüzden telaş etmeye gerek kalmadan takılabilirsin.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*****Sızma[Penetration] Testi ve Hukuki Sorumlulukları : Alanında tecrübeli ve siber güvenli alanında kendisini yetiştirmiş kişiler tarafından çeşitli yazılımlar ve fiziksel yöntemler ile birlikte hedef kurum veya şirkete yönelik gerçekleştirilen siber güvenlik analiz ve atak hizmetidir.Kesinlikle firmadan izin alınarak ve onaylanarak gerçekleştirilmelidir!Çeşitleri:
+-Open-source İstihbarat
+-Aktif Bilgi Toplama
+-Network, port ve sistem analizi
+-Zafiyet analizi
+-Exploit aşaması
+-Post-exploit aşaması
+-Parola saldırıları
+-Ağ Güvenlik Testleri
+-Kablosuz Ağ Testleri
+-Web Uygulama Testleri
+-Mobil Uygulama Testleri
+-Sosyal Mühendislik Testleri
+***Eğer sızma testi esnasında firma zarar görürse zarar gören firma, sızma testi yaptırdığı firmadan bu ücreti talep edebilir ve dava açabilir.Testler öncesinde sözleşmeler iyi incelenmelidir.Genellikle testler, sistemin back-upına yapılır ki orjinali zarar görmesin.

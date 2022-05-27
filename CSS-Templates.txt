@@ -1,0 +1,203 @@
+*****Tooltip için:
+1-CSS'e şunları ekle:
+"[data-tooltip] {
+    position: relative;cursor: pointer;}[data-tooltip]:before,[data-tooltip]:after {line-height: 1;font-size: .9em;
+    pointer-events: none;position: absolute;box-sizing: border-box;display: none;opacity: 0;filter: drop-shadow(1px 1px 1px white);}[data-tooltip]:before {
+    content: "";border: 5px solid transparent;z-index: 100;}[data-tooltip]:after {content: attr(data-tooltip);text-align: center;min-width: 10em;
+    max-width: 21em;overflow: hidden;text-overflow: ellipsis;padding: 9px 8px;border-radius: 3px;background: black;color: #FFFFFF;z-index: 99;text-shadow: 1px 1px 10px white;}
+  [data-tooltip]:hover:before,[data-tooltip]:hover:after {display: block;opacity: 1;}[data-tooltip]:not([data-flow])::before,[data-tooltip][data-flow='top']::before {
+    bottom: 100%;border-bottom-width: 0;border-top-color: black;}[data-tooltip]:not([data-flow])::after,[data-tooltip][data-flow='top']::after {bottom: calc(100% + 5px);}
+  [data-tooltip]:not([data-flow])::before, [tooltip]:not([data-flow])::after,[data-tooltip][data-flow='top']::before,[data-tooltip][data-flow='top']::after {
+    left: 50%;-webkit-transform: translate(-50%, -4px);transform: translate(-50%, -4px);}[data-tooltip][data-flow='bottom']::before {top: 100%;
+    border-top-width: 0;border-bottom-color: black;}[data-tooltip][data-flow='bottom']::after {top: calc(100% + 5px);}
+  [data-tooltip][data-flow='bottom']::before, [data-tooltip][data-flow='bottom']::after {left: 50%;-webkit-transform: translate(-50%, 8px);transform: translate(-50%, 8px);}
+  [data-tooltip][data-flow='left']::before {top: 50%;border-right-width: 0;border-left-color: black;left: calc(0em - 5px);-webkit-transform: translate(-8px, -50%);
+            transform: translate(-8px, -50%);}[data-tooltip][data-flow='left']::after {top: 50%;right: calc(100% + 5px);-webkit-transform: translate(-8px, -50%);
+            transform: translate(-8px, -50%);}[data-tooltip][data-flow='right']::before {top: 50%;border-left-width: 0;border-right-color: black;right: calc(0em - 5px);
+    -webkit-transform: translate(8px, -50%);transform: translate(8px, -50%);}[data-tooltip][data-flow='right']::after {top: 50%;left: calc(100% + 5px);
+    -webkit-transform: translate(8px, -50%);transform: translate(8px, -50%);}[data-tooltip=""]::after, [data-tooltip=""]::before {display: none !important;}".
+2-Componente gel ve tooltip atributelerini eklemek istediğin elementleri şöyle seç ve ekle:
+"ngOnInit(): void {
+    this.tooltipPut();}
+tooltipPut(){
+  const elements = document.getElementsByClassName('nav-item');
+  for(let i=0;i<elements.length;i++){
+    if(elements[i].firstElementChild?.hasAttribute('disabled')){
+      elements[i].setAttribute('data-tooltip','Disabled for now :)');
+    elements[i].setAttribute('data-flow','top');
+}}}".
+3-Artık tüm "nav-item" classlarına sahip ve "disabled" attribune sahip olan elementlerde tooltip görünecek.
+*****Modal için:
+1-CSS'e şunları ekle:
+".background {
+  filter: blur(4px);
+  position: absolute;
+  width: 100%;
+  height: 100%;   
+  background-color: black; 
+  opacity: 0.8;}
+.foreground {
+  backdrop-filter: blur(10px);
+  width: 100% ;}"
+2-HTML gel ve modal containerı eklenmiş formu şöyle ekle[Tabi ki bootstrap cdn gerekir]:
+"<button (click)='openModal()'>Open Modal</button>
+<div id='modalContainer'  
+[ngStyle]='{ display: modal == true ? 'flex' : 'none' }'
+style='position: fixed; height: 100vh; width: 100vw; left: 0; top: 0'
+class='wrapper align-items-center justify-content-center text-start'>
+<div (click)='modalBackgroundListener()' id='modalBackground' class='background'></div>
+<div class='foreground'>
+  <div style='width: 60%;
+      position: relative;
+      background-color: white;'
+    class='p-2 mx-auto'>
+    <div class='justify-content-between d-flex'>
+      <strong class=''>Add Department</strong>
+      <i (click)='closeModal()' class='fa-solid fa-x'></i>
+    </div><hr />
+    <form [formGroup]='addDepartmentForm'>
+      <div class='row align-items-center'>
+        <label for='departmentInput' class='col-sm-2 col-form-label'
+          >Department Name:</label>
+        <div class='col-sm-10'>
+          <input
+            autofocus
+            formControlName='DepartmentName'
+            type='text'
+            class='form-control'
+            id='departmentInput'/>
+        </div></div>
+      <button
+        (click)='addDepartment()'
+        type='submit'
+        class='btn btn-outline-primary'>
+        Add</button>
+    </form></div>
+</div></div>".
+3-Şimdi ise componente gel ve şöyle ekle:
+"modal: boolean = false;
+ESCAPE_KEYCODE = 27;
+  @HostListener('document:keydown',['$event']) onEscHandler(event: KeyboardEvent){    
+    if(event.which === this.ESCAPE_KEYCODE && this.modal==true){
+      this.modal=false;}}
+    closeModal() {
+      this.modal = false;}
+    openModal() {
+      this.modal = true;
+      setTimeout(()=>{
+        document.getElementById('departmentInput')?.focus();    
+      },50);}
+    modalBackgroundListener(){    
+      this.closeModal();}".
+4-Artık modalı açıp kapatabiliriz ve açıldığında backdropu da olacaktır.
+*****Toast/Snackbar için:
+1-CSS'e şöyle ekle:
+".background2 {
+  filter: blur(4px);
+  position: absolute;
+  width: 100%;
+  height: 100%;   
+  background-color: black; 
+  opacity: 0.3;}
+.foreground2 {
+  backdrop-filter: blur(10px);}".
+2-HTML'e şöyle ekle:
+"<div id='successToastContainer' [ngStyle]="{ display: successToast == true ? 'block' : 'none' }" class='wrapper' style='cursor:pointer;position: fixed; height: 100%; width: 100%; left: 0; top: 0'>
+<div (click)='toastListener()' class='background2'></div>
+<div class='foreground2'>
+  <div id='toastContainer' class='row justify-content-start border border-5 border-success rounded-3 gx-0' style='    
+  width: 250px;
+  position: fixed;cursor:pointer;
+  bottom: 1%;
+  right: 1%;
+  background-color: white;'>
+    <div class='col-1 py-0 text-end align-self-start'><i style='width: 100%;' class='fa-solid fa-circle-check p-0 m-0 text-start text-success'></i></div>
+    <div class='col-10 p-0 m-0 align-items-center d-flex'><h6 class='p-0 m-0'>Successfully added!</h6></div>
+    <div (click)='closeSuccessToast()' class='col-1 py-0 text-center align-self-start'><i style='width: 100%;' class='fa-solid fa-xmark p-0 m-0'></i></div>
+    <div class='col-10 mx-auto py-0 align-self-start'><p>{{departmentNameBind}} department successfully added!</p></div>
+    </div>
+</div>
+</div>
+<div id='failToastContainer' [ngStyle]='{ display: failToast == true ? 'block' : 'none' }' class='wrapper' style='position: fixed; height: 100%; width: 100%; left: 0; top: 0'>
+<div (click)='toastListener()' class='background2'></div>
+<div class='foreground2'>
+  <div id='toastContainer' class='row justify-content-start border border-5 border-danger rounded-3 gx-0' style='    
+  width: 250px;
+  position: fixed;cursor:pointer;
+  bottom: 1%;
+  right: 1%;
+  background-color: white;'>
+    <div class='col-1 py-0 text-end align-self-start'><i style='width: 100%;' class='fa-solid fa-circle-xmark p-0 m-0 text-start text-danger'></i></div>
+    <div class='col-10 p-0 m-0 align-items-center d-flex'><h6 class='p-0 m-0'>Failed!</h6></div>
+    <div (click)='closeFailToast()' class='col-1 py-0 text-center align-self-start'><i style='width:100%' class='fa-solid fa-xmark p-0 m-0'></i></div>
+    <div class='col-10 mx-auto py-0 align-self-start'><p>Adding department failed! Please check your input.</p></div>
+    </div>
+</div></div>".
+3-Componente şöyle ekle:
+"failToast: boolean = false;
+successToast: boolean = false;    
+timeOutIDs:any[] = [];
+ESCAPE_KEYCODE = 27;
+  @HostListener('document:keydown',['$event']) onEscHandler(event: KeyboardEvent){
+    if(event.which === this.ESCAPE_KEYCODE && this.failToast==true){
+      this.failToast=false;}
+    if(event.which === this.ESCAPE_KEYCODE && this.successToast==true){
+      this.successToast=false;
+    }}
+toastListener(){
+      if(this.failToast==true||this.successToast==true){      
+        for(let i=0;i<this.timeOutIDs.length;i++){
+          clearTimeout(this.timeOutIDs[i]);}
+        if(this.successToast==true){
+          this.closeSuccessToast();      }
+        if(this.failToast==true){
+          this.closeFailToast();            }
+        }}
+        addDepartment() {
+          if (this.addDepartmentForm.valid) {
+            for(let i=0;i<this.timeOutIDs.length;i++){
+              clearTimeout(this.timeOutIDs[i]);}
+            this.timeOutIDs.push(
+              setTimeout(()=>{
+                this.successToast=false;
+              },3000));
+          this.departmentNameBind ="\"" + this.getDepartmentName?.value + "\"";
+            this.sharedService
+              .addDepartment(this.getAddDepartmentForm)
+              .subscribe((response: any) => {
+                console.log(response);
+                this.refreshDepList();
+                this.closeModal();
+                this.openSuccessToast();
+                this.addDepartmentForm.reset();
+              });
+          } else {      
+            for(let i=0;i<this.timeOutIDs.length;i++){
+              clearTimeout(this.timeOutIDs[i]);}
+            this.timeOutIDs.push(
+              setTimeout(()=>{
+                this.failToast=false;
+              },3000));      
+            setTimeout(()=>{
+              this.openFailToast();
+            },50);}
+          this.refreshDepList();}
+        openSuccessToast() {
+          if(this.successToast==false){      
+            this.successToast = true;
+            this.timeOutIDs[this.timeOutIDs.length-1];
+          }}
+        closeSuccessToast(){
+          if(this.successToast==true){
+            this.successToast=false;
+          }} 
+        openFailToast() {
+          if(this.failToast==false){
+            this.failToast = true;    
+          this.timeOutIDs[this.timeOutIDs.length-1];
+          }}
+        closeFailToast(){
+          if(this.failToast==true){
+            this.failToast=false;
+          }}
+".
